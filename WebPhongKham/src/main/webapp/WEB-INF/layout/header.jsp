@@ -21,8 +21,9 @@
         <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
         <a href="#" class="skype"><i class="fab fa-instagram"></i></a>
         <a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fa fa-user"></i> Login</a>
       </div>
-        
+       
     </div>
         <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
@@ -65,3 +66,4 @@
   </header>
   </div>
     <!-- Hospital Beign -->
+    
