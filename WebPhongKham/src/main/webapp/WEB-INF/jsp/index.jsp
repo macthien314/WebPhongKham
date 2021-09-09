@@ -3,10 +3,17 @@
     Created on : Aug 9, 2021, 10:54:13 PM
     Author     : macth
 --%>
-
+ <section id="hero" class="d-flex align-items-center">
+    <div class="container">
+      <h1>Welcome to Medilab</h1>
+      <h2>We are team of talented designers making websites with Bootstrap</h2>
+      <a href="#about" class="btn-get-started scrollto">Get Started</a>
+    </div>
+  </section><!-- End Hero -->
 <main id="main">
-
+    
     <!-- ======= Why Us Section ======= -->
+   
     <section id="why-us" class="why-us">
       <div class="container">
 

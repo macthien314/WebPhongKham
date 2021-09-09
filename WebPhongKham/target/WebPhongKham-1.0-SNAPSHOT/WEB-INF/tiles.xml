@@ -12,6 +12,9 @@
         <put-attribute name="title" value="Trang chủ"/>
         <put-attribute name="content" value="/WEB-INF/jsp/index.jsp"/>
     </definition>
- 
+    <definition name="login" extends="baseLayout">
+        <put-attribute name="title" value="Login"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/login.jsp"/>
+    </definition>
     
 </tiles-definitions>
