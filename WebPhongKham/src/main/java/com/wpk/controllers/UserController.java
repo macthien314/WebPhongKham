@@ -6,6 +6,7 @@
 package com.wpk.controllers;
 
 import com.wpk.pojos.User;
+import com.wpk.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,8 +20,8 @@ import org.springframework.web.bind.annotation.PostMapping;
  */
 @Controller
 public class UserController {
-//    @Autowired
-//    private UserService userDetailsService;
+   @Autowired
+   private UserService userDetailsService;
     @GetMapping("/login")
     public String login(){
         return "login";

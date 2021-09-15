@@ -32,7 +32,11 @@
     <div class="row no-gutter">
         <!-- The image half -->
         <div class="col-md-6 d-none d-md-flex bg-image"></div>
-
+        <c:if test="${param.error != null}">
+                                <div class="alert alert-danger">
+                                    Có lỗi
+                                </div>
+                            </c:if>   
 
         <!-- The content half -->
         <div class="col-md-6 bg-light">
@@ -44,12 +48,12 @@
                         <div class="col-lg-10 col-xl-7 mx-auto">
                             <h3 class="">Đăng nhập</h3>
                             
-                            <form>
+                            <form method="post" action="${action}">
                                 <div class="form-group mb-3">
-                                    <input id="inputEmail" type="email" placeholder="Tên đăng nhập" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4">
+                                    <input id="username" type="username" placeholder="Tên đăng nhập" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4">
                                 </div>
                                 <div class="form-group mb-3">
-                                    <input id="inputPassword" type="password" placeholder="Mật khẩu" required="" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary">
+                                    <input id="password" type="password" placeholder="Mật khẩu" required="" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary">
                                 </div>
                                 <div class="custom-control custom-checkbox mb-3">
                                     <input id="customCheck1" type="checkbox" checked class="custom-control-input">

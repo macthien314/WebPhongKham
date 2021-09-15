@@ -10,6 +10,7 @@ package com.wpk.configs;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -23,7 +24,13 @@ import org.springframework.web.servlet.view.JstlView;
  */
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "com.wpk.controllers")
+@ComponentScan(basePackages = {
+    "com.wpk.controllers",
+    "com.wpk.repository",
+    "com.wpk.service",
+    "com.wpk.validator"
+})
+@EnableTransactionManagement
 public class WebApplicationContextConfig implements WebMvcConfigurer{
 
     @Override

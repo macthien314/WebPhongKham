@@ -26,7 +26,7 @@ public class HibernateConfig {
      public LocalSessionFactoryBean getSessionFactory(){
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
        
-        sessionFactory.setPackagesToScan("com.ldt.pojos");
+        sessionFactory.setPackagesToScan("com.wpk.pojos");
         
         sessionFactory.setDataSource(dataSource());
         
