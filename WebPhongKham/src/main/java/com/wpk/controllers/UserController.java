@@ -32,18 +32,19 @@ public class UserController {
         model.addAttribute("user", new User());
         return "register";
     }
-//    @PostMapping("/register")
-//    public String register(Model model,@ModelAttribute(value = "user") User user){
-//        String errMassage = "";
-//        if(user.getPassWord().equals(user.getConfirmPassword()))
-//        {
-//            if( this.userDetailsService.addUser(user) == true)
-//                return "redirect:/login";
-//            else
-//                errMassage="Có lỗi gì dó";
-//            
-//        }
-//        else errMassage ="mật khẩu không khớp";
-//        model.addAttribute("errMsg", errMassage);
-//        return "register";
+    @PostMapping("/register")
+    public String register(Model model,@ModelAttribute(value = "user") User user){
+        String errMassage = "";
+        if(user.getPassword().equals(user.getConfirmPassword()))
+        {
+            if( this.userDetailsService.addUser(user) == true)
+                return "redirect:/login";
+            else
+                errMassage="Có lỗi gì dó";
+            
+        }
+        else errMassage ="mật khẩu không khớp";
+        model.addAttribute("errMsg", errMassage);
+        return "register";
+    }
 }

@@ -1,4 +1,5 @@
 com\wpk\formatter\DemoFormatter.class
+com\wpk\validator\WebAppValidator.class
 com\wpk\configs\WebApplicationContextConfig.class
 com\wpk\repository\UserRepository.class
 com\wpk\configs\HibernateConfig.class

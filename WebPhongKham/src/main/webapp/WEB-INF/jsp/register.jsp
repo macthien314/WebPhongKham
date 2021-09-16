@@ -4,8 +4,12 @@
     Author     : Admin
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
+<c:url value="/register" var="action"/>
 <main id="main">
 
     <!-- ======= Breadcrumbs Section ======= -->
@@ -33,40 +37,67 @@
         <div class="card">
         <header class="card-header">
                 <a href="" class="float-right btn btn-outline-primary mt-1">Log in</a>
-                <h2 class="card-title mt-2">Sign up</h2>
+                <h2 class="card-title mt-2">Đăng ký</h2>
         </header>
         <article class="card-body">
-        <form>
-                <div class="form-row">
-                        <div class="col form-group">
-                                <label>First name </label>   
-                                <input type="text" class="form-control" placeholder="">
+            <c:if test="${errMsg != null}">
+    <div class="alert alert-danger">
+        ${errMsg}
+    </div>
+</c:if>
+            <form:form  method="post" action="${action}" modelAttribute="user">
+                
+                        <div class=" form-group">
+                                <label for="firstName">Họ</label>   
+                                <form:input type="text" id="firstName" path="firstName" class="form-control" placeholder=""/>
                         </div> <!-- form-group end.// -->
-                        <div class="col form-group">
-                                <label>Last name</label>
-                                <input type="text" class="form-control" placeholder=" ">
+                        <div class=" form-group">
+                                <label for="lastName">Tên</label>
+                                <form:input type="text" id="lastName" path="lastName" class="form-control" placeholder=""/>
                         </div> <!-- form-group end.// -->
-                </div> <!-- form-row end.// -->
+                
+                 
                 <div class="form-group">
-                        <label>Email address</label>
-                        <input type="email" class="form-control" placeholder="">
-                        <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        <label for="username">Tên đăng nhập</label>
+                        <form:input id="username" path="username" type="text" class="form-control" placeholder=""/>
+                        <small class="form-text text-muted"></small>
                 </div> <!-- form-group end.// -->
+                 
                 <div class="form-group">
-                                <label class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="gender" value="option1">
-                          <span class="form-check-label"> Male </span>
-                        </label>
-                        <label class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="gender" value="option2">
-                          <span class="form-check-label"> Female</span>
-                        </label>
+                        <label for="password">Mật khẩu</label>
+                        <form:input id="password" path="password" class="form-control" type="password"/>
+                </div> <!-- form-group end.// -->  
+                
+                <div class="form-group">
+                        <label for="confirm-password">Xác nhận mật khẩu</label>
+                        <form:input id="confirm-password" path="confirmPassword" class="form-control" type="password"/>
+                </div> <!-- form-group end.// -->  
+                
+                <div class="form-group">
+                        <label for="email">Email address</label>
+                        <form:input id="email" path="email" type="email" class="form-control" placeholder=""/>
+                        <small class="form-text text-muted"></small>
                 </div> <!-- form-group end.// -->
-                <div class="form-row">
+                
+                <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <form:input type="phone" id="phone" path="phone" class="form-control" placeholder=""/>
+                </div> <!-- form-group end.// -->
+<!--                <div class="form-group">
+                           <label class="form-check-inline">
+                          <input class="form-check-label" type="radio" name="gender" value="option1">
+                          <span class="checkbox-inline"> Male </span>
+                        </label>
+                        <label class="form-check-inline">
+                          <input class="checkbox-inline" type="radio" name="gender" value="option2">
+                          <span class="checkbox-inline"> Female</span>
+                        </label>
+                </div>  form-group end.// -->
+<!--                <div class="form-row">
                         <div class="form-group col-md-6">
                           <label>City</label>
                           <input type="text" class="form-control">
-                        </div> <!-- form-group end.// -->
+                        </div>  form-group end.// 
                         <div class="form-group col-md-6">
                           <label>Country</label>
                           <select id="inputState" class="form-control">
@@ -77,17 +108,14 @@
                               <option>India</option>
                               <option>Afganistan</option>
                           </select>
-                        </div> <!-- form-group end.// -->
-                </div> <!-- form-row.// -->
-                <div class="form-group">
-                        <label>Create password</label>
-                    <input class="form-control" type="password">
-                </div> <!-- form-group end.// -->  
+                        </div>  form-group end.// 
+                </div>  form-row.// -->
+               
             <div class="form-group">
                 <button type="submit" class="btn btn-primary btn-block"> Register  </button>
             </div> <!-- form-group// -->      
             <small class="text-muted">By clicking the 'Sign Up' button, you confirm that you accept our <br> Terms of use and Privacy Policy.</small>                                          
-        </form>
+        </form:form>
         </article> <!-- card-body end .// -->
         <div class="border-top card-body text-center">Have an account? <a href="">Log In</a></div>
         </div> <!-- card.// -->

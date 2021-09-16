@@ -43,6 +43,18 @@
                     <div class="row">
                         <div class="col-lg-10 col-xl-7 mx-auto">
                             <h3 class="">Đăng nhập</h3>
+                           
+                            <c:if test="${param.error != null}">
+                                <div class="alert alert-danger">
+                                    Có lỗi
+                                </div>
+                            </c:if>
+                            <c:if test="${param.accessDinied != null}">
+                                <div class ="alert alert-danger">
+                                    Bạn không có quyền truy cập
+                                </div>
+                            </c:if>
+                            
                             
                             <form method="post" action="${action}">
                                 <div class="form-group mb-3">

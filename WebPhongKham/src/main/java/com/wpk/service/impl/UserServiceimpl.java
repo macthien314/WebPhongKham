@@ -32,6 +32,9 @@ public class UserServiceimpl implements UserService{
     private BCryptPasswordEncoder passwordEncoder;
     @Override
     public boolean addUser(User user) {
+        String password = user.getPassword();
+        user.setPassword(this.passwordEncoder.encode(password));
+        user.setUserRole(User.getUSER());
         return this.userRepository.addUser(user);
     }
 
