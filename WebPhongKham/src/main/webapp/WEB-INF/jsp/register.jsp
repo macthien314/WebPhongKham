@@ -24,90 +24,84 @@
     </section><!-- End Breadcrumbs Section -->
 
     <section class="inner-page">
-      
-        <div class="main">
-    <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
-        <div class="wrapper wrapper--w680">
-            <div class="card card-4">
-                <div class="card-body">
-                    <h2 class="title">Đăng ký</h2>
-                    <form method="POST">
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">first name</label>
-                                    <input class="input--style-4" type="text" name="first_name">
-                                </div>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">last name</label>
-                                    <input class="input--style-4" type="text" name="last_name">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Birthday</label>
-                                    <div class="input-group-icon">
-                                        <input class="input--style-4 js-datepicker" type="text" name="birthday">
-                                        <i class="zmdi zmdi-calendar-note input-icon fas fa-calendar-week"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Gender</label>
-                                    <div class="p-t-10">
-                                        <label class="radio-container m-r-45">Male
-                                            <input type="radio" checked="checked" name="gender">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                        <label class="radio-container">Female
-                                            <input type="radio" name="gender">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Email</label>
-                                    <input class="input--style-4" type="email" name="email">
-                                </div>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <label class="label">Phone Number</label>
-                                    <input class="input--style-4" type="text" name="phone">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input-group">
-                            <label class="label">Subject</label>
-                            <div class="rs-select2 js-select-simple select--no-search">
-                                <select name="subject">
-                                    <option disabled="disabled" selected="selected">Choose option</option>
-                                    <option>Subject 1</option>
-                                    <option>Subject 2</option>
-                                    <option>Subject 3</option>
-                                </select>
-                                <div class="select-dropdown"></div>
-                            </div>
-                        </div>
-                        <div class="p-t-15">
-                            <button class="btn btn--radius-2 btn--blue" type="submit">Submit</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-        </div>
+                <div class="container">
+        
+
+
+        <div class="row justify-content-center">
+        <div class="col-md-6">
+        <div class="card">
+        <header class="card-header">
+                <a href="" class="float-right btn btn-outline-primary mt-1">Log in</a>
+                <h2 class="card-title mt-2">Sign up</h2>
+        </header>
+        <article class="card-body">
+        <form>
+                <div class="form-row">
+                        <div class="col form-group">
+                                <label>First name </label>   
+                                <input type="text" class="form-control" placeholder="">
+                        </div> <!-- form-group end.// -->
+                        <div class="col form-group">
+                                <label>Last name</label>
+                                <input type="text" class="form-control" placeholder=" ">
+                        </div> <!-- form-group end.// -->
+                </div> <!-- form-row end.// -->
+                <div class="form-group">
+                        <label>Email address</label>
+                        <input type="email" class="form-control" placeholder="">
+                        <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div> <!-- form-group end.// -->
+                <div class="form-group">
+                                <label class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="gender" value="option1">
+                          <span class="form-check-label"> Male </span>
+                        </label>
+                        <label class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="gender" value="option2">
+                          <span class="form-check-label"> Female</span>
+                        </label>
+                </div> <!-- form-group end.// -->
+                <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <label>City</label>
+                          <input type="text" class="form-control">
+                        </div> <!-- form-group end.// -->
+                        <div class="form-group col-md-6">
+                          <label>Country</label>
+                          <select id="inputState" class="form-control">
+                            <option> Choose...</option>
+                              <option>Uzbekistan</option>
+                              <option>Russia</option>
+                              <option selected="">United States</option>
+                              <option>India</option>
+                              <option>Afganistan</option>
+                          </select>
+                        </div> <!-- form-group end.// -->
+                </div> <!-- form-row.// -->
+                <div class="form-group">
+                        <label>Create password</label>
+                    <input class="form-control" type="password">
+                </div> <!-- form-group end.// -->  
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block"> Register  </button>
+            </div> <!-- form-group// -->      
+            <small class="text-muted">By clicking the 'Sign Up' button, you confirm that you accept our <br> Terms of use and Privacy Policy.</small>                                          
+        </form>
+        </article> <!-- card-body end .// -->
+        <div class="border-top card-body text-center">Have an account? <a href="">Log In</a></div>
+        </div> <!-- card.// -->
+        </div> <!-- col.//-->
+
+        </div> <!-- row.//-->
+
+
+        </div> 
+        <!--container end.//-->
+
+        
+        
+
       
     </section>
-
-  </main>
+</main>

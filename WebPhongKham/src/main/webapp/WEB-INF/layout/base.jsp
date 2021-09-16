@@ -20,7 +20,7 @@
        <link rel="stylesheet" href="<c:url value="vendor/datepicker/daterangepicker.css"/>" type="text/css" media="all">
        <link rel="stylesheet" href="<c:url value="vendor/select2/select2.min.css"/>" type="text/css" media="all">
        <link rel="stylesheet" href="<c:url value="vendor/mdi-font/css/material-design-iconic-font.min.css"/>" type="text/css" media="all">
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
     </head>
     <body>
         <div class="container">

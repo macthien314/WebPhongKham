@@ -21,7 +21,16 @@
         <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
         <a href="#" class="skype"><i class="fab fa-instagram"></i></a>
         <a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
-        <a href="<c:url value="/login"/>"><i class="fa fa-user"></i> Login</a>
+         <c:if test="${pageContext.request.userPrincipal.name == null}">
+     
+                <a href="<c:url value="/login"/>"><i class="fa fa-user"></i> Login</a>
+
+        </c:if>
+    
+        <c:if test="${pageContext.request.userPrincipal.name != null}">
+            
+            <a href="<c:url value="/login"/>"><i class="fa fa-user"></i> ${pageContext.request.userPrincipal.name}</a>
+        </c:if>
       </div>
        
     </div>

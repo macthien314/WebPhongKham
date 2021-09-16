@@ -16,7 +16,9 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+
 
 /**
  *
@@ -26,6 +28,8 @@ import org.springframework.stereotype.Service;
 public class UserServiceimpl implements UserService{
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
     @Override
     public boolean addUser(User user) {
         return this.userRepository.addUser(user);
@@ -40,13 +44,12 @@ public class UserServiceimpl implements UserService{
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         List<User> users = this.userRepository.getUser(username);
         if(users.isEmpty())
-            throw new UsernameNotFoundException("User không tồn tại");
-        User user = users.get(0);
+            throw new UsernameNotFoundException("User does not exites");
+        User u = users.get(0);
         
         Set<GrantedAuthority> auth = new HashSet<>();
-        auth.add(new SimpleGrantedAuthority(user.getUserRole()));
-        return new org.springframework.security.core.userdetails.User
-        (user.getUsername(), user.getUserRole(),auth);
+        auth.add(new SimpleGrantedAuthority(u.getUserRole()));
+        return new org.springframework.security.core.userdetails.User(u.getUsername(),u.getPassword(), auth);
     }
     
 }
