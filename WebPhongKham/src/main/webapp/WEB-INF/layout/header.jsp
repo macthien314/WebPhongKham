@@ -24,7 +24,6 @@
          <c:if test="${pageContext.request.userPrincipal.name == null}">
      
                 <a href="<c:url value="/login"/>"><i class="fa fa-user"></i> Login</a>
-
         </c:if>
     
         <c:if test="${pageContext.request.userPrincipal.name != null}">
@@ -35,7 +34,7 @@
        
     </div>
     </div>
-        <header id="header" class="fixed-top">
+    <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
       <h1 class="logo mr-auto"><a href="<c:url value="/"/>">Bệnh Viện thientai</a></h1>
@@ -44,11 +43,19 @@
       <nav class="nav-menu d-none d-lg-block">
         <ul>
           <li class="active"><a href="index.html">Home</a></li>
-          <li><a href="#about">About</a></li>
+          <li class="drop-down"><a href="">Giới thiệu</a>
+            <ul>
+              <li><a href="#">Về chúng tôi</a></li>
+              <li><a href="#">Tầm nhìn-Sứ mệnh-Giá trị cốt lõi</a></li>
+              <li><a href="#">Sơ đồ tổ chức</a></li>
+              <li><a href="#">Đội ngũ bác sĩ</a></li>
+              
+            </ul>
+          </li>
           <li><a href="#services">Services</a></li>
           <li><a href="#departments">Departments</a></li>
           <li><a href="#doctors">Doctors</a></li>
-          <li class="drop-down"><a href="">Drop Down</a>
+          <li class="drop-down"><a href="">Chuyên Khoa</a>
             <ul>
               <li><a href="#">Drop Down 1</a></li>
               <li class="drop-down"><a href="#">Deep Drop Down</a>
@@ -73,7 +80,14 @@
       <a href="#appointment" class="appointment-btn scrollto">Make an Appointment</a>
 
     </div>
+      <br><!-- comment -->
+      
   </header>
- 
+  
     <!-- Hospital Beign -->
+    
+ <!-- ======= Testimonials Section ======= -->
+    
+    </section><!-- End Testimonials Section -->
+     
     
