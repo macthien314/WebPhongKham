@@ -5,9 +5,9 @@ C:\Users\Admin\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\configs\S
 C:\Users\Admin\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\controllers\UserController.java
 C:\Users\Admin\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\service\UserService.java
 C:\Users\Admin\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\validator\WebAppValidator.java
-C:\Users\Admin\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\validator\UserValidator.java
 C:\Users\Admin\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\controllers\HomeController.java
 C:\Users\Admin\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\repository\impl\UserRepositoryimpl.java
+C:\Users\Admin\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\validator\UserImageValidator.java
 C:\Users\Admin\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\repository\UserRepository.java
 C:\Users\Admin\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\service\impl\UserServiceimpl.java
 C:\Users\Admin\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\configs\SecurityWebAppInitializer.java

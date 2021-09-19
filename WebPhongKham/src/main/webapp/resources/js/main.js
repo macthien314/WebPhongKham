@@ -188,3 +188,8 @@
 
 })(jQuery);
 //input update file
+
+
+//kiem tra input phai la file hinh anh khong
+
+

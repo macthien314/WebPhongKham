@@ -51,12 +51,12 @@ public class User implements Serializable {
     private Integer id;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 45)
+    @Size(min = 10, max = 45, message = "{user.username.sizeErr}")
     @Column(name = "username")
     private String username;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max =100)
+    @Size(min = 5, max =100, message = "{user.password.sizeErr}")
     @Column(name = "password")
     private String password;
     @Basic(optional = false)

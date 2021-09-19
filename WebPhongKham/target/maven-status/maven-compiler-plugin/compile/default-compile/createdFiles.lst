@@ -2,7 +2,6 @@ com\wpk\formatter\DemoFormatter.class
 com\wpk\validator\WebAppValidator.class
 com\wpk\configs\WebApplicationContextConfig.class
 com\wpk\repository\UserRepository.class
-com\wpk\validator\UserValidator.class
 com\wpk\configs\HibernateConfig.class
 com\wpk\controllers\HomeController.class
 com\wpk\controllers\UserController.class
@@ -10,6 +9,7 @@ com\wpk\service\impl\UserServiceimpl.class
 com\wpk\repository\impl\UserRepositoryimpl.class
 com\wpk\pojos\User.class
 com\wpk\pojos\User_.class
+com\wpk\validator\UserImageValidator.class
 com\wpk\configs\TilesConfig.class
 com\wpk\configs\SpringSecurityConfig.class
 com\wpk\service\UserService.class

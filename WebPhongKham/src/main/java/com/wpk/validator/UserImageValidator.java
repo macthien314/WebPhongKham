@@ -5,9 +5,7 @@
  */
 package com.wpk.validator;
 
-
 import com.wpk.pojos.User;
-import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
@@ -15,8 +13,7 @@ import org.springframework.validation.Validator;
  *
  * @author Admin
  */
-@Component
-public class UserValidator implements Validator{
+public class UserImageValidator implements Validator{
 
     @Override
     public boolean supports(Class<?> clazz) {
@@ -25,8 +22,11 @@ public class UserValidator implements Validator{
 
     @Override
     public void validate(Object target, Errors errors) {
-        User u = (User) target;
+        User user = (User) target;
         
+        if(user.getFile().getContentType().equals("jpg")){
+            errors.rejectValue("file", "user.file.typeErr");
+        }
     }
     
 }

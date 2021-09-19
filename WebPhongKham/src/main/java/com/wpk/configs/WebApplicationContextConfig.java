@@ -9,6 +9,9 @@ package com.wpk.configs;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
+import com.wpk.validator.WebAppValidator;
+import java.util.HashSet;
+import java.util.Set;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -77,6 +80,14 @@ public class WebApplicationContextConfig implements WebMvcConfigurer{
     @Override
     public Validator getValidator() {
         return validator();
+    }
+    @Bean
+    public WebAppValidator userValidator(){
+        Set<Validator> springValidator = new HashSet<>();
+        
+        WebAppValidator v = new WebAppValidator();
+        v.setSpringValidator(springValidator);
+        return v;
     }
     @Bean
     public CommonsMultipartResolver multipartResolver(){

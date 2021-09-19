@@ -47,7 +47,7 @@
 </c:if>
             <form:form  method="post" action="${action}" modelAttribute="user"
                         enctype="multipart/form-data">
-                
+                <form:errors path="*" cssClass="alert alert-danger" element="div" />
                         <div class=" form-group">
                                 <label for="firstName">Họ</label>   
                                 <form:input type="text" id="firstName" path="firstName" class="form-control" placeholder=""/>
