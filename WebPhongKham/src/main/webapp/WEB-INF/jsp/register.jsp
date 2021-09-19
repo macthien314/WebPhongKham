@@ -45,7 +45,8 @@
         ${errMsg}
     </div>
 </c:if>
-            <form:form  method="post" action="${action}" modelAttribute="user">
+            <form:form  method="post" action="${action}" modelAttribute="user"
+                        enctype="multipart/form-data">
                 
                         <div class=" form-group">
                                 <label for="firstName">Họ</label>   
@@ -81,7 +82,8 @@
                 
                 <div class="form-group">
                         <label for="phone">Phone</label>
-                        <form:input type="phone" id="phone" path="phone" class="form-control" placeholder=""/>
+                        <form:input type="phone" id="phone" path="phone" 
+                                    cssClass="form-control" placeholder=""/>
                 </div> <!-- form-group end.// -->
 <!--                <div class="form-group">
                            <label class="form-check-inline">
@@ -110,7 +112,14 @@
                           </select>
                         </div>  form-group end.// 
                 </div>  form-row.// -->
-               
+            <div class="form-group">
+                <label for="img">Ảnh đại diện</label>
+                <div class="file-upload">
+                 
+                    
+                    <form:input path ="File" type="file" name="chooseFile" id="chooseFile"/>
+                </div>
+            </div>   
             <div class="form-group">
                 <button type="submit" class="btn btn-primary btn-block"> Register  </button>
             </div> <!-- form-group// -->      
@@ -126,10 +135,6 @@
 
         </div> 
         <!--container end.//-->
-
         
-        
-
-      
     </section>
 </main>

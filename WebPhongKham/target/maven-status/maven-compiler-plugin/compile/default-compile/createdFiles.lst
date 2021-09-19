@@ -2,6 +2,7 @@ com\wpk\formatter\DemoFormatter.class
 com\wpk\validator\WebAppValidator.class
 com\wpk\configs\WebApplicationContextConfig.class
 com\wpk\repository\UserRepository.class
+com\wpk\validator\UserValidator.class
 com\wpk\configs\HibernateConfig.class
 com\wpk\controllers\HomeController.class
 com\wpk\controllers\UserController.class
