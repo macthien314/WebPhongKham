@@ -29,7 +29,7 @@ public class UserImageValidator implements Validator{
     public void validate(Object target, Errors errors) {
         User user = (User) target;
         
-        if(!FilenameUtils.getExtension(user.getFile().getContentType()).equals("jpg")){
+        if(!FilenameUtils.getExtension(user.getFile().getOriginalFilename()).equals("jpg")){
             errors.rejectValue("file", "user.file.typeErr");
         }
         

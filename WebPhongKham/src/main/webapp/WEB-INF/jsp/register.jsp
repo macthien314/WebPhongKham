@@ -45,8 +45,11 @@
         ${errMsg}
     </div>
 </c:if>
+            
+
             <form:form  method="post" action="${action}" modelAttribute="user"
                         enctype="multipart/form-data">
+                <form:errors path="*" cssClass="alert alert-danger" element="div" />
                         <div class=" form-group">
                                 <form:errors path="firstName" cssClass="alert alert-danger" element="div" />
 

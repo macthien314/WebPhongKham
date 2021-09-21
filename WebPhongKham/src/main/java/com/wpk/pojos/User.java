@@ -52,7 +52,7 @@ public class User implements Serializable {
     private Integer id;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 10, max = 45, message = "{user.username.sizeErr}")
+    @Size(min = 5, max = 45, message = "{user.username.sizeErr}")
     @Column(name = "username")
     private String username;
     @Basic(optional = false)
@@ -86,7 +86,6 @@ public class User implements Serializable {
     @Column(name = "phone")
     private String phone;
     @Basic(optional = false)
-    @NotNull
     @Size(min = 1, max = 100)
     @Column(name = "image")
     private String image;
@@ -95,7 +94,7 @@ public class User implements Serializable {
     @Transient
     private String confirmPassword;
     @Transient
-   
+    @NotNull(message = "{user.file.nullErr}")
     private MultipartFile file;
     public User() {
         this.userRole = "ROLE_USER";
