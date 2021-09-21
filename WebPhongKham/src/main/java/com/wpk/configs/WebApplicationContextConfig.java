@@ -9,6 +9,7 @@ package com.wpk.configs;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
+import com.wpk.validator.UserImageValidator;
 import com.wpk.validator.WebAppValidator;
 import java.util.HashSet;
 import java.util.Set;
@@ -84,7 +85,7 @@ public class WebApplicationContextConfig implements WebMvcConfigurer{
     @Bean
     public WebAppValidator userValidator(){
         Set<Validator> springValidator = new HashSet<>();
-        
+        springValidator.add(new UserImageValidator());
         WebAppValidator v = new WebAppValidator();
         v.setSpringValidator(springValidator);
         return v;

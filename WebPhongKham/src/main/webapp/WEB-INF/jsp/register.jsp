@@ -47,24 +47,29 @@
 </c:if>
             <form:form  method="post" action="${action}" modelAttribute="user"
                         enctype="multipart/form-data">
-                <form:errors path="*" cssClass="alert alert-danger" element="div" />
                         <div class=" form-group">
+                                <form:errors path="firstName" cssClass="alert alert-danger" element="div" />
+
                                 <label for="firstName">Họ</label>   
                                 <form:input type="text" id="firstName" path="firstName" class="form-control" placeholder=""/>
                         </div> <!-- form-group end.// -->
                         <div class=" form-group">
+                            <form:errors path="lastName" cssClass="alert alert-danger" element="div" />
+
                                 <label for="lastName">Tên</label>
                                 <form:input type="text" id="lastName" path="lastName" class="form-control" placeholder=""/>
                         </div> <!-- form-group end.// -->
                 
                  
                 <div class="form-group">
+                    <form:errors path="username" cssClass="alert alert-danger" element="div" />
                         <label for="username">Tên đăng nhập</label>
                         <form:input id="username" path="username" type="text" class="form-control" placeholder=""/>
                         <small class="form-text text-muted"></small>
                 </div> <!-- form-group end.// -->
                  
                 <div class="form-group">
+                        <form:errors path="password" cssClass="alert alert-danger" element="div" />
                         <label for="password">Mật khẩu</label>
                         <form:input id="password" path="password" class="form-control" type="password"/>
                 </div> <!-- form-group end.// -->  
@@ -75,12 +80,14 @@
                 </div> <!-- form-group end.// -->  
                 
                 <div class="form-group">
+                        <form:errors path="Email" cssClass="alert alert-danger" element="div" />
                         <label for="email">Email address</label>
                         <form:input id="email" path="email" type="email" class="form-control" placeholder=""/>
                         <small class="form-text text-muted"></small>
                 </div> <!-- form-group end.// -->
                 
                 <div class="form-group">
+                        <form:errors path="Phone" cssClass="alert alert-danger" element="div" />
                         <label for="phone">Phone</label>
                         <form:input type="phone" id="phone" path="phone" 
                                     cssClass="form-control" placeholder=""/>
@@ -115,7 +122,7 @@
             <div class="form-group">
                 <label for="img">Ảnh đại diện</label>
                 <div class="file-upload">
-                 
+                    <form:errors path="File" cssClass="alert alert-danger" element="div" />
                     
                     <form:input path ="File" type="file" name="chooseFile" id="chooseFile"/>
                 </div>

@@ -36,6 +36,8 @@ public class WebAppValidator implements Validator{
                    obj.getMessage());
        for(Validator v : springValidator)
            v.validate(target, errors);
+       
+       
     }
 
     public void setSpringValidator(Set<Validator> springValidator) {

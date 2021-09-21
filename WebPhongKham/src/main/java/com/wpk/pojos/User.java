@@ -17,6 +17,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import org.springframework.web.multipart.MultipartFile;
@@ -94,6 +95,7 @@ public class User implements Serializable {
     @Transient
     private String confirmPassword;
     @Transient
+   
     private MultipartFile file;
     public User() {
         this.userRole = "ROLE_USER";

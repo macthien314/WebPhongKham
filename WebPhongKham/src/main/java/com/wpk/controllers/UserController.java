@@ -8,6 +8,7 @@ package com.wpk.controllers;
 import com.wpk.pojos.User;
 import com.wpk.service.UserService;
 import com.wpk.validator.UserImageValidator;
+import com.wpk.validator.WebAppValidator;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,12 +28,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class UserController {
    @Autowired
    private UserService userDetailsService;
+
    @Autowired
-//   private UserImageValidator userImageValidator;
-//   @InitBinder
-//   public void initBider(WebDataBinder binder){
-//       binder.setValidator(userImageValidator);
-//   }
+    private WebAppValidator userValidator;
+    @InitBinder
+    public void initBider(WebDataBinder binder){
+        binder.setValidator(userValidator);
+    }
     @GetMapping("/login")
     public String login(){
         return "login";
