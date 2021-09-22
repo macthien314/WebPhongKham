@@ -3,7 +3,7 @@
     Created on : Sep 22, 2021, 9:08:40 PM
     Author     : Admin
 --%>
-
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <section id="hero" class="d-flex align-items-center">
     <div class="container">
       <div id="demo" class="carousel slide" data-ride="carousel">
