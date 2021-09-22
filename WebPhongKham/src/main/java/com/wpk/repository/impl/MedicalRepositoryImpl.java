@@ -30,5 +30,11 @@ public class MedicalRepositoryImpl implements MedicalRepository{
         Query q = s.createQuery("From Medical");
         return q.getResultList();
     }
+
+    @Override
+    public Medical getMedicalByID(int id) {
+        Session s = sessionFactory.getObject().getCurrentSession();
+        return s.get(Medical.class, id);
+    }
    
 }
