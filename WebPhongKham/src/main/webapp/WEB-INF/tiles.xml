@@ -24,4 +24,9 @@
         <put-attribute name="slide" value=""/>
         <put-attribute name="content" value="/WEB-INF/jsp/register.jsp"/>
     </definition>
+    <definition name="medical-detail" extends="baseLayout">
+        <put-attribute name="title" value="chuyen khoa"/>
+        <put-attribute name="slide" value="/WEB-INF/layout/slide.jsp"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/medical-detail.jsp"/>
+    </definition>
 </tiles-definitions>

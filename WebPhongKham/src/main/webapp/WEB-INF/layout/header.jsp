@@ -64,7 +64,7 @@
                 </ul>
               </li>-->
               <c:forEach var="med" items="${medicals}">
-                  <li><a href="#">${med.name}</a></li>
+                  <li><a href="<c:url value="/chuyen-khoa/${med.id}"/>">${med.name}</a></li>
               </c:forEach> 
               
             </ul>

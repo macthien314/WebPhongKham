@@ -25,5 +25,10 @@ public class MedicalServiceImpl implements MedicalService{
     public List<Medical> getMedicals() {
         return medicalRepository.getMedicals();
     }
+
+    @Override
+    public Medical getMedicalByID(int id) {
+        return medicalRepository.getMedicalByID(id);
+    }
     
 }
