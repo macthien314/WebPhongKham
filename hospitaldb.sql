@@ -16,6 +16,32 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `medical`
+--
+
+DROP TABLE IF EXISTS `medical`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `medical` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `description` varchar(4000) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `image` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='tổ chức y khoa';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `medical`
+--
+
+LOCK TABLES `medical` WRITE;
+/*!40000 ALTER TABLE `medical` DISABLE KEYS */;
+INSERT INTO `medical` VALUES (1,'Tim mạch','aaa','https://res.cloudinary.com/ikj/image/upload/v1631282315/login-img_pqwwl4.png'),(2,'Tâm lý','sss','https://res.cloudinary.com/ikj/image/upload/v1631282315/login-img_pqwwl4.png');
+/*!40000 ALTER TABLE `medical` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `slide`
 --
 
@@ -60,7 +86,7 @@ CREATE TABLE `user` (
   `image` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username_UNIQUE` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -69,7 +95,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'admin','$10$5X9k5N1sTc1/CjVH5XJoje3QMYijH3ETpgkox00R0MdPaJPPrf7wO','admin','admin','ledientai16@gmail.com','ROLE_ADMIN','089879752',_binary '',''),(2,'ohlala12313','$2a$10$3MEIGr3H9XqHM9eaOmQ.cOUe1/oGm/Jh/MU/0KmccWm8OGlYEf63m','admin1','ddaohlaa@gmail.com','ohlala12313@gmail.com','ROLE_USER','1',NULL,''),(3,'ww','$2a$10$hDakl2UupzNOP77ddeLyUOV/EoNuc.qfK5jUkd1wnIYjZ0iYmJVdq','ww','www','ohlala12313@gmail.com','ROLE_USER','123555',NULL,''),(4,'2222','$2a$10$pQMdR6F9ijFTYmWjjf7rs.bogKECAPPvwkl1upx6WaGeiNsRRI136','admin12','1111','ohlala12313@gmail.com','ROLE_USER','sss',NULL,''),(5,'admin13','$2a$10$CyO13x5EmzoS40rL2qYGBunEyfBjoJC3hLCBf3ZnS4sl7lu9HN/tO','dsaaaaaa','sadddd','jhk@gmail.com','ROLE_USER','333',NULL,''),(6,'user999','$2a$10$1B5ol9cROZPuXPg3VtiB9OEgTWqjJuFpGdtY4QLQrDXlBLbl7mnH2','Lê','dđ','sss@gmail.com','ROLE_USER','333',NULL,'https://res.cloudinary.com/ikj/image/upload/v1632043130/tvoztwrxa8u1hfxitbab.jpg');
+INSERT INTO `user` VALUES (1,'admin','$10$5X9k5N1sTc1/CjVH5XJoje3QMYijH3ETpgkox00R0MdPaJPPrf7wO','admin','admin','ledientai16@gmail.com','ROLE_ADMIN','089879752',_binary '',''),(2,'ohlala12313','$2a$10$3MEIGr3H9XqHM9eaOmQ.cOUe1/oGm/Jh/MU/0KmccWm8OGlYEf63m','admin1','ddaohlaa@gmail.com','ohlala12313@gmail.com','ROLE_USER','1',NULL,''),(3,'ww','$2a$10$hDakl2UupzNOP77ddeLyUOV/EoNuc.qfK5jUkd1wnIYjZ0iYmJVdq','ww','www','ohlala12313@gmail.com','ROLE_USER','123555',NULL,''),(4,'2222','$2a$10$pQMdR6F9ijFTYmWjjf7rs.bogKECAPPvwkl1upx6WaGeiNsRRI136','admin12','1111','ohlala12313@gmail.com','ROLE_USER','sss',NULL,''),(5,'admin13','$2a$10$CyO13x5EmzoS40rL2qYGBunEyfBjoJC3hLCBf3ZnS4sl7lu9HN/tO','dsaaaaaa','sadddd','jhk@gmail.com','ROLE_USER','333',NULL,''),(6,'user999','$2a$10$1B5ol9cROZPuXPg3VtiB9OEgTWqjJuFpGdtY4QLQrDXlBLbl7mnH2','Lê','dđ','sss@gmail.com','ROLE_USER','333',NULL,'https://res.cloudinary.com/ikj/image/upload/v1632043130/tvoztwrxa8u1hfxitbab.jpg'),(7,'ohlala12314','$2a$10$Kkiaj4AZKe2JyFn9eoPfOuKHxu36H0T8Sn.2vYwuKR07fyMNfmmH6','Lê','ddarr','ohlala12313@gmail.com','ROLE_USER','7777777777',NULL,'https://res.cloudinary.com/ikj/image/upload/v1632239770/j17q1edtzrcw5brbhbhv.png'),(8,'admin12345','$2a$10$u3zTlS7.24ETia5fxO7esOu6ZPwVcseIucW9RIrxcmwv5hAQKO3Qe','ssssssss333','ssssssss333','sss@gmail.com','ROLE_USER','123555',NULL,'https://res.cloudinary.com/ikj/image/upload/v1632239900/lxacjygnav268epmshnv.png');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -82,4 +108,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-09-21 21:59:56
+-- Dump completed on 2021-09-22 20:42:34

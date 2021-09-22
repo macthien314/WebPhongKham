@@ -1,4 +1,6 @@
 C:\Users\Admin\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\configs\TilesConfig.java
+C:\Users\Admin\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\repository\MedicalRepository.java
+C:\Users\Admin\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\service\MedicalService.java
 C:\Users\Admin\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\formatter\DemoFormatter.java
 C:\Users\Admin\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\configs\HibernateConfig.java
 C:\Users\Admin\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\configs\SpringSecurityConfig.java
@@ -6,11 +8,14 @@ C:\Users\Admin\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\controlle
 C:\Users\Admin\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\service\UserService.java
 C:\Users\Admin\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\validator\WebAppValidator.java
 C:\Users\Admin\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\controllers\HomeController.java
-C:\Users\Admin\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\repository\impl\UserRepositoryimpl.java
+C:\Users\Admin\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\repository\impl\UserRepositoryImpl.java
 C:\Users\Admin\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\validator\UserImageValidator.java
+C:\Users\Admin\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\pojos\Medical.java
 C:\Users\Admin\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\repository\UserRepository.java
-C:\Users\Admin\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\service\impl\UserServiceimpl.java
+C:\Users\Admin\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\service\impl\UserServiceImpl.java
+C:\Users\Admin\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\repository\impl\MedicalRepositoryImpl.java
 C:\Users\Admin\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\configs\SecurityWebAppInitializer.java
 C:\Users\Admin\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\configs\DispatcherServletInitializer.java
 C:\Users\Admin\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\configs\WebApplicationContextConfig.java
+C:\Users\Admin\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\service\impl\MedicalServiceImpl.java
 C:\Users\Admin\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\pojos\User.java
