@@ -29,6 +29,8 @@
         
             <!-- HEADER-->
             <tiles:insertAttribute name="header"/>
+            <!-- SLIDE -->
+            <tiles:insertAttribute name="slide"/>
             <!-- CONTENT-->
             <tiles:insertAttribute name="content"/>
             <!--Footer-->
