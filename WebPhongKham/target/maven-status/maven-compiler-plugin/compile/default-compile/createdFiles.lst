@@ -12,7 +12,6 @@ com\wpk\configs\SpringSecurityConfig.class
 com\wpk\service\UserService.class
 com\wpk\configs\DispatcherServletInitializer.class
 com\wpk\controllers\MedicalController.class
-com\wpk\repository\impl\UserRepositoryImpl.class
 com\wpk\formatter\DemoFormatter.class
 com\wpk\configs\WebApplicationContextConfig.class
 com\wpk\controllers\HomeController.class
@@ -20,5 +19,4 @@ com\wpk\controllers\UserController.class
 com\wpk\pojos\User.class
 com\wpk\repository\MedicalRepository.class
 com\wpk\service\impl\MedicalServiceImpl.class
-com\wpk\service\impl\UserServiceImpl.class
 com\wpk\configs\SecurityWebAppInitializer.class
