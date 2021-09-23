@@ -163,6 +163,8 @@ h1, h2, h3, h4, h5, h6 {
   transition: all 0.5s;
   z-index: 997;
   padding: 15px 0;
+  padding-bottom: 0px;
+  margin-bottom: 40px;
   top: 40px;
   box-shadow: 0px 2px 15px rgba(25, 119, 204, 0.1);
 }
@@ -453,7 +455,7 @@ h1, h2, h3, h4, h5, h6 {
   background-size: cover;
   position: relative;
   margin-bottom: 20px;
-  margin-top: 50px;
+  margin-top: 100px;
 }
 
 #hero .container {
@@ -585,7 +587,7 @@ section {
 # Breadcrumbs
 --------------------------------------------------------------*/
 .breadcrumbs {
-  padding: 20px 0;
+  padding: 30px 0;
   background-color: #f1f7fd;
   min-height: 40px;
   margin-top: 120px;
