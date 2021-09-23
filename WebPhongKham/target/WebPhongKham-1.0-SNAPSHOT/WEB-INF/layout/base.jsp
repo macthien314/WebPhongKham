@@ -15,14 +15,14 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         
-  <meta name="viewport" content="width=device-width, initial-scale=1"
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <title>
             <tiles:insertAttribute name="title"/>
         </title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">       
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-        <link rel="stylesheet" href="<c:url value="css/style.css"/>" type="text/css" >
-        <link rel="stylesheet" href="<c:url value="vendor/icofont/icofont.min.css"/>">
+        <link rel="stylesheet" href="<c:url value="/css/style.css"/>" type="text/css" >
+        <link rel="stylesheet" href="<c:url value="/vendor/icofont/icofont.min.css"/>">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
     </head>
     <body>

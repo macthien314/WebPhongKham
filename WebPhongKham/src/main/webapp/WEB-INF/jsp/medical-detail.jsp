@@ -4,6 +4,10 @@
     Author     : Admin
 --%>
 
+<%@taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="Spring" uri="http://www.springframework.org/tags"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
  <main id="main">
@@ -25,10 +29,15 @@
 
     <section class="inner-page">
       <div class="container">
-        <p>
-          Example inner page template
-        </p>
-      </div>
-    </section>
+          <h1 class="text-center">Khoa ${medical.name}</h1>
+          <div> <img src="${medical.image}" alt="alt"/></div>
 
+          <br><!-- comment -->
+          <p>${medical.description}</p>
+      </div>
+      <textarea>
+          
+      </textarea>
+    </section>
+      
   </main>
