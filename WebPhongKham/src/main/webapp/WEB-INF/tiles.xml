@@ -2,6 +2,7 @@
 <!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd"> 
 
 <tiles-definitions>
+
     <definition name ="baseLayout" template="/WEB-INF/layout/base.jsp">
         <put-attribute name="title" value="..."/>
         <put-attribute name="header" value="/WEB-INF/layout/header.jsp"/>
@@ -30,5 +31,17 @@
         <put-attribute name="title" value="chuyen khoa"/>
         <put-attribute name="slide" value="/WEB-INF/layout/slide.jsp"/>
         <put-attribute name="content" value="/WEB-INF/jsp/medical-detail.jsp"/>
+    </definition>
+    
+    <definition name="adminLayout" template="/WEB-INF/layout/admin/admin-base.jsp">
+        <put-attribute name="slidebar" value="/WEB-INF/layout/admin/slidebar.jsp"/>
+        <put-attribute name="content" value="BASE"/>
+        <put-attribute name="" value=""/>
+       
+    </definition>
+    <definition name="admin" extends="adminLayout">
+        
+       
+       
     </definition>
 </tiles-definitions>
