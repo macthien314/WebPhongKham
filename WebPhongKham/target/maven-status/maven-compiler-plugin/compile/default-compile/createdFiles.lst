@@ -1,3 +1,4 @@
+com\wpk\controllers\IntroduceController.class
 com\wpk\validator\WebAppValidator.class
 com\wpk\repository\UserRepository.class
 com\wpk\configs\HibernateConfig.class

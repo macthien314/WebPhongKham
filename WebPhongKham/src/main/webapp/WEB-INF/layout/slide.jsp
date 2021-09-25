@@ -11,28 +11,32 @@
     <li data-target="#demo" data-slide-to="0" class="active"></li>
     <li data-target="#demo" data-slide-to="1"></li>
     <li data-target="#demo" data-slide-to="2"></li>
+    <li data-target="#demo" data-slide-to="3"></li>
+    <li data-target="#demo" data-slide-to="4"></li>
+    <li data-target="#demo" data-slide-to="5"></li><!-- comment -->
+    <li data-target="#demo" data-slide-to="6"></li>
   </ul>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="https://res.cloudinary.com/ikj/image/upload/v1631282315/login-img_pqwwl4.png" alt="Los Angeles" width="1100" height="500">
-      <div class="carousel-caption">
-        <h3>Los Angeles</h3>
-        <p>We had such a great time in LA!</p>
-      </div>   
+      <img src="https://res.cloudinary.com/ikj/image/upload/v1632561338/slide1_pxtfkh.jpg" alt="Los Angeles" width="1100" height="500">  
     </div>
     <div class="carousel-item">
-      <img src="https://res.cloudinary.com/ikj/image/upload/v1631282315/login-img_pqwwl4.png" alt="Chicago" width="1100" height="500">
-      <div class="carousel-caption">
-        <h3>Chicago</h3>
-        <p>Thank you, Chicago!</p>
-      </div>   
+      <img src="https://res.cloudinary.com/ikj/image/upload/v1632561338/slide2_xdpuka.png" alt="Chicago" width="1100" height="500">   
     </div>
     <div class="carousel-item">
-      <img src="ny.jpg" alt="New York" width="1100" height="500">
-      <div class="carousel-caption">
-        <h3>New York</h3>
-        <p>We love the Big Apple!</p>
-      </div>   
+      <img src="https://res.cloudinary.com/ikj/image/upload/v1632561338/slide3_qoymfk.png" alt="New York" width="1100" height="500">
+    </div>
+      <div class="carousel-item">
+      <img src="https://res.cloudinary.com/ikj/image/upload/v1632561338/slide4_d3op6q.jpg" alt="New York" width="1100" height="500">
+    </div>
+      <div class="carousel-item">
+      <img src="https://res.cloudinary.com/ikj/image/upload/v1632561337/slide5_upggmg.png" alt="New York" width="1100" height="500">
+
+      <div class="carousel-item">
+      <img src="https://res.cloudinary.com/ikj/image/upload/v1632561339/slide6_cin79g.png" alt="New York" width="1100" height="500"> 
+    </div>
+      <div class="carousel-item">
+      <img src="https://res.cloudinary.com/ikj/image/upload/v1632561340/slide7_kqakxd.png" alt="New York" width="1100" height="500"> 
     </div>
   </div>
   <a class="carousel-control-prev" href="#demo" data-slide="prev">

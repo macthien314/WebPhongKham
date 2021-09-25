@@ -24,4 +24,32 @@
         <put-attribute name="slide" value=""/>
         <put-attribute name="content" value="/WEB-INF/jsp/register.jsp"/>
     </definition>
+    
+    
+    <definition name="aboutus" extends="baseLayout">
+        <put-attribute name="title" value="Về chúng tôi"/>
+        <put-attribute name="slide" value=""/>
+        <put-attribute name="content" value="/WEB-INF/jsp/introduce/aboutus.jsp"/>
+    </definition>
+    
+    <definition name="valuevision" extends="baseLayout">
+        <put-attribute name="title" value="Tầm nhìn-Sứ mệnh-Giá trị cốt lõi"/>
+        <put-attribute name="slide" value=""/>
+        <put-attribute name="content" value="/WEB-INF/jsp/introduce/valuevision.jsp"/>
+    </definition>
+    
+    <definition name="organizationchart" extends="baseLayout">
+        <put-attribute name="title" value="Sơ đồ tổ chức"/>
+        <put-attribute name="slide" value=""/>
+        <put-attribute name="content" value="/WEB-INF/jsp/introduce/organizationchart.jsp"/>
+    </definition>
+    
+    
+    <definition name="team" extends="baseLayout">
+        <put-attribute name="title" value="Đội ngũ bác sĩ"/>
+        <put-attribute name="slide" value=""/>
+        <put-attribute name="content" value="/WEB-INF/jsp/introduce/team.jsp"/>
+    </definition>
+    
+    
 </tiles-definitions>
