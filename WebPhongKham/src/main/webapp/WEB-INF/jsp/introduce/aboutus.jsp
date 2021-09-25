@@ -34,7 +34,7 @@
                 <div class=" col-md-12 col-sm-12 col-xs-12 pd5 h1lienhe">
                     <div class="info-description-article clearfix">
                         <div style="width:950px; margin:0 auto;">
-                        <p style="padding: 0px; font-size: 13px; color: rgb(79, 191, 242); line-height: 18px; margin-top: 5px; font-family: arial; text-align: justify; background-image: none !important; background-position: initial !important; background-size: initial !important; background-repeat: initial !important; background-attachment: initial !important; background-origin: initial !important; background-clip: initial !important;"><img alt="logobaiviet" src="/data/images/LogoLeftSmall.jpg" style="border: medium none; padding-bottom: 0px; max-width: 96%; width: 300px; height: 53px;"></p>
+                        <p style="padding: 0px; font-size: 13px; color: rgb(79, 191, 242); line-height: 18px; margin-top: 5px; font-family: arial; text-align: justify; background-image: none !important; background-position: initial !important; background-size: initial !important; background-repeat: initial !important; background-attachment: initial !important; background-origin: initial !important; background-clip: initial !important;">
                         <p style="text-align: center;"><strong><span style="font-size:22px;">LỊCH SỬ HÌNH THÀNH </span></strong></p>
                         <p style="text-align: center;"><span style="color:#FF0000;"><span style="font-size:22px;">PHÒNG KHÁM ĐA KHOA TÂM AN</span></span></p>
                         <p style="text-align: justify;"><br>

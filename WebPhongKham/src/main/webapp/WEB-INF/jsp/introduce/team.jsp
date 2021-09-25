@@ -8,12 +8,21 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:url value="/team" var="action"/>
 
+<section class="breadcrumbs">
+      <div class="container">
 
-<div class="title-block">
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Đăng nhập</h2>
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li>Login</li>
+          </ol>
+        </div>
 
-<h2 style="font-size: 25px; color: #00FFFF; margin-top: 50px;" class="title-group">ĐỘI NGŨ BÁC SĨ</h2>
+      </div>
+    </section>
 
-</div>
+
 
 
 <section id="collection" class="clearfix">
@@ -26,7 +35,7 @@
 <div class="group-collection">
 <div class="title-block">
 
-<h1 class="title-group">ĐỘI NGŨ BÁC SĨ</h1>
+    <h3  class="title-group">ĐỘI NGŨ BÁC SĨ</h3>
 
 </div>
 </div>  
