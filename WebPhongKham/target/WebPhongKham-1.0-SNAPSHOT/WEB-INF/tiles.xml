@@ -2,6 +2,7 @@
 <!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd"> 
 
 <tiles-definitions>
+    
     <definition name ="baseLayout" template="/WEB-INF/layout/base.jsp">
         <put-attribute name="title" value="..."/>
         <put-attribute name="header" value="/WEB-INF/layout/header.jsp"/>
@@ -25,22 +26,39 @@
         <put-attribute name="content" value="/WEB-INF/jsp/register.jsp"/>
     </definition>
     
+    <definition name="medical-detail" extends="baseLayout">
+        <put-attribute name="title" value="chuyen khoa"/>
+        <put-attribute name="slide" value="/WEB-INF/layout/slide.jsp"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/medical-detail.jsp"/>
+    </definition>
+    
+    <definition name="adminLayout" template="/WEB-INF/layout/admin/admin-base.jsp">
+        
+        <put-attribute name="content" value="BASE"/>
+   
+       
+    </definition>
+    <definition name="admin" extends="adminLayout">
+        
+       
+       
+    </definition>
     
     <definition name="aboutus" extends="baseLayout">
         <put-attribute name="title" value="Về chúng tôi"/>
-        <put-attribute name="slide" value=""/>
+        <put-attribute name="slide" value="/WEB-INF/layout/slide.jsp"/>
         <put-attribute name="content" value="/WEB-INF/jsp/introduce/aboutus.jsp"/>
     </definition>
     
     <definition name="valuevision" extends="baseLayout">
         <put-attribute name="title" value="Tầm nhìn-Sứ mệnh-Giá trị cốt lõi"/>
-        <put-attribute name="slide" value=""/>
+        <put-attribute name="slide" value="/WEB-INF/layout/slide.jsp"/>
         <put-attribute name="content" value="/WEB-INF/jsp/introduce/valuevision.jsp"/>
     </definition>
     
     <definition name="organizationchart" extends="baseLayout">
         <put-attribute name="title" value="Sơ đồ tổ chức"/>
-        <put-attribute name="slide" value=""/>
+        <put-attribute name="slide" value="/WEB-INF/layout/slide.jsp"/>
         <put-attribute name="content" value="/WEB-INF/jsp/introduce/organizationchart.jsp"/>
     </definition>
     

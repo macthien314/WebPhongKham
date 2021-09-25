@@ -54,28 +54,7 @@
               
             </ul>
           </li>
-          <li class="drop-down"><a href="">Chuyên khoa</a>
-            <ul>
-  
-              <li><a href="<c:url value="/"/>">Khoa Vật Lý Trị Liệu - Phục Hồi Chức Năng</a></li>
-              <li><a href="<c:url value="/valuevision"/>">Khoa Cấp Cứu</a></li>
-              <li><a href="<c:url value="/organizationchart"/>">Khoa Nội Tổng Quát</a></li>
-              <li><a href="<c:url value="/team"/>">Khoa Ngoại Tổng Quát</a></li>
-              <li><a href="<c:url value="/aboutus"/>">Khoa Y học Gia Đình</a></li>
-              <li><a href="<c:url value="/valuevision"/>">Khoa Phụ Sản</a></li>
-              <li><a href="<c:url value="/organizationchart"/>">Khoa Nhi</a></li>
-              <li><a href="<c:url value="/team"/>">Khoa Y học Cổ Truyền</a></li>
-              <li><a href="<c:url value="/team"/>">Khoa Cơ xương khớp</a></li>
-              <li><a href="<c:url value="/team"/>">Khoa Tai mũi họng</a></li>
-              <li><a href="<c:url value="/valuevision"/>">Khoa Mắt</a></li>
-              <li><a href="<c:url value="/organizationchart"/>">Khoa Răng Hàm Mặt</a></li>
-              <li><a href="<c:url value="/team"/>">Khoa Da Liễu</a></li>
-              <li><a href="<c:url value="/team"/>">Khoa Xét Nghiệm</a></li>
-              <li><a href="<c:url value="/team"/>">Khoa Chẩn Đoán Hình Ảnh</a></li>
-              
-              
-            </ul>
-          </li>
+          <li><a href="#services">Services</a></li>
           <li><a href="#departments">Departments</a></li>
           <li><a href="#doctors">Doctors</a></li>
           <li class="drop-down"><a href="">Chuyên Khoa</a>
@@ -87,7 +66,7 @@
                 </ul>
               </li>-->
               <c:forEach var="med" items="${medicals}">
-                  <li><a href="#">${med.name}</a></li>
+                  <li><a href="<c:url value="/chuyen-khoa/${med.id}"/>">${med.name}</a></li>
               </c:forEach> 
               
             </ul>

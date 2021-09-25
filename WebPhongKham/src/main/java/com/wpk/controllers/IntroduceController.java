@@ -22,7 +22,7 @@ public class IntroduceController {
     public String valueVision(){
     return "valuevision";  
 }
-     @GetMapping("/organizationchart")
+    @GetMapping("/organizationchart")
     public String organizationChart(){
     return "organizationchart";  
 }

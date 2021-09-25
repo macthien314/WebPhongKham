@@ -13,5 +13,6 @@ import java.util.List;
  * @author Admin
  */
 public interface MedicalService {
-    List<Medical> getMedicals();
+     List<Medical> getMedicals();
+    Medical getMedicalByID(int id);
 }
