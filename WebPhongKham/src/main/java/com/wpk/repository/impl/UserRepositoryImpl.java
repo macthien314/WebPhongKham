@@ -13,6 +13,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
@@ -55,6 +56,27 @@ public class UserRepositoryImpl implements UserRepository{
             query.where(p);
         }
         org.hibernate.Query q = session.createQuery(query);
+        return q.getResultList();
+    }
+
+    @Override
+    public List<User> getUsers(int page, String name, String quantity) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<User> query = builder.createQuery(User.class);
+        Root root = query.from(User.class);
+        query = query.select(root);
+        if(name != null && !name.isEmpty()){
+            Predicate p = builder.like(root.get("username").as(String.class), String.format("%%%s%%", name));
+            query = query.where(p);
+        }
+        
+        Query q = session.createQuery(query);
+        int max = 6;
+        if(!quantity.equals("All")){
+            q.setMaxResults(max);
+            q.setFirstResult((page - 1) * max);
+        }
         return q.getResultList();
     }
     

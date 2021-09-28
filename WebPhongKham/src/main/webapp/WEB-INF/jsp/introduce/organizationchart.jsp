@@ -6,22 +6,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <c:url value="/organizationchart" var="action"/>
-
-
-<section class="breadcrumbs">
-      <div class="container">
-
-        <div class="d-flex justify-content-between align-items-center">
-          <h2>Đăng nhập</h2>
-          <ol>
-            <li><a href="index.html">Home</a></li>
-            <li>Login</li>
-          </ol>
-        </div>
-
-      </div>
-    </section>
-
 <div class="container gioithieumo">
             
             <div class=" col-md-12 col-sm-12 col-xs-12 pd5 h1lienhe">

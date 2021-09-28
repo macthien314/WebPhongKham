@@ -87,6 +87,5 @@
     
  <!-- ======= Testimonials Section ======= -->
     
-    </section><!-- End Testimonials Section -->
      
     

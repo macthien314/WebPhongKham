@@ -58,7 +58,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
         //cấu hình User duoc phep truy cap
         http.authorizeRequests().antMatchers("/").permitAll()
                
-                .antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')").and()
+                .antMatchers("/admina/**").access("hasRole('ROLE_ADMIN')").and()
                 .sessionManagement().maximumSessions(1);
         http.csrf().disable();
     }

@@ -10,16 +10,19 @@
         <put-attribute name="slide" value=""/>
         <put-attribute name="content" value="BASE"/>
     </definition>
+    
     <definition name="index" extends="baseLayout">
         <put-attribute name="title" value="Trang chủ"/>
         <put-attribute name="slide" value="/WEB-INF/layout/slide.jsp"/>
         <put-attribute name="content" value="/WEB-INF/jsp/index.jsp"/>
     </definition>
+   
     <definition name="login" extends="baseLayout">
         <put-attribute name="title" value="Login"/>
         <put-attribute name="slide" value=""/>
         <put-attribute name="content" value="/WEB-INF/jsp/login.jsp"/>
     </definition>
+    
     <definition name="register" extends="baseLayout">
         <put-attribute name="title" value="Đăng ký"/>
         <put-attribute name="slide" value=""/>
@@ -32,17 +35,43 @@
         <put-attribute name="content" value="/WEB-INF/jsp/medical-detail.jsp"/>
     </definition>
     
-    <definition name="adminLayout" template="/WEB-INF/layout/admin/admin-base.jsp">
-        
+    
+     <!-- start admin -->
+     <definition name="adminLayout" template="/WEB-INF/layout/admin/admin-base.jsp">
+        <put-attribute name="header" value="/WEB-INF/layout/admin/header.jsp"/>
         <put-attribute name="content" value="BASE"/>
-   
-       
-    </definition>
+         <put-attribute name="slidebar" value="/WEB-INF/layout/admin/slidebar.jsp"/>   
+     </definition>
+     
     <definition name="admin" extends="adminLayout">
-        
-       
-       
     </definition>
+    
+    <definition name="profile" extends="adminLayout">
+          <put-attribute name="content" value="/WEB-INF/jsp/admin/profile.jsp"/>
+    </definition>      
+    
+    <definition name="table" extends="adminLayout">
+          <put-attribute name="content" value="/WEB-INF/jsp/admin/table.jsp"/>
+    </definition>
+    <definition name="slide-manager" extends="adminLayout">
+          <put-attribute name="content" value="/WEB-INF/jsp/admin/slide/slide_manager.jsp"/>
+    </definition>
+    <definition name="slide-infomation" extends="adminLayout">
+          <put-attribute name="content" value="/WEB-INF/jsp/admin/slide/slide_information.jsp"/>
+    </definition>
+    <definition name="add-slide" extends="adminLayout">
+          <put-attribute name="content" value="/WEB-INF/jsp/admin/slide/add_slide.jsp"/>
+    </definition>
+    <definition name="edit-slide" extends="adminLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/slide/edit_slide.jsp"/>
+    </definition>
+    
+    <!-- start admin :user manager -->
+    <definition name="user-manager" extends="adminLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/user/user_manager.jsp"/>
+    </definition>
+    <!-- End admin: user manager -->
+    <!-- End admin -->
     
     <definition name="aboutus" extends="baseLayout">
         <put-attribute name="title" value="Về chúng tôi"/>

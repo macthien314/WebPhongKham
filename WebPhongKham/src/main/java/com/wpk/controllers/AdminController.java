@@ -14,8 +14,13 @@ import org.springframework.web.bind.annotation.GetMapping;
  */
 @Controller
 public class AdminController {
-    @GetMapping("/admins")
+    @GetMapping("/admin")
     public String admin(){
         return "admin";
     }
+    @GetMapping("/admin/thong-tin")
+    public String adminProfile(){
+        return "profile";
+    }
+    
 }

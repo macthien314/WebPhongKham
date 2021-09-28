@@ -15,6 +15,7 @@
           <p>&nbsp;</p><p>&nbsp;</p>
 
 <div style=" width:80%; margin: 0 auto; line-height: 1.5; ">
+<p><img alt="" src="https://res.cloudinary.com/ikj/image/upload/v1632563524/LogoLeftSmall_l0suvy.jpg" style="width: 273px; height: 48px;"></p>
 
 <p align="center">&nbsp;</p>
 

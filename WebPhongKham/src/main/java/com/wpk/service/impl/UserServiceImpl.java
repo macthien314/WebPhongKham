@@ -6,13 +6,16 @@
 package com.wpk.service.impl;
 
 import com.cloudinary.Cloudinary;
+import com.cloudinary.ProgressCallback;
 import com.cloudinary.utils.ObjectUtils;
+
 import com.wpk.pojos.User;
 import com.wpk.repository.UserRepository;
 import com.wpk.service.UserService;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.List;
+
 import java.util.Map;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,8 +44,9 @@ public class UserServiceImpl implements UserService{
         user.setPassword(this.passwordEncoder.encode(password));
         user.setUserRole(User.getUSER());
         try {
+          
             Map r = this.cloudinary.uploader().upload(user.getFile().getBytes(),
-                    ObjectUtils.asMap("resource_type","auto"));
+                    ObjectUtils.asMap("resource_type","auto","folder","Doctor"));
             user.setImage((String) r.get("secure_url"));
         } catch (IOException ex) {
             System.out.println("==ADD USER==");
@@ -66,6 +70,11 @@ public class UserServiceImpl implements UserService{
         Set<GrantedAuthority> auth = new HashSet<>();
         auth.add(new SimpleGrantedAuthority(u.getUserRole()));
         return new org.springframework.security.core.userdetails.User(u.getUsername(),u.getPassword(), auth);
+    }
+
+    @Override
+    public List<User> getUsers(int page, String name, String quantity) {
+        return this.userRepository.getUsers(page, name, quantity);
     }
     
 }

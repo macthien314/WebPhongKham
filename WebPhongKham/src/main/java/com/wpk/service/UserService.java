@@ -16,4 +16,5 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 public interface UserService extends UserDetailsService {
     boolean addUser(User user);
     List <User> getUser(String username);
+    List <User> getUsers(int page, String name, String quantity);
 }
