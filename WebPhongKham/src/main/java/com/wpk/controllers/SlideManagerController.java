@@ -89,20 +89,22 @@ public class SlideManagerController {
     //chức năng sửa slide
     @GetMapping("/admin/quanly-slide/sua-slide/{slideID}")
     public String editSlideShow(Model model,@PathVariable(value ="slideID") int slideID){
-        model.addAttribute("slide", this.slideService.getSlideByID(slideID));
+        Slide s = this.slideService.getSlideByID(slideID);
+        model.addAttribute("slide", s);
         return "edit-slide";
     }
-    @PostMapping("/admin/quanly-slide/sua-slide/{slideID}")
+    @PostMapping("/admin/quanly-slide/sua-slide")
     public String editSlideProsses(Model model, @ModelAttribute(value = "slide")@Valid Slide s, BindingResult result){
+        
         if(!result.hasErrors())
-        {      
+        {   
             if(this.slideService.addOrUpdate(s)==true)
                     return "redirect:/admin/quanly-slide";
         else
                 model.addAttribute("err","Something wrong");
         }
         
-        return "edit-slide";
+        return "redirect:/admin/quanly-slide/sua-slide/{"+s.getId().toString()+"}" ;
     }
     
 }

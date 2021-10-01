@@ -37,6 +37,10 @@ import org.springframework.web.multipart.MultipartFile;
     @NamedQuery(name = "Slide.findByActive", query = "SELECT s FROM Slide s WHERE s.active = :active")})
 public class Slide implements Serializable {
 
+    @Size(max = 45)
+    @Column(name = "active")
+    private String active;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -56,10 +60,7 @@ public class Slide implements Serializable {
     @Size(min = 1, max = 45)
     @Column(name = "title")
     private String title;
-    @Column(name = "active")
-    private Boolean active;
     @Transient
-    @NotNull(message = "{user.file.nullErr}")
     private MultipartFile file;
     
     public Slide() {
@@ -107,13 +108,6 @@ public class Slide implements Serializable {
         this.title = title;
     }
 
-    public Boolean getActive() {
-        return active;
-    }
-
-    public void setActive(Boolean active) {
-        this.active = active;
-    }
 
     @Override
     public int hashCode() {
@@ -152,6 +146,14 @@ public class Slide implements Serializable {
      */
     public void setFile(MultipartFile file) {
         this.file = file;
+    }
+
+    public String getActive() {
+        return active;
+    }
+
+    public void setActive(String active) {
+        this.active = active;
     }
     
 }

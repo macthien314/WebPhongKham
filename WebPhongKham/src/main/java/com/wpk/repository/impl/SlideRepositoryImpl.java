@@ -57,7 +57,9 @@ public class SlideRepositoryImpl implements SlideRepository{
     public boolean addOrUpdate(Slide slide) {
         Session session = sessionFactory.getObject().getCurrentSession();
         try{
-            session.save(slide);
+            
+            session.saveOrUpdate(slide);
+            
             return true;
         }
         catch(Exception e){

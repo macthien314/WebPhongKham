@@ -5,11 +5,11 @@
 --%>
 
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 
-<c:url value="/admin/quanly-slide/sua-slide/${slide.id}" var="action"/>
+<c:url value="/admin/quanly-slide/them-slide" var="action"/>
 <h2 class="mt-4">Chi tiết Slide</h2>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="index.html">admin</a></li>
@@ -36,7 +36,7 @@
                     <img class="" src=""id="preview" alt="Preview Image" width="50%" height="20%"/>
                     <div class="browse-button">
                         <i class="fa fa-pencil-alt"></i>
-                        <form:input path="file" type="file" requiredname="UploadedFile" id="UploadedFile"/>
+                        <form:input accept="image/png, image/gif, image/jpeg" path="file" type="file" requiredname="UploadedFile" id="UploadedFile"/>
                     </div>
                     <span class="Error"></span>
                 </div>
@@ -48,23 +48,20 @@
                         <div class=" form-group">
                             
                                 <label for="lastName">Description</label>
-                                <form:input path="title" id="title" name="title" type="text" cssClass="form-control"/>
+                                <form:input path="description" id="title" name="title" type="text" cssClass="form-control"/>
 
 
                         </div>
                  <div class="form-group">
                         <label class="form-check-inline">
-                            <form:radiobutton path="active" name="active" value="true" />
+                            <form:checkbox path="active" name="active" value="true" />
                           <span class="checkbox-inline"> kích hoạt </span>
                         </label>
-                        <label class="form-check-inline">
-                            <form:radiobutton path="active" id="active" cssClass="checkbox-inline"  name="active" value="false"/>
-                          <span class="checkbox-inline"> Ngưng</span>
-                        </label>
+                       
     
                 </div>          
             <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-block">Sửa slide </button>
+                <button type="submit" class="btn btn-primary btn-block">Tạo slide </button>
             </div>
                 
             </form:form>

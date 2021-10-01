@@ -26,11 +26,10 @@ public class SlideValidator implements Validator {
     @Override
     public void validate(Object target, Errors errors) {
         Slide slide = (Slide) target;
-        
-        if(FilenameUtils.getExtension(slide.getFile().getOriginalFilename()).equals("jpg")
-            ||FilenameUtils.getExtension(slide.getFile().getOriginalFilename()).equals("png")){
-           
+     
+        if(slide.getImage()== null && slide.getFile().isEmpty()){
+           errors.rejectValue("file", "slide.file.imageEmtyErr");
         }
-        else  errors.rejectValue("file", "slide.file.typeErr");
+       
     }
 }

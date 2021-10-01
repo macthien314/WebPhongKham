@@ -6,6 +6,7 @@
 package com.wpk.pojos;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,12 +15,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
@@ -34,30 +37,28 @@ import org.springframework.web.multipart.MultipartFile;
     @NamedQuery(name = "User.findById", query = "SELECT u FROM User u WHERE u.id = :id"),
     @NamedQuery(name = "User.findByUsername", query = "SELECT u FROM User u WHERE u.username = :username"),
     @NamedQuery(name = "User.findByPassword", query = "SELECT u FROM User u WHERE u.password = :password"),
-    @NamedQuery(name = "User.findByFirstname", query = "SELECT u FROM User u WHERE u.firstName = :firstName"),
+    @NamedQuery(name = "User.findByFirstName", query = "SELECT u FROM User u WHERE u.firstName = :firstName"),
     @NamedQuery(name = "User.findByLastName", query = "SELECT u FROM User u WHERE u.lastName = :lastName"),
     @NamedQuery(name = "User.findByEmail", query = "SELECT u FROM User u WHERE u.email = :email"),
     @NamedQuery(name = "User.findByUserRole", query = "SELECT u FROM User u WHERE u.userRole = :userRole"),
     @NamedQuery(name = "User.findByPhone", query = "SELECT u FROM User u WHERE u.phone = :phone"),
-    @NamedQuery(name = "User.findByActive", query = "SELECT u FROM User u WHERE u.active = :active")})
+    @NamedQuery(name = "User.findByActive", query = "SELECT u FROM User u WHERE u.active = :active"),
+    @NamedQuery(name = "User.findByImage", query = "SELECT u FROM User u WHERE u.image = :image")})
 public class User implements Serializable {
-
-    private static final String ADMIN ="ROLE_ADMIN";
-    private static final String USER ="ROLE_USER";
+    
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 5, max = 45, message = "{user.username.sizeErr}")
+    @Size(min = 1, max = 45)
     @Column(name = "username")
     private String username;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 5, max =100, message = "{user.password.sizeErr}")
+    @Size(min = 1, max = 100)
     @Column(name = "password")
     private String password;
     @Basic(optional = false)
@@ -85,51 +86,51 @@ public class User implements Serializable {
     @Size(min = 1, max = 45)
     @Column(name = "phone")
     private String phone;
+    @Column(name = "active")
+    private Boolean active;
     @Basic(optional = false)
     @Size(min = 1, max = 100)
     @Column(name = "image")
     private String image;
-    @Column(name = "active")
-    private Boolean active;
-    @Transient
-    private String confirmPassword;
+    private static final String USER ="ROLE_USER";
+    private static final String ADMIN ="ROLE_ADMIN";
     @Transient
     @NotNull(message = "{user.file.nullErr}")
     private MultipartFile file;
+    @Transient
+    private String confirmPassword;
+    
+    @OneToOne(mappedBy = "user")
+    private Doctor doctor;
+    @OneToOne(mappedBy = "user")
+    private Nurse nurse;
+    @OneToOne(mappedBy = "user")
+    private Patient patient;
     public User() {
-        this.userRole = "ROLE_USER";
     }
 
     public User(Integer id) {
         this.id = id;
     }
 
-    public User(Integer id, String username, String password, String firstname, String lastName, String email, String phone) {
+    public User(Integer id, String username, String password, String firstName, String lastName, String email, String phone, String image) {
         this.id = id;
         this.username = username;
         this.password = password;
-        this.firstName = firstname;
+        this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.phone = phone;
+        this.image = image;
     }
 
     public Integer getId() {
-        return id;
-    }
+        return id;    }
 
     public void setId(Integer id) {
         this.id = id;
     }
 
-    public void setConfirmPassword(String confirmPassword) {
-        this.confirmPassword = confirmPassword;
-    }
-
-    public String getConfirmPassword() {
-        return confirmPassword;
-    }
-    
     public String getUsername() {
         return username;
     }
@@ -150,8 +151,8 @@ public class User implements Serializable {
         return firstName;
     }
 
-    public void setFirstname(String firstname) {
-        this.setFirstName(firstname);
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getLastName() {
@@ -194,10 +195,20 @@ public class User implements Serializable {
         this.active = active;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+  
+
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (getId() != null ? getId().hashCode() : 0);
+        hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
@@ -208,22 +219,15 @@ public class User implements Serializable {
             return false;
         }
         User other = (User) object;
-        if ((this.getId() == null && other.getId() != null) || (this.getId() != null && !this.id.equals(other.id))) {
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
         return true;
     }
-    
+
     @Override
     public String toString() {
-        return "com.wpk.pojos.User[ id=" + getId() + " ]";
-    }
-
-    /**
-     * @return the ADMIN
-     */
-    public static String getADMIN() {
-        return ADMIN;
+        return "com.wpk.pojos.User[ id=" + id + " ]";
     }
 
     /**
@@ -234,45 +238,80 @@ public class User implements Serializable {
     }
 
     /**
-     * @return the serialVersionUID
+     * @return the ADMIN
      */
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
+    public static String getADMIN() {
+        return ADMIN;
     }
 
     /**
-     * @param firstName the firstName to set
-     */
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    /**
-     * @return the image
-     */
-    public String getImage() {
-        return image;
-    }
-
-    /**
-     * @param image the image to set
-     */
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    /**
-     * @return the multipartFile
+     * @return the file
      */
     public MultipartFile getFile() {
         return file;
     }
 
     /**
-     * @param multipartFile the multipartFile to set
+     * @return the confirmPassword
+     */
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    /**
+     * @param file the file to set
      */
     public void setFile(MultipartFile file) {
         this.file = file;
+    }
+
+    /**
+     * @param confirmPassword the confirmPassword to set
+     */
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
+    }
+
+    /**
+     * @return the doctor
+     */
+    public Doctor getDoctor() {
+        return doctor;
+    }
+
+    /**
+     * @param doctor the doctor to set
+     */
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
+    }
+
+    /**
+     * @return the nurse
+     */
+    public Nurse getNurse() {
+        return nurse;
+    }
+
+    /**
+     * @param nurse the nurse to set
+     */
+    public void setNurse(Nurse nurse) {
+        this.nurse = nurse;
+    }
+
+    /**
+     * @return the patient
+     */
+    public Patient getPatient() {
+        return patient;
+    }
+
+    /**
+     * @param patient the patient to set
+     */
+    public void setPatient(Patient patient) {
+        this.patient = patient;
     }
     
 }

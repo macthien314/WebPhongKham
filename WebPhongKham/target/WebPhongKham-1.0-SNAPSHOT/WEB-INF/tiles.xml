@@ -71,6 +71,17 @@
         <put-attribute name="content" value="/WEB-INF/jsp/admin/user/user_manager.jsp"/>
     </definition>
     <!-- End admin: user manager -->
+    
+    <!-- start admin :medical manager -->
+    <definition name="medical-manager" extends="adminLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/medical/medical_manager.jsp"/>
+    </definition>
+    <definition name="add-medical" extends="adminLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/medical/add_medical.jsp"/>
+    </definition>
+    <!-- End admin: user manager -->
+    
+    
     <!-- End admin -->
     
     <definition name="aboutus" extends="baseLayout">

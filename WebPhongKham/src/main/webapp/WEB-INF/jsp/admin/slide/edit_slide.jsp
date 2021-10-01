@@ -4,8 +4,10 @@
     Author     : Admin
 --%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+
 <h2 class="mt-4">Chỉnh sửa slide</h2>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="index.html">admin</a></li>
@@ -23,17 +25,18 @@
                 <h2 class="card-title mt-2">Slide ${slide.id} </h2>
         </header>
         <article class="card-body">
-            
+            <c:url value="/admin/quanly-slide/sua-slide" var="action"/>
         
             
             <form:form id="slide" action="${action}" modelAttribute="slide" method="post" enctype="multipart/form-data">
                <form:errors path="*" cssClass="alert alert-danger" element="div" />
-              
+               <form:hidden path="id" />
+             <form:hidden path="image"/>
                 <div class="form-group preview text-center">
                     <img class="" src="${slide.image}"id="preview" alt="Preview Image" width="50%" height="20%"/>
                     <div class="browse-button">
                         <i class="fa fa-pencil-alt"></i>
-                        <form:input  path="file" type="file" requiredname="UploadedFile" id="UploadedFile"/>
+                        <form:input name="file" path="file" type="file" requiredname="UploadedFile" id="UploadedFile"/>
                     </div>
                     <span class="Error"></span>
                 </div>
@@ -45,19 +48,16 @@
                 <div class=" form-group">
                             
                       <label for="descripstion">Description</label>
-                       <form:input path="description" id="description" name="description" type="text" cssClass="form-control"/>
+                       <form:textarea path="description" id="description" name="description" type="text" cssClass="form-control"/>
 
 
                 </div>
                  <div class="form-group">
                         <label class="form-check-inline">
-                            <form:radiobutton path="active" name="active" value="true" />
+                            <form:checkbox path="active" name="active" value="true" />
                           <span class="checkbox-inline"> kích hoạt </span>
                         </label>
-                        <label class="form-check-inline">
-                            <form:radiobutton path="active" id="active" cssClass="checkbox-inline"  name="active" value="false"/>
-                          <span class="checkbox-inline"> Ngưng</span>
-                        </label>
+                        
     
                 </div>          
             <div class="form-group">
@@ -68,3 +68,4 @@
         </article> 
        
         </div>
+       

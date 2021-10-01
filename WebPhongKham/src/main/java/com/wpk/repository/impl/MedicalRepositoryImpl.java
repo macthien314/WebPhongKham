@@ -36,5 +36,19 @@ public class MedicalRepositoryImpl implements MedicalRepository{
         Session s = sessionFactory.getObject().getCurrentSession();
         return s.get(Medical.class, id);
     }
+
+    @Override
+    public boolean addOrUpdate(Medical m) {
+        Session session = sessionFactory.getObject().getCurrentSession();
+        try{
+            session.save(m);
+            return true;
+        }
+        catch(Exception e){
+            System.err.println("==ADD PRODUCT===" + e.getMessage());
+            e.printStackTrace();
+        }
+        return false;
+    }
    
 }

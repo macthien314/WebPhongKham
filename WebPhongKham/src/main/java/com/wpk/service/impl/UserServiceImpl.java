@@ -43,15 +43,16 @@ public class UserServiceImpl implements UserService{
         String password = user.getPassword();
         user.setPassword(this.passwordEncoder.encode(password));
         user.setUserRole(User.getUSER());
-        try {
-          
-            Map r = this.cloudinary.uploader().upload(user.getFile().getBytes(),
-                    ObjectUtils.asMap("resource_type","auto","folder","Doctor"));
-            user.setImage((String) r.get("secure_url"));
-        } catch (IOException ex) {
-            System.out.println("==ADD USER==");
+        if(!user.getFile().isEmpty()){
+            try {
+
+                Map r = this.cloudinary.uploader().upload(user.getFile().getBytes(),
+                        ObjectUtils.asMap("resource_type","auto","folder","Doctor"));
+                user.setImage((String) r.get("secure_url"));
+            } catch (IOException ex) {
+                System.out.println("==ADD USER==");
+            }
         }
-        
         return this.userRepository.addUser(user);
     }
 

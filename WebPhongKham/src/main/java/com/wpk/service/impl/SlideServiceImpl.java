@@ -40,6 +40,7 @@ public class SlideServiceImpl implements SlideService{
 
     @Override
     public boolean addOrUpdate(Slide slide) {
+        if(!slide.getFile().isEmpty()){
         try {
           
             Map r = this.cloudinary.uploader().upload(slide.getFile().getBytes(),
@@ -47,7 +48,7 @@ public class SlideServiceImpl implements SlideService{
             slide.setImage((String) r.get("secure_url"));
         } catch (IOException ex) {
             System.out.println("==ADD USER==");
-        }
+        }}
         return this.slideRepository.addOrUpdate(slide);
     }
 

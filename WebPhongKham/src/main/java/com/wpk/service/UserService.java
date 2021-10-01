@@ -7,6 +7,7 @@ package com.wpk.service;
 
 import com.wpk.pojos.User;
 import java.util.List;
+import java.util.Map;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 /**
@@ -17,4 +18,6 @@ public interface UserService extends UserDetailsService {
     boolean addUser(User user);
     List <User> getUser(String username);
     List <User> getUsers(int page, String name, String quantity);
+//    List<List<Map<Object, Object>>> getCanvasjsChartData();
+   
 }

@@ -5,11 +5,15 @@
  */
 package com.wpk.service.impl;
 
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
 import com.wpk.pojos.Medical;
 import com.wpk.repository.MedicalRepository;
 
 import com.wpk.service.MedicalService;
+import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +25,8 @@ import org.springframework.stereotype.Service;
 public class MedicalServiceImpl implements MedicalService{
     @Autowired
     private MedicalRepository medicalRepository;
+    @Autowired
+    private Cloudinary cloudinary; 
     @Override
     public List<Medical> getMedicals() {
         return medicalRepository.getMedicals();
@@ -29,5 +35,19 @@ public class MedicalServiceImpl implements MedicalService{
     @Override
     public Medical getMedicalByID(int id) {
         return medicalRepository.getMedicalByID(id);
+    }
+
+    @Override
+    public boolean addOrUpdate(Medical m) {
+        if(!m.getFile().isEmpty()){
+        try {
+          
+            Map r = this.cloudinary.uploader().upload(m.getFile().getBytes(),
+                    ObjectUtils.asMap("resource_type","auto","folder","medical"));
+            m.setImage((String) r.get("secure_url"));
+        } catch (IOException ex) {
+            System.out.println("==ADD USER==");
+        }}
+        return this.medicalRepository.addOrUpdate(m);
     }
 }

@@ -17,8 +17,8 @@
                         
                          
                         <li class ="active">
-                            <a href="#homesubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-drafting-compass"></i>Quản lý giao diện</a>
-                            <ul class="collapse list-unstyled" id="homesubmenu">
+                            <a href="#uiMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-drafting-compass"></i>Quản lý giao diện</a>
+                            <ul class="collapse list-unstyled" id="uiMenu">
                                 <li>
                                     <a href="<c:url value="/admin/quanly-slide"/>"><i class="fab fa-slideshare"></i>Quản lý slide</a>
                                 </li>
@@ -32,8 +32,26 @@
                                 </li>
                             </ul>
                         </li>
+                         <li>
+                            <a href="#pagesubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-users"></i>Quản lý user</a>
+                            <ul class="collapse list-unstyled" id="pagesubmenu">
+                                <li>
+                                    <a href="#"><i class="fas fa-user-shield"></i>Admin User</a>
+                                </li>
+                                
+                                <li>
+                                    <a href="#"><i class="fas fa-user-md"></i>Doctor User</a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fas fa-user-nurse"></i>Nurse User</a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="far fa-meh-blank"></i> User thường</a>
+                                </li>
+                            </ul>
+                        </li>
                         <li>
-                            <a href="<c:url value="/admin/quanly-user"/>"><i class="fas fa-users-cog"></i> Quản lý user</a>
+                            <a href="<c:url value="/admin/medical-manager"/>"><i class="fas fa-briefcase-medical"></i> Quản lý Chuyên khoa</a>
 
                         </li>
 

@@ -7,6 +7,7 @@ package com.wpk.validator;
 
 
 import com.sun.tools.javac.code.Attribute;
+import com.wpk.pojos.Medical;
 import com.wpk.pojos.Slide;
 import com.wpk.pojos.User;
 import java.util.Set;
@@ -28,7 +29,8 @@ public class WebAppValidator implements Validator{
     @Override
     public boolean supports(Class<?> clazz) {
         return User.class.isAssignableFrom(clazz)
-                ||Slide.class.isAssignableFrom(clazz);
+                ||Slide.class.isAssignableFrom(clazz)
+                ||Medical.class.isAssignableFrom(clazz);
     }
 
     @Override
