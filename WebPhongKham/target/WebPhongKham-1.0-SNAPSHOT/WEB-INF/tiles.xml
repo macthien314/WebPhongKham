@@ -35,6 +35,18 @@
         <put-attribute name="content" value="/WEB-INF/jsp/medical-detail.jsp"/>
     </definition>
     
+    <definition name="doctor-detail" extends="baseLayout">
+        <put-attribute name="title" value="bac si"/>
+        <put-attribute name="slide" value="/WEB-INF/layout/slide.jsp"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/doctor-detail.jsp"/>
+    </definition>
+    
+    <definition name="nurse-detail" extends="baseLayout">
+        <put-attribute name="title" value="bac si"/>
+        <put-attribute name="slide" value="/WEB-INF/layout/slide.jsp"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/nurse-detail.jsp"/>
+    </definition>
+    
     
      <!-- start admin -->
      <definition name="adminLayout" template="/WEB-INF/layout/admin/admin-base.jsp">
@@ -42,6 +54,50 @@
         <put-attribute name="content" value="BASE"/>
          <put-attribute name="slidebar" value="/WEB-INF/layout/admin/slidebar.jsp"/>   
      </definition>
+     
+      <!-- start admin :doctor manager -->
+    <definition name="nurse-manager" extends="adminLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/nurse/nurse_manager.jsp"/>
+    </definition>
+
+    <!-- End admin: user manager -->
+     
+       <!-- start admin :doctor manager -->
+    <definition name="doctor-manager" extends="adminLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/doctor/doctor_manager.jsp"/>
+    </definition>
+    <definition name="add-doctor" extends="adminLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/doctor/add_doctor.jsp"/>
+    </definition>
+    <!-- End admin: user manager -->
+    
+    
+    
+   
+    
+    
+      <!-- start admin :patient manager -->
+    <definition name="drug-manager" extends="adminLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/drug/drug_manager.jsp"/>
+    </definition>
+    <definition name="add-drug" extends="adminLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/drug/add_drug.jsp"/>
+    </definition>
+    <!-- End admin: user manager -->
+    
+    
+         <!-- start admin :patient manager -->
+    <definition name="patient-manager" extends="adminLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/patient/patient_manager.jsp"/>
+    </definition>
+    <definition name="add-drug" extends="adminLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/patient/add_patient.jsp"/>
+    </definition>
+    <!-- End admin: user manager -->
+    
+    
+     
+     
      
     <definition name="admin" extends="adminLayout">
     </definition>
@@ -80,6 +136,8 @@
         <put-attribute name="content" value="/WEB-INF/jsp/admin/medical/add_medical.jsp"/>
     </definition>
     <!-- End admin: user manager -->
+    
+  
     
     
     <!-- End admin -->

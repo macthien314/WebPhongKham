@@ -7,7 +7,11 @@ package com.wpk.validator;
 
 
 import com.sun.tools.javac.code.Attribute;
+import com.wpk.pojos.Doctor;
+import com.wpk.pojos.Drug;
 import com.wpk.pojos.Medical;
+import com.wpk.pojos.Nurse;
+import com.wpk.pojos.Patient;
 import com.wpk.pojos.Slide;
 import com.wpk.pojos.User;
 import java.util.Set;
@@ -30,7 +34,11 @@ public class WebAppValidator implements Validator{
     public boolean supports(Class<?> clazz) {
         return User.class.isAssignableFrom(clazz)
                 ||Slide.class.isAssignableFrom(clazz)
-                ||Medical.class.isAssignableFrom(clazz);
+                ||Medical.class.isAssignableFrom(clazz)
+                ||Doctor.class.isAssignableFrom(clazz)
+                ||Nurse.class.isAssignableFrom(clazz)
+                ||Drug.class.isAssignableFrom(clazz)
+                ||Patient.class.isAssignableFrom(clazz);
     }
 
     @Override

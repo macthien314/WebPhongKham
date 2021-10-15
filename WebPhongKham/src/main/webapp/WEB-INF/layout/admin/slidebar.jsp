@@ -54,6 +54,23 @@
                             <a href="<c:url value="/admin/medical-manager"/>"><i class="fas fa-briefcase-medical"></i> Quản lý Chuyên khoa</a>
 
                         </li>
+                         <li>
+                            <a href="<c:url value="/admin/doctor-manager"/>"><i class="fas fa-briefcase-doctor"></i> Quản lý Bác Sĩ</a>
+
+                        </li>
+                        <li>
+                            <a href="<c:url value="/admin/nurse-manager"/>"><i class="fas fa-briefcase-nurse"></i> Quản lý Y Tá</a>
+
+                        </li>
+                        <li>
+                            <a href="<c:url value="/admin/drug-manager"/>"><i class="fas fa-briefcase-drug"></i> Quản lý Thuốc</a>
+
+                        </li>
+                        
+                        <li>
+                            <a href="<c:url value="/admin/patient-manager"/>"><i class="fas fa-briefcase-patient"></i> Quản lý Bệnh Nhân</a>
+                        </li>
+
 
                         <li>
                             <a href="#">about</a>

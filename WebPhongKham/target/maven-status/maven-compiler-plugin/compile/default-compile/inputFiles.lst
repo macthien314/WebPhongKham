@@ -1,44 +1,72 @@
-C:\Users\Admin\Desktop\?? án\WebPhongKham\WebPhongKham\src\main\java\com\wpk\repository\impl\SlideRepositoryImpl.java
-C:\Users\Admin\Desktop\?? án\WebPhongKham\WebPhongKham\src\main\java\com\wpk\repository\impl\UserRepositoryImpl.java
-C:\Users\Admin\Desktop\?? án\WebPhongKham\WebPhongKham\src\main\java\com\wpk\controllers\MedicalController.java
-C:\Users\Admin\Desktop\?? án\WebPhongKham\WebPhongKham\src\main\java\com\wpk\pojos\ServiceInvoice.java
-C:\Users\Admin\Desktop\?? án\WebPhongKham\WebPhongKham\src\main\java\com\wpk\service\UserService.java
-C:\Users\Admin\Desktop\?? án\WebPhongKham\WebPhongKham\src\main\java\com\wpk\controllers\UserManagerController.java
-C:\Users\Admin\Desktop\?? án\WebPhongKham\WebPhongKham\src\main\java\com\wpk\service\SlideService.java
-C:\Users\Admin\Desktop\?? án\WebPhongKham\WebPhongKham\src\main\java\com\wpk\pojos\MedicalExaminationCard.java
-C:\Users\Admin\Desktop\?? án\WebPhongKham\WebPhongKham\src\main\java\com\wpk\configs\SpringSecurityConfig.java
-C:\Users\Admin\Desktop\?? án\WebPhongKham\WebPhongKham\src\main\java\com\wpk\controllers\AdminController.java
-C:\Users\Admin\Desktop\?? án\WebPhongKham\WebPhongKham\src\main\java\com\wpk\validator\UserImageValidator.java
-C:\Users\Admin\Desktop\?? án\WebPhongKham\WebPhongKham\src\main\java\com\wpk\pojos\Patient.java
-C:\Users\Admin\Desktop\?? án\WebPhongKham\WebPhongKham\src\main\java\com\wpk\validator\WebAppValidator.java
-C:\Users\Admin\Desktop\?? án\WebPhongKham\WebPhongKham\src\main\java\com\wpk\pojos\PrescriptionDrug.java
-C:\Users\Admin\Desktop\?? án\WebPhongKham\WebPhongKham\src\main\java\com\wpk\configs\DispatcherServletInitializer.java
-C:\Users\Admin\Desktop\?? án\WebPhongKham\WebPhongKham\src\main\java\com\wpk\pojos\Appointment.java
-C:\Users\Admin\Desktop\?? án\WebPhongKham\WebPhongKham\src\main\java\com\wpk\controllers\SlideManagerController.java
-C:\Users\Admin\Desktop\?? án\WebPhongKham\WebPhongKham\src\main\java\com\wpk\pojos\Prescription.java
-C:\Users\Admin\Desktop\?? án\WebPhongKham\WebPhongKham\src\main\java\com\wpk\pojos\User.java
-C:\Users\Admin\Desktop\?? án\WebPhongKham\WebPhongKham\src\main\java\com\wpk\configs\SecurityWebAppInitializer.java
-C:\Users\Admin\Desktop\?? án\WebPhongKham\WebPhongKham\src\main\java\com\wpk\repository\impl\MedicalRepositoryImpl.java
-C:\Users\Admin\Desktop\?? án\WebPhongKham\WebPhongKham\src\main\java\com\wpk\service\impl\SlideServiceImpl.java
-C:\Users\Admin\Desktop\?? án\WebPhongKham\WebPhongKham\src\main\java\com\wpk\formatter\DemoFormatter.java
-C:\Users\Admin\Desktop\?? án\WebPhongKham\WebPhongKham\src\main\java\com\wpk\service\impl\MedicalServiceImpl.java
-C:\Users\Admin\Desktop\?? án\WebPhongKham\WebPhongKham\src\main\java\com\wpk\configs\TilesConfig.java
-C:\Users\Admin\Desktop\?? án\WebPhongKham\WebPhongKham\src\main\java\com\wpk\controllers\HomeController.java
-C:\Users\Admin\Desktop\?? án\WebPhongKham\WebPhongKham\src\main\java\com\wpk\service\impl\UserServiceImpl.java
-C:\Users\Admin\Desktop\?? án\WebPhongKham\WebPhongKham\src\main\java\com\wpk\configs\HibernateConfig.java
-C:\Users\Admin\Desktop\?? án\WebPhongKham\WebPhongKham\src\main\java\com\wpk\configs\WebApplicationContextConfig.java
-C:\Users\Admin\Desktop\?? án\WebPhongKham\WebPhongKham\src\main\java\com\wpk\validator\SlideValidator.java
-C:\Users\Admin\Desktop\?? án\WebPhongKham\WebPhongKham\src\main\java\com\wpk\pojos\Medical.java
-C:\Users\Admin\Desktop\?? án\WebPhongKham\WebPhongKham\src\main\java\com\wpk\controllers\IntroduceController.java
-C:\Users\Admin\Desktop\?? án\WebPhongKham\WebPhongKham\src\main\java\com\wpk\pojos\Slide.java
-C:\Users\Admin\Desktop\?? án\WebPhongKham\WebPhongKham\src\main\java\com\wpk\repository\UserRepository.java
-C:\Users\Admin\Desktop\?? án\WebPhongKham\WebPhongKham\src\main\java\com\wpk\pojos\Doctor.java
-C:\Users\Admin\Desktop\?? án\WebPhongKham\WebPhongKham\src\main\java\com\wpk\repository\MedicalRepository.java
-C:\Users\Admin\Desktop\?? án\WebPhongKham\WebPhongKham\src\main\java\com\wpk\controllers\UserController.java
-C:\Users\Admin\Desktop\?? án\WebPhongKham\WebPhongKham\src\main\java\com\wpk\pojos\Nurse.java
-C:\Users\Admin\Desktop\?? án\WebPhongKham\WebPhongKham\src\main\java\com\wpk\validator\MedicalValidator.java
-C:\Users\Admin\Desktop\?? án\WebPhongKham\WebPhongKham\src\main\java\com\wpk\pojos\Service.java
-C:\Users\Admin\Desktop\?? án\WebPhongKham\WebPhongKham\src\main\java\com\wpk\repository\SlideRepository.java
-C:\Users\Admin\Desktop\?? án\WebPhongKham\WebPhongKham\src\main\java\com\wpk\service\MedicalService.java
-C:\Users\Admin\Desktop\?? án\WebPhongKham\WebPhongKham\src\main\java\com\wpk\pojos\Drug.java
-C:\Users\Admin\Desktop\?? án\WebPhongKham\WebPhongKham\src\main\java\com\wpk\controllers\MedicalManagerController.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\controllers\NurseManagerController.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\pojos\Drug.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\controllers\MedicalManagerController.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\repository\impl\DrugRepositoryImpl.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\repository\NurseRepository.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\service\NurseService.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\repository\MedicalRepository.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\service\MedicalService.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\pojos\Slide.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\pojos\Medical.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\repository\impl\MedicalRepositoryImpl.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\controllers\NurseController.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\pojos\PrescriptionDrug.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\service\impl\SlideServiceImpl.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\controllers\DoctorManagerController.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\validator\SlideValidator.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\controllers\AdminController.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\service\impl\UserServiceImpl.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\pojos\Service.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\repository\PatientRepository.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\repository\UserRepository.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\service\PatientService.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\pojos\Patient.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\repository\DoctorRepository.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\validator\DrugValidator.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\pojos\Prescription.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\configs\SecurityWebAppInitializer.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\repository\impl\SlideRepositoryImpl.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\validator\DoctorValidator.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\repository\DrugRepository.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\configs\DispatcherServletInitializer.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\service\DoctorService.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\pojos\User.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\pojos\Appointment.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\configs\SpringSecurityConfig.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\controllers\UserController.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\pojos\Nurse.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\validator\MedicalValidator.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\repository\impl\NurseRepositoryImpl.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\service\impl\NurseServiceImpl.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\controllers\PatientManagerController.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\pojos\MedicalExaminationCard.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\repository\impl\PatientRepositoryImpl.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\validator\PatientValidator.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\pojos\Doctor.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\validator\UserImageValidator.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\service\impl\MedicalServiceImpl.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\controllers\DoctorController.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\controllers\HomeController.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\formatter\DemoFormatter.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\repository\impl\UserRepositoryImpl.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\validator\NurseValidator.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\controllers\MedicalController.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\configs\TilesConfig.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\service\SlideService.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\controllers\UserManagerController.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\controllers\PatientController.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\configs\WebApplicationContextConfig.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\controllers\SlideManagerController.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\repository\impl\DoctorRepositoryImpl.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\service\DrugService.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\controllers\IntroduceController.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\service\impl\DrugServiceImpl.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\pojos\ServiceInvoice.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\repository\SlideRepository.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\service\impl\PatientServiceImpl.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\validator\WebAppValidator.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\service\UserService.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\controllers\DrugController.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\service\impl\DoctorServiceImpl.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\configs\HibernateConfig.java
+C:\Users\macth\Desktop\WebPhongKham\WebPhongKham\src\main\java\com\wpk\controllers\DrugManagerController.java

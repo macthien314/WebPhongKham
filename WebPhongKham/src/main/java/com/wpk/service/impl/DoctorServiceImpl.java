@@ -1,0 +1,54 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.wpk.service.impl;
+
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
+import com.wpk.pojos.Doctor;
+import com.wpk.repository.DoctorRepository;
+import com.wpk.service.DoctorService;
+import java.io.IOException;
+
+import java.util.List;
+import java.util.Map;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+/**
+ *
+ * @author macth
+ */
+@Service
+public class DoctorServiceImpl implements DoctorService{
+    @Autowired
+    private DoctorRepository doctorRepository;
+    @Autowired
+    private Cloudinary cloudinary; 
+
+    @Override
+    public List<Doctor> getDoctor() {
+           return doctorRepository.getDoctor();
+    }
+
+    @Override
+    public boolean addOrUpdate(Doctor d) {
+        if(!d.getFile().isEmpty()){
+        try {
+          
+            Map r = this.cloudinary.uploader().upload(d.getFile().getBytes(),
+                    ObjectUtils.asMap("resource_type","auto","folder","doctor"));
+            d.setImage((String) r.get("secure_url"));
+        } catch (IOException ex) {
+            System.out.println("==ADD USER==");
+        }}
+        return this.doctorRepository.addOrUpdate(d);
+    }
+
+    @Override
+    public Doctor getDoctorByID(int id) {
+          return doctorRepository.getDoctorByID(id);
+    }
+}

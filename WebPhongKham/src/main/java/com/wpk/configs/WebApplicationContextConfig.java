@@ -9,7 +9,11 @@ package com.wpk.configs;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
+import com.wpk.validator.DoctorValidator;
+import com.wpk.validator.DrugValidator;
 import com.wpk.validator.MedicalValidator;
+import com.wpk.validator.NurseValidator;
+import com.wpk.validator.PatientValidator;
 import com.wpk.validator.SlideValidator;
 import com.wpk.validator.UserImageValidator;
 import com.wpk.validator.WebAppValidator;
@@ -108,6 +112,41 @@ public class WebApplicationContextConfig implements WebMvcConfigurer{
         v.setSpringValidator(springValidator);
         return v;
     }
+    @Bean
+    public WebAppValidator doctorValidator(){
+        Set<Validator> springValidator = new HashSet<>();
+        springValidator.add(new DoctorValidator());
+        WebAppValidator v = new WebAppValidator();
+        v.setSpringValidator(springValidator);
+        return v;
+    }
+    
+    @Bean
+    public WebAppValidator nurseValidator(){
+        Set<Validator> springValidator = new HashSet<>();
+        springValidator.add(new NurseValidator());
+        WebAppValidator v = new WebAppValidator();
+        v.setSpringValidator(springValidator);
+        return v;
+    }
+    @Bean
+    public WebAppValidator drugValidator(){
+        Set<Validator> springValidator = new HashSet<>();
+        springValidator.add(new DrugValidator());
+        WebAppValidator v = new WebAppValidator();
+        v.setSpringValidator(springValidator);
+        return v;
+    }
+    
+        @Bean
+    public WebAppValidator patientValidator(){
+        Set<Validator> springValidator = new HashSet<>();
+        springValidator.add(new PatientValidator());
+        WebAppValidator v = new WebAppValidator();
+        v.setSpringValidator(springValidator);
+        return v;
+    }
+    
     @Bean
     public CommonsMultipartResolver multipartResolver(){
         CommonsMultipartResolver resolver = new CommonsMultipartResolver();

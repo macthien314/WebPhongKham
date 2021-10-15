@@ -21,10 +21,12 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -70,6 +72,11 @@ public class Patient implements Serializable {
     @Size(min = 1, max = 45)
     @Column(name = "gender")
     private String gender;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 100)
+    @Column(name = "image")
+    private String image;
     // @Pattern(regexp="^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$", message="Invalid phone/fax format, should be as xxx-xxx-xxxx")//if the field contains phone or fax number consider using this annotation to enforce field validation
     @Basic(optional = false)
     @NotNull
@@ -93,6 +100,9 @@ public class Patient implements Serializable {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
     private User user;
+    @Transient
+   
+    private MultipartFile file;
     public Patient() {
     }
 
@@ -100,7 +110,7 @@ public class Patient implements Serializable {
         this.id = id;
     }
 
-    public Patient(Integer id, String firstName, String lastName, Date birthDate, String gender, String phone, String email) {
+    public Patient(Integer id, String firstName, String lastName, Date birthDate, String gender, String phone, String email, String image) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -108,6 +118,24 @@ public class Patient implements Serializable {
         this.gender = gender;
         this.phone = phone;
         this.email = email;
+        this.image = image;
+    }
+
+   
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public Integer getId() {
@@ -164,6 +192,10 @@ public class Patient implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Patient(String image) {
+        this.image = image;
     }
 
     @XmlTransient
@@ -226,5 +258,14 @@ public class Patient implements Serializable {
     public String toString() {
         return "com.wpk.pojos.Patient[ id=" + id + " ]";
     }
-    
+      public MultipartFile getFile() {
+        return file;
+    }
+
+    /**
+     * @param file the file to set
+     */
+    public void setFile(MultipartFile file) {
+        this.file = file;
+    }
 }

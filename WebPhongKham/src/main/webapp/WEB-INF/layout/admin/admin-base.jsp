@@ -27,22 +27,20 @@
 
     </head>
     <body>
-     
-       
-        
             <!--Slide bar-->
-         <tiles:insertAttribute name="header"/>
+        
+          <tiles:insertAttribute name="header"/>
         <div class ="wrapper">
             
-               <tiles:insertAttribute name="slidebar"/>
+         <tiles:insertAttribute name="slidebar"/>
 
-                <div id="content">
-                  <div class="container-fluid col-m-8">
-                      <tiles:insertAttribute name="content"/>
-                  </div>
-               </div>
-                   
-        </div>
+            <div id="content">
+             <div class="container-fluid col-m-8">
+         <tiles:insertAttribute name="content"/>
+              </div>
+           </div>
+        </div>  
+   
        
        
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

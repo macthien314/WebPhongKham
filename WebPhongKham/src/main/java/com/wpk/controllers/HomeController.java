@@ -6,8 +6,12 @@
 package com.wpk.controllers;
 
 
+import com.wpk.service.DoctorService;
+import com.wpk.service.DrugService;
 import com.wpk.service.MedicalService;
-import java.util.Map;
+import com.wpk.service.NurseService;
+import com.wpk.service.PatientService;
+
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,9 +30,39 @@ public class HomeController {
     @Autowired
     private MedicalService medicalService;
     @ModelAttribute
-    public  void commonAttr(Model model, HttpSession session){
+    public void commonAttr(Model model, HttpSession session){
         model.addAttribute("medicals", this.medicalService.getMedicals());
     }
+    
+     @Autowired
+    private DoctorService doctorService;
+    @ModelAttribute
+    public void commonAttrs(Model model, HttpSession session){
+        model.addAttribute("doctors", this.doctorService.getDoctor());
+    }
+    
+      @Autowired
+    private NurseService nurseService;
+    @ModelAttribute
+    public void commonAttrsss(Model model, HttpSession session){
+        model.addAttribute("nurses", this.nurseService.getNurses());
+    }
+    
+    @Autowired
+    private DrugService drugService;
+    @ModelAttribute
+    public void commonAttrss(Model model, HttpSession session){
+        model.addAttribute("drugs", this.drugService.getDrugs());
+    }
+  
+    
+       @Autowired
+    private PatientService patientService;
+    @ModelAttribute
+    public void commonAttrssss(Model model, HttpSession session){
+        model.addAttribute("patients", this.patientService.getPatients());
+    }
+    
     @RequestMapping("/")
     public String index(Model model)
     {
