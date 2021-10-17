@@ -29,6 +29,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
@@ -70,6 +71,7 @@ public class Nurse implements Serializable {
     @NotNull
     @Column(name = "birth_date")
     @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birthDate;
     @Size(max = 45)
     @Column(name = "gender")
@@ -87,7 +89,7 @@ public class Nurse implements Serializable {
     @Column(name = "email")
     private String email;
     @Basic(optional = false)
-    @NotNull
+    
     @Size(min = 1, max = 100)
     @Column(name = "image")
     private String image;
@@ -104,7 +106,6 @@ public class Nurse implements Serializable {
     private User user;
     
     @Transient
-   
     private MultipartFile file;
     public Nurse() {
     }

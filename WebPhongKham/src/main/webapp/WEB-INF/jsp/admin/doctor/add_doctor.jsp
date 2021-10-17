@@ -38,17 +38,20 @@
                     </div>
                     <span class="Error"></span>
                 </div>
-                    <div class=" form-group">
-                     <label for="title">Họ</label>   
-                     <form:input path="lastName" id="lastName" name="lastName" type="text" cssClass="form-control"/>
-                     <form:errors path="lastName" cssClass="alert alert-danger" element="div" />
-                </div> <!-- form-group end.// -->
-                    
-                <div class=" form-group">
-                     <label for="title">Tên</label>   
-                     <form:input path="firstName" id="firstName" name="firstName" type="text" cssClass="form-control"/>
-                     <form:errors path="firstName" cssClass="alert alert-danger" element="div" />
-                </div> <!-- form-group end.// -->
+                    <div class="form-row">
+                        <div class=" form-group col-md-6">
+                             <label for="firstName">Họ: </label>   
+                             <form:input path="firstName" id="title" name="title" type="text" cssClass="form-control"/>
+                             <form:errors path="firstName" cssClass="alert alert-danger" element="div" />
+                        </div> <!-- form-group end.// -->
+                        <div class=" form-group col-md-6">
+
+                            <label for="lastName">Tên:</label>
+                            <form:input path="lastName" id="title" name="title" type="text" cssClass="form-control"/>
+                            <form:errors path="lastName" cssClass="alert alert-danger" element="div" />
+
+                         </div>
+                    </div>
                
                    <div class=" form-group">
                      <label for="title">Ngày sinh</label>   
@@ -57,11 +60,10 @@
                      <form:errors path="birthDate" cssClass="alert alert-danger" element="div" />
                 </div> <!-- form-group end.// -->
                
-                <div class=" form-group">
-                     <label for="title">Giới tính</label>   
-                     <form:input path="gender" id="gender" name="gender" type="text" cssClass="form-control"/>
-                     <form:errors path="gender" cssClass="alert alert-danger" element="div" />
-                </div> <!-- form-group end.// -->
+                <div class="form-group">
+                    Nam:<form:radiobutton path="gender" value="Nam"/>
+                    Nữ:<form:radiobutton path="gender" value="Nữ"/>
+                </div><!-- form-group end.// -->
                 
                 <div class=" form-group">
                      <label for="title">SĐT</label>   
@@ -82,17 +84,17 @@
                      <form:errors path="yearsExperience" cssClass="alert alert-danger" element="div" />
                 </div> <!-- form-group end.// -->
                 
-                <div class=" form-group">
-                     <label for="title">Tên Khoa</label>   
-                     <form:input path="medical" id="medical" name="medical" type="text" cssClass="form-control"/>
-                     <form:errors path="medical" cssClass="alert alert-danger" element="div" />
-                </div> <!-- form-group end.// -->
-                
-                <div class=" form-group">
-                     <label for="title">Tên tài khoản</label>   
-                     <form:input path="user" id="user" name="user" type="text" cssClass="form-control"/>
-                     <form:errors path="user" cssClass="alert alert-danger" element="div" />
-                </div> <!-- form-group end.// -->
+                <div class="form-group">
+                    <label for="tcate">Chuyên khoa</label>
+                    <form:select path="medical" id="med" cssClass="form-control">
+
+                        <c:forEach items="${medicals}" var="med">
+                            <option value="${med.id}">${med.name}</option>
+                        </c:forEach>
+                    </form:select>
+                    <form:errors cssClass="alert alert-danger" path="medical" element="div"/>
+                </div>
+                <!-- form-group end.// -->
                        
             <div class="form-group">
                 <button type="submit" class="btn btn-primary btn-block">Tạo Bác sĩ</button>

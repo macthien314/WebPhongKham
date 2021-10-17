@@ -9,6 +9,7 @@ package com.wpk.configs;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
+import com.wpk.formatter.MedicalFormatter;
 import com.wpk.validator.DoctorValidator;
 import com.wpk.validator.DrugValidator;
 import com.wpk.validator.MedicalValidator;
@@ -24,6 +25,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
+import org.springframework.format.FormatterRegistry;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
@@ -146,7 +148,10 @@ public class WebApplicationContextConfig implements WebMvcConfigurer{
         v.setSpringValidator(springValidator);
         return v;
     }
-    
+    @Override
+    public void addFormatters(FormatterRegistry registry) {
+        registry.addFormatter(new MedicalFormatter());
+    }
     @Bean
     public CommonsMultipartResolver multipartResolver(){
         CommonsMultipartResolver resolver = new CommonsMultipartResolver();

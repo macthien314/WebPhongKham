@@ -57,6 +57,6 @@ public class DoctorManagerController {
         else
                 model.addAttribute("err","Something wrong");
         }
-        return "add-doctors";
+        return "add-doctor";
     }
 }

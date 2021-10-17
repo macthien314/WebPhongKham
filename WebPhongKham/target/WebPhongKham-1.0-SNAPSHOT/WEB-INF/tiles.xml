@@ -55,11 +55,13 @@
          <put-attribute name="slidebar" value="/WEB-INF/layout/admin/slidebar.jsp"/>   
      </definition>
      
-      <!-- start admin :doctor manager -->
+      <!-- start admin :Nurse manager -->
     <definition name="nurse-manager" extends="adminLayout">
         <put-attribute name="content" value="/WEB-INF/jsp/admin/nurse/nurse_manager.jsp"/>
     </definition>
-
+     <definition name="add-nurse" extends="adminLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/nurse/add_nurse.jsp"/>
+    </definition>
     <!-- End admin: user manager -->
      
        <!-- start admin :doctor manager -->
