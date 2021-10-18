@@ -10,11 +10,14 @@ package com.wpk.configs;
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
 import com.wpk.formatter.MedicalFormatter;
+import com.wpk.validator.AppointmentValidator;
 import com.wpk.validator.DoctorValidator;
 import com.wpk.validator.DrugValidator;
+import com.wpk.validator.MedicalExaminationCardValidator;
 import com.wpk.validator.MedicalValidator;
 import com.wpk.validator.NurseValidator;
 import com.wpk.validator.PatientValidator;
+import com.wpk.validator.ServiceInvoiceValidator;
 import com.wpk.validator.SlideValidator;
 import com.wpk.validator.UserImageValidator;
 import com.wpk.validator.WebAppValidator;
@@ -147,7 +150,38 @@ public class WebApplicationContextConfig implements WebMvcConfigurer{
         WebAppValidator v = new WebAppValidator();
         v.setSpringValidator(springValidator);
         return v;
+    
     }
+    
+         @Bean
+    public WebAppValidator medicalExaminationCardValidator(){
+        Set<Validator> springValidator = new HashSet<>();
+        springValidator.add(new MedicalExaminationCardValidator());
+        WebAppValidator v = new WebAppValidator();
+        v.setSpringValidator(springValidator);
+        return v;
+       
+    }
+    
+      @Bean
+    public WebAppValidator appointmentValidator(){
+        Set<Validator> springValidator = new HashSet<>();
+        springValidator.add(new AppointmentValidator());
+        WebAppValidator v = new WebAppValidator();
+        v.setSpringValidator(springValidator);
+        return v;
+    
+    }
+      @Bean
+    public WebAppValidator serviceInvoiceValidator(){
+        Set<Validator> springValidator = new HashSet<>();
+        springValidator.add(new ServiceInvoiceValidator());
+        WebAppValidator v = new WebAppValidator();
+        v.setSpringValidator(springValidator);
+        return v;
+    
+    }
+    
     @Override
     public void addFormatters(FormatterRegistry registry) {
         registry.addFormatter(new MedicalFormatter());

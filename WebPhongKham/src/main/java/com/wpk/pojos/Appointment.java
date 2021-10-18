@@ -18,9 +18,11 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -56,6 +58,17 @@ public class Appointment implements Serializable {
     @ManyToOne
     @JoinColumn(name = "patient_id")
     private Patient patient;
+    @Transient
+   
+    private MultipartFile file;
+
+    public Appointment(Date appointmentDate, String description, Integer appointmentId, Doctor doctor, Patient patient) {
+        this.appointmentDate = appointmentDate;
+        this.description = description;
+        this.appointmentId = appointmentId;
+        this.doctor = doctor;
+        this.patient = patient;
+    }
 
     public Appointment() {
     }
@@ -128,5 +141,14 @@ public class Appointment implements Serializable {
     public String toString() {
         return "com.wpk.pojos.Appointment[ appointmentId=" + appointmentId + " ]";
     }
-    
+      public MultipartFile getFile() {
+        return file;
+    }
+
+    /**
+     * @param file the file to set
+     */
+    public void setFile(MultipartFile file) {
+        this.file = file;
+    }
 }

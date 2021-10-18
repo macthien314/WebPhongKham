@@ -5,7 +5,6 @@
     <class>com.wpk.pojos.User</class>
     <class>com.wpk.pojos.Medical</class>
     <class>com.wpk.pojos.Slide</class>
-    <class>com.wpk.pojos.Service</class>
     <class>com.wpk.pojos.Nurse</class>
     <class>com.wpk.pojos.Patient</class>
     <class>com.wpk.pojos.Doctor</class>
@@ -19,10 +18,10 @@
     <class>com.wpk.pojos.Patient_1</class>
     <class>com.wpk.pojos.Prescription_1</class>
     <class>com.wpk.pojos.Medical_1</class>
-    <class>com.wpk.pojos.Doctor_1</class>
     <class>com.wpk.pojos.Nurse_1</class>
     <class>com.wpk.pojos.Appointment_1</class>
     <class>com.wpk.pojos.PrescriptionDrug</class>
+    <class>com.wpk.pojos.Services</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/hospitaldb"/>

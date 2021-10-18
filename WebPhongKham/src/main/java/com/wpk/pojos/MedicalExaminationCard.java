@@ -17,9 +17,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -72,6 +74,9 @@ public class MedicalExaminationCard implements Serializable {
     @ManyToOne
     @JoinColumn(name = "patient_id")
     private Patient patient;
+     @Transient
+   
+    private MultipartFile file;
 
     public MedicalExaminationCard() {
     }
@@ -176,4 +181,15 @@ public class MedicalExaminationCard implements Serializable {
         return "com.wpk.pojos.MedicalExaminationCard[ id=" + id + " ]";
     }
     
+    
+        public MultipartFile getFile() {
+        return file;
+    }
+
+    /**
+     * @param file the file to set
+     */
+    public void setFile(MultipartFile file) {
+        this.file = file;
+    }
 }

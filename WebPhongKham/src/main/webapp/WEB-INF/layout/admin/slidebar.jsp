@@ -70,6 +70,18 @@
                         <li>
                             <a href="<c:url value="/admin/patient-manager"/>"><i class="fas fa-briefcase-patient"></i> Quản lý Bệnh Nhân</a>
                         </li>
+                        
+                        <li>
+                            <a href="<c:url value="/admin/medicalexaminationcard-manager"/>"><i class="fas fa-briefcase-patient"></i> Quản lý Phiếu Khám</a>
+                        </li>
+                        
+                         <li>
+                            <a href="<c:url value="/admin/appointment-manager"/>"><i class="fas fa-briefcase-patient"></i> Quản lý Cuộc Hẹn</a>
+                         </li><!-- comment -->
+                         
+                          <li>
+                            <a href="<c:url value="/admin/serviceinvoice-manager"/>"><i class="fas fa-briefcase-patient"></i> Quản lý Hóa Đơn Dịch Vụ</a>
+                        </li>
 
 
                         <li>

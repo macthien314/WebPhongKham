@@ -12,6 +12,7 @@ import com.wpk.service.MedicalService;
 import com.wpk.service.NurseService;
 import com.wpk.service.PatientService;
 
+
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -62,6 +63,8 @@ public class HomeController {
     public void commonAttrssss(Model model, HttpSession session){
         model.addAttribute("patients", this.patientService.getPatients());
     }
+    
+   
     
     @RequestMapping("/")
     public String index(Model model)

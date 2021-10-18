@@ -19,8 +19,10 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -59,9 +61,20 @@ public class ServiceInvoice implements Serializable {
    
     @ManyToOne
     @JoinColumn(name ="service_id")
-    private Service service;
-
+    private Services service;
+    @Transient
+   
+    private MultipartFile file;
     public ServiceInvoice() {
+    }
+
+    public ServiceInvoice(Integer id, Long fee, Date createdDay, Nurse nurse, Patient patient, Services service) {
+        this.id = id;
+        this.fee = fee;
+        this.createdDay = createdDay;
+        this.nurse = nurse;
+        this.patient = patient;
+        this.service = service;
     }
 
     public ServiceInvoice(Integer id) {
@@ -108,11 +121,11 @@ public class ServiceInvoice implements Serializable {
         this.patient = patient;
     }
 
-    public Service getService() {
+    public Services getService() {
         return service;
     }
 
-    public void setService(Service service) {
+    public void setService(Services service) {
         this.service = service;
     }
 
@@ -140,5 +153,14 @@ public class ServiceInvoice implements Serializable {
     public String toString() {
         return "com.wpk.pojos.ServiceInvoice[ id=" + id + " ]";
     }
-    
+      public MultipartFile getFile() {
+        return file;
+    }
+
+    /**
+     * @param file the file to set
+     */
+    public void setFile(MultipartFile file) {
+        this.file = file;
+    }
 }

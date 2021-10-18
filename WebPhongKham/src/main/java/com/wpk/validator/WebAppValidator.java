@@ -6,12 +6,16 @@
 package com.wpk.validator;
 
 
-import com.sun.tools.javac.code.Attribute;
+
+import com.wpk.pojos.Appointment;
 import com.wpk.pojos.Doctor;
 import com.wpk.pojos.Drug;
 import com.wpk.pojos.Medical;
+import com.wpk.pojos.MedicalExaminationCard;
 import com.wpk.pojos.Nurse;
 import com.wpk.pojos.Patient;
+import com.wpk.pojos.Services;
+import com.wpk.pojos.ServiceInvoice;
 import com.wpk.pojos.Slide;
 import com.wpk.pojos.User;
 import java.util.Set;
@@ -38,7 +42,10 @@ public class WebAppValidator implements Validator{
                 ||Doctor.class.isAssignableFrom(clazz)
                 ||Nurse.class.isAssignableFrom(clazz)
                 ||Drug.class.isAssignableFrom(clazz)
-                ||Patient.class.isAssignableFrom(clazz);
+                ||Patient.class.isAssignableFrom(clazz)
+                ||MedicalExaminationCard.class.isAssignableFrom(clazz)
+                ||Appointment.class.isAssignableFrom(clazz)
+                ||ServiceInvoice.class.isAssignableFrom(clazz);
     }
 
     @Override

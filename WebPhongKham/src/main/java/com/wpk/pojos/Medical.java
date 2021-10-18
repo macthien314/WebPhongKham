@@ -6,6 +6,7 @@
 package com.wpk.pojos;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -38,6 +39,9 @@ import org.springframework.web.multipart.MultipartFile;
     @NamedQuery(name = "Medical.findByDescription", query = "SELECT m FROM Medical m WHERE m.description = :description"),
     @NamedQuery(name = "Medical.findByImage", query = "SELECT m FROM Medical m WHERE m.image = :image")})
 public class Medical implements Serializable {
+
+    @OneToMany(mappedBy = "medicalId")
+    private Collection<Services> servicesCollection;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -170,6 +174,15 @@ public class Medical implements Serializable {
      */
     public void setFile(MultipartFile file) {
         this.file = file;
+    }
+
+    @XmlTransient
+    public Collection<Services> getServicesCollection() {
+        return servicesCollection;
+    }
+
+    public void setServicesCollection(Collection<Services> servicesCollection) {
+        this.servicesCollection = servicesCollection;
     }
     
 }

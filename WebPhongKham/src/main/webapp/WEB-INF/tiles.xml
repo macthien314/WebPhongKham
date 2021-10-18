@@ -73,7 +73,12 @@
     </definition>
     <!-- End admin: user manager -->
     
-    
+     <definition name="medicalexaminationcard-manager" extends="adminLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/medicalexaminationcard/medicalexaminationcard_manager.jsp"/>
+    </definition>
+    <definition name="add-medicalexaminationcard" extends="adminLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/medicalexaminationcard/add_medicalexaminationcard.jsp"/>
+    </definition>
     
    
     
@@ -92,14 +97,36 @@
     <definition name="patient-manager" extends="adminLayout">
         <put-attribute name="content" value="/WEB-INF/jsp/admin/patient/patient_manager.jsp"/>
     </definition>
-    <definition name="add-drug" extends="adminLayout">
+    <definition name="add-patient" extends="adminLayout">
         <put-attribute name="content" value="/WEB-INF/jsp/admin/patient/add_patient.jsp"/>
     </definition>
     <!-- End admin: user manager -->
     
-    
+          <!-- start admin :patient manager -->
+    <definition name="appointment-manager" extends="adminLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/appointment/appointment_manager.jsp"/>
+    </definition>
+    <definition name="add-appointment" extends="adminLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/appointment/add_appointment.jsp"/>
+    </definition>
+    <!-- End admin: user manager -->
      
-     
+           <!-- start admin :patient manager -->
+    <definition name="service-manager" extends="adminLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/service/service_manager.jsp"/>
+    </definition>
+    <definition name="add-service" extends="adminLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/service/add_service.jsp"/>
+    </definition>
+    <!-- End admin: user manager -->
+             <!-- start admin :patient manager -->
+    <definition name="serviceinvoice-manager" extends="adminLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/serviceinvoice/serviceinvoice_manager.jsp"/>
+    </definition>
+    <definition name="add-serviceinvoice" extends="adminLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/service/add_serviceinvoice.jsp"/>
+    </definition>
+    <!-- End admin: user manager -->
      
     <definition name="admin" extends="adminLayout">
     </definition>
