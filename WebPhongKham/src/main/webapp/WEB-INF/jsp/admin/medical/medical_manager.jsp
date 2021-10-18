@@ -68,11 +68,11 @@
                          <td class="setting">
                              
                              <a data-toggle="tooltip" title="xem thông tin" title="thông tin"href="<c:url value="/admin/quanly-slide/chitiet-slide/${s.id}"/>"> <i class="fas fa-info-circle" style="color:#18d26e"></i></a>
-                              <a data-toggle="tooltip" title="chỉnh sửa" href="<c:url value="/admin/quanly-slide/sua-slide/${s.id}"/>">
+                             <a data-toggle="tooltip" title="chỉnh sửa" href="<c:url value="/admin/medical-manager/edit-medical/${s.id}"/>">
                                   <i class="fas fa-edit" style="color:#6633ff"></i>
                                </a>
 
-                              <a id="modal" href="<c:url value="/admin/quanly-slide/xoa-slide/${s.id}"/>" name="deleteButton" type="button" class="btn btn-primary" data-toggle="tooltip modal" data-target="#deleteModal" title="Xóa sản phẩm">
+                              <a id="modal" href="<c:url value="/admin/medical-manager/delete-medical/${s.id}"/>" name="deleteButton" type="button" class="btn btn-primary" data-toggle="tooltip modal" data-target="#deleteModal" title="Xóa sản phẩm">
                                    <i class="fas fa-trash-alt" style="color:#ed3c0d"></i>
                               </a>
                                
@@ -88,8 +88,7 @@
     
 
 
-            <c:url value="/admin/quanly-chuyenkhoa/them-chuyenkhoa" var="action"/>
-                    <!-- Modal -->
+  <!-- Modal -->
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -100,35 +99,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form:form id="slide" action="${action}" modelAttribute="medical" method="post" enctype="multipart/form-data">
-               <form:errors path="*" cssClass="alert alert-danger" element="div" />
-              
-                <div class="form-group preview text-center">
-                    <img class="" src="${slide.image}"id="preview" alt="Preview Image" width="50%" height="20%"/>
-                    <div class="browse-button">
-                        <i class="fa fa-pencil-alt"></i>
-                        <form:input  path="file" type="file" requiredname="UploadedFile" id="UploadedFile"/>
-                    </div>
-                    <span class="Error"></span>
-                </div>
-                <div class=" form-group">
-                     <label for="title">Tên</label>   
-                     <form:input  path="name" id="name" name="name" type="text" cssClass="form-control"/>
-                     
-                </div> <!-- form-group end.// -->
-                <div class=" form-group">
-                            
-                      <label for="descripstion">Description</label>
-                      <form:textarea path="description" id="description" name="description" type="text" cssClass="form-control"/>
-
-
-                </div>
-                          
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-block">Cập nhập</button>
-            </div>
-                
-            </form:form>
+        Bạn có muốn chắn xóa chuyên khoa
       </div>
       <div class="modal-footer">
           <a href="" class="btn btn-primary" id="delRef">Vâng,tôi chắc</a> 

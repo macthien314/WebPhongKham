@@ -41,7 +41,7 @@ public class NurseRepositoryImpl implements NurseRepository{
     public boolean addOrUpdate(Nurse m) {
         Session session = sessionFactory.getObject().getCurrentSession();
         try{
-            session.save(m);
+            session.saveOrUpdate(m);
             return true;
         }
         catch(Exception e){
@@ -50,5 +50,17 @@ public class NurseRepositoryImpl implements NurseRepository{
         }
         return false;
     }
-   
+   @Override
+    public boolean removeNurse(int id) {
+       Session session = sessionFactory.getObject().getCurrentSession();
+        Nurse m = this.getNurseByID(id);
+        try{
+            session.delete(m);
+            return true;
+        }
+        catch(Exception e){
+        
+        }
+        return false;
+    }
 }

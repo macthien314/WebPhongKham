@@ -6,6 +6,7 @@
 package com.wpk.controllers;
 
 import com.wpk.pojos.Doctor;
+import com.wpk.pojos.Nurse;
 import com.wpk.service.DoctorService;
 import com.wpk.validator.WebAppValidator;
 import java.util.Map;
@@ -18,7 +19,10 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
@@ -58,5 +62,39 @@ public class DoctorManagerController {
                 model.addAttribute("err","Something wrong");
         }
         return "add-doctor";
+    }
+    
+    //chuc nang xoa bac si
+     @RequestMapping(value="/admin/doctor-manager/delete-doctor/{id}",method = {RequestMethod.DELETE,RequestMethod.GET})
+    public String deleteDoctor(Model model,@PathVariable(value ="id") int id){
+        
+        if(this.doctorService.removeDoctor(id)){
+            return "redirect:/admin/doctor-manager";
+        }
+        else model.addAttribute("err","Something wrong");
+        
+        return "redirect:/admin/doctor-manager";
+    }
+    
+    //chuc nang sua y tá
+    
+    @GetMapping("/admin/doctor-manager/edit-doctor/{doctorID}")
+    public String editDoctorShow(Model model,@PathVariable(value ="doctorID") int doctorID){
+        Doctor m = this.doctorService.getDoctorByID(doctorID);
+        model.addAttribute("doctor", m);
+        return "edit-doctor";
+    }
+    @PostMapping("/admin/doctor-manager/edit-doctor")
+    public String editDoctorProsses(Model model, @ModelAttribute(value = "doctor")@Valid Doctor m, BindingResult result){
+        
+        if(!result.hasErrors())
+        {   
+            if(this.doctorService.addOrUpdate(m)==true)
+                    return "redirect:/admin/doctor-manager";
+        else
+                model.addAttribute("err","Something wrong");
+        }
+        
+        return "redirect:/admin/doctor-manager/edit-doctor/{"+m.getId().toString()+"}" ;
     }
 }

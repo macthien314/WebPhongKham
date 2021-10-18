@@ -45,12 +45,26 @@ public class DoctorRepositoryImpl implements DoctorRepository {
     public boolean addOrUpdate(Doctor m) {
          Session session = sessionFactory.getObject().getCurrentSession();
         try{
-            session.save(m);
+            session.saveOrUpdate(m);
             return true;
         }
         catch(Exception e){
             System.err.println("==ADD PRODUCT===" + e.getMessage());
             e.printStackTrace();
+        }
+        return false;
+    }
+    
+     @Override
+    public boolean removeDoctor(int id) {
+       Session session = sessionFactory.getObject().getCurrentSession();
+        Doctor m = this.getDoctorByID(id);
+        try{
+            session.delete(m);
+            return true;
+        }
+        catch(Exception e){
+        
         }
         return false;
     }

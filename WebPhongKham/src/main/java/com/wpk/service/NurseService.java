@@ -16,4 +16,5 @@ public interface NurseService {
       List<Nurse> getNurses();
     Nurse getNurseByID(int id);
      boolean addOrUpdate(Nurse m);
+     boolean removeNurse(int id);
 }

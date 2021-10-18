@@ -19,7 +19,10 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
@@ -60,5 +63,37 @@ public class MedicalManagerController {
         }
         return "add-medicals";
     }
+    //chuc nang xoa slide
+     @RequestMapping(value="/admin/medical-manager/delete-medical/{id}",method = {RequestMethod.DELETE,RequestMethod.GET})
+    public String deleteMedical(Model model,@PathVariable(value ="id") int id){
+        
+        if(this.medicalService.removeMedical(id)){
+            return "redirect:/admin/medical-manager";
+        }
+        else model.addAttribute("err","Something wrong");
+        
+        return "redirect:/admin/medical-manager";
+    }
     
+    //chuc nang sua chuyen khoa
+    //ch?c nang s?a slide
+    @GetMapping("/admin/medical-manager/edit-medical/{medicalID}")
+    public String editMedicalShow(Model model,@PathVariable(value ="medicalID") int medicalID){
+        Medical m = this.medicalService.getMedicalByID(medicalID);
+        model.addAttribute("medical", m);
+        return "edit-medical";
+    }
+    @PostMapping("/admin/medical-manager/edit-medical")
+    public String editMedicalProsses(Model model, @ModelAttribute(value = "medical")@Valid Medical m, BindingResult result){
+        
+        if(!result.hasErrors())
+        {   
+            if(this.medicalService.addOrUpdate(m)==true)
+                    return "redirect:/admin/medical-manager";
+        else
+                model.addAttribute("err","Something wrong");
+        }
+        
+        return "redirect:/admin/quanly-slide/sua-slide/{"+m.getId().toString()+"}" ;
+    }
 }

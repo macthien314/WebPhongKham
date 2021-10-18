@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd"> 
 
 <tiles-definitions>
@@ -62,6 +62,9 @@
      <definition name="add-nurse" extends="adminLayout">
         <put-attribute name="content" value="/WEB-INF/jsp/admin/nurse/add_nurse.jsp"/>
     </definition>
+    <definition name="edit-nurse" extends="adminLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/nurse/edit_nurse.jsp"/>
+    </definition>
     <!-- End admin: user manager -->
      
        <!-- start admin :doctor manager -->
@@ -70,6 +73,9 @@
     </definition>
     <definition name="add-doctor" extends="adminLayout">
         <put-attribute name="content" value="/WEB-INF/jsp/admin/doctor/add_doctor.jsp"/>
+    </definition>
+    <definition name="edit-doctor" extends="adminLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/doctor/edit_doctor.jsp"/>
     </definition>
     <!-- End admin: user manager -->
     
@@ -163,6 +169,9 @@
     </definition>
     <definition name="add-medical" extends="adminLayout">
         <put-attribute name="content" value="/WEB-INF/jsp/admin/medical/add_medical.jsp"/>
+    </definition>
+<definition name="edit-medical" extends="adminLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/medical/edit_medical.jsp"/>
     </definition>
     <!-- End admin: user manager -->
     

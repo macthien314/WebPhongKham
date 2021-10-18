@@ -18,5 +18,6 @@ public interface DoctorService {
      List<Doctor> getDoctor();
     Doctor getDoctorByID(int id);
      boolean addOrUpdate(Doctor d);
+     boolean removeDoctor(int id);
 }
 

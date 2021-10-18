@@ -20,7 +20,10 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
@@ -42,7 +45,7 @@ public class NurseManagerController {
    }
     @GetMapping("/admin/nurse-manager")
     public String NurseManager(Model model, @RequestParam(required = false)Map<String, String> params){
-        model.addAttribute("nurse", new Nurse());
+        
         model.addAttribute("nurses", this.nurseService.getNurses());
         return "nurse-manager";
     }
@@ -50,7 +53,7 @@ public class NurseManagerController {
      //chuc nang them chuyen khoa
     @GetMapping("/admin/nurse-manager/add-nurse")
     private String addNurseShow(Model model){
-        model.addAttribute("medi",medicalService.getMedicals());
+        
         model.addAttribute("nurse", new Nurse());
         return "add-nurse";
    }
@@ -64,5 +67,38 @@ public class NurseManagerController {
                 model.addAttribute("err","Something wrong");
         }
         return "add-nurse";
+    }
+     //chuc nang xoa y tá
+     @RequestMapping(value="/admin/nurse-manager/delete-nurse/{id}",method = {RequestMethod.DELETE,RequestMethod.GET})
+    public String deleteNurse(Model model,@PathVariable(value ="id") int id){
+        
+        if(this.nurseService.removeNurse(id)){
+            return "redirect:/admin/nurse-manager";
+        }
+        else model.addAttribute("err","Something wrong");
+        
+        return "redirect:/admin/nurse-manager";
+    }
+    
+    //chuc nang sua y tá
+    
+    @GetMapping("/admin/nurse-manager/edit-nurse/{nurseID}")
+    public String editNurseShow(Model model,@PathVariable(value ="nurseID") int nurseID){
+        Nurse m = this.nurseService.getNurseByID(nurseID);
+        model.addAttribute("nurse", m);
+        return "edit-nurse";
+    }
+    @PostMapping("/admin/nurse-manager/edit-nurse")
+    public String editNurseProsses(Model model, @ModelAttribute(value = "nurse")@Valid Nurse m, BindingResult result){
+        
+        if(!result.hasErrors())
+        {   
+            if(this.nurseService.addOrUpdate(m)==true)
+                    return "redirect:/admin/nurse-manager";
+        else
+                model.addAttribute("err","Something wrong");
+        }
+        
+        return "redirect:/admin/nurse-manager/edit-nurse/{"+m.getId().toString()+"}" ;
     }
 }

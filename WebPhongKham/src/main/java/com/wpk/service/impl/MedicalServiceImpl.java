@@ -50,4 +50,8 @@ public class MedicalServiceImpl implements MedicalService{
         }}
         return this.medicalRepository.addOrUpdate(m);
     }
+    @Override
+    public boolean removeMedical(int i) {
+        return this.medicalRepository.removeMedical(i);
+    }
 }

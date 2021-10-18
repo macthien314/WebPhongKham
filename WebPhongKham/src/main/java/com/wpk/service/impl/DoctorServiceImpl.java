@@ -51,4 +51,9 @@ public class DoctorServiceImpl implements DoctorService{
     public Doctor getDoctorByID(int id) {
           return doctorRepository.getDoctorByID(id);
     }
+    
+    @Override
+    public boolean removeDoctor(int i) {
+        return this.doctorRepository.removeDoctor(i);
+    }
 }

@@ -50,5 +50,9 @@ public class NurseServiceImpl implements NurseService{
         }}
         return this.nurseRepository.addOrUpdate(m);
     }
+    @Override
+    public boolean removeNurse(int i) {
+        return this.nurseRepository.removeNurse(i);
+    }
 }
 
