@@ -17,6 +17,7 @@ import com.wpk.validator.MedicalExaminationCardValidator;
 import com.wpk.validator.MedicalValidator;
 import com.wpk.validator.NurseValidator;
 import com.wpk.validator.PatientValidator;
+import com.wpk.validator.PrescriptionValidator;
 import com.wpk.validator.ServiceInvoiceValidator;
 import com.wpk.validator.SlideValidator;
 import com.wpk.validator.UserImageValidator;
@@ -176,6 +177,16 @@ public class WebApplicationContextConfig implements WebMvcConfigurer{
     public WebAppValidator serviceInvoiceValidator(){
         Set<Validator> springValidator = new HashSet<>();
         springValidator.add(new ServiceInvoiceValidator());
+        WebAppValidator v = new WebAppValidator();
+        v.setSpringValidator(springValidator);
+        return v;
+    
+    }
+    
+       @Bean
+    public WebAppValidator prescriptionValidator(){
+        Set<Validator> springValidator = new HashSet<>();
+        springValidator.add(new PrescriptionValidator());
         WebAppValidator v = new WebAppValidator();
         v.setSpringValidator(springValidator);
         return v;

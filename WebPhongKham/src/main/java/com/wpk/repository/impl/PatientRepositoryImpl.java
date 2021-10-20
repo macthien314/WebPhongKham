@@ -8,9 +8,10 @@ package com.wpk.repository.impl;
 import com.wpk.pojos.Patient;
 import com.wpk.repository.PatientRepository;
 import java.util.List;
-import javax.persistence.Query;
+
 
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.stereotype.Repository;

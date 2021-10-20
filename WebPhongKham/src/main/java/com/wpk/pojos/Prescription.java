@@ -21,9 +21,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -57,8 +59,18 @@ public class Prescription implements Serializable {
     private Patient patient;
     @OneToMany(mappedBy="prescription")
     private List<PrescriptionDrug> prescriptionDrugList;
-
+    @Transient
+   
+    private MultipartFile file;
     public Prescription() {
+    }
+
+    public Prescription(Integer id, Date createdDate, Doctor doctor, Patient patient) {
+        this.id = id;
+        this.createdDate = createdDate;
+        this.doctor = doctor;
+        this.patient = patient;
+       
     }
 
     public Prescription(Integer id) {
@@ -130,5 +142,14 @@ public class Prescription implements Serializable {
     public String toString() {
         return "com.wpk.pojos.Prescription[ id=" + id + " ]";
     }
-    
+       public MultipartFile getFile() {
+        return file;
+    }
+
+    /**
+     * @param file the file to set
+     */
+    public void setFile(MultipartFile file) {
+        this.file = file;
+    }
 }

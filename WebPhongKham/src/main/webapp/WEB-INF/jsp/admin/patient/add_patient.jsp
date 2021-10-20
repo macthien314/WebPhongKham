@@ -21,7 +21,7 @@
        <div class="card">
         <header class="card-header">
                
-                <h2 class="card-title mt-2">Doctor</h2>
+                <h2 class="card-title mt-2">Patient</h2>
         </header>
         <article class="card-body">
             
@@ -40,25 +40,25 @@
                 </div>
                     <div class="form-row">
                         <div class=" form-group col-md-6">
-                             <label for="firstName">Họ: </label>   
-                             <form:input path="firstName" id="title" name="title" type="text" cssClass="form-control"/>
-                             <form:errors path="firstName" cssClass="alert alert-danger" element="div" />
+                             <label for="lastName">Họ: </label>   
+                             <form:input path="lastName" id="title" name="title" type="text" cssClass="form-control"/>
+                             <form:errors path="lastName" cssClass="alert alert-danger" element="div" />
                         </div> <!-- form-group end.// -->
                         <div class=" form-group col-md-6">
 
-                            <label for="lastName">Tên:</label>
-                            <form:input path="lastName" id="title" name="title" type="text" cssClass="form-control"/>
-                            <form:errors path="lastName" cssClass="alert alert-danger" element="div" />
+                            <label for="firstName">Tên:</label>
+                            <form:input path="firstName" id="title" name="title" type="text" cssClass="form-control"/>
+                            <form:errors path="firstName" cssClass="alert alert-danger" element="div" />
 
                          </div>
                     </div>
                
                    <div class=" form-group">
-                     <label for="title">Ngày sinh</label>   
+                     <label for="birthDate">Ngày sinh</label>   
                      <form:input path="birthDate" id="birthDate" name="birthDate" type="date" value="2000-12-31"
-       min="1935-01-01" max="2000-12-31" cssClass="form-control"/>
+       min="01-01-1935" max="2021-12-31" cssClass="form-control"/>
                      <form:errors path="birthDate" cssClass="alert alert-danger" element="div" />
-                </div> <!-- form-group end.// -->
+                </div> 
                
                 <div class="form-group">
                     Nam:<form:radiobutton path="gender" value="Nam"/>
@@ -66,23 +66,27 @@
                 </div><!-- form-group end.// -->
                 
                 <div class=" form-group">
-                     <label for="title">SĐT</label>   
+                     <label for="phone">SĐT</label>   
                      <form:input path="phone" id="phone" name="phone" type="number" cssClass="form-control"/>
                      <form:errors path="phone" cssClass="alert alert-danger" element="div" />
                 </div> <!-- form-group end.// -->
                 
                 
                 <div class=" form-group">
-                     <label for="title">Email</label>   
+                     <label for="email">Email</label>   
                      <form:input path="email" id="email" name="email" type="text" cssClass="form-control"/>
                      <form:errors path="email" cssClass="alert alert-danger" element="div" />
                 </div> <!-- form-group end.// -->
                 
+               
+                
+                 
+                <!-- form-group end.// -->
        
                 <!-- form-group end.// -->
                        
             <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-block">Tạo Bác sĩ</button>
+                <button type="submit" class="btn btn-primary btn-block">Thêm bệnh nhân</button>
             </div>
                 
             </form:form>

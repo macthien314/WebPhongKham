@@ -133,6 +133,18 @@
         <put-attribute name="content" value="/WEB-INF/jsp/admin/service/add_serviceinvoice.jsp"/>
     </definition>
     <!-- End admin: user manager -->
+    
+      <!-- start admin :patient manager -->
+    <definition name="prescription-manager" extends="adminLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/prescription/prescription_manager.jsp"/>
+    </definition>
+    <definition name="add-prescription" extends="adminLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/prescription/add_prescription.jsp"/>
+    </definition>
+    <!-- End admin: user manager -->
+    
+    
+    
      
     <definition name="admin" extends="adminLayout">
     </definition>

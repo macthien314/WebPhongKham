@@ -58,6 +58,6 @@ public class PatientManagerController {
         else
                 model.addAttribute("err","Something wrong");
         }
-        return "add-patients";
+        return "add-patient";
     }
 }

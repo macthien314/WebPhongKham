@@ -22,6 +22,8 @@
     <class>com.wpk.pojos.Appointment_1</class>
     <class>com.wpk.pojos.PrescriptionDrug</class>
     <class>com.wpk.pojos.Services</class>
+    <class>com.wpk.validator.PrescriptionValidator</class>
+    <class>com.wpk.service.impl.PrescriptionServiceImpl</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/hospitaldb"/>

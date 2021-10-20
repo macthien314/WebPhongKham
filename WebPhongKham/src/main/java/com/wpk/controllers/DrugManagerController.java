@@ -48,7 +48,7 @@ public class DrugManagerController {
         return "add-drug";
    }
     @PostMapping("/admin/drug-manager/add-drug")
-    private String addMedicalProcess(Model model, @ModelAttribute(value = "drug")@Valid Drug m, BindingResult result){
+    private String addDrugsProcess(Model model, @ModelAttribute(value = "drug")@Valid Drug m, BindingResult result){
         if(!result.hasErrors())
         {      
             if(this.drugService.addOrUpdate(m)==true)
@@ -56,7 +56,7 @@ public class DrugManagerController {
         else
                 model.addAttribute("err","Something wrong");
         }
-        return "add-drugs";
+        return "add-drug";
     }
 }
     

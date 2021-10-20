@@ -6,10 +6,10 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<h1 class="mt-4">Quản lý Chuyên khoa</h1>
+<h1 class="mt-4">Quản lý toa thuốc </h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="index.html">admin</a></li>
-                            <li class="breadcrumb-item active">quanly-chuyenkhoa</li>
+                            <li class="breadcrumb-item active">quanly-toathuoc</li>
                         </ol>
 <c:if test="${err != null}">
     <div class="alert alert-danger">${err}</div>
@@ -22,7 +22,7 @@
          <form action="">
         <div class="row">
             <div class="col-md-3">
-            <a href="<c:url value="/admin/medical-manager/add-medical"/>" class=" btn btn-primary btn-xs pull-right"><b>+</b> ADD Medical</a>
+            <a href="<c:url value="/admin/prescription-manager/add-prescription"/>" class=" btn btn-primary btn-xs pull-right"><b>+</b> ADD Prescription</a>
              </div>
              <div class="col-md-3">
                           
@@ -45,26 +45,22 @@
 
             <tr>
                 <th class="th-sm">Mã</th>
-                <th>Tên</th>
-                <th>Mô tả</th>
-                <th>Ảnh</th>
+                <th>Ngày tạo</th>
+                <th>Tên bác sĩ</th>
+                <th>Tên bệnh nhân</th>
                 
                 <th><i class="fas fa-cog"></i></th>
            </tr>
         </thead>
         <tbody>
             
-                <c:forEach items="${medicals}" var="s">
+                <c:forEach items="${prescriptions}" var="s">
                     <tr>
                         <td>${s.id}</td>
-                        <td>${s.name}</td>
-                        <td>${s.description}</td>
-                        
-                            <td class="w-auto">
-			      <img src="${s.image}" class="img-fluid img-thumbnail" alt="Sheep">
-		      
-                        </td>
-
+                        <td>${s.createdDate}</td>
+                        <td>${s.doctor.firstName}</td> 
+                        <td>${s.patient.firstName}</td>
+                           
                          <td class="setting">
                              
                              <a data-toggle="tooltip" title="xem thông tin" title="thông tin"href="<c:url value="/admin/quanly-slide/chitiet-slide/${s.id}"/>"> <i class="fas fa-info-circle" style="color:#18d26e"></i></a>
@@ -88,7 +84,7 @@
     
 
 
-            <c:url value="/admin/quanly-chuyenkhoa/them-chuyenkhoa" var="action"/>
+            <c:url value="/admin/quanly-toathuoc/them-toathuoc" var="action"/>
                     <!-- Modal -->
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -100,30 +96,10 @@
         </button>
       </div>
       <div class="modal-body">
-        <form:form id="slide" action="${action}" modelAttribute="medical" method="post" enctype="multipart/form-data">
+        <form:form id="slide" action="${action}" modelAttribute="prescription" method="post" enctype="multipart/form-data">
                <form:errors path="*" cssClass="alert alert-danger" element="div" />
               
-                <div class="form-group preview text-center">
-                    <img class="" src="${slide.image}"id="preview" alt="Preview Image" width="50%" height="20%"/>
-                    <div class="browse-button">
-                        <i class="fa fa-pencil-alt"></i>
-                        <form:input  path="file" type="file" requiredname="UploadedFile" id="UploadedFile"/>
-                    </div>
-                    <span class="Error"></span>
-                </div>
-                <div class=" form-group">
-                     <label for="title">Tên</label>   
-                     <form:input  path="name" id="name" name="name" type="text" cssClass="form-control"/>
-                     
-                </div> <!-- form-group end.// -->
-                <div class=" form-group">
-                            
-                      <label for="descripstion">Description</label>
-                      <form:textarea path="description" id="description" name="description" type="text" cssClass="form-control"/>
-
-
-                </div>
-                          
+                                          
             <div class="form-group">
                 <button type="submit" class="btn btn-primary btn-block">Cập nhập</button>
             </div>

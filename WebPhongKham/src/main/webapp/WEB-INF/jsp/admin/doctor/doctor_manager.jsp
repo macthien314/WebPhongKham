@@ -66,8 +66,8 @@
             <c:forEach items="${doctors}" var="s">
                 <tr>
                     <td>${s.id}</td>
-                    <td>${s.firstName}</td>
                     <td>${s.lastName}</td>
+                    <td>${s.firstName}</td>
                     <td>${s.birthDate}</td>
                     <td>${s.gender}</td>
                     <td>${s.phone}</td>

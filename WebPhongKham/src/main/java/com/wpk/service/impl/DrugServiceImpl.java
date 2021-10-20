@@ -38,14 +38,6 @@ public class DrugServiceImpl implements DrugService{
 
     @Override
     public boolean addOrUpdate(Drug m) {
-        if(!m.getFile().isEmpty()){
-        try {
-          
-            Map r = this.cloudinary.uploader().upload(m.getFile().getBytes(),
-                    ObjectUtils.asMap("resource_type","auto","folder","drug"));
-            
-        } catch (IOException ex) {
-            System.out.println("==ADD USER==");
-        }}
+     
         return this.drugRepository.addOrUpdate(m);
     }}
