@@ -21,12 +21,11 @@ import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
- * @author macth
+ * @author Admin
  */
 @Entity
 @Table(name = "medical_examination_card")
@@ -55,7 +54,6 @@ public class MedicalExaminationCard implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "date")
     private String date;
     @Basic(optional = false)
@@ -68,6 +66,7 @@ public class MedicalExaminationCard implements Serializable {
     @Size(max = 100)
     @Column(name = "diagnosis")
     private String diagnosis;
+    
     @ManyToOne
     @JoinColumn(name = "nurse_id")
     private Nurse nurse;
@@ -75,12 +74,13 @@ public class MedicalExaminationCard implements Serializable {
     @ManyToOne
     @JoinColumn(name = "patient_id")
     private Patient patient;
-
-    public MedicalExaminationCard() {
-    }
      @Transient
    
     private MultipartFile file;
+
+    public MedicalExaminationCard() {
+    }
+
     public MedicalExaminationCard(Integer id) {
         this.id = id;
     }
@@ -140,20 +140,20 @@ public class MedicalExaminationCard implements Serializable {
         this.diagnosis = diagnosis;
     }
 
-    public Nurse getNurseId() {
+    public Nurse getNurse() {
         return nurse;
     }
 
-    public void setNurseId(Nurse nurseId) {
-        this.nurse = nurseId;
+    public void setNurse(Nurse nurse) {
+        this.nurse = nurse;
     }
 
-    public Patient getPatientId() {
+    public Patient getPatient() {
         return patient;
     }
 
-    public void setPatientId(Patient patientId) {
-        this.patient = patientId;
+    public void setPatient(Patient patient) {
+        this.patient = patient;
     }
 
     @Override
@@ -180,7 +180,9 @@ public class MedicalExaminationCard implements Serializable {
     public String toString() {
         return "com.wpk.pojos.MedicalExaminationCard[ id=" + id + " ]";
     }
-     public MultipartFile getFile() {
+    
+    
+        public MultipartFile getFile() {
         return file;
     }
 

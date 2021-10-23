@@ -19,7 +19,7 @@
 </c:if>
 <div id="managerTable" class="table table-striped w-auto" >
 
-    <table  class="slide-table table table-striped table-bordered" width="100%">
+    <table  class=" table table-striped table-bordered" width="100%">
 
     <thead>
      <form action="">

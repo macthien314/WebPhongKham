@@ -90,7 +90,7 @@ public class Doctor implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "years_experience")
-    private int yearsExperience;
+    private String yearsExperience;
     @Basic(optional = false)
   
     @Size(min = 1, max = 100)
@@ -116,7 +116,7 @@ public class Doctor implements Serializable {
         this.id = id;
     }
 
-    public Doctor(Integer id, String firstName, String lastName, String phone, String email, int yearsExperience, String image) {
+    public Doctor(Integer id, String firstName, String lastName, String phone, String email, String yearsExperience, String image) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -182,11 +182,11 @@ public class Doctor implements Serializable {
         this.email = email;
     }
 
-    public int getYearsExperience() {
+    public String getYearsExperience() {
         return yearsExperience;
     }
 
-    public void setYearsExperience(int yearsExperience) {
+    public void setYearsExperience(String yearsExperience) {
         this.yearsExperience = yearsExperience;
     }
 

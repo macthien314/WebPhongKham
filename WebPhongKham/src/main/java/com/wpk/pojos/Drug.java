@@ -6,7 +6,6 @@
 package com.wpk.pojos;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Basic;
@@ -32,7 +31,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
- * @author macth
+ * @author Admin
  */
 @Entity
 @Table(name = "drug")
@@ -70,21 +69,19 @@ public class Drug implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "expiry")
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date expiry;
     @Basic(optional = false)
     @NotNull
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "manufacturer")
     @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date manufacturer;
-    @OneToMany(mappedBy = "drug")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "drug")
     private List<PrescriptionDrug> prescriptionDrugList;
-     @Transient
-   
-    private MultipartFile file;
 
+   
     public Drug() {
     }
 
@@ -149,7 +146,7 @@ public class Drug implements Serializable {
         this.manufacturer = manufacturer;
     }
 
-     @XmlTransient
+    @XmlTransient
     public List<PrescriptionDrug> getPrescriptionDrugList() {
         return prescriptionDrugList;
     }
@@ -178,19 +175,5 @@ public class Drug implements Serializable {
         return true;
     }
 
-    @Override
-    public String toString() {
-        return "com.wpk.pojos.Drug[ id=" + id + " ]";
-    }
-     public MultipartFile getFile() {
-        return file;
-    }
-
-    /**
-     * @param file the file to set
-     */
-    public void setFile(MultipartFile file) {
-        this.file = file;
-    }
-
+ 
 }

@@ -41,7 +41,7 @@ public class DrugRepositoryImpl implements DrugRepository{
     public boolean addOrUpdate(Drug m) {
         Session session = sessionFactory.getObject().getCurrentSession();
         try{
-            session.save(m);
+            session.saveOrUpdate(m);
             return true;
         }
         catch(Exception e){

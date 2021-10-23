@@ -96,6 +96,9 @@
     <definition name="add-drug" extends="adminLayout">
         <put-attribute name="content" value="/WEB-INF/jsp/admin/drug/add_drug.jsp"/>
     </definition>
+    <definition name="edit-drug" extends="adminLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/drug/edit_drug.jsp"/>
+    </definition>
     <!-- End admin: user manager -->
     
     

@@ -24,8 +24,7 @@ public class DrugValidator implements Validator{
 
     @Override
     public void validate(Object o, Errors errors) {
-       Drug m = (Drug) o; 
-           errors.rejectValue("file", "slide.file.imageEmtyErr");
+      
     }
 }
 

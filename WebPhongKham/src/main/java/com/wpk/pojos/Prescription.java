@@ -6,15 +6,12 @@
 package com.wpk.pojos;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -24,15 +21,13 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.persistence.Transient;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
- * @author macth
+ * @author Admin
  */
 @Entity
 @Table(name = "prescription")
@@ -45,30 +40,26 @@ public class Prescription implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
+    @NotNull
     @Column(name = "id")
     private Integer id;
     @Column(name = "created_date")
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Temporal(TemporalType.DATE)
     private Date createdDate;
+    
     @ManyToOne
     @JoinColumn(name = "doctor_id")
-    private Doctor doctorId;
-
+    private Doctor doctor;
+    
     @ManyToOne
     @JoinColumn(name = "patient_id")
-    private Patient patientId;
+    private Patient patient;
     @OneToMany(mappedBy="prescription")
     private List<PrescriptionDrug> prescriptionDrugList;
 
-
     public Prescription() {
     }
-    @Transient
-   
-    private MultipartFile file;
 
     public Prescription(Integer id) {
         this.id = id;
@@ -90,24 +81,21 @@ public class Prescription implements Serializable {
         this.createdDate = createdDate;
     }
 
-    public Doctor getDoctorId() {
-        return doctorId;
+    public Doctor getDoctor() {
+        return doctor;
     }
 
-    public void setDoctorId(Doctor doctorId) {
-        this.doctorId = doctorId;
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
     }
 
-    public Patient getPatientId() {
-        return patientId;
+    public Patient getPatient() {
+        return patient;
     }
 
-    public void setPatientId(Patient patientId) {
-        this.patientId = patientId;
+    public void setPatient(Patient patient) {
+        this.patient = patient;
     }
-
-    
-    
 
     @XmlTransient
     public List<PrescriptionDrug> getPrescriptionDrugList() {
@@ -143,14 +131,4 @@ public class Prescription implements Serializable {
         return "com.wpk.pojos.Prescription[ id=" + id + " ]";
     }
     
-    public MultipartFile getFile() {
-        return file;
-    }
-
-    /**
-     * @param file the file to set
-     */
-    public void setFile(MultipartFile file) {
-        this.file = file;
-    }
 }

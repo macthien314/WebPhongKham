@@ -34,15 +34,7 @@ public class PrescriptionServiceImpl implements PrescriptionService{
 
     @Override
     public boolean addOrUpdate(Prescription d) {
-        if(!d.getFile().isEmpty()){
-        try {
-          
-            Map r = this.cloudinary.uploader().upload(d.getFile().getBytes(),
-                    ObjectUtils.asMap("resource_type","auto","folder","prescription"));
-          
-        } catch (IOException ex) {
-            System.out.println("==ADD USER==");
-        }}
+       
         return this.prescriptionRepository.addOrUpdate(d);
     }
 

@@ -25,8 +25,6 @@ public class PrescriptionValidator implements Validator{
     @Override
     public void validate(Object target, Errors errors) {
         Prescription m = (Prescription) target;
-        if(m.getFile().isEmpty()){
-           errors.rejectValue("file", "slide.file.imageEmtyErr");
-        }
+        
     }
 }

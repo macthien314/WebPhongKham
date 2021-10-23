@@ -17,6 +17,7 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -57,6 +58,28 @@ public class DrugManagerController {
                 model.addAttribute("err","Something wrong");
         }
         return "add-drug";
+    }
+    
+    //chuc nang sua thuốc
+    
+    @GetMapping("/admin/drug-manager/edit-drug/{drugID}")
+    public String editDrugShow(Model model,@PathVariable(value ="drugID") int drugID){
+        Drug m = this.drugService.getDrugByID(drugID);
+        model.addAttribute("drug", m);
+        return "edit-drug";
+    }
+    @PostMapping("/admin/drug-manager/edit-drug")
+    public String editDrugProsses(Model model, @ModelAttribute(value = "drug")@Valid Drug m, BindingResult result){
+        
+        if(!result.hasErrors())
+        {   
+            if(this.drugService.addOrUpdate(m)==true)
+                    return "redirect:/admin/drug-manager";
+        else
+                model.addAttribute("err","Something wrong");
+        }
+        
+        return "redirect:/admin/drug-manager/edit-drug/{"+m.getId().toString()+"}" ;
     }
 }
     

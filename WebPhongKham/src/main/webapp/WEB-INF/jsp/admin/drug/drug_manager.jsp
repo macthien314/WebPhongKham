@@ -17,7 +17,7 @@
 </c:if>
 <div id="managerTable" class="table table-striped w-auto" >
     
-        <table  class="slide-table table table-striped table-bordered" width="100%">
+        <table  class="table table-striped table-bordered" width="100%">
         
         <thead>
          <form action="">
@@ -69,7 +69,7 @@
                          <td class="setting">
                              
                              <a data-toggle="tooltip" title="xem thông tin" title="thông tin"href="<c:url value="/admin/quanly-slide/chitiet-slide/${s.id}"/>"> <i class="fas fa-info-circle" style="color:#18d26e"></i></a>
-                              <a data-toggle="tooltip" title="chỉnh sửa" href="<c:url value="/admin/quanly-slide/sua-slide/${s.id}"/>">
+                              <a data-toggle="tooltip" title="chỉnh sửa" href="<c:url value="/admin/drug-manager/edit-drug/${s.id}"/>">
                                   <i class="fas fa-edit" style="color:#6633ff"></i>
                                </a>
 

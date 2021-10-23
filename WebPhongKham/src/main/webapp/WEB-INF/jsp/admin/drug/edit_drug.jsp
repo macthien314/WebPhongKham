@@ -7,10 +7,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <c:url value="/admin/drug-manager/add-drug" var="action"/>
-<h2 class="mt-4">Thêm thuốc </h2>
+<h2 class="mt-4">Chỉnh sữa thuốc </h2>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="index.html">admin</a></li>
-                            <li class="breadcrumb-item active">quanly-thuoc</li>
+                            <li class="breadcrumb-item active">edit-drug</li>
                         </ol>
 
 
@@ -28,6 +28,7 @@
             
 
             <form:form id="drug" action="${action}" modelAttribute="drug" method="post" enctype="multipart/form-data">
+                <form:hidden path="id" />
                 <form:errors path="*" cssClass="alert alert-danger" element="div" />
                 <div class=" form-group">
                      <label for="name">Tên thuốc</label>   
@@ -49,11 +50,11 @@
                 <div class=" form-row">
                       <div class=" form-group col-md-6">      
                     <label for="expiry">Hạn sử dụng</label>
-                   <form:input path="expiry" placeholder="dd-MM-yyyy"  id="expiry" name="title" type="date" cssClass="form-control"/>
+                   <form:input path="expiry" id="expiry" name="title" type="date" cssClass="form-control"/>
                    <form:errors path="expiry" cssClass="alert alert-danger" element="div" /></div>
                    <div class=" form-group col-md-6">
                     <label for="manufacturer">Ngày sản xuất</label>
-                   <form:input path="manufacturer" placeholder="dd-MM-yyyy"  xid="manufacturer" name="title" type="date" cssClass="form-control"/>
+                   <form:input path="manufacturer" id="manufacturer" name="title" type="date" cssClass="form-control"/>
                     <form:errors path="manufacturer" cssClass="alert alert-danger" element="div" /></div>
                  </div>
                         
