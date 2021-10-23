@@ -16,4 +16,5 @@ public interface PatientService {
     List<Patient> getPatients();
     Patient getPatientByID(int id);
      boolean addOrUpdate(Patient d);  
+     boolean removePatient(int id);
 }

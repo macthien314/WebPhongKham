@@ -6,14 +6,19 @@
 package com.wpk.pojos;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -31,7 +36,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
- * @author Admin
+ * @author macth
  */
 @Entity
 @Table(name = "patient")
@@ -44,13 +49,14 @@ import org.springframework.web.multipart.MultipartFile;
     @NamedQuery(name = "Patient.findByBirthDate", query = "SELECT p FROM Patient p WHERE p.birthDate = :birthDate"),
     @NamedQuery(name = "Patient.findByGender", query = "SELECT p FROM Patient p WHERE p.gender = :gender"),
     @NamedQuery(name = "Patient.findByPhone", query = "SELECT p FROM Patient p WHERE p.phone = :phone"),
-    @NamedQuery(name = "Patient.findByEmail", query = "SELECT p FROM Patient p WHERE p.email = :email")})
+    @NamedQuery(name = "Patient.findByEmail", query = "SELECT p FROM Patient p WHERE p.email = :email"),
+    @NamedQuery(name = "Patient.findByImage", query = "SELECT p FROM Patient p WHERE p.image = :image")})
 public class Patient implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
     @Column(name = "id")
     private Integer id;
     @Basic(optional = false)
@@ -65,8 +71,8 @@ public class Patient implements Serializable {
     private String lastName;
     @Basic(optional = false)
     @NotNull
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "birth_date")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Temporal(TemporalType.DATE)
     private Date birthDate;
     @Basic(optional = false)
@@ -74,11 +80,6 @@ public class Patient implements Serializable {
     @Size(min = 1, max = 45)
     @Column(name = "gender")
     private String gender;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 100)
-    @Column(name = "image")
-    private String image;
     // @Pattern(regexp="^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$", message="Invalid phone/fax format, should be as xxx-xxx-xxxx")//if the field contains phone or fax number consider using this annotation to enforce field validation
     @Basic(optional = false)
     @NotNull
@@ -91,7 +92,10 @@ public class Patient implements Serializable {
     @Size(min = 1, max = 45)
     @Column(name = "email")
     private String email;
-    @OneToMany(mappedBy = "patient")
+    @Size(max = 100)
+    @Column(name = "image")
+    private String image;
+      @OneToMany(mappedBy = "patient")
     private List<MedicalExaminationCard> medicalExaminationCardList;
     @OneToMany(mappedBy = "patient")
     private List<ServiceInvoice> serviceInvoiceList;
@@ -102,17 +106,18 @@ public class Patient implements Serializable {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
     private User user;
+
+    public Patient() {
+    }
     @Transient
    
     private MultipartFile file;
-    public Patient() {
-    }
 
     public Patient(Integer id) {
         this.id = id;
     }
 
-    public Patient(Integer id, String firstName, String lastName, Date birthDate, String gender, String phone, String email, String image) {
+    public Patient(Integer id, String firstName, String lastName, Date birthDate, String gender, String phone, String email) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -120,24 +125,6 @@ public class Patient implements Serializable {
         this.gender = gender;
         this.phone = phone;
         this.email = email;
-        this.image = image;
-    }
-
-   
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 
     public Integer getId() {
@@ -196,11 +183,15 @@ public class Patient implements Serializable {
         this.email = email;
     }
 
-    public Patient(String image) {
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
         this.image = image;
     }
 
-    @XmlTransient
+     @XmlTransient
     public List<MedicalExaminationCard> getMedicalExaminationCardList() {
         return medicalExaminationCardList;
     }
@@ -234,6 +225,15 @@ public class Patient implements Serializable {
 
     public void setPrescriptionList(List<Prescription> prescriptionList) {
         this.prescriptionList = prescriptionList;
+    }
+
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override
@@ -270,4 +270,5 @@ public class Patient implements Serializable {
     public void setFile(MultipartFile file) {
         this.file = file;
     }
+
 }

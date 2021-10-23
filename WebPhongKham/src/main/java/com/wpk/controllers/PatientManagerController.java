@@ -19,7 +19,10 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
@@ -60,4 +63,43 @@ public class PatientManagerController {
         }
         return "add-patient";
     }
+    
+    
+    
+    
+    //chuc nang xoa bac si
+     @RequestMapping(value="/admin/patient-manager/delete-patient/{id}",method = {RequestMethod.DELETE,RequestMethod.GET})
+    public String deletePatient(Model model,@PathVariable(value ="id") int id){
+        
+        if(this.patientService.removePatient(id)){
+            return "redirect:/admin/patient-manager";
+        }
+        else model.addAttribute("err","Something wrong");
+        
+        return "redirect:/admin/patient-manager";
+    }
+    
+    //chuc nang sua y tá
+    
+    @GetMapping("/admin/patient-manager/edit-patient/{patientID}")
+    public String editPatientShow(Model model,@PathVariable(value ="patientID") int patientID){
+        Patient m = this.patientService.getPatientByID(patientID);
+        model.addAttribute("patient", m);
+        return "edit-patient";
+    }
+    @PostMapping("/admin/patient-manager/edit-patient")
+    public String editPatientProsses(Model model, @ModelAttribute(value = "patient")@Valid Patient m, BindingResult result){
+        
+        if(!result.hasErrors())
+        {   
+            if(this.patientService.addOrUpdate(m)==true)
+                    return "redirect:/admin/patient-manager";
+        else
+                model.addAttribute("err","Something wrong");
+        }
+        
+        return "redirect:/admin/patient-manager/edit-patient/{"+m.getId().toString()+"}" ;
+    }
 }
+
+

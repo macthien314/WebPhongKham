@@ -38,27 +38,38 @@
                     </div>
                     <span class="Error"></span>
                 </div>
+                    
+                    
+                     <div class="form-row">  
+                   <div class=" form-group col-md-6">   
+                    <label for="title">Mã:</label>
+                        <form:input path="id" id="title" name="title" type="text" cssClass="form-control"/>
+                        <form:errors path="id" cssClass="alert alert-danger" element="div" />
+
+                   </div>    
+                 <div class=" form-group col-md-6">
+                     <label for="title">Ngày sinh</label>   
+                     <form:input path="birthDate" id="birthDate" name="birthDate" type="date" value="2000-12-31"
+       min="01-01-1935" max="2021-12-31" cssClass="form-control"/>
+                     <form:errors path="birthDate" cssClass="alert alert-danger" element="div" />
+                </div> 
+                
+                   </div>
                     <div class="form-row">
                         <div class=" form-group col-md-6">
-                             <label for="lastName">Họ: </label>   
+                             <label for="title">Họ: </label>   
                              <form:input path="lastName" id="title" name="title" type="text" cssClass="form-control"/>
                              <form:errors path="lastName" cssClass="alert alert-danger" element="div" />
                         </div> <!-- form-group end.// -->
                         <div class=" form-group col-md-6">
 
-                            <label for="firstName">Tên:</label>
+                            <label for="title">Tên:</label>
                             <form:input path="firstName" id="title" name="title" type="text" cssClass="form-control"/>
                             <form:errors path="firstName" cssClass="alert alert-danger" element="div" />
 
                          </div>
                     </div>
-               
-                   <div class=" form-group">
-                     <label for="birthDate">Ngày sinh</label>   
-                     <form:input path="birthDate" id="birthDate" name="birthDate" type="date" value="2000-12-31"
-       min="01-01-1935" max="2021-12-31" cssClass="form-control"/>
-                     <form:errors path="birthDate" cssClass="alert alert-danger" element="div" />
-                </div> 
+                   
                
                 <div class="form-group">
                     Nam:<form:radiobutton path="gender" value="Nam"/>
@@ -66,18 +77,27 @@
                 </div><!-- form-group end.// -->
                 
                 <div class=" form-group">
-                     <label for="phone">SĐT</label>   
+                     <label for="title">SĐT</label>   
                      <form:input path="phone" id="phone" name="phone" type="number" cssClass="form-control"/>
                      <form:errors path="phone" cssClass="alert alert-danger" element="div" />
                 </div> <!-- form-group end.// -->
                 
                 
                 <div class=" form-group">
-                     <label for="email">Email</label>   
+                     <label for="title">Email</label>   
                      <form:input path="email" id="email" name="email" type="text" cssClass="form-control"/>
                      <form:errors path="email" cssClass="alert alert-danger" element="div" />
                 </div> <!-- form-group end.// -->
                 
+                <div class="form-group">
+                    <label for="tcate">Tài khoản</label>
+                   
+
+                       
+                         <form:input path="user.id" id="user.id" name="user.username" type="text" cssClass="form-control"/>
+        
+                    <form:errors cssClass="alert alert-danger" path="user" element="div"/>
+                </div> 
                
                 
                  

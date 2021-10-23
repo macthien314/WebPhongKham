@@ -16,4 +16,5 @@ public interface PatientRepository {
      List<Patient> getPatients();
      Patient getPatientByID(int id);
      boolean addOrUpdate(Patient m);
+     boolean removePatient(int id);
 }

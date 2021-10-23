@@ -9,19 +9,22 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
+import javax.persistence.Transient;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
- * @author Admin
+ * @author macth
  */
 @Entity
 @Table(name = "prescription_drug")
@@ -41,25 +44,25 @@ public class PrescriptionDrug implements Serializable {
     @Column(name = "quantity")
     private Integer quantity;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
     @Column(name = "id")
     private Integer id;
     @Size(max = 45)
     @Column(name = "drug_detailcol")
     private String drugDetailcol;
+    @JoinColumn(name = "drug_id", referencedColumnName = "id")
+    @ManyToOne(optional = false)
+    private Drug drugId;
+    @JoinColumn(name = "prescription_id", referencedColumnName = "id")
+    @ManyToOne(optional = false)
+    private Prescription prescriptionId;
     
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "drug")
-    private Drug drug;
-   
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "prescription_id")
-    private Prescription prescription;
-
     public PrescriptionDrug() {
     }
-
+     @Transient
+   
+    private MultipartFile file;
     public PrescriptionDrug(Integer id) {
         this.id = id;
     }
@@ -96,20 +99,20 @@ public class PrescriptionDrug implements Serializable {
         this.drugDetailcol = drugDetailcol;
     }
 
-    public Drug getDrug() {
-        return drug;
+    public Drug getDrugId() {
+        return drugId;
     }
 
-    public void setDrug(Drug drugId) {
-        this.drug = drugId;
+    public void setDrugId(Drug drugId) {
+        this.drugId = drugId;
     }
 
-    public Prescription getPrescription() {
-        return prescription;
+    public Prescription getPrescriptionId() {
+        return prescriptionId;
     }
 
-    public void setPrescription(Prescription prescription) {
-        this.prescription = prescription;
+    public void setPrescriptionId(Prescription prescriptionId) {
+        this.prescriptionId = prescriptionId;
     }
 
     @Override
@@ -136,5 +139,15 @@ public class PrescriptionDrug implements Serializable {
     public String toString() {
         return "com.wpk.pojos.PrescriptionDrug[ id=" + id + " ]";
     }
-    
+    public MultipartFile getFile() {
+        return file;
+    }
+
+    /**
+     * @param file the file to set
+     */
+    public void setFile(MultipartFile file) {
+        this.file = file;
+    }
+
 }

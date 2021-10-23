@@ -53,7 +53,7 @@
             <th>SĐT</th>
             <th>Email</th>
             <th style="width:50%;" ">Ảnh</th>
-         
+            <th>Tài khoản</th>
 
             <th><i class="fas fa-cog"></i></th>
        </tr>
@@ -75,17 +75,17 @@
                           <img src="${s.image}" class="img-fluid img-thumbnail" alt="Sheep">
 
                     </td>
-                    
+                    <td>${s.user.id}</td>
                      <td class="setting">
 
                          <a data-toggle="tooltip" title="xem thông tin" title="thông tin"href="<c:url value="/admin/quanly-slide/chitiet-slide/${s.id}"/>"> <i class="fas fa-info-circle" style="color:#18d26e"></i></a>
-                          <a data-toggle="tooltip" title="chỉnh sửa" href="<c:url value="/admin/quanly-slide/sua-slide/${s.id}"/>">
+                         <a data-toggle="tooltip" title="chỉnh sửa" href="<c:url value="/admin/patient-manager/edit-patient/${s.id}"/>">
                               <i class="fas fa-edit" style="color:#6633ff"></i>
-                           </a>
+                         </a>
 
-                          <a id="modal" href="<c:url value="/admin/quanly-slide/xoa-slide/${s.id}"/>" name="deleteButton" type="button" class="btn btn-primary" data-toggle="tooltip modal" data-target="#deleteModal" title="Xóa sản phẩm">
+                         <a id="modal" href="<c:url value="/admin/patient-manager/delete-patient/${s.id}"/>" name="deleteButton" type="button" class="btn btn-primary" data-toggle="tooltip modal" data-target="#deleteModal" title="Xóa sản phẩm">
                                <i class="fas fa-trash-alt" style="color:#ed3c0d"></i>
-                          </a>
+                         </a>
 
                      </td>
                 </tr>

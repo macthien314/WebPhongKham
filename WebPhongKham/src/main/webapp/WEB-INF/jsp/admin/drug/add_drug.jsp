@@ -40,7 +40,7 @@
                      <form:errors path="unitPrice" cssClass="alert alert-danger" element="div" /></div>
                      <div class=" form-group col-md-6">  
                      <label for="quantity">Số lượng</label>   
-                     <form:input path="quantity" id="quantity" name="title" type="text" cssClass="form-control"/>
+                     <form:input path="quantity" id="quantity" name="title" type="number" cssClass="form-control"/>
                      <form:errors path="quantity" cssClass="alert alert-danger" element="div" /></div>
                 </div> <!-- form-group end.// -->
                 

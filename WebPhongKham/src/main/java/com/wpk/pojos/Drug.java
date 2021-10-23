@@ -6,12 +6,15 @@
 package com.wpk.pojos;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -29,7 +32,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
- * @author Admin
+ * @author macth
  */
 @Entity
 @Table(name = "drug")
@@ -46,8 +49,8 @@ public class Drug implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
     @Column(name = "id")
     private Integer id;
     @Basic(optional = false)
@@ -66,8 +69,8 @@ public class Drug implements Serializable {
     private int quantity;
     @Basic(optional = false)
     @NotNull
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "expiry")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Temporal(TemporalType.DATE)
     private Date expiry;
     @Basic(optional = false)
@@ -76,12 +79,12 @@ public class Drug implements Serializable {
     @Column(name = "manufacturer")
     @Temporal(TemporalType.DATE)
     private Date manufacturer;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "drug")
+    @OneToMany(mappedBy = "drug")
     private List<PrescriptionDrug> prescriptionDrugList;
-
-    @Transient
+     @Transient
    
     private MultipartFile file;
+
     public Drug() {
     }
 
@@ -146,7 +149,7 @@ public class Drug implements Serializable {
         this.manufacturer = manufacturer;
     }
 
-    @XmlTransient
+     @XmlTransient
     public List<PrescriptionDrug> getPrescriptionDrugList() {
         return prescriptionDrugList;
     }
@@ -179,8 +182,7 @@ public class Drug implements Serializable {
     public String toString() {
         return "com.wpk.pojos.Drug[ id=" + id + " ]";
     }
-    
-       public MultipartFile getFile() {
+     public MultipartFile getFile() {
         return file;
     }
 
@@ -190,5 +192,5 @@ public class Drug implements Serializable {
     public void setFile(MultipartFile file) {
         this.file = file;
     }
-    
+
 }

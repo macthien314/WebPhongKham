@@ -11,7 +11,7 @@ import java.util.List;
 
 
 import org.hibernate.Session;
-import org.hibernate.query.Query;
+import org.hibernate.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.stereotype.Repository;
@@ -53,5 +53,19 @@ public class PatientRepositoryImpl implements PatientRepository {
         }
         return false;
     }
+     @Override
+    public boolean removePatient(int id) {
+       Session session = sessionFactory.getObject().getCurrentSession();
+        Patient m = this.getPatientByID(id);
+        try{
+            session.delete(m);
+            return true;
+        }
+        catch(Exception e){
+        
+        }
+        return false;
+    }
+    
 }
 

@@ -10,23 +10,22 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
- * @author Admin
+ * @author macth
  */
 @Entity
 @Table(name = "service_invoice")
@@ -40,43 +39,22 @@ public class ServiceInvoice implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
     @Column(name = "id")
     private Integer id;
+    @Size(max = 45)
     @Column(name = "fee")
-    private Long fee;
+    private String fee;
     @Column(name = "created_day")
     @Temporal(TemporalType.DATE)
     private Date createdDay;
-    
-    @ManyToOne
-    @JoinColumn(name = "nurse_id")
-    private Nurse nurse;
-    
-    
-    @ManyToOne
-    @JoinColumn(name = "patient_id")
-    private Patient patient;
-   
-    @ManyToOne
-    @JoinColumn(name ="service_id")
-    private Services service;
+
+    public ServiceInvoice() {
+    }
     @Transient
    
     private MultipartFile file;
-    public ServiceInvoice() {
-    }
-
-    public ServiceInvoice(Integer id, Long fee, Date createdDay, Nurse nurse, Patient patient, Services service) {
-        this.id = id;
-        this.fee = fee;
-        this.createdDay = createdDay;
-        this.nurse = nurse;
-        this.patient = patient;
-        this.service = service;
-    }
-
     public ServiceInvoice(Integer id) {
         this.id = id;
     }
@@ -89,11 +67,11 @@ public class ServiceInvoice implements Serializable {
         this.id = id;
     }
 
-    public Long getFee() {
+    public String getFee() {
         return fee;
     }
 
-    public void setFee(Long fee) {
+    public void setFee(String fee) {
         this.fee = fee;
     }
 
@@ -103,30 +81,6 @@ public class ServiceInvoice implements Serializable {
 
     public void setCreatedDay(Date createdDay) {
         this.createdDay = createdDay;
-    }
-
-    public Nurse getNurse() {
-        return nurse;
-    }
-
-    public void setNurse(Nurse nurse) {
-        this.nurse = nurse;
-    }
-
-    public Patient getPatient() {
-        return patient;
-    }
-
-    public void setPatient(Patient patient) {
-        this.patient = patient;
-    }
-
-    public Services getService() {
-        return service;
-    }
-
-    public void setService(Services service) {
-        this.service = service;
     }
 
     @Override
@@ -153,7 +107,7 @@ public class ServiceInvoice implements Serializable {
     public String toString() {
         return "com.wpk.pojos.ServiceInvoice[ id=" + id + " ]";
     }
-      public MultipartFile getFile() {
+     public MultipartFile getFile() {
         return file;
     }
 
@@ -162,5 +116,5 @@ public class ServiceInvoice implements Serializable {
      */
     public void setFile(MultipartFile file) {
         this.file = file;
-    }
+}
 }

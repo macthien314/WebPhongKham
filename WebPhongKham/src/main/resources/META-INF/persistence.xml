@@ -2,28 +2,28 @@
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
   <persistence-unit name="com.wpk_WebPhongKham_war_1.0-SNAPSHOTPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-    <class>com.wpk.pojos.User</class>
-    <class>com.wpk.pojos.Medical</class>
-    <class>com.wpk.pojos.Slide</class>
-    <class>com.wpk.pojos.Nurse</class>
-    <class>com.wpk.pojos.Patient</class>
-    <class>com.wpk.pojos.Doctor</class>
-    <class>com.wpk.pojos.MedicalExaminationCard</class>
-    <class>com.wpk.pojos.Prescription</class>
-    <class>com.wpk.pojos.ServiceInvoice</class>
-    <class>com.wpk.pojos.Drug</class>
-    <class>com.wpk.pojos.Invoice</class>
     <class>com.wpk.pojos.DrugDetail</class>
-    <class>com.wpk.pojos.Appointment</class>
     <class>com.wpk.pojos.Patient_1</class>
     <class>com.wpk.pojos.Prescription_1</class>
     <class>com.wpk.pojos.Medical_1</class>
     <class>com.wpk.pojos.Nurse_1</class>
     <class>com.wpk.pojos.Appointment_1</class>
-    <class>com.wpk.pojos.PrescriptionDrug</class>
-    <class>com.wpk.pojos.Services</class>
     <class>com.wpk.validator.PrescriptionValidator</class>
     <class>com.wpk.service.impl.PrescriptionServiceImpl</class>
+    <class>com.wpk.pojos.MedicalExaminationCard</class>
+    <class>com.wpk.pojos.Nurse</class>
+    <class>com.wpk.pojos.Prescription</class>
+    <class>com.wpk.pojos.Patient</class>
+    <class>com.wpk.pojos.Medical</class>
+    <class>com.wpk.pojos.Services</class>
+    <class>com.wpk.pojos.Invoice</class>
+    <class>com.wpk.pojos.Appointment</class>
+    <class>com.wpk.pojos.PrescriptionDrug</class>
+    <class>com.wpk.pojos.User</class>
+    <class>com.wpk.pojos.Drug</class>
+    <class>com.wpk.pojos.Slide</class>
+    <class>com.wpk.pojos.Doctor</class>
+    <class>com.wpk.pojos.ServiceInvoice</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/hospitaldb"/>

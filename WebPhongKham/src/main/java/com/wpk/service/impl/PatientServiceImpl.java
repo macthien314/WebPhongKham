@@ -50,4 +50,9 @@ public class PatientServiceImpl implements PatientService{
     public Patient getPatientByID(int id) {
           return patientRepository.getPatientByID(id);
     }
+    
+    @Override
+    public boolean removePatient(int i) {
+        return this.patientRepository.removePatient(i);
+    }
 }

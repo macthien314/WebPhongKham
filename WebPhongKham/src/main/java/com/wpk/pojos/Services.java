@@ -6,27 +6,28 @@
 package com.wpk.pojos;
 
 import java.io.Serializable;
+
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Transient;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import org.springframework.web.multipart.MultipartFile;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
  * @author macth
  */
 @Entity
-@Table(name = "service")
+@Table(name = "services")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Services.findAll", query = "SELECT s FROM Services s"),
@@ -37,8 +38,8 @@ public class Services implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
     @Column(name = "id")
     private Integer id;
     @Size(max = 45)
@@ -46,19 +47,8 @@ public class Services implements Serializable {
     private String name;
     @Column(name = "fee")
     private Long fee;
-    @JoinColumn(name = "medical_id", referencedColumnName = "id")
-    @ManyToOne
-    private Medical medicalId;
-    @Transient
-   
-    private MultipartFile file;
-
-    public Services(Integer id, String name, Long fee, Medical medicalId) {
-        this.id = id;
-        this.name = name;
-        this.fee = fee;
-        this.medicalId = medicalId;
-    }
+    @OneToMany(mappedBy = "services")
+    private List<ServiceInvoice> serviceInvoiceList;
 
     public Services() {
     }
@@ -91,12 +81,13 @@ public class Services implements Serializable {
         this.fee = fee;
     }
 
-    public Medical getMedicalId() {
-        return medicalId;
+    @XmlTransient
+    public List<ServiceInvoice> getServicesInvoiceList() {
+        return serviceInvoiceList;
     }
 
-    public void setMedicalId(Medical medicalId) {
-        this.medicalId = medicalId;
+    public void setServicesInvoiceList(List<ServiceInvoice> servicesInvoiceList) {
+        this.serviceInvoiceList = servicesInvoiceList;
     }
 
     @Override
@@ -123,14 +114,5 @@ public class Services implements Serializable {
     public String toString() {
         return "com.wpk.pojos.Services[ id=" + id + " ]";
     }
-       public MultipartFile getFile() {
-        return file;
-    }
-
-    /**
-     * @param file the file to set
-     */
-    public void setFile(MultipartFile file) {
-        this.file = file;
-    }
+    
 }
