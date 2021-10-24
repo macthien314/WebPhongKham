@@ -24,7 +24,7 @@ public class PrescriptionValidator implements Validator{
 
     @Override
     public void validate(Object target, Errors errors) {
-        Prescription m = (Prescription) target;
+
         
     }
 }

@@ -59,7 +59,7 @@
                  </div>
                         
             <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-block">Tạo Thuốc</button>
+                <button type="submit" class="btn btn-primary btn-block">Chỉnh Sửa Thuốc</button>
             </div>
                 
             </form:form>

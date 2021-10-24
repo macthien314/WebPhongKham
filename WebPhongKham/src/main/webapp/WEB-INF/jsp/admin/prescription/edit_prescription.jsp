@@ -1,13 +1,14 @@
 <%-- 
-    Document   : add_medical
-    Created on : Sep 30, 2021, 9:22:25 PM
-    Author     : Admin
+    Document   : edit_prescription
+    Created on : Oct 24, 2021, 12:44:04 PM
+    Author     : macth
 --%>
+
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<c:url value="/admin/prescription-manager/add-prescription" var="action"/>
-<h2 class="mt-4">Thêm chuyên khoa </h2>
+<c:url value="/admin/prescription-manager/edit-prescription" var="action"/>
+<h2 class="mt-4">Chỉnh sửa chuyên khoa </h2>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="index.html">admin</a></li>
                             <li class="breadcrumb-item active">quanly-toathuoc</li>
@@ -60,10 +61,11 @@
                  
                      
             <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-block">Tạo thuốc</button>
+                <button type="submit" class="btn btn-primary btn-block">Sửa toa thuốc</button>
             </div>
                 
             </form:form>
         </article> 
        
         </div>
+

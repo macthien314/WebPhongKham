@@ -16,4 +16,5 @@ public interface MedicalExaminationCardRepository {
     List<MedicalExaminationCard> getMedicalExaminationCard();
      MedicalExaminationCard getMedicalExaminationCardByID(int id);
      boolean addOrUpdate(MedicalExaminationCard m); 
+     boolean removeMedicalExaminationCard(int id);
 }

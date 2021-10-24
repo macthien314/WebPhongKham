@@ -101,8 +101,10 @@ public class Doctor implements Serializable {
     @ManyToOne
     @JoinColumn(name = "medical_id")
     private Medical medical;
+    
     @OneToMany(mappedBy = "doctor")
     private List<Prescription> prescriptionList;
+    
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
     private User user;

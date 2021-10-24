@@ -94,7 +94,7 @@
                    
 
                        
-                         <form:input path="user.id" id="user.id" name="user.username" type="text" cssClass="form-control"/>
+                         <form:input path="user.id" id="user.id" name="user.id" type="text" cssClass="form-control"/>
         
                     <form:errors cssClass="alert alert-danger" path="user" element="div"/>
                 </div> 

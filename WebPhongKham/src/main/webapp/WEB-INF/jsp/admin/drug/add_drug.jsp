@@ -29,6 +29,7 @@
 
             <form:form id="drug" action="${action}" modelAttribute="drug" method="post" enctype="multipart/form-data">
                 <form:errors path="*" cssClass="alert alert-danger" element="div" />
+                
                 <div class=" form-group">
                      <label for="name">Tên thuốc</label>   
                      <form:input path="name" id="name" name="title" type="text" cssClass="form-control"/>

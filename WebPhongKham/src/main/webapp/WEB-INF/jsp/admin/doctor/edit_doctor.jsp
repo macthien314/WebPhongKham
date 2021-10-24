@@ -92,7 +92,7 @@
                 <!-- form-group end.// -->
                        
             <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-block">Chỉnh sữa thông tin</button>
+                <button type="submit" class="btn btn-primary btn-block">Chỉnh sửa thông tin</button>
             </div>
                 
             </form:form>

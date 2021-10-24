@@ -6,7 +6,6 @@
 package com.wpk.controllers;
 
 import com.wpk.pojos.Doctor;
-import com.wpk.pojos.Nurse;
 import com.wpk.service.DoctorService;
 import com.wpk.validator.WebAppValidator;
 import java.util.Map;

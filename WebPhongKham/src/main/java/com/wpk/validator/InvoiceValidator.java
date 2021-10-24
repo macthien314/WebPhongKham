@@ -5,7 +5,7 @@
  */
 package com.wpk.validator;
 
-import com.wpk.pojos.MedicalExaminationCard;
+import com.wpk.pojos.Invoice;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
@@ -15,15 +15,15 @@ import org.springframework.validation.Validator;
  * @author macth
  */
 @Component
-public class MedicalExaminationCardValidator implements Validator {
-        @Override
+public class InvoiceValidator implements Validator{
+
+    @Override
     public boolean supports(Class<?> clazz) {
-        return MedicalExaminationCard.class.isAssignableFrom(clazz);
+        return Invoice.class.isAssignableFrom(clazz);
     }
 
     @Override
-    public void validate(Object target, Errors errors) {
-        
+    public void validate(Object o, Errors errors) {
+      
     }
-    
 }

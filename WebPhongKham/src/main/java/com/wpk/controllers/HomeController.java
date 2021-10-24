@@ -8,9 +8,11 @@ package com.wpk.controllers;
 
 import com.wpk.service.DoctorService;
 import com.wpk.service.DrugService;
+import com.wpk.service.InvoiceService;
 import com.wpk.service.MedicalService;
 import com.wpk.service.NurseService;
 import com.wpk.service.PatientService;
+import com.wpk.service.PrescriptionService;
 
 
 import javax.servlet.http.HttpSession;
@@ -62,6 +64,21 @@ public class HomeController {
     @ModelAttribute
     public void commonAttrssss(Model model, HttpSession session){
         model.addAttribute("patients", this.patientService.getPatients());
+    }
+    
+    
+       @Autowired
+    private PrescriptionService prescriptionService;
+    @ModelAttribute
+    public void commonAttrsssss(Model model, HttpSession session){
+        model.addAttribute("prescriptions", this.prescriptionService.getPrescriptions());
+    }
+    
+       @Autowired
+    private InvoiceService invoiceService;
+    @ModelAttribute
+    public void commonAttrssssss(Model model, HttpSession session){
+        model.addAttribute("invoices", this.invoiceService.getInvoices());
     }
     
    

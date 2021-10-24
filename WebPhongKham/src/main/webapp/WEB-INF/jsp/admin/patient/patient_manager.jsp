@@ -53,7 +53,7 @@
             <th>SĐT</th>
             <th>Email</th>
             <th style="width:50%;" ">Ảnh</th>
-            <th>Tài khoản</th>
+           
 
             <th><i class="fas fa-cog"></i></th>
        </tr>
@@ -75,7 +75,7 @@
                           <img src="${s.image}" class="img-fluid img-thumbnail" alt="Sheep">
 
                     </td>
-                    <td>${s.user.id}</td>
+                   
                      <td class="setting">
 
                          <a data-toggle="tooltip" title="xem thông tin" title="thông tin"href="<c:url value="/admin/quanly-slide/chitiet-slide/${s.id}"/>"> <i class="fas fa-info-circle" style="color:#18d26e"></i></a>

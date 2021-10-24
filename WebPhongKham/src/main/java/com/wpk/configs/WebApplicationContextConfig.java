@@ -9,10 +9,16 @@ package com.wpk.configs;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
+import com.wpk.formatter.DoctorFormatter;
+import com.wpk.formatter.InvoiceFormatter;
 import com.wpk.formatter.MedicalFormatter;
+import com.wpk.formatter.NurseFormatter;
+import com.wpk.formatter.PatientFormatter;
+import com.wpk.formatter.PrescriptionFormatter;
 import com.wpk.validator.AppointmentValidator;
 import com.wpk.validator.DoctorValidator;
 import com.wpk.validator.DrugValidator;
+import com.wpk.validator.InvoiceValidator;
 import com.wpk.validator.MedicalExaminationCardValidator;
 import com.wpk.validator.MedicalValidator;
 import com.wpk.validator.NurseValidator;
@@ -192,10 +198,24 @@ public class WebApplicationContextConfig implements WebMvcConfigurer{
         return v;
     
     }
+      @Bean
+    public WebAppValidator invoiceValidator(){
+        Set<Validator> springValidator = new HashSet<>();
+        springValidator.add(new InvoiceValidator());
+        WebAppValidator v = new WebAppValidator();
+        v.setSpringValidator(springValidator);
+        return v;
+    
+    }
     
     @Override
     public void addFormatters(FormatterRegistry registry) {
         registry.addFormatter(new MedicalFormatter());
+        registry.addFormatter(new DoctorFormatter());
+        registry.addFormatter(new NurseFormatter());
+        registry.addFormatter(new PatientFormatter());
+        registry.addFormatter(new InvoiceFormatter());
+        registry.addFormatter(new PrescriptionFormatter());
     }
     @Bean
     public CommonsMultipartResolver multipartResolver(){

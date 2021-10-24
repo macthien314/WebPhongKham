@@ -33,20 +33,16 @@ public class MedicalExaminationCardServiceImpl implements MedicalExaminationCard
 
       @Override
     public boolean addOrUpdate(MedicalExaminationCard m) {
-        if(!m.getFile().isEmpty()){
-        try {
-          
-            Map r = this.cloudinary.uploader().upload(m.getFile().getBytes(),
-                    ObjectUtils.asMap("resource_type","auto","folder","medicalexaminationcard"));
-        
-        } catch (IOException ex) {
-            System.out.println("==ADD USER==");
-        }}
         return this.medicalExaminationCardRepository.addOrUpdate(m);
     } 
 
     @Override
     public MedicalExaminationCard getMedicalExaminationCardByID(int id) {
          return medicalExaminationCardRepository.getMedicalExaminationCardByID(id);
+    }
+    
+     @Override
+    public boolean removeMedicalExaminationCard(int i) {
+        return this.medicalExaminationCardRepository.removeMedicalExaminationCard(i);
     }
 }

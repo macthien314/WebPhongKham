@@ -86,6 +86,10 @@
                          <li>
                             <a href="<c:url value="/admin/prescription-manager"/>"><i class="fas fa-briefcase-patient"></i> Quản lý Toa Thuốc</a>
                         </li>
+                        
+                        <li>
+                            <a href="<c:url value="/admin/invoice-manager"/>"><i class="fas fa-briefcase-patient"></i> Quản lý Hóa Đơn</a>
+                        </li>
 
 
                         <li>

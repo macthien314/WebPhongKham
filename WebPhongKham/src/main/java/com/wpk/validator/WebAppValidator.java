@@ -10,6 +10,7 @@ package com.wpk.validator;
 import com.wpk.pojos.Appointment;
 import com.wpk.pojos.Doctor;
 import com.wpk.pojos.Drug;
+import com.wpk.pojos.Invoice;
 import com.wpk.pojos.Medical;
 import com.wpk.pojos.MedicalExaminationCard;
 import com.wpk.pojos.Nurse;
@@ -47,7 +48,8 @@ public class WebAppValidator implements Validator{
                 ||MedicalExaminationCard.class.isAssignableFrom(clazz)
                 ||Appointment.class.isAssignableFrom(clazz)
                 ||ServiceInvoice.class.isAssignableFrom(clazz)
-                ||Prescription.class.isAssignableFrom(clazz);
+                ||Prescription.class.isAssignableFrom(clazz)
+                ||Invoice.class.isAssignableFrom(clazz);
     }
 
     @Override

@@ -4,15 +4,15 @@
  * and open the template in the editor.
  */
 package com.wpk.repository.impl;
-import com.wpk.pojos.Prescription;
-import com.wpk.repository.PrescriptionRepository;
+import com.wpk.pojos.Invoice;
+import com.wpk.repository.InvoiceRepository;
 import java.util.List;
 import org.hibernate.Query;
-
 
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
+
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,28 +22,28 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Repository
 @Transactional
-public class PrescriptionRepositoryImpl implements PrescriptionRepository {
+public class InvoiceRepositoryImpl implements InvoiceRepository {
      @Autowired
     private LocalSessionFactoryBean sessionFactory;
       
       @Override
-    public List<Prescription> getPrescriptions() {
+    public List<Invoice> getInvoices() {
         Session s = sessionFactory.getObject().getCurrentSession();
-        Query q = s.createQuery("From Prescription");
+        Query q = s.createQuery("From Invoice");
         return q.getResultList();
     }
 
     @Override
-    public Prescription getPrescriptionByID(int id) {
+    public Invoice getInvoiceByID(int id) {
         Session s = sessionFactory.getObject().getCurrentSession();
-        return s.get(Prescription.class, id);
+        return s.get(Invoice.class, id);
     }
 
     @Override
-    public boolean addOrUpdate(Prescription m) {
+    public boolean addOrUpdate(Invoice m) {
          Session session = sessionFactory.getObject().getCurrentSession();
         try{
-            session.save(m);
+            session.saveOrUpdate(m);
             return true;
         }
         catch(Exception e){
@@ -52,4 +52,21 @@ public class PrescriptionRepositoryImpl implements PrescriptionRepository {
         }
         return false;
     }
+    
+     @Override
+    public boolean removeInvoice(int id) {
+       Session session = sessionFactory.getObject().getCurrentSession();
+        Invoice m = this.getInvoiceByID(id);
+        try{
+            session.delete(m);
+            return true;
+        }
+        catch(Exception e){
+        
+        }
+        return false;
+    }
 }
+
+  
+

@@ -85,8 +85,31 @@
     <definition name="add-medicalexaminationcard" extends="adminLayout">
         <put-attribute name="content" value="/WEB-INF/jsp/admin/medicalexaminationcard/add_medicalexaminationcard.jsp"/>
     </definition>
+    <definition name="edit-medicalexaminationcard" extends="adminLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/medicalexaminationcard/edit_medicalexaminationcard.jsp"/>
+    </definition>
     
    
+   
+   
+   
+         <!-- start admin :doctor manager -->
+    <definition name="invoice-manager" extends="adminLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/invoice/invoice_manager.jsp"/>
+    </definition>
+    <definition name="add-invoice" extends="adminLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/invoice/add_invoice.jsp"/>
+    </definition>
+    <definition name="edit-invoice" extends="adminLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/invoice/edit_invoice.jsp"/>
+    </definition>
+    <!-- End admin: user manager -->
+   
+   
+   
+   
+   
+ 
     
     
       <!-- start admin :patient manager -->

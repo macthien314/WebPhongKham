@@ -21,6 +21,7 @@ import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
@@ -55,6 +56,7 @@ public class MedicalExaminationCard implements Serializable {
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "date")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private String date;
     @Basic(optional = false)
     @NotNull
