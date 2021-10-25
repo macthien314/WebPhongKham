@@ -144,10 +144,10 @@
     <!-- End admin: user manager -->
      
            <!-- start admin :patient manager -->
-    <definition name="service-manager" extends="adminLayout">
+    <definition name="services-manager" extends="adminLayout">
         <put-attribute name="content" value="/WEB-INF/jsp/admin/service/service_manager.jsp"/>
     </definition>
-    <definition name="add-service" extends="adminLayout">
+    <definition name="add-services" extends="adminLayout">
         <put-attribute name="content" value="/WEB-INF/jsp/admin/service/add_service.jsp"/>
     </definition>
     <!-- End admin: user manager -->

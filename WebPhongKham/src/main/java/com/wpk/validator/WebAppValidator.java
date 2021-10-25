@@ -49,7 +49,8 @@ public class WebAppValidator implements Validator{
                 ||Appointment.class.isAssignableFrom(clazz)
                 ||ServiceInvoice.class.isAssignableFrom(clazz)
                 ||Prescription.class.isAssignableFrom(clazz)
-                ||Invoice.class.isAssignableFrom(clazz);
+                ||Invoice.class.isAssignableFrom(clazz)
+                ||Services.class.isAssignableFrom(clazz);
     }
 
     @Override

@@ -6,7 +6,7 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<h1 class="mt-4">Quản lý Chuyên khoa</h1>
+<h1 class="mt-4">Quản lý dịch vụ</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="index.html">admin</a></li>
                             <li class="breadcrumb-item active">quanly-chuyenkhoa</li>
@@ -22,8 +22,8 @@
          <form action="">
         <div class="row">
             <div class="col-md-3">
-            <a href="<c:url value="/admin/medical-manager/add-medical"/>" class=" btn btn-primary btn-xs pull-right"><b>+</b> ADD Medical</a>
-             </div>
+            <a href="<c:url value="/admin/services-manager/add-services"/>" class=" btn btn-primary btn-xs pull-right"><b>+</b> ADD Service</a>
+            </div>
              <div class="col-md-3">
                           
              <select name="quantity" id="inputState" class="form-control">
@@ -46,7 +46,7 @@
             <tr>
                 <th class="th-sm">Mã</th>
                 <th>Tên</th>
-                <th>Mô tả</th>
+                <th>Giá tiền</th>
                 <th>Ảnh</th>
                 
                 <th><i class="fas fa-cog"></i></th>
@@ -54,16 +54,16 @@
         </thead>
         <tbody>
             
-                <c:forEach items="${medicals}" var="s">
+                <c:forEach items="${services}" var="s">
                     <tr>
                         <td>${s.id}</td>
                         <td>${s.name}</td>
-                        <td>${s.description}</td>
+                        <td>${s.fee}</td>
                         
-                            <td class="w-auto">
-			      <img src="${s.image}" class="img-fluid img-thumbnail" alt="Sheep">
-		      
-                        </td>
+                        <td class="w-auto">
+                          <img src="${s.image}" class="img-fluid img-thumbnail" alt="Sheep">
+
+                    </td>    
 
                          <td class="setting">
                              
@@ -87,54 +87,3 @@
     </div>
     
 
-
-            <c:url value="/admin/quanly-chuyenkhoa/them-chuyenkhoa" var="action"/>
-                    <!-- Modal -->
-<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Xóa slide</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form:form id="slide" action="${action}" modelAttribute="medical" method="post" enctype="multipart/form-data">
-               <form:errors path="*" cssClass="alert alert-danger" element="div" />
-              
-                <div class="form-group preview text-center">
-                    <img class="" src="${slide.image}"id="preview" alt="Preview Image" width="50%" height="20%"/>
-                    <div class="browse-button">
-                        <i class="fa fa-pencil-alt"></i>
-                        <form:input  path="file" type="file" requiredname="UploadedFile" id="UploadedFile"/>
-                    </div>
-                    <span class="Error"></span>
-                </div>
-                <div class=" form-group">
-                     <label for="title">Tên</label>   
-                     <form:input  path="name" id="name" name="name" type="text" cssClass="form-control"/>
-                     
-                </div> <!-- form-group end.// -->
-                <div class=" form-group">
-                            
-                      <label for="descripstion">Description</label>
-                      <form:textarea path="description" id="description" name="description" type="text" cssClass="form-control"/>
-
-
-                </div>
-                          
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-block">Cập nhập</button>
-            </div>
-                
-            </form:form>
-      </div>
-      <div class="modal-footer">
-          <a href="" class="btn btn-primary" id="delRef">Vâng,tôi chắc</a> 
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        
-      </div>
-    </div>
-  </div>
-</div>

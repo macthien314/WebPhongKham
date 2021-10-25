@@ -25,6 +25,7 @@ import com.wpk.validator.NurseValidator;
 import com.wpk.validator.PatientValidator;
 import com.wpk.validator.PrescriptionValidator;
 import com.wpk.validator.ServiceInvoiceValidator;
+import com.wpk.validator.ServicesValidator;
 import com.wpk.validator.SlideValidator;
 import com.wpk.validator.UserImageValidator;
 import com.wpk.validator.WebAppValidator;
@@ -36,6 +37,9 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.format.FormatterRegistry;
+import org.springframework.mail.MailSender;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
@@ -188,6 +192,15 @@ public class WebApplicationContextConfig implements WebMvcConfigurer{
         return v;
     
     }
+     @Bean
+    public WebAppValidator servicesValidator(){
+        Set<Validator> springValidator = new HashSet<>();
+        springValidator.add(new ServicesValidator());
+        WebAppValidator v = new WebAppValidator();
+        v.setSpringValidator(springValidator);
+        return v;
+    
+    }
     
        @Bean
     public WebAppValidator prescriptionValidator(){
@@ -232,5 +245,17 @@ public class WebApplicationContextConfig implements WebMvcConfigurer{
                 "secure",true
                  ));
         return c;
+    }
+    
+    @Bean
+    public JavaMailSenderImpl javaMailSenderImpl(){
+        JavaMailSenderImpl j = new JavaMailSenderImpl();
+        j.setHost("smtp.gmail.com");
+        j.setUsername("smtp.gmail.com");
+        j.setPassword("tai12345");
+        j.setProtocol("SMTP");
+        j.setHost("127.0.0.1");
+        j.setPort(25);
+        return j;
     }
 }

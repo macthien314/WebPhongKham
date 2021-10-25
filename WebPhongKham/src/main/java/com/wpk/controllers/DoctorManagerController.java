@@ -7,6 +7,7 @@ package com.wpk.controllers;
 
 import com.wpk.pojos.Doctor;
 import com.wpk.service.DoctorService;
+import com.wpk.service.UserService;
 import com.wpk.validator.WebAppValidator;
 import java.util.Map;
 import javax.validation.Valid;
@@ -34,6 +35,8 @@ public class DoctorManagerController {
     private DoctorService doctorService;
     @Autowired
     private WebAppValidator doctorValidator;
+    @Autowired
+   private UserService userDetailsService;
      @InitBinder 
    public void initBinder(WebDataBinder binder)
    { 
@@ -96,4 +99,18 @@ public class DoctorManagerController {
         
         return "redirect:/admin/doctor-manager/edit-doctor/{"+m.getId().toString()+"}" ;
     }
+    @PostMapping("/admin/doctor-manager/add-user")
+    public String addDoctorUserProsses(Model model, @ModelAttribute(value = "doctor")@Valid Doctor m, BindingResult result){
+        
+        if(!result.hasErrors())
+        {   
+            if(this.doctorService.addOrUpdate(m)==true)
+                    return "redirect:/admin/doctor-manager";
+        else
+                model.addAttribute("err","Something wrong");
+        }
+        
+        return "redirect:/admin/doctor-manager/edit-doctor/{"+m.getId().toString()+"}" ;
+    }
+    
 }

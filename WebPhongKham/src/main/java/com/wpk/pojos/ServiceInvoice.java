@@ -29,7 +29,7 @@ import org.springframework.web.multipart.MultipartFile;
  * @author Admin
  */
 @Entity
-@Table(name = "service_invoice")
+@Table(name = "services_invoice")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "ServiceInvoice.findAll", query = "SELECT s FROM ServiceInvoice s"),

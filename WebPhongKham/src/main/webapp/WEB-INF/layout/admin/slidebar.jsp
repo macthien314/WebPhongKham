@@ -54,6 +54,10 @@
                             <a href="<c:url value="/admin/medical-manager"/>"><i class="fas fa-briefcase-medical"></i> Quản lý Chuyên khoa</a>
 
                         </li>
+                        <li>
+                            <a href="<c:url value="/admin/services-manager"/>"><i class="fas fa-briefcase-medical"></i> Quản lý dịch vụ</a>
+
+                        </li>
                          <li>
                             <a href="<c:url value="/admin/doctor-manager"/>"><i class="fas fa-briefcase-doctor"></i> Quản lý Bác Sĩ</a>
 

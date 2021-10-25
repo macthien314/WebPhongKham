@@ -26,7 +26,7 @@
                <form:hidden path="id" />
              <form:hidden path="image"/>          
                 <div class="form-group preview text-center">
-                    <img class="" src=""id="preview" alt="Preview Image" width="50%" height="20%"/>
+                    <img class="" src="${doctor.image}"id="preview" alt="Preview Image" width="50%" height="20%"/>
                     <div class="browse-button">
                         <i class="fa fa-pencil-alt"></i>
                         <form:input path="file" type="file" requiredname="UploadedFile" id="UploadedFile"/>
@@ -91,10 +91,18 @@
                 </div>
                 <!-- form-group end.// -->
                        
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-block">Chỉnh sửa thông tin</button>
-            </div>
-                
+           
+             <div class="form-row">
+                        <div class=" form-group col-md-3">
+                            <button type="submit" class="btn btn-primary btn-block">Chỉnh sửa thông tin</button>
+                        </div> <!-- form-group end.// -->
+                        <c:if test="${doctor.user == null}">
+                 <div class=" form-group col-md-3">
+                            <button type="submit" class="btn btn-primary btn-block">Cấp phát tài khoản</button>
+                 </div> <!-- form-group end.// -->
+             </c:if>
+             </div>
+             
             </form:form>
         </article> 
        

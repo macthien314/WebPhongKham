@@ -9,6 +9,8 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -26,7 +28,7 @@ import org.springframework.web.multipart.MultipartFile;
  * @author macth
  */
 @Entity
-@Table(name = "service")
+@Table(name = "services")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Services.findAll", query = "SELECT s FROM Services s"),
@@ -37,8 +39,8 @@ public class Services implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
     @Column(name = "id")
     private Integer id;
     @Size(max = 45)
@@ -46,9 +48,9 @@ public class Services implements Serializable {
     private String name;
     @Column(name = "fee")
     private Long fee;
-    @JoinColumn(name = "medical_id", referencedColumnName = "id")
-    @ManyToOne
-    private Medical medicalId;
+    @Size(min = 1, max = 100)
+    @Column(name = "image")
+    private String image;
     @Transient
    
     private MultipartFile file;
@@ -57,7 +59,7 @@ public class Services implements Serializable {
         this.id = id;
         this.name = name;
         this.fee = fee;
-        this.medicalId = medicalId;
+        
     }
 
     public Services() {
@@ -91,13 +93,7 @@ public class Services implements Serializable {
         this.fee = fee;
     }
 
-    public Medical getMedicalId() {
-        return medicalId;
-    }
-
-    public void setMedicalId(Medical medicalId) {
-        this.medicalId = medicalId;
-    }
+   
 
     @Override
     public int hashCode() {
@@ -132,5 +128,19 @@ public class Services implements Serializable {
      */
     public void setFile(MultipartFile file) {
         this.file = file;
+    }
+
+    /**
+     * @return the image
+     */
+    public String getImage() {
+        return image;
+    }
+
+    /**
+     * @param image the image to set
+     */
+    public void setImage(String image) {
+        this.image = image;
     }
 }
