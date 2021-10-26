@@ -19,8 +19,10 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
@@ -49,13 +51,13 @@ public class ServiceManagerController {
         return "services-manager";
     }
     //chuc nang them dịch vụ
-    @GetMapping("/admin/services-manager/add-service")
+    @GetMapping("/admin/services-manager/add-services")
     private String addServiceShow(Model model){
-        model.addAttribute("service", new Services());
+        model.addAttribute("services", new Services());
         return "add-services";
    }
-    @PostMapping("/admin/services-manager/add-service")
-    private String addDoctorProcess(Model model, @ModelAttribute(value = "service")@Valid Services s, BindingResult result){
+    @PostMapping("/admin/services-manager/add-services")
+    private String addServicesProcess(Model model, @ModelAttribute(value = "services")@Valid Services s, BindingResult result){
         if(!result.hasErrors())
         {      
             if(this.servicesService.addOrUpdate(s)==true)
@@ -64,5 +66,38 @@ public class ServiceManagerController {
                 model.addAttribute("err","Something wrong");
         }
         return "add-services";
+    }
+    
+      @RequestMapping(value="/admin/services-manager/delete-services/{id}",method = {RequestMethod.DELETE,RequestMethod.GET})
+    public String deleteService(Model model,@PathVariable(value ="id") int id){
+        
+        if(this.servicesService.removeServices(id)){
+            return "redirect:/admin/services-manager";
+        }
+        else model.addAttribute("err","Something wrong");
+        
+        return "redirect:/admin/services-manager";
+    }
+    
+    //chuc nang sua y tá
+    
+    @GetMapping("/admin/services-manager/edit-services/{servicesID}")
+    public String editServicesShow(Model model,@PathVariable(value ="servicesID") int servicesID){
+        Services m = this.servicesService.getServicesByID(servicesID);
+        model.addAttribute("services", m);
+        return "edit-services";
+    }
+    @PostMapping("/admin/services-manager/edit-services")
+    public String editServicesProsses(Model model, @ModelAttribute(value = "services")@Valid Services m, BindingResult result){
+        
+        if(!result.hasErrors())
+        {   
+            if(this.servicesService.addOrUpdate(m)==true)
+                    return "redirect:/admin/services-manager";
+        else
+                model.addAttribute("err","Something wrong");
+        }
+        
+        return "redirect:/admin/services-manager/edit-services/{"+m.getId().toString()+"}" ;
     }
 }

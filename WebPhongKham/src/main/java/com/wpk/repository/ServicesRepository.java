@@ -16,4 +16,5 @@ public interface ServicesRepository {
      List<Services> getServices();
      Services getServiceByID(int id);
      boolean addOrUpdate(Services s);
+     boolean removeServices(int id);
 }

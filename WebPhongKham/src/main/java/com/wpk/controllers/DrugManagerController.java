@@ -81,5 +81,11 @@ public class DrugManagerController {
         
         return "redirect:/admin/drug-manager/edit-drug/{"+m.getId().toString()+"}" ;
     }
+    
+    @GetMapping("/thuoc/{drugid}")
+    public String drug(Model model,@PathVariable(value ="drugid") int drugid){
+        model.addAttribute("drug", this.drugService.getDrugByID(drugid));
+        return "drug-detail";
+    }
 }
     

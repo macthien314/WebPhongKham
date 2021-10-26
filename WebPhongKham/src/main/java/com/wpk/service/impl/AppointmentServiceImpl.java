@@ -33,20 +33,17 @@ public class AppointmentServiceImpl implements AppointmentService {
 
       @Override
     public boolean addOrUpdate(Appointment m) {
-        if(!m.getFile().isEmpty()){
-        try {
-          
-            Map r = this.cloudinary.uploader().upload(m.getFile().getBytes(),
-                    ObjectUtils.asMap("resource_type","auto","folder","Appointment"));
-        
-        } catch (IOException ex) {
-            System.out.println("==ADD USER==");
-        }}
+      
         return this.appointmentRepository.addOrUpdate(m);
     } 
 
     @Override
     public Appointment getAppointmentByID(int id) {
          return appointmentRepository.getAppointmentByID(id);
+    }
+    
+    @Override
+    public boolean removeAppointment(int i) {
+        return this.appointmentRepository.removeAppointment(i);
     }
 }

@@ -44,12 +44,25 @@ public class AppointmentRepositoryImpl implements AppointmentRepository{
     public boolean addOrUpdate(Appointment m) {
          Session session = sessionFactory.getObject().getCurrentSession();
         try{
-            session.save(m);
+            session.saveOrUpdate(m);
             return true;
         }
         catch(Exception e){
             System.err.println("==ADD PRODUCT===" + e.getMessage());
             e.printStackTrace();
+        }
+        return false;
+    }
+      @Override
+    public boolean removeAppointment(int id) {
+       Session session = sessionFactory.getObject().getCurrentSession();
+        Appointment m = this.getAppointmentByID(id);
+        try{
+            session.delete(m);
+            return true;
+        }
+        catch(Exception e){
+        
         }
         return false;
     }

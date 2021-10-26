@@ -141,6 +141,9 @@
     <definition name="add-appointment" extends="adminLayout">
         <put-attribute name="content" value="/WEB-INF/jsp/admin/appointment/add_appointment.jsp"/>
     </definition>
+    <definition name="edit-appointment" extends="adminLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/appointment/edit_appointment.jsp"/>
+    </definition>
     <!-- End admin: user manager -->
      
            <!-- start admin :patient manager -->
@@ -150,7 +153,12 @@
     <definition name="add-services" extends="adminLayout">
         <put-attribute name="content" value="/WEB-INF/jsp/admin/service/add_service.jsp"/>
     </definition>
+     <definition name="edit-services" extends="adminLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/service/edit_service.jsp"/>
+    </definition>
     <!-- End admin: user manager -->
+    
+    
              <!-- start admin :patient manager -->
     <definition name="serviceinvoice-manager" extends="adminLayout">
         <put-attribute name="content" value="/WEB-INF/jsp/admin/serviceinvoice/serviceinvoice_manager.jsp"/>

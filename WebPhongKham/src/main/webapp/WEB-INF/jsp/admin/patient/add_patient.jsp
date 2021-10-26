@@ -41,12 +41,7 @@
                     
                     
                      <div class="form-row">  
-                   <div class=" form-group col-md-6">   
-                    <label for="title">Mã:</label>
-                        <form:input path="id" id="title" name="title" type="text" cssClass="form-control"/>
-                        <form:errors path="id" cssClass="alert alert-danger" element="div" />
-
-                   </div>    
+                 
                  <div class=" form-group col-md-6">
                      <label for="title">Ngày sinh</label>   
                      <form:input path="birthDate" id="birthDate" name="birthDate" type="date" value="2000-12-31"

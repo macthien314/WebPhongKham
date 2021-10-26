@@ -59,40 +59,40 @@
 
                         </li>
                          <li>
-                            <a href="<c:url value="/admin/doctor-manager"/>"><i class="fas fa-briefcase-doctor"></i> Quản lý Bác Sĩ</a>
+                            <a href="<c:url value="/admin/doctor-manager"/>"><i class="fas fa-user-md"></i> Quản lý Bác Sĩ</a>
 
                         </li>
                         <li>
-                            <a href="<c:url value="/admin/nurse-manager"/>"><i class="fas fa-briefcase-nurse"></i> Quản lý Y Tá</a>
+                            <a href="<c:url value="/admin/nurse-manager"/>"><i class="fas fa-user-nurse"></i> Quản lý Y Tá</a>
 
                         </li>
                         <li>
-                            <a href="<c:url value="/admin/drug-manager"/>"><i class="fas fa-briefcase-drug"></i> Quản lý Thuốc</a>
+                            <a href="<c:url value="/admin/drug-manager"/>"><i class="fas fa-capsules"></i> Quản lý Thuốc</a>
 
                         </li>
                         
                         <li>
-                            <a href="<c:url value="/admin/patient-manager"/>"><i class="fas fa-briefcase-patient"></i> Quản lý Bệnh Nhân</a>
+                            <a href="<c:url value="/admin/patient-manager"/>"><i class="fas fa-user-injured"></i> Quản lý Bệnh Nhân</a>
                         </li>
                         
                         <li>
-                            <a href="<c:url value="/admin/medicalexaminationcard-manager"/>"><i class="fas fa-briefcase-patient"></i> Quản lý Phiếu Khám</a>
+                            <a href="<c:url value="/admin/medicalexaminationcard-manager"/>"><i class="fas fa-notes-medical"></i> Quản lý Phiếu Khám</a>
                         </li>
                         
                          <li>
-                            <a href="<c:url value="/admin/appointment-manager"/>"><i class="fas fa-briefcase-patient"></i> Quản lý Cuộc Hẹn</a>
+                            <a href="<c:url value="/admin/appointment-manager"/>"><i class="far fa-calendar-check"></i> Quản lý Cuộc Hẹn</a>
                          </li><!-- comment -->
                          
                           <li>
-                            <a href="<c:url value="/admin/serviceinvoice-manager"/>"><i class="fas fa-briefcase-patient"></i> Quản lý Hóa Đơn Dịch Vụ</a>
+                            <a href="<c:url value="/admin/serviceinvoice-manager"/>"><i class="fas fa-receipt"></i> Quản lý Hóa Đơn Dịch Vụ</a>
                         </li>
                         
                          <li>
-                            <a href="<c:url value="/admin/prescription-manager"/>"><i class="fas fa-briefcase-patient"></i> Quản lý Toa Thuốc</a>
+                            <a href="<c:url value="/admin/prescription-manager"/>"><i class="fas fa-file-prescription"></i> Quản lý Toa Thuốc</a>
                         </li>
                         
                         <li>
-                            <a href="<c:url value="/admin/invoice-manager"/>"><i class="fas fa-briefcase-patient"></i> Quản lý Hóa Đơn</a>
+                            <a href="<c:url value="/admin/invoice-manager"/>"><i class="fas fa-file-invoice-dollar"></i> Quản lý Hóa Đơn</a>
                         </li>
 
 

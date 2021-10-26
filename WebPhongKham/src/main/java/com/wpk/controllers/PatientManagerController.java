@@ -100,6 +100,13 @@ public class PatientManagerController {
         
         return "redirect:/admin/patient-manager/edit-patient/{"+m.getId().toString()+"}" ;
     }
+    
+    
+    @GetMapping("/benh-nhan/{patientid}")
+    public String patient(Model model,@PathVariable(value ="patientid") int patientid){
+        model.addAttribute("doctor", this.patientService.getPatientByID(patientid));
+        return "patient-detail";
+    }
 }
 
 

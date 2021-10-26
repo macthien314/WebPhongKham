@@ -37,7 +37,7 @@ public class ServicesServiceImpl implements ServicesService{
         try {
           
             Map r = this.cloudinary.uploader().upload(s.getFile().getBytes(),
-                    ObjectUtils.asMap("resource_type","auto","folder","serviceinvoice"));
+                    ObjectUtils.asMap("resource_type","auto","folder","services"));
         
         } catch (IOException ex) {
             System.out.println("==ADD USER==");
@@ -53,5 +53,10 @@ public class ServicesServiceImpl implements ServicesService{
     @Override
     public Services getServicesByID(int id) {
         return this.servicesRepository.getServiceByID(id);
+    }
+    
+     @Override
+    public boolean removeServices(int i) {
+        return this.servicesRepository.removeServices(i);
     }
 }

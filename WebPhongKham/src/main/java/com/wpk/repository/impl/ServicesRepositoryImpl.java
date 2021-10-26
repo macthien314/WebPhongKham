@@ -54,4 +54,18 @@ public class ServicesRepositoryImpl implements ServicesRepository{
         Session s = sessionFactory.getObject().getCurrentSession();
         return s.get(Services.class, id);
     }
+    
+    @Override
+    public boolean removeServices(int id) {
+       Session session = sessionFactory.getObject().getCurrentSession();
+        Services m = this.getServiceByID(id);
+        try{
+            session.delete(m);
+            return true;
+        }
+        catch(Exception e){
+        
+        }
+        return false;
+    }
 }

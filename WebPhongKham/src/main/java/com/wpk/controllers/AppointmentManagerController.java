@@ -19,7 +19,10 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
@@ -59,6 +62,40 @@ public class AppointmentManagerController {
                 model.addAttribute("err","Something wrong");
         }
         return "add-appointment";
+    }
+    
+        //chuc nang xoa bac si
+     @RequestMapping(value="/admin/appointment-manager/delete-appointment/{id}",method = {RequestMethod.DELETE,RequestMethod.GET})
+    public String deleteAppointment(Model model,@PathVariable(value ="id") int id){
+        
+        if(this.appointmentService.removeAppointment(id)){
+            return "redirect:/admin/appointment-manager";
+        }
+        else model.addAttribute("err","Something wrong");
+        
+        return "redirect:/admin/appointment-manager";
+    }
+    
+    //chuc nang sua y tá
+    
+    @GetMapping("/admin/appointment-manager/edit-appointment/{appointmentID}")
+    public String editAppointmentShow(Model model,@PathVariable(value ="appointmentID") int appointmentID){
+        Appointment m = this.appointmentService.getAppointmentByID(appointmentID);
+        model.addAttribute("appointment", m);
+        return "edit-appointment";
+    }
+    @PostMapping("/admin/appointment-manager/edit-appointment")
+    public String editAppointmentProsses(Model model, @ModelAttribute(value = "appointment")@Valid Appointment m, BindingResult result){
+        
+        if(!result.hasErrors())
+        {   
+            if(this.appointmentService.addOrUpdate(m)==true)
+                    return "redirect:/admin/appointment-manager";
+        else
+                model.addAttribute("err","Something wrong");
+        }
+        
+        return "redirect:/admin/appointment-manager/edit-appointment/{"+m.getAppointmentId().toString()+"}" ;
     }
     
 }

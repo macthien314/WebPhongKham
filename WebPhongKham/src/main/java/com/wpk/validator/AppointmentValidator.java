@@ -24,10 +24,8 @@ public class AppointmentValidator implements Validator{
 
     @Override
     public void validate(Object target, Errors errors) {
-        Appointment m = (Appointment) target;
-        if(m.getFile().isEmpty()){
-           errors.rejectValue("file", "slide.file.imageEmtyErr");
-        }
+        
+        
     }
     
 }

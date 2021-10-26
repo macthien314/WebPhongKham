@@ -16,4 +16,5 @@ public interface ServicesService {
     List<Services> getServices();
     Services getServicesByID(int id);
      boolean addOrUpdate(Services s);
+     boolean removeServices(int id);
 }

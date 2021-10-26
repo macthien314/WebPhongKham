@@ -14,5 +14,6 @@ import java.util.List;
 public interface AppointmentRepository {
     List<Appointment> getAppointments();
      Appointment getAppointmentByID(int id);
-     boolean addOrUpdate(Appointment m); 
+     boolean addOrUpdate(Appointment m);
+     boolean removeAppointment(int id);
 }

@@ -113,4 +113,9 @@ public class DoctorManagerController {
         return "redirect:/admin/doctor-manager/edit-doctor/{"+m.getId().toString()+"}" ;
     }
     
+     @GetMapping("/bac-si/{doctorid}")
+    public String doctor(Model model,@PathVariable(value ="doctorid") int doctorid){
+        model.addAttribute("doctor", this.doctorService.getDoctorByID(doctorid));
+        return "doctor-detail";
+    }
 }
