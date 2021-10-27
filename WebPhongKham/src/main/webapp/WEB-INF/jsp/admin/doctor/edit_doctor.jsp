@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <c:url value="/admin/doctor-manager/edit-doctor" var="action"/>
+<c:url value="/admin/doctor-manager/create-doctoruser" var="createUser"/>
 <h2 class="mt-4">Chỉnh sửa bác sĩ</h2>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="index.html">admin</a></li>
@@ -96,9 +97,9 @@
                         <div class=" form-group col-md-3">
                             <button type="submit" class="btn btn-primary btn-block">Chỉnh sửa thông tin</button>
                         </div> <!-- form-group end.// -->
-                        <c:if test="${doctor.user == null}">
+             <c:if test="${doctor.user == null}">
                  <div class=" form-group col-md-3">
-                            <button type="submit" class="btn btn-primary btn-block">Cấp phát tài khoản</button>
+                     <button type="submit" formmethod="post" formaction="${createUser}" class="btn btn-primary btn-block">Cấp phát tài khoản</button>
                  </div> <!-- form-group end.// -->
              </c:if>
              </div>

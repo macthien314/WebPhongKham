@@ -6,9 +6,11 @@
 package com.wpk.controllers;
 
 import com.wpk.pojos.Doctor;
+import com.wpk.pojos.User;
 import com.wpk.service.DoctorService;
 import com.wpk.service.UserService;
 import com.wpk.validator.WebAppValidator;
+import java.text.Normalizer;
 import java.util.Map;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -99,23 +101,45 @@ public class DoctorManagerController {
         
         return "redirect:/admin/doctor-manager/edit-doctor/{"+m.getId().toString()+"}" ;
     }
-    @PostMapping("/admin/doctor-manager/add-user")
-    public String addDoctorUserProsses(Model model, @ModelAttribute(value = "doctor")@Valid Doctor m, BindingResult result){
+    
+    
+    @GetMapping("/bac-si/{doctorid}")
+    public String doctor(Model model,@PathVariable(value ="doctorid") int doctorid){
+        model.addAttribute("doctor", this.doctorService.getDoctorByID(doctorid));
+        return "doctor-detail";
+    }
+    
+    //cấp tài khoản cho bác sĩ
+    @PostMapping("/admin/doctor-manager/create-doctoruser")
+    public String createDoctorUserProsses(Model model, @ModelAttribute(value = "doctor") Doctor m, BindingResult result){
+        User u = new User();
+        u.setDoctor(m);
+        u.setUserRole("ROLE_DOCTOR");
         
+        String username =m.getId().toString() + "doctor"+m.getFirstName()+m.getLastName();
+        username = username.replaceAll("\\s+","");
+        
+        username=Normalizer.normalize(username, Normalizer.Form.NFD);
+        username = username.replaceAll("[\\p{InCombiningDiacriticalMarks}]", "");
+        username = username.toLowerCase();
+        u.setUsername(username);
+        u.setPassword("123456");
+        u.setFirstName(m.getFirstName());
+        u.setLastName(m.getLastName());
+        u.setPhone(m.getPhone());
+        u.setEmail(m.getEmail());
+        u.setImage(m.getImage());
+        u.setDoctor(m);
+        
+        m.setUser(u);
         if(!result.hasErrors())
         {   
-            if(this.doctorService.addOrUpdate(m)==true)
+            if(this.userDetailsService.addDoctorUser(u) ==true)
                     return "redirect:/admin/doctor-manager";
         else
                 model.addAttribute("err","Something wrong");
         }
         
         return "redirect:/admin/doctor-manager/edit-doctor/{"+m.getId().toString()+"}" ;
-    }
-    
-     @GetMapping("/bac-si/{doctorid}")
-    public String doctor(Model model,@PathVariable(value ="doctorid") int doctorid){
-        model.addAttribute("doctor", this.doctorService.getDoctorByID(doctorid));
-        return "doctor-detail";
     }
 }

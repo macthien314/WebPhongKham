@@ -25,13 +25,31 @@ public class UserManagerController {
     private UserService userService;
   
    
-    @RequestMapping("/admin/quanly-user")
+    @RequestMapping("/admin/user-manager/normal-user")
     public String userManager(Model model, @RequestParam(required = false) Map<String, String> params){
         String quatity = params.getOrDefault("quantity", "10");
         String name = params.getOrDefault("name", "");
        
         int page = Integer.parseInt(params.getOrDefault("page", "1"));
-        model.addAttribute("users", this.userService.getUsers(page, name, quatity));
+        model.addAttribute("users", this.userService.getUsers());
         return "user-manager";
+    }
+    @RequestMapping("/admin/user-manager/doctor-user")
+    public String doctorUserManager(Model model, @RequestParam(required = false) Map<String, String> params){
+        String quatity = params.getOrDefault("quantity", "10");
+        String name = params.getOrDefault("name", "");
+       
+        int page = Integer.parseInt(params.getOrDefault("page", "1"));
+        model.addAttribute("users", this.userService.getUsers());
+        return "doctor-user";
+    }
+    @RequestMapping("/admin/user-manager/nurse-user")
+    public String nurseUserManager(Model model, @RequestParam(required = false) Map<String, String> params){
+        String quatity = params.getOrDefault("quantity", "10");
+        String name = params.getOrDefault("name", "");
+       
+        int page = Integer.parseInt(params.getOrDefault("page", "1"));
+        model.addAttribute("users", this.userService.getUsers());
+        return "nurse-user";
     }
 }

@@ -29,6 +29,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserRepositoryImpl implements UserRepository{
     @Autowired
     private LocalSessionFactoryBean sessionFactory;
+    
     @Override
     public boolean addUser(User user) {
         Session session = sessionFactory.getObject().getCurrentSession();
@@ -40,7 +41,16 @@ public class UserRepositoryImpl implements UserRepository{
         }
         return false;
     }
-    
+    public boolean addDoctorUser(User user) {
+        Session session = sessionFactory.getObject().getCurrentSession();
+        try{
+            session.save(user);
+            return true;
+        }catch(HibernateException e){
+            System.err.println(e.getMessage());
+        }
+        return false;
+    }
     
 
     @Override
@@ -60,23 +70,9 @@ public class UserRepositoryImpl implements UserRepository{
     }
 
     @Override
-    public List<User> getUsers(int page, String name, String quantity) {
-        Session session = this.sessionFactory.getObject().getCurrentSession();
-        CriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<User> query = builder.createQuery(User.class);
-        Root root = query.from(User.class);
-        query = query.select(root);
-        if(name != null && !name.isEmpty()){
-            Predicate p = builder.like(root.get("username").as(String.class), String.format("%%%s%%", name));
-            query = query.where(p);
-        }
-        
-        Query q = session.createQuery(query);
-        int max = 6;
-        if(!quantity.equals("All")){
-            q.setMaxResults(max);
-            q.setFirstResult((page - 1) * max);
-        }
+    public List<User> getUsers() {
+        Session s = sessionFactory.getObject().getCurrentSession();
+        org.hibernate.query.Query q = s.createQuery("From User");
         return q.getResultList();
     }
     

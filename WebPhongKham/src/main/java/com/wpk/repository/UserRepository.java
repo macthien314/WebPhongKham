@@ -15,5 +15,5 @@ import java.util.List;
 public interface UserRepository {
     boolean addUser(User user);
     List <User> getUser(String username);
-    List <User> getUsers(int page, String name, String quantity);
+    List <User> getUsers();
 }

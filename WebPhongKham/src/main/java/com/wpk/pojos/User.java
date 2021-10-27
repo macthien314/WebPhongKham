@@ -8,6 +8,7 @@ package com.wpk.pojos;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -49,6 +50,7 @@ public class User implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
     @Basic(optional = false)
@@ -95,12 +97,12 @@ public class User implements Serializable {
     private static final String USER ="ROLE_USER";
     private static final String ADMIN ="ROLE_ADMIN";
     @Transient
-    @NotNull(message = "{user.file.nullErr}")
+    
     private MultipartFile file;
     @Transient
     private String confirmPassword;
     
-    @OneToOne(mappedBy = "user")
+    @OneToOne(mappedBy = "user", cascade=CascadeType.ALL)
     private Doctor doctor;
     @OneToOne(mappedBy = "user")
     private Nurse nurse;

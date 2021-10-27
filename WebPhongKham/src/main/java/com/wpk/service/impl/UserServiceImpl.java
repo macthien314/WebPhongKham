@@ -55,27 +55,39 @@ public class UserServiceImpl implements UserService{
         }
         return this.userRepository.addUser(user);
     }
+    @Override
+    public boolean addDoctorUser(User user) {
+        String password = user.getPassword();
+        user.setPassword(this.passwordEncoder.encode(password));
+       
+        
+        return this.userRepository.addUser(user);
+    }
 
     @Override
     public List<User> getUser(String username) {
         return this.userRepository.getUser(username);
     }
-
+    
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         List<User> users = this.userRepository.getUser(username);
         if(users.isEmpty())
             throw new UsernameNotFoundException("User does not exites");
+       
         User u = users.get(0);
-        
+        if(u.getActive() == false){
+            throw new UsernameNotFoundException("User does not exites");
+
+        }
         Set<GrantedAuthority> auth = new HashSet<>();
         auth.add(new SimpleGrantedAuthority(u.getUserRole()));
         return new org.springframework.security.core.userdetails.User(u.getUsername(),u.getPassword(), auth);
     }
 
     @Override
-    public List<User> getUsers(int page, String name, String quantity) {
-        return this.userRepository.getUsers(page, name, quantity);
+    public List<User> getUsers() {
+        return this.userRepository.getUsers();
     }
     
 }

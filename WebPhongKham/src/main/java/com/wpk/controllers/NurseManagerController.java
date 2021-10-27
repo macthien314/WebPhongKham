@@ -7,9 +7,12 @@ package com.wpk.controllers;
 
 import com.wpk.pojos.Medical;
 import com.wpk.pojos.Nurse;
+import com.wpk.pojos.User;
 import com.wpk.service.MedicalService;
 import com.wpk.service.NurseService;
+import com.wpk.service.UserService;
 import com.wpk.validator.WebAppValidator;
+import java.text.Normalizer;
 import java.util.Map;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +41,8 @@ public class NurseManagerController {
     private MedicalService medicalService;
     @Autowired
     private WebAppValidator nurseValidator;
+    @Autowired
+   private UserService userDetailsService;
      @InitBinder 
    public void initBinder(WebDataBinder binder)
    { 
@@ -100,5 +105,38 @@ public class NurseManagerController {
         }
         
         return "redirect:/admin/nurse-manager/edit-nurse/{"+m.getId().toString()+"}" ;
+    }
+    //cấp tài khoản cho y tá
+    @PostMapping("/admin/nurse-manager/create-user")
+    public String createDoctorUserProsses(Model model, @ModelAttribute(value = "nurse") Nurse m, BindingResult result){
+        User u = new User();
+        
+        u.setUserRole("ROLE_Nurse");
+        
+        String username =m.getId().toString() + "nurse"+m.getFirstName()+m.getLastName();
+        username = username.replaceAll("\\s+","");
+        
+        username=Normalizer.normalize(username, Normalizer.Form.NFD);
+        username = username.replaceAll("[\\p{InCombiningDiacriticalMarks}]", "");
+        username = username.toLowerCase();
+        u.setUsername(username);
+        u.setPassword("123456");
+        u.setFirstName(m.getFirstName());
+        u.setLastName(m.getLastName());
+        u.setPhone(m.getPhone());
+        u.setEmail(m.getEmail());
+        u.setImage(m.getImage());
+        u.setNurse(m);
+        
+        m.setUser(u);
+        if(!result.hasErrors())
+        {   
+            if(this.userDetailsService.addDoctorUser(u) ==true)
+                    return "redirect:/admin/doctor-manager";
+        else
+                model.addAttribute("err","Something wrong");
+        }
+        
+        return "redirect:/admin/doctor-manager/edit-doctor/{"+m.getId().toString()+"}" ;
     }
 }

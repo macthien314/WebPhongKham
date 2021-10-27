@@ -36,17 +36,17 @@
                             <a href="#pagesubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-users"></i>Quản lý user</a>
                             <ul class="collapse list-unstyled" id="pagesubmenu">
                                 <li>
-                                    <a href="#"><i class="fas fa-user-shield"></i>Admin User</a>
+                                    <a href=""><i class="fas fa-user-shield"></i>Admin User</a>
                                 </li>
                                 
                                 <li>
-                                    <a href="#"><i class="fas fa-user-md"></i>Doctor User</a>
+                                    <a href="<c:url value="/admin/user-manager/doctor-user"/>"><i class="fas fa-user-md"></i>Doctor User</a>
                                 </li>
                                 <li>
-                                    <a href="#"><i class="fas fa-user-nurse"></i>Nurse User</a>
+                                    <a href="<c:url value="/admin/user-manager/nurse-user"/>"><i class="fas fa-user-nurse"></i>Nurse User</a>
                                 </li>
                                 <li>
-                                    <a href="#"><i class="far fa-meh-blank"></i> User thường</a>
+                                    <a href="<c:url value="/admin/user-manager/normal-user"/>"><i class="far fa-meh-blank"></i> User thường</a>
                                 </li>
                             </ul>
                         </li>

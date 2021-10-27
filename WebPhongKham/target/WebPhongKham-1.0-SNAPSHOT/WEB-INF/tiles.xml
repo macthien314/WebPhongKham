@@ -210,6 +210,12 @@
     <definition name="user-manager" extends="adminLayout">
         <put-attribute name="content" value="/WEB-INF/jsp/admin/user/user_manager.jsp"/>
     </definition>
+    <definition name="doctor-user" extends="adminLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/user/doctor_user_manager.jsp"/>
+    </definition>
+    <definition name="nurse-user" extends="adminLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/user/nurse_user_manager.jsp"/>
+    </definition>
     <!-- End admin: user manager -->
     
     <!-- start admin :medical manager -->

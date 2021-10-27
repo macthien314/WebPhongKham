@@ -16,8 +16,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
  */
 public interface UserService extends UserDetailsService {
     boolean addUser(User user);
+    boolean addDoctorUser(User user);
     List <User> getUser(String username);
-    List <User> getUsers(int page, String name, String quantity);
+    List <User> getUsers();
 //    List<List<Map<Object, Object>>> getCanvasjsChartData();
    
 }
