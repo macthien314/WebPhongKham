@@ -87,28 +87,17 @@
     </div>
     
 
-
-            <c:url value="/admin/quanly-hoadondichvu/them-hoadondichvu" var="action"/>
-                    <!-- Modal -->
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Xóa hóa đơn dịch vụ</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Xóa Hóa Đơn Dịch Vụ</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <form:form id="slide" action="${action}" modelAttribute="medical" method="post" enctype="multipart/form-data">
-               <form:errors path="*" cssClass="alert alert-danger" element="div" />
-              
-                                         
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-block">Cập nhập</button>
-            </div>
-                
-            </form:form>
+        Bạn có muốn chắn xóa hóa đơn dịch vụ
       </div>
       <div class="modal-footer">
           <a href="" class="btn btn-primary" id="delRef">Vâng,tôi chắc</a> 
@@ -118,3 +107,6 @@
     </div>
   </div>
 </div>
+
+         
+         

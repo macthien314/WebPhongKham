@@ -100,7 +100,19 @@ public class PatientManagerController {
         
         return "redirect:/admin/patient-manager/edit-patient/{"+m.getId().toString()+"}" ;
     }
-    
+      @PostMapping("/admin/patient-manager/add-user")
+    public String addPatientUserProsses(Model model, @ModelAttribute(value = "patient")@Valid Patient m, BindingResult result){
+        
+        if(!result.hasErrors())
+        {   
+            if(this.patientService.addOrUpdate(m)==true)
+                    return "redirect:/admin/patient-manager";
+        else
+                model.addAttribute("err","Something wrong");
+        }
+        
+        return "redirect:/admin/patient-manager/edit-patient/{"+m.getId().toString()+"}" ;
+    }
     
     @GetMapping("/benh-nhan/{patientid}")
     public String patient(Model model,@PathVariable(value ="patientid") int patientid){

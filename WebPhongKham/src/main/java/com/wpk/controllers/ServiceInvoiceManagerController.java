@@ -6,6 +6,7 @@
 package com.wpk.controllers;
 
 
+
 import com.wpk.pojos.ServiceInvoice;
 import com.wpk.service.ServiceInvoiceService;
 import com.wpk.validator.WebAppValidator;
@@ -19,7 +20,10 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
@@ -59,6 +63,40 @@ public class ServiceInvoiceManagerController {
                 model.addAttribute("err","Something wrong");
         }
         return "add-serviceinvoice";
+    }
+    
+    //chuc nang xoa bac si
+     @RequestMapping(value="/admin/serviceinvoice-manager/delete-serviceinvoice/{id}",method = {RequestMethod.DELETE,RequestMethod.GET})
+    public String deleteServiceInvoice(Model model,@PathVariable(value ="id") int id){
+        
+        if(this.serviceInvoiceService.removeServiceInvoice(id)){
+            return "redirect:/admin/serviceinvoice-manager";
+        }
+        else model.addAttribute("err","Something wrong");
+        
+        return "redirect:/admin/serviceinvoice-manager";
+    }
+    
+    //chuc nang sua y tá
+    
+    @GetMapping("/admin/serviceinvoice-manager/edit-serviceinvoice/{serviceinvoiceID}")
+    public String editServiceInvoiceShow(Model model,@PathVariable(value ="serviceinvoiceID") int serviceinvoiceID){
+        ServiceInvoice m = this.serviceInvoiceService.getServiceInvoiceByID(serviceinvoiceID);
+        model.addAttribute("serviceinvoice", m);
+        return "edit-serviceinvoice";
+    }
+    @PostMapping("/admin/serviceinvoice-manager/edit-serviceinvoice")
+    public String editServiceInvoiceProsses(Model model, @ModelAttribute(value = "serviceinvoice")@Valid ServiceInvoice m, BindingResult result){
+        
+        if(!result.hasErrors())
+        {   
+            if(this.serviceInvoiceService.addOrUpdate(m)==true)
+                    return "redirect:/admin/serviceinvoice-manager";
+        else
+                model.addAttribute("err","Something wrong");
+        }
+        
+        return "redirect:/admin/serviceinvoice-manager/edit-serviceinvoice/{"+m.getId().toString()+"}" ;
     }
     
 }

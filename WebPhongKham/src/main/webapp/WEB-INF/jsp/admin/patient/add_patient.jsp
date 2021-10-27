@@ -84,15 +84,7 @@
                      <form:errors path="email" cssClass="alert alert-danger" element="div" />
                 </div> <!-- form-group end.// -->
                 
-                <div class="form-group">
-                    <label for="tcate">Tài khoản</label>
-                   
-
-                       
-                         <form:input path="user.id" id="user.id" name="user.id" type="text" cssClass="form-control"/>
-        
-                    <form:errors cssClass="alert alert-danger" path="user" element="div"/>
-                </div> 
+              
                
                 
                  

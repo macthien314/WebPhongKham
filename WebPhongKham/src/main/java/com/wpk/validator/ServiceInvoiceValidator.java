@@ -28,10 +28,6 @@ public class ServiceInvoiceValidator implements Validator{
 
     @Override
     public void validate(Object target, Errors errors) {
-        ServiceInvoice m = (ServiceInvoice) target;
-        if( m.getFile().isEmpty()){
-           errors.rejectValue("file", "slide.file.imageEmtyErr");
-        }
-    }
+            }
     
 }

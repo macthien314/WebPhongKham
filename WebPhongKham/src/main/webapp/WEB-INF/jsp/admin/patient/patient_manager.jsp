@@ -75,7 +75,7 @@
                           <img src="${s.image}" class="img-fluid img-thumbnail" alt="Sheep">
 
                     </td>
-                   
+                    <td>${s.user.username}</td>
                      <td class="setting">
 
                          <a data-toggle="tooltip" title="xem thông tin" title="thông tin"href="<c:url value="/admin/quanly-slide/chitiet-slide/${s.id}"/>"> <i class="fas fa-info-circle" style="color:#18d26e"></i></a>
@@ -107,7 +107,7 @@
         </button>
       </div>
       <div class="modal-body">
-        Bạn có muốn chắn xóa bác sĩ
+        Bạn có muốn chắn xóa bệnh nhân
       </div>
       <div class="modal-footer">
           <a href="" class="btn btn-primary" id="delRef">Vâng,tôi chắc</a> 

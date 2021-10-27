@@ -96,8 +96,10 @@ public class Patient implements Serializable {
     private String email;
     @OneToMany(mappedBy = "patient")
     private List<MedicalExaminationCard> medicalExaminationCardList;
+    
     @OneToMany(mappedBy = "patient")
     private List<ServiceInvoice> serviceInvoiceList;
+    
     @OneToMany(mappedBy = "patient")
     private List<Appointment> appointmentList;
     

@@ -15,4 +15,5 @@ public interface ServiceInvoiceRepository {
     List<ServiceInvoice> getServiceInvoice();
      ServiceInvoice getServiceInvoiceByID(int id);
      boolean addOrUpdate(ServiceInvoice m); 
+     boolean removeServiceInvoice(int id);
 }

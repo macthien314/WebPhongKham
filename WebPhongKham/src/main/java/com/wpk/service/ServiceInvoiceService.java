@@ -16,4 +16,5 @@ public interface ServiceInvoiceService {
            List<ServiceInvoice> getServiceInvoices();
     ServiceInvoice getServiceInvoiceByID(int id);
      boolean addOrUpdate(ServiceInvoice m);
+      boolean removeServiceInvoice(int id);
 }

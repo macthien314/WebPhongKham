@@ -44,7 +44,7 @@ public class PatientRepositoryImpl implements PatientRepository {
     public boolean addOrUpdate(Patient m) {
          Session session = sessionFactory.getObject().getCurrentSession();
         try{
-            session.save(m);
+            session.saveOrUpdate(m);
             return true;
         }
         catch(Exception e){

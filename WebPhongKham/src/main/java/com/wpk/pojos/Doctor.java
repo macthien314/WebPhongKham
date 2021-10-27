@@ -96,8 +96,11 @@ public class Doctor implements Serializable {
     @Size(min = 1, max = 100)
     @Column(name = "image")
     private String image;
+    
+    
     @OneToMany(mappedBy = "doctor")
     private List<Appointment> appointmentList;
+    
     @ManyToOne
     @JoinColumn(name = "medical_id")
     private Medical medical;

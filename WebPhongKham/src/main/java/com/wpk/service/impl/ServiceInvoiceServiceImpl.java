@@ -34,20 +34,16 @@ public class ServiceInvoiceServiceImpl implements ServiceInvoiceService {
 
       @Override
     public boolean addOrUpdate(ServiceInvoice m) {
-        if(!m.getFile().isEmpty()){
-        try {
-          
-            Map r = this.cloudinary.uploader().upload(m.getFile().getBytes(),
-                    ObjectUtils.asMap("resource_type","auto","folder","serviceinvoice"));
-        
-        } catch (IOException ex) {
-            System.out.println("==ADD USER==");
-        }}
+       
         return this.serviceInvoiceRepository.addOrUpdate(m);
     } 
 
     @Override
     public ServiceInvoice getServiceInvoiceByID(int id) {
          return serviceInvoiceRepository.getServiceInvoiceByID(id);
+    }
+      @Override
+    public boolean removeServiceInvoice(int i) {
+        return this.serviceInvoiceRepository.removeServiceInvoice(i);
     }
 }

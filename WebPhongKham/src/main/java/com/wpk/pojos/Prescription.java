@@ -60,6 +60,7 @@ public class Prescription implements Serializable {
     @ManyToOne
     @JoinColumn(name = "patient_id")
     private Patient patient;
+    
     @OneToMany(mappedBy="prescription")
     private List<PrescriptionDrug> prescriptionDrugList;
 

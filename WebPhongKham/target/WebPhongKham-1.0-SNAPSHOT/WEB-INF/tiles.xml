@@ -164,7 +164,10 @@
         <put-attribute name="content" value="/WEB-INF/jsp/admin/serviceinvoice/serviceinvoice_manager.jsp"/>
     </definition>
     <definition name="add-serviceinvoice" extends="adminLayout">
-        <put-attribute name="content" value="/WEB-INF/jsp/admin/service/add_serviceinvoice.jsp"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/serviceinvoice/add_serviceinvoice.jsp"/>
+    </definition>
+    <definition name="edit-serviceinvoice" extends="adminLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/serviceinvoice/edit_serviceinvoice.jsp"/>
     </definition>
     <!-- End admin: user manager -->
     
