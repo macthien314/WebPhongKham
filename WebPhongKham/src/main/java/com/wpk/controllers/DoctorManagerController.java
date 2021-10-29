@@ -15,9 +15,11 @@ import java.util.Map;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -31,7 +33,9 @@ import org.springframework.web.bind.annotation.RequestParam;
  *
  * @author macth
  */
+
 @Controller
+@ControllerAdvice
 public class DoctorManagerController {
     @Autowired
     private DoctorService doctorService;
@@ -44,15 +48,28 @@ public class DoctorManagerController {
    { 
        binder.setValidator(doctorValidator);
    }
+
     @GetMapping("/admin/doctor-manager")
-    public String DoctorManager(Model model, @RequestParam(required = false)Map<String, String> params){
-        model.addAttribute("doctor", new Doctor());
-        model.addAttribute("doctors", this.doctorService.getDoctor());
+    public String DoctorManager (Model model, @RequestParam(required = false)Map<String, String> params){
+        String kw = params.getOrDefault("kw", null);
+        int page = Integer.parseInt(params.getOrDefault("page", "1"));
+ 
+        model.addAttribute("doctors", this.doctorService.getDoctor(kw, page));
+        model.addAttribute("counter", this.doctorService.countDoctor());
         return "doctor-manager";
     }
+    
+//    @GetMapping("/admin/doctor-manager")
+//    public String DoctorManagers(Model model, @RequestParam(required = false)Map<String, String> params){
+//        
+//        model.addAttribute("doctors", this.doctorService.getDoctor("", 1));    
+//        return "doctor-manager";
+//    }
+    
+ 
     //chuc nang them bac si
     @GetMapping("/admin/doctor-manager/add-doctor")
-    private String addDoctorShow(Model model){
+    private String addDoctorShows(Model model){
         model.addAttribute("doctor", new Doctor());
         return "add-doctor";
    }

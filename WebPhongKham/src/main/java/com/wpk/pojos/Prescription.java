@@ -64,6 +64,11 @@ public class Prescription implements Serializable {
     @OneToMany(mappedBy="prescription")
     private List<PrescriptionDrug> prescriptionDrugList;
 
+    public Prescription(Integer id, Date createdDate) {
+        this.id = id;
+        this.createdDate = createdDate;
+    }
+
     public Prescription() {
     }
 

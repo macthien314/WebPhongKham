@@ -15,8 +15,9 @@ import java.util.List;
  * @author macth
  */
 public interface DoctorService {
-     List<Doctor> getDoctor();
-    Doctor getDoctorByID(int id);
+     List<Doctor> getDoctor(String kw, int page );
+     long countDoctor();
+     Doctor getDoctorByID(int id);
      boolean addOrUpdate(Doctor d);
      boolean removeDoctor(int id);
 }

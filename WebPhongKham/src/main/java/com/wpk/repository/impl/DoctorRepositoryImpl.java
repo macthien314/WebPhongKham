@@ -9,9 +9,16 @@ package com.wpk.repository.impl;
 import com.wpk.pojos.Doctor;
 import com.wpk.repository.DoctorRepository;
 import java.util.List;
-import org.hibernate.Query;
+
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
+
+
 
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 
@@ -29,10 +36,26 @@ public class DoctorRepositoryImpl implements DoctorRepository {
     private LocalSessionFactoryBean sessionFactory;
       
       @Override
-    public List<Doctor> getDoctor() {
+    public List<Doctor> getDoctor(String kw, int page) {
         Session s = sessionFactory.getObject().getCurrentSession();
-        Query q = s.createQuery("From Doctor");
-        return q.getResultList();
+        CriteriaBuilder builder = s.getCriteriaBuilder();
+        CriteriaQuery<Doctor> q = builder.createQuery(Doctor.class);
+        Root root = q.from(Doctor.class);
+        q=q.select(root);
+        
+        if (kw != null)
+        {
+            Predicate p = builder.like(root.get("firstName").as(String.class),
+                    String.format("%%s%%", kw));
+            q = q.where(p);
+        }
+        q = q.orderBy(builder.asc(root.get("id")));
+        Query query = s.createQuery(q);
+        
+        int max = 3;
+        query.setMaxResults(max);
+        query.setFirstResult((page-1)* max);
+        return query.getResultList();
     }
 
     @Override
@@ -67,6 +90,13 @@ public class DoctorRepositoryImpl implements DoctorRepository {
         
         }
         return false;
+    }
+
+    @Override
+    public long countDoctor() {
+        Session s = sessionFactory.getObject().getCurrentSession();
+        Query q = s.createQuery("Select Count(*) From Doctor ");
+        return Long.parseLong(q.getSingleResult().toString());
     }
 }
 

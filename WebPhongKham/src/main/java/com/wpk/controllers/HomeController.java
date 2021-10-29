@@ -37,12 +37,12 @@ public class HomeController {
         model.addAttribute("medicals", this.medicalService.getMedicals());
     }
     
-     @Autowired
-    private DoctorService doctorService;
-    @ModelAttribute
-    public void commonAttrs(Model model, HttpSession session){
-        model.addAttribute("doctors", this.doctorService.getDoctor());
-    }
+//     @Autowired
+//    private DoctorService doctorService;
+//    @ModelAttribute
+//    public void commonAttrs(Model model, HttpSession session, String kw, int page){
+//        model.addAttribute("doctors", this.doctorService.getDoctor("", 1));
+//    }
     
       @Autowired
     private NurseService nurseService;

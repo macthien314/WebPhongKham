@@ -29,8 +29,8 @@ public class DoctorServiceImpl implements DoctorService{
     private Cloudinary cloudinary; 
 
     @Override
-    public List<Doctor> getDoctor() {
-           return doctorRepository.getDoctor();
+    public List<Doctor> getDoctor(String kw, int page) {
+           return doctorRepository.getDoctor(kw, page);
     }
 
     @Override
@@ -55,5 +55,11 @@ public class DoctorServiceImpl implements DoctorService{
     @Override
     public boolean removeDoctor(int i) {
         return this.doctorRepository.removeDoctor(i);
+    }
+
+   @Override
+    public long countDoctor() {
+        
+        return doctorRepository.countDoctor();
     }
 }

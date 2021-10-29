@@ -22,12 +22,18 @@
     <table  class=" table table-striped table-bordered" width="100%">
 
     <thead>
+   
      <form action="">
+          <ul class ="pagination">
+        <c:forEach begin ="1" end ="${Math.ceil(counter/2)}">
+            <li class ="page-item"> <a class="page-link" href="<c:url value ="/admin/doctor-manager/"/>?page=${page}">${page}</a></li>
+        </c:forEach>
+    </ul>
     <div class="row">
         <div class="col-md-3">
         <a href="<c:url value="/admin/doctor-manager/add-doctor"/>" class=" btn btn-primary btn-xs pull-right"><b>+</b> ADD Doctor</a>
          </div>
-         <div class="col-md-3">
+<!--         <div class="col-md-2">
 
          <select name="quantity" id="inputState" class="form-control">
 
@@ -37,11 +43,21 @@
 
          </select>
          </div>
+         
 
-
-          <div style="margin-right: 0; margin-left: auto;"class="col-md-2">
+          <div class="col-md-2">
          <input type="submit" value="Lọc" class="btn btn-danger"/>
             </div>  
+         -->
+         <div  class="col-md-2" >
+             <input class ="form-control" type ="text" name ="kw" placeholder ="Nhập bác sĩ cần tìm" />
+         </div>
+        <form class ="form-inline" action ="<c:url value ="/admin/doctor-manager/"/>">
+             <div style="margin-bottom: 20px;" class="col-md-2">
+            <input type="submit" value="Tìm" class="btn btn-danger"/>
+            </div>    
+         </form>
+         
         </div>
       </form>
 
