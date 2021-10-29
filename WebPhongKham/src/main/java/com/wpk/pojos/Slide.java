@@ -37,9 +37,9 @@ import org.springframework.web.multipart.MultipartFile;
     @NamedQuery(name = "Slide.findByActive", query = "SELECT s FROM Slide s WHERE s.active = :active")})
 public class Slide implements Serializable {
 
-    @Size(max = 45)
+
     @Column(name = "active")
-    private String active;
+    private boolean active;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -148,11 +148,11 @@ public class Slide implements Serializable {
         this.file = file;
     }
 
-    public String getActive() {
+    public boolean getActive() {
         return active;
     }
 
-    public void setActive(String active) {
+    public void setActive(boolean active) {
         this.active = active;
     }
     

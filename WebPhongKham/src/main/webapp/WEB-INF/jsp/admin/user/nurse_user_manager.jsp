@@ -17,7 +17,7 @@
 <div class="container py-5">
 <div class="row text-center">
     <c:forEach var="u" items="${users}">
-    <c:if test="${u.userRole.equals('ROLE_Nurse') == true}">
+    <c:if test="${u.userRole.equals('ROLE_NURSE') == true}">
             
         <div class="col-xl-3 col-sm-6 mb-5">
         <div class="bg-white rounded shadow-sm py-5 px-4">

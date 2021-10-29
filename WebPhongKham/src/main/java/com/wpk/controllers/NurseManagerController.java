@@ -111,7 +111,7 @@ public class NurseManagerController {
     public String createDoctorUserProsses(Model model, @ModelAttribute(value = "nurse") Nurse m, BindingResult result){
         User u = new User();
         
-        u.setUserRole("ROLE_Nurse");
+        u.setUserRole("ROLE_NURSE");
         
         String username =m.getId().toString() + "nurse"+m.getFirstName()+m.getLastName();
         username = username.replaceAll("\\s+","");

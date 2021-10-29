@@ -76,10 +76,7 @@ public class UserServiceImpl implements UserService{
             throw new UsernameNotFoundException("User does not exites");
        
         User u = users.get(0);
-        if(u.getActive() == false){
-            throw new UsernameNotFoundException("User does not exites");
 
-        }
         Set<GrantedAuthority> auth = new HashSet<>();
         auth.add(new SimpleGrantedAuthority(u.getUserRole()));
         return new org.springframework.security.core.userdetails.User(u.getUsername(),u.getPassword(), auth);

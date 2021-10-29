@@ -82,5 +82,25 @@ public class SlideRepositoryImpl implements SlideRepository{
         }
         return false;
     }
-    
+    @Override
+    public List<Slide> getSlides(String kw, String active) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<Slide> query = builder.createQuery(Slide.class);
+        Root root = query.from(Slide.class);
+        query = query.select(root);
+        if(kw != null && !kw.isEmpty()){
+            Predicate p = builder.like(root.get("title").as(String.class), String.format("%%%s%%", kw));
+            query = query.where(p);
+        }
+        if(active != null && !active.isEmpty() && !active.equals("all") ){
+            boolean a = Boolean.parseBoolean(active);
+            System.out.println(active+"+++++++++++++++");
+            Predicate p = builder.equal(root.get("active").as(boolean.class), a);
+            query = query.where(p);
+        }
+        Query q = session.createQuery(query);
+        
+        return q.getResultList();
+    }
 }

@@ -3,6 +3,7 @@
     Created on : Sep 26, 2021, 5:40:57 PM
     Author     : Admin
 --%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <h1 class="mt-4">Quản lý Slide</h1>
@@ -13,33 +14,52 @@
 <c:if test="${err != null}">
     <div class="alert alert-danger">${err}</div>
 </c:if>
+    	
+  <div class="row">
+            <div class="col-md-3">
+            <a href="<c:url value="/admin/quanly-slide/them-slide"/>" class=" btn btn-primary btn-xs pull-right"><b>+</b> ADD NEW SLIDE</a>
+             </div>
+             <div class="col-md-8">
+            <div class="input-group" id="adv-search">
+                <input type="text" class="form-control" placeholder="Nhập từ khóa theo tên" />
+                <div class="input-group-btn">
+                    <div class="btn-group" role="group">
+                        <div class="dropdown dropdown-lg">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
+                            <div class="dropdown-menu dropdown-menu-right" role="menu">
+                                <form class="form-horizontal" role="form">
+                                  
+                                  <div class="form-group">
+                                    <label for="active">Kích hoạt</label>
+                                    <select name ="active"class="form-control">
+                                        <option value="all">ALL</option>
+                                        <option value="true">Active</option>
+                                        <option value="false">Not Active</option>
+                                    </select>
+                                  </div>
+
+                                   <div class="form-group">
+                                    <label for="title">Nhập tiêu đề</label>
+                                    <input name ="title" class="form-control" type="text" />
+                                  </div>
+                                  <button type="submit" class="btn btn-primary">Tìm</button>
+                                </form>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-primary">LỌC</button>
+                    </div>
+                </div>
+            </div>
+          </div>
+            </div>
+          
 <div id="managerTable" class="table table-striped w-auto" >
     
         <table  class="slide-table table table-striped table-bordered" width="100%">
         
         <thead>
-         <form action="">
-        <div class="row">
-            <div class="col-md-3">
-            <a href="<c:url value="/admin/quanly-slide/them-slide"/>" class=" btn btn-primary btn-xs pull-right"><b>+</b> ADD NEW SLIDE</a>
-             </div>
-             <div class="col-md-3">
-                          
-             <select name="quantity" id="inputState" class="form-control">
-                            
-                              <option>10</option>
-                              <option>15</option>
-                              <option>All</option>
-                              
-             </select>
-             </div>
-             
-            
-              <div style="margin-right: 0; margin-left: auto;"class="col-md-2">
-             <input type="submit" value="Lọc" class="btn btn-danger"/>
-                </div>  
-            </div>
-          </form>
+         
+       
     
 
             <tr>
@@ -85,9 +105,9 @@
     </table>
   
     
-    </div>
+   
     
-
+</div>
 <!-- Modal -->
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog" role="document">

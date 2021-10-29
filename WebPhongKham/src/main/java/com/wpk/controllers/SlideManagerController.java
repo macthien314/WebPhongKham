@@ -42,11 +42,12 @@ public class SlideManagerController {
     @RequestMapping("/admin/quanly-slide")
     public String slideManager(Model model, @RequestParam(required = false)Map<String, String> params)
     {   
-        
+        String title = params.getOrDefault("title", "");
+        String active = params.getOrDefault("active", "all");
         String quantity = params.getOrDefault("quantity", "10");
         
         int page = Integer.parseInt(params.getOrDefault("page", "1"));
-        model.addAttribute("slides", this.slideService.getSlides(page,quantity));
+        model.addAttribute("slides", this.slideService.getSlides(title,active));
         return "slide-manager";
     }
     //Xem chi tiết slide
@@ -68,6 +69,8 @@ public class SlideManagerController {
         
         if(!result.hasErrors())
         {      
+             if(s.getActive() != true)
+                s.setActive(false);
             if(this.slideService.addOrUpdate(s)==true)
                     return "redirect:/admin/quanly-slide";
         else
@@ -98,6 +101,8 @@ public class SlideManagerController {
         
         if(!result.hasErrors())
         {   
+            if(s.getActive() != true)
+                s.setActive(false);
             if(this.slideService.addOrUpdate(s)==true)
                     return "redirect:/admin/quanly-slide";
         else

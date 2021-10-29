@@ -8,7 +8,7 @@
 <%@taglib prefix="Spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<h1 class="mt-4">Doctor User</h1>
+<h1 class="mt-4">NURSE User</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="index.html">admin</a></li>
                             <li class="breadcrumb-item active">quan-ly-slide</li>

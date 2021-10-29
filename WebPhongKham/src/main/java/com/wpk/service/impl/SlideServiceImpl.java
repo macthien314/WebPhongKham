@@ -13,6 +13,9 @@ import com.wpk.service.SlideService;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
@@ -56,5 +59,10 @@ public class SlideServiceImpl implements SlideService{
     public boolean removeSlide(int id) {
         return this.slideRepository.removeSlide(id);
     }
-    
+
+    @Override
+    public List<Slide> getSlides(String title, String active) {
+        return this.slideRepository.getSlides(title, active);
+    }
+   
 }

@@ -51,7 +51,7 @@ public class DoctorManagerController {
 
     @GetMapping("/admin/doctor-manager")
     public String DoctorManager (Model model, @RequestParam(required = false)Map<String, String> params){
-        String kw = params.getOrDefault("kw", null);
+        String kw = params.getOrDefault("kw", "");
         int page = Integer.parseInt(params.getOrDefault("page", "1"));
  
         model.addAttribute("doctors", this.doctorService.getDoctor(kw, page));

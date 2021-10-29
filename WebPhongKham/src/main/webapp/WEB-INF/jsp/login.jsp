@@ -46,7 +46,7 @@
                            
                             <c:if test="${param.error != null}">
                                 <div class="alert alert-danger">
-                                    Có lỗi
+                                    có lỗi
                                 </div>
                             </c:if>
                             <c:if test="${param.accessDinied != null}">

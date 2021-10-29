@@ -18,4 +18,5 @@ public interface SlideService {
     Slide getSlideByID(int slideID);
     boolean addOrUpdate(Slide slide);
     boolean removeSlide(int id);
+    List<Slide> getSlides(String kw, String active);
 }
