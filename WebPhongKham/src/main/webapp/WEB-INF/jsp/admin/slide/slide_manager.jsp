@@ -14,7 +14,7 @@
 <c:if test="${err != null}">
     <div class="alert alert-danger">${err}</div>
 </c:if>
-    	
+    	<c:url var="post_url"  value="/admin/quanly-slide" />
   <div class="row">
             <div class="col-md-3">
             <a href="<c:url value="/admin/quanly-slide/them-slide"/>" class=" btn btn-primary btn-xs pull-right"><b>+</b> ADD NEW SLIDE</a>
@@ -27,7 +27,7 @@
                         <div class="dropdown dropdown-lg">
                             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
                             <div class="dropdown-menu dropdown-menu-right" role="menu">
-                                <form class="form-horizontal" role="form">
+                                <form  class="form-horizontal" role="form">
                                   
                                   <div class="form-group">
                                     <label for="active">Kích hoạt</label>
@@ -101,11 +101,35 @@
                     </tr>
                 </c:forEach>
           </tbody>
-          
+       
     </table>
-  
-    
+  ${page}
+<div class="pagination">
+   <a href="<c:url value="/admin/quanly-slide"/>?page=${1}">«</a>
    
+    
+   <c:forEach begin = "1" end="10" var="i">
+   <c:if test="${page != i}">
+       <a href="<c:url value="/admin/quanly-slide">
+                    <c:param name="title"
+                    value="${title}"></c:param>
+                    
+                    <c:param name="active"
+                    value="${active}"></c:param>
+                    
+                    <c:param name="page"
+                    value="${i}"></c:param>
+                </c:url>"
+       >${i}</a></li>
+   </c:if>
+   <c:if test="${page == i}">
+   <a class="active" href="<c:url value="/admin/quanly-slide"/>?page=${i}">${i}</a></li>
+   </c:if>
+   </c:forEach>
+    
+   <a href="#">»</a>
+ </div>
+  
     
 </div>
 <!-- Modal -->

@@ -103,4 +103,20 @@ public class SlideRepositoryImpl implements SlideRepository{
         
         return q.getResultList();
     }
+    
+    @Override
+    public long countSlide(String kw, String active) {
+        Session session = sessionFactory.getObject().getCurrentSession();
+        String query="SELECT COUNT(*) FROM Slide p where p.title LIKE :kw ";
+        if(!active.equals("all"))
+            query = query + "and p.active = :active";
+        Query q = session.createQuery(query);
+        if(!active.equals("all")){
+             boolean a = Boolean.parseBoolean(active);
+            q.setParameter("active", a);
+        }
+        q.setParameter("kw", "%%" + kw + "%%");
+     
+        return Long.parseLong(q.getSingleResult().toString());
+    }
 }

@@ -5,6 +5,7 @@
  */
 package com.wpk.controllers;
 
+import com.wpk.pojos.Medical;
 import com.wpk.service.MedicalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,7 +23,9 @@ public class MedicalController {
     private MedicalService medicalService;
     @GetMapping("/chuyen-khoa/{medicalid}")
     public String medical(Model model,@PathVariable(value ="medicalid") int medicalid){
-        model.addAttribute("medical", this.medicalService.getMedicalByID(medicalid));
+        Medical m =this.medicalService.getMedicalByID(medicalid);
+        m.setDescription( m.getDescription().replaceAll("[\n]", "<br>"));
+        model.addAttribute("medical",m );
         return "medical-detail";
     }
 }

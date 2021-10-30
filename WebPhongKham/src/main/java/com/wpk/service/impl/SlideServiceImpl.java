@@ -64,5 +64,10 @@ public class SlideServiceImpl implements SlideService{
     public List<Slide> getSlides(String title, String active) {
         return this.slideRepository.getSlides(title, active);
     }
+
+    @Override
+    public long countSlide(String kw, String active) {
+        return this.slideRepository.countSlide(kw, active);
+    }
    
 }

@@ -9,7 +9,9 @@ import com.wpk.pojos.Slide;
 import com.wpk.service.SlideService;
 import com.wpk.validator.WebAppValidator;
 import java.util.Map;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import org.apache.http.protocol.HTTP;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -39,6 +41,7 @@ public class SlideManagerController {
    { 
        binder.setValidator(slideValidator);
    }
+    
     @RequestMapping("/admin/quanly-slide")
     public String slideManager(Model model, @RequestParam(required = false)Map<String, String> params)
     {   
@@ -48,8 +51,13 @@ public class SlideManagerController {
         
         int page = Integer.parseInt(params.getOrDefault("page", "1"));
         model.addAttribute("slides", this.slideService.getSlides(title,active));
+        model.addAttribute("count", this.slideService.countSlide(title,active));
+        model.addAttribute("page", page);
+        model.addAttribute("active", active);
+        model.addAttribute("title", title);
         return "slide-manager";
     }
+    
     //Xem chi tiết slide
     @GetMapping("/admin/quanly-slide/chitiet-slide/{slideID}")
     public String slideInformation(Model model,@PathVariable(value ="slideID") int slideID){
