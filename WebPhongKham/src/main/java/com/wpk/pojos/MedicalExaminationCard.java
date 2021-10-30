@@ -81,6 +81,7 @@ public class MedicalExaminationCard implements Serializable {
     private MultipartFile file;
 
     public MedicalExaminationCard() {
+       
     }
 
     public MedicalExaminationCard(Integer id) {

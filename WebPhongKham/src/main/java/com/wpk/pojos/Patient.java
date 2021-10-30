@@ -95,7 +95,7 @@ public class Patient implements Serializable {
     @Column(name = "email")
     private String email;
     @OneToMany(mappedBy = "patient")
-    private List<MedicalExaminationCard> medicalExaminationCardList;
+    private List<MedicalExaminationCard> medicalExaminationCard;
     
     @OneToMany(mappedBy = "patient")
     private List<ServiceInvoice> serviceInvoiceList;
@@ -209,11 +209,11 @@ public class Patient implements Serializable {
 
     @XmlTransient
     public List<MedicalExaminationCard> getMedicalExaminationCardList() {
-        return medicalExaminationCardList;
+        return medicalExaminationCard;
     }
 
     public void setMedicalExaminationCardList(List<MedicalExaminationCard> medicalExaminationCardList) {
-        this.medicalExaminationCardList = medicalExaminationCardList;
+        this.medicalExaminationCard = medicalExaminationCardList;
     }
 
     @XmlTransient

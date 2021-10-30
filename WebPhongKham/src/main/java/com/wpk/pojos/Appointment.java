@@ -120,13 +120,15 @@ public class Appointment implements Serializable {
         this.doctor = doctor;
     }
 
-    public Patient getPatientId() {
+    public Patient getPatient() {
         return patient;
     }
 
     public void setPatient(Patient patient) {
         this.patient = patient;
     }
+
+   
 
     @Override
     public int hashCode() {

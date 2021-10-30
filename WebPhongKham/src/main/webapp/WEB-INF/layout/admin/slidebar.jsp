@@ -94,6 +94,20 @@
                         <li>
                             <a href="<c:url value="/admin/invoice-manager"/>"><i class="fas fa-file-invoice-dollar"></i> Quản lý Hóa Đơn</a>
                         </li>
+                        
+                        
+                             <li class ="active">
+                            <a href="#uiMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-drafting-compass"></i>Thống Kê Báo Cáo</a>
+                            <ul class="collapse list-unstyled" id="uiMenu">
+                                <li>
+                                    <a href="<c:url value="/admin/numpatient-month"/>"><i class="fab fa-slideshare"></i>Số Lượng Bệnh Nhân Đến Khám</a>
+                                </li>
+                                <li>
+                                    <a href="<c:url value=""/>">Doanh Thu Theo Tháng, Qúy, Năm</a>
+
+                                </li>    
+                            </ul>
+                        </li>
 
 
                         <li>
