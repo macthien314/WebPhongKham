@@ -42,6 +42,13 @@ import org.springframework.web.multipart.MultipartFile;
 public class Appointment implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    @Id
+    @Basic(optional = false)
+    @NotNull
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "appointment_id")
+    private Integer appointmentId;
+    
     @Column(name = "appointment_date")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Temporal(TemporalType.DATE)
@@ -49,12 +56,7 @@ public class Appointment implements Serializable {
     @Size(max = 256)
     @Column(name = "description")
     private String description;
-    @Id
-    @Basic(optional = false)
-    @NotNull
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "appointment_id")
-    private Integer appointmentId;
+    
     
     @ManyToOne
     @JoinColumn(name = "doctor_id")
@@ -67,19 +69,21 @@ public class Appointment implements Serializable {
    
     private MultipartFile file;
 
-    public Appointment(Date appointmentDate, String description, Integer appointmentId, Doctor doctor, Patient patient) {
+    public Appointment(Integer appointmentId, Date appointmentDate, String description) {
+        this.appointmentId = appointmentId;
         this.appointmentDate = appointmentDate;
         this.description = description;
-        this.appointmentId = appointmentId;
-        this.doctor = doctor;
-        this.patient = patient;
     }
 
-    public Appointment(Date appointmentDate, String description, Integer appointmentId) {
+    public Appointment(Integer appointmentId, Date appointmentDate, String description, Doctor doctor, Patient patient) {
+        this.appointmentId = appointmentId;
         this.appointmentDate = appointmentDate;
         this.description = description;
-        this.appointmentId = appointmentId;
+        this.doctor = doctor;
+        this.patient = patient;
+     
     }
+
 
     public Appointment() {
     }

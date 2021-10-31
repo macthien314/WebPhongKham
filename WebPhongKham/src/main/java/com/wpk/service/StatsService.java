@@ -14,5 +14,5 @@ import java.util.List;
  */
 public interface StatsService {
      List<Object[]> numPatientMonthStats(Date fromDate, Date toDate);
-    
+     List<Object[]> invoiceMonthStats(Date fromDate, Date toDate);
 }

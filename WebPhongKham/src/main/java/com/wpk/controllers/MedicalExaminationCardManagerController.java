@@ -97,7 +97,7 @@ public class MedicalExaminationCardManagerController {
         return "redirect:/admin/medicalexaminationcard-manager";
     }
      @GetMapping("/phieu-kham/{medicalexaminationcardsid}")
-    public String medical(Model model,@PathVariable(value ="medicalexaminationcardsid") int medicalexaminationcardsid){
+    public String medicalexaminationcards(Model model,@PathVariable(value ="medicalexaminationcardsid") int medicalexaminationcardsid){
         model.addAttribute("medicalexaminationcards", this.medicalExaminationCardsService.getMedicalExaminationCardByID(medicalexaminationcardsid));
         return "medicalexaminationcards-detail";
     }

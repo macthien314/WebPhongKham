@@ -55,7 +55,7 @@
     </thead>
     <tbody>
 
-            <c:forEach items="${apponitments}" var="s">
+            <c:forEach items="${appointments}" var="s">
                 <tr>
                     <td>${s.appointmentId}</td>
                     <td>${s.doctor.firstName}</td>

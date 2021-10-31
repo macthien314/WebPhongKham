@@ -9,7 +9,7 @@ import com.wpk.pojos.Appointment;
 import com.wpk.pojos.MedicalExaminationCard;
 import com.wpk.repository.AppointmentRepository;
 import java.util.List;
-import org.hibernate.Query;
+import org.hibernate.query.Query;
 import org.hibernate.Session;
 
 import org.springframework.beans.factory.annotation.Autowired;

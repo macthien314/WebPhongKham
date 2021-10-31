@@ -28,6 +28,12 @@ public class StatsManagerController {
         model.addAttribute("numPatientMonths", this.statsService.numPatientMonthStats(null, null));
        return "numpatient-month" ;  
     }
+     
+       @GetMapping("/invoicestats-month")   
+     public String invoiceMonthStats(Model model){
+        model.addAttribute("invoicestats", this.statsService.invoiceMonthStats(null, null));
+       return "invoicestats-month" ;  
+    }
 
 
     

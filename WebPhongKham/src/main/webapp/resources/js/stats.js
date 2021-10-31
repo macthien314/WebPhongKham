@@ -7,7 +7,7 @@ function generateColor(){
     let r = parseInt(Math.random()*255);
     let g = parseInt(Math.random()*255);
     let b = parseInt(Math.random()*255);
-    return 'rgb( ${r}, ${g}, ${b} )'
+    return 'rgb( ${r}, ${g}, ${b})'
 }
 function numPatientChart(id, numLabels = [], info=[]){
     let colors =[]
@@ -20,13 +20,14 @@ function numPatientChart(id, numLabels = [], info=[]){
             datasets: [{
             label: 'Thống kê số lượng bệnh nhân đến khám theo tháng',
             data: info,
-            backgroundColor: colors,
-            hoverOffset: 4      
+            backgroundColor: 'rgb(75, 192, 192)',
+            hoverOffset: 4  
+            
           }]
         };
 
         const config = {
-          type: 'line',
+          type: 'bar',
           data: data,
          };
         

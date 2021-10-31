@@ -103,7 +103,7 @@
                                     <a href="<c:url value="/admin/numpatient-month"/>"><i class="fab fa-slideshare"></i>Số Lượng Bệnh Nhân Đến Khám</a>
                                 </li>
                                 <li>
-                                    <a href="<c:url value=""/>">Doanh Thu Theo Tháng, Qúy, Năm</a>
+                                    <a href="<c:url value="/admin/invoicestats-month"/>">Doanh Thu Theo Tháng, Qúy, Năm</a>
 
                                 </li>    
                             </ul>

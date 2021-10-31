@@ -23,5 +23,10 @@ public class StatsServiceImpl implements StatsService{
     @Override
     public List<Object[]> numPatientMonthStats(Date fromDate, Date toDate) {
         return statsRepository.numPatientMonthStats(fromDate, toDate);
-                }
+  }
+
+    @Override
+    public List<Object[]> invoiceMonthStats(Date fromDate, Date toDate) {
+        return statsRepository.invoiceMonthStats(fromDate, toDate);
+    }
 }
