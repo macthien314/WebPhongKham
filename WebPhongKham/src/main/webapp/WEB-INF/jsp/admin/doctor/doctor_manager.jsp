@@ -17,6 +17,60 @@
 <c:if test="${err != null}">
 <div class="alert alert-danger">${err}</div>
 </c:if>
+<div class="row">
+            
+        <div class="col-md-3">
+            <a href="<c:url value="/admin/services-manager/add-services"/>" class=" btn btn-primary btn-xs pull-right"><b>+</b> ADD Service</a>
+            </div>
+             
+             <div class="col-md-8">
+            
+                 <div class="input-group" id="adv-search">
+                <form  id ="find"role="form">
+                    <input value="${title}" name="title" type="text" class="form-control" placeholder="Nhập từ khóa theo tên" />
+                </form>
+                <div class="input-group-btn">
+                    <div class="btn-group" role="group">
+                        <div class="dropdown dropdown-lg">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
+                            <div class="dropdown-menu dropdown-menu-right" role="menu">
+                                <form  class="form-horizontal" role="form">
+                                  
+                                  <div class="form-group">
+                                    <label for="medid">Chuyên khoa</label>
+                                    <select  name ="medid"class="form-control">
+                                        <option value="all" <c:if test="${active.equals('all')}">selected</c:if>>ALL</option>
+                                        <option value="true"
+                                        <c:if test="${active.equals('true')}">selected</c:if>
+                                        >Active</option>
+                                        <option value="false"
+                                        <c:if test="${active.equals('false')}">selected</c:if>>Not Active</option>
+                                    </select>
+                                  </div>
+
+                                  <div class="form-group">
+                                    <label for="title">Nhập tiêu đề</label>
+                                    <input value="${title}" name ="title" class="form-control" type="text" />
+                                  </div>
+                                  <div class="form-group">
+                                     <label for="pagequan">Số lượng hiển thị</label>
+                                     <input autocomplete="off" value="${pagequan}" class="form-control" name ="pagequan"maxlength="3" type="text" onkeypress="return onlyNumberKey(event)" list="cars" />
+                                     <datalist id="cars">
+                                          <option>all</option>
+                                     </datalist>
+                                  </div>
+                                    
+                                  <button type="submit" class="btn btn-primary">Tìm</button>
+                                </form>
+                            </div>
+                        </div>
+                        <button type="submit" form="find" class="btn btn-primary">LỌC</button>
+                        
+                    </div>
+                </div>
+            </div>
+          </div>
+            </div>
 <div id="managerTable" class="table table-striped w-auto" >
 
     <table  class=" table table-striped table-bordered" width="100%">

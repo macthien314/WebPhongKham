@@ -47,13 +47,26 @@ public class SlideManagerController {
     {   
         String title = params.getOrDefault("title", "");
         String active = params.getOrDefault("active", "all");
-        String quantity = params.getOrDefault("quantity", "10");
+        //xử lý số lượng hiển thị trong 1 trang
+        String pageQuan = params.getOrDefault("pagequan", "10");
+        
+        if(pageQuan.isEmpty()){
+            pageQuan = "10";
+        }
+        else if(!pageQuan.equals("all"))
+                if(pageQuan.contains("a") || pageQuan.contains("l"))
+                    pageQuan = "all";
+                else if(Integer.parseInt(pageQuan) <= 0)
+                    pageQuan = "10";
         
         int page = Integer.parseInt(params.getOrDefault("page", "1"));
-        model.addAttribute("slides", this.slideService.getSlides(title,active));
+        
+        model.addAttribute("slides", this.slideService.getSlides(title,active,pageQuan, page));
         model.addAttribute("count", this.slideService.countSlide(title,active));
-        model.addAttribute("page", page);
+        
+        model.addAttribute("page", Integer.toString(page));
         model.addAttribute("active", active);
+        model.addAttribute("pagequan",pageQuan);
         model.addAttribute("title", title);
         return "slide-manager";
     }

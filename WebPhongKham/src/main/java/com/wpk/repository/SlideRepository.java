@@ -17,6 +17,6 @@ public interface SlideRepository {
     Slide getSlideByID(int id);
     boolean addOrUpdate(Slide slide);
     boolean removeSlide(int id);
-    List<Slide> getSlides(String kw, String active);
+    List<Slide> getSlides(String kw, String active,String pageQuan, int pageNum);
     long countSlide(String kw, String active);
 }

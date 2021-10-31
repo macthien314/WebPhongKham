@@ -61,8 +61,8 @@ public class SlideServiceImpl implements SlideService{
     }
 
     @Override
-    public List<Slide> getSlides(String title, String active) {
-        return this.slideRepository.getSlides(title, active);
+    public List<Slide> getSlides(String title, String active,String pageQuan, int pageNum) {
+        return this.slideRepository.getSlides(title, active,pageQuan,pageNum);
     }
 
     @Override

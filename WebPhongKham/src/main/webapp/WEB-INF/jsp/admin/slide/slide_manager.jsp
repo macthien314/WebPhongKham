@@ -21,7 +21,9 @@
              </div>
              <div class="col-md-8">
             <div class="input-group" id="adv-search">
-                <input type="text" class="form-control" placeholder="Nhập từ khóa theo tên" />
+                <form  id ="find"role="form">
+                    <input value="${title}" name="title" type="text" class="form-control" placeholder="Nhập từ khóa theo tên" />
+                </form>
                 <div class="input-group-btn">
                     <div class="btn-group" role="group">
                         <div class="dropdown dropdown-lg">
@@ -31,22 +33,34 @@
                                   
                                   <div class="form-group">
                                     <label for="active">Kích hoạt</label>
-                                    <select name ="active"class="form-control">
-                                        <option value="all">ALL</option>
-                                        <option value="true">Active</option>
-                                        <option value="false">Not Active</option>
+                                    <select  name ="active"class="form-control">
+                                        <option value="all" <c:if test="${active.equals('all')}">selected</c:if>>ALL</option>
+                                        <option value="true"
+                                        <c:if test="${active.equals('true')}">selected</c:if>
+                                        >Active</option>
+                                        <option value="false"
+                                        <c:if test="${active.equals('false')}">selected</c:if>>Not Active</option>
                                     </select>
                                   </div>
 
-                                   <div class="form-group">
+                                  <div class="form-group">
                                     <label for="title">Nhập tiêu đề</label>
-                                    <input name ="title" class="form-control" type="text" />
+                                    <input value="${title}" name ="title" class="form-control" type="text" />
                                   </div>
+                                  <div class="form-group">
+                                     <label for="pagequan">Số lượng hiển thị</label>
+                                     <input autocomplete="off" value="${pagequan}" class="form-control" name ="pagequan"maxlength="3" type="text" onkeypress="return onlyNumberKey(event)" list="cars" />
+                                     <datalist id="cars">
+                                          <option>all</option>
+                                     </datalist>
+                                  </div>
+                                    
                                   <button type="submit" class="btn btn-primary">Tìm</button>
                                 </form>
                             </div>
                         </div>
-                        <button type="button" class="btn btn-primary">LỌC</button>
+                        <button type="submit" form="find" class="btn btn-primary">LỌC</button>
+                        
                     </div>
                 </div>
             </div>
@@ -103,12 +117,12 @@
           </tbody>
        
     </table>
-  ${page}
+  <c:if test="${!pagequan.equals('all')}"> 
 <div class="pagination">
    <a href="<c:url value="/admin/quanly-slide"/>?page=${1}">«</a>
    
-    
-   <c:forEach begin = "1" end="10" var="i">
+  
+   <c:forEach begin = "1" end="${Math.ceil(count/Integer.parseInt(pagequan))}" var="i">
    <c:if test="${page != i}">
        <a href="<c:url value="/admin/quanly-slide">
                     <c:param name="title"
@@ -116,20 +130,33 @@
                     
                     <c:param name="active"
                     value="${active}"></c:param>
-                    
+                    <c:param name="pagequan"
+                    value="${pagequan}"></c:param>
                     <c:param name="page"
                     value="${i}"></c:param>
                 </c:url>"
        >${i}</a></li>
    </c:if>
    <c:if test="${page == i}">
-   <a class="active" href="<c:url value="/admin/quanly-slide"/>?page=${i}">${i}</a></li>
+   
+  <a class ="active"href="<c:url value="/admin/quanly-slide">
+                    <c:param name="title"
+                    value="${title}"></c:param>
+                    
+                    <c:param name="active"
+                    value="${active}"></c:param>
+                    <c:param name="pagequan"
+                    value="${pagequan}"></c:param>
+                    <c:param name="page"
+                    value="${i}"></c:param>
+                </c:url>"
+       >${i}</a></li>
    </c:if>
    </c:forEach>
-    
+   
    <a href="#">»</a>
  </div>
-  
+   </c:if >
     
 </div>
 <!-- Modal -->

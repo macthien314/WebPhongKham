@@ -5,6 +5,7 @@
  */
 package com.wpk.repository.impl;
 
+import com.google.protobuf.Int32Value;
 import com.sun.xml.bind.v2.model.core.ID;
 import com.wpk.pojos.Slide;
 import com.wpk.repository.SlideRepository;
@@ -83,12 +84,13 @@ public class SlideRepositoryImpl implements SlideRepository{
         return false;
     }
     @Override
-    public List<Slide> getSlides(String kw, String active) {
+    public List<Slide> getSlides(String kw, String active,String pageQuan, int pageNum) {
         Session session = this.sessionFactory.getObject().getCurrentSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<Slide> query = builder.createQuery(Slide.class);
         Root root = query.from(Slide.class);
         query = query.select(root);
+        
         if(kw != null && !kw.isEmpty()){
             Predicate p = builder.like(root.get("title").as(String.class), String.format("%%%s%%", kw));
             query = query.where(p);
@@ -100,8 +102,12 @@ public class SlideRepositoryImpl implements SlideRepository{
             query = query.where(p);
         }
         Query q = session.createQuery(query);
-        
-        return q.getResultList();
+        if(pageQuan != null && !pageQuan.isEmpty() && !pageQuan.equals("all") ){
+            int max = Integer.parseInt(pageQuan);
+            q.setMaxResults(max);
+            q.setFirstResult((pageNum- 1) * max);
+        }
+            return q.getResultList();
     }
     
     @Override

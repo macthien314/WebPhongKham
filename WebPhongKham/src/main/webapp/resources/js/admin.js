@@ -33,3 +33,13 @@ $('.table #modal').on('click', function(event){
     $('#deleteModal #delRef').attr('href', href);
     $("#deleteModal").modal();
 });
+
+//chi cho nhap so
+ function onlyNumberKey(evt) {
+          
+        var ASCIICode = (evt.which) ? evt.which : evt.keyCode;
+        if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+            return false;
+        return true;
+    }
+
