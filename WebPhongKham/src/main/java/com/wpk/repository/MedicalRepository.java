@@ -16,5 +16,7 @@ public interface MedicalRepository {
      List<Medical> getMedicals();
      Medical getMedicalByID(int id);
      boolean addOrUpdate(Medical m);
-	boolean removeMedical(int id);
+     boolean removeMedical(int id);
+     List<Medical> getMedicals(String name, String pageQuan, int pageNum);
+     long countMedical(String name);
 }

@@ -42,8 +42,29 @@ public class MedicalManagerController {
    }
     @GetMapping("/admin/medical-manager")
     public String MedicalManager(Model model, @RequestParam(required = false)Map<String, String> params){
-        model.addAttribute("medical", new Medical());
-        model.addAttribute("medicals", this.medicalService.getMedicals());
+        String name = params.getOrDefault("name", "");
+        
+        //xử lý số lượng hiển thị trong 1 trang
+        String pageQuan = params.getOrDefault("pagequan", "10");
+        
+        if(pageQuan.isEmpty()){
+            pageQuan = "10";
+        }
+        else if(!pageQuan.equals("all"))
+                if(pageQuan.contains("a") || pageQuan.contains("l"))
+                    pageQuan = "all";
+                else if(Integer.parseInt(pageQuan) <= 0)
+                    pageQuan = "10";
+        
+        int page = Integer.parseInt(params.getOrDefault("page", "1"));
+        
+        model.addAttribute("medicals", this.medicalService.getMedicals(name, pageQuan, page));
+        
+        model.addAttribute("count", this.medicalService.countMedical(name));
+        
+        model.addAttribute("page", Integer.toString(page));
+        model.addAttribute("pagequan",pageQuan);
+        model.addAttribute("name", name);
         return "medical-manager";
     }
     //chuc nang them chuyen khoa

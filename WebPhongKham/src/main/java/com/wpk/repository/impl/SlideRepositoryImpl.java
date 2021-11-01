@@ -9,6 +9,7 @@ import com.google.protobuf.Int32Value;
 import com.sun.xml.bind.v2.model.core.ID;
 import com.wpk.pojos.Slide;
 import com.wpk.repository.SlideRepository;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -90,17 +91,18 @@ public class SlideRepositoryImpl implements SlideRepository{
         CriteriaQuery<Slide> query = builder.createQuery(Slide.class);
         Root root = query.from(Slide.class);
         query = query.select(root);
-        
+        List<Predicate> predicates = new ArrayList<Predicate>();
         if(kw != null && !kw.isEmpty()){
             Predicate p = builder.like(root.get("title").as(String.class), String.format("%%%s%%", kw));
-            query = query.where(p);
+            predicates.add(p);
         }
         if(active != null && !active.isEmpty() && !active.equals("all") ){
             boolean a = Boolean.parseBoolean(active);
             System.out.println(active+"+++++++++++++++");
             Predicate p = builder.equal(root.get("active").as(boolean.class), a);
-            query = query.where(p);
+            predicates.add(p);
         }
+        query = query.where(builder.and(predicates.toArray(new Predicate[] {})));
         Query q = session.createQuery(query);
         if(pageQuan != null && !pageQuan.isEmpty() && !pageQuan.equals("all") ){
             int max = Integer.parseInt(pageQuan);

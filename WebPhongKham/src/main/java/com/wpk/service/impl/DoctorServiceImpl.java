@@ -62,4 +62,15 @@ public class DoctorServiceImpl implements DoctorService{
         
         return doctorRepository.countDoctor();
     }
+
+    @Override
+    public  List<Doctor> getDoctors(String firstName, String lastName, String medID, String account, String pageQuan, int page) {
+        return this.doctorRepository.getDoctors(firstName, lastName, medID, account,pageQuan, page);
+    }
+
+    @Override
+    public long countDoctor(String firstName, String lastName, String medID, String account) {
+        return this.doctorRepository.countDoctor(firstName, lastName, medID, account);
+    }
+    
 }

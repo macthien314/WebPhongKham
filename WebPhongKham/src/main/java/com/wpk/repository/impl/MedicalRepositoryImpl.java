@@ -8,8 +8,12 @@ package com.wpk.repository.impl;
 import com.wpk.pojos.Medical;
 import com.wpk.repository.MedicalRepository;
 import java.util.List;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import javax.persistence.criteria.Root;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.stereotype.Repository;
@@ -63,5 +67,41 @@ public class MedicalRepositoryImpl implements MedicalRepository{
         }
         return false;
     }
-   
+
+    @Override
+    public List<Medical> getMedicals(String name, String pageQuan, int pageNum) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<Medical> query = builder.createQuery(Medical.class);
+        Root root = query.from(Medical.class);
+        query = query.select(root);
+        
+        if(name != null && !name.isEmpty()){
+            Predicate p = builder.like(root.get("name").as(String.class), String.format("%%%s%%", name));
+            query = query.where(p);
+        }
+       
+        org.hibernate.Query q = session.createQuery(query);
+        if(pageQuan != null && !pageQuan.isEmpty() && !pageQuan.equals("all") ){
+            int max = Integer.parseInt(pageQuan);
+            q.setMaxResults(max);
+            q.setFirstResult((pageNum- 1) * max);
+        }
+            return q.getResultList();
+    }
+
+    @Override
+    public long countMedical(String name) {
+        Session session = sessionFactory.getObject().getCurrentSession();
+        String query="SELECT COUNT(*) FROM Medical s where s.name LIKE :name ";
+       
+        org.hibernate.Query q = session.createQuery(query);
+        
+        q.setParameter("name", "%%" + name + "%%");
+     
+        return Long.parseLong(q.getSingleResult().toString());
+    }
+    
+
+  
 }

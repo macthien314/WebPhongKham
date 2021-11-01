@@ -59,4 +59,14 @@ public class ServicesServiceImpl implements ServicesService{
     public boolean removeServices(int i) {
         return this.servicesRepository.removeServices(i);
     }
+
+    @Override
+    public long countService(String name) {
+        return this.servicesRepository.countService(name);
+    }
+
+    @Override
+    public List<Services> getServices(String name, String pageQuan, int pageNum) {
+        return this.servicesRepository.getServices(name, pageQuan, pageNum);
+    }
 }

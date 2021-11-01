@@ -24,7 +24,7 @@
             
                  <div class="input-group" id="adv-search">
                 <form  id ="find"role="form">
-                    <input value="${title}" name="title" type="text" class="form-control" placeholder="Nhập từ khóa theo tên" />
+                    <input value="${name}" name="name" type="text" class="form-control" placeholder="Nhập từ khóa theo tên" />
                 </form>
                 <div class="input-group-btn">
                     <div class="btn-group" role="group">
@@ -32,22 +32,9 @@
                             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
                             <div class="dropdown-menu dropdown-menu-right" role="menu">
                                 <form  class="form-horizontal" role="form">
-                                  
                                   <div class="form-group">
-                                    <label for="active">Kích hoạt</label>
-                                    <select  name ="active"class="form-control">
-                                        <option value="all" <c:if test="${active.equals('all')}">selected</c:if>>ALL</option>
-                                        <option value="true"
-                                        <c:if test="${active.equals('true')}">selected</c:if>
-                                        >Active</option>
-                                        <option value="false"
-                                        <c:if test="${active.equals('false')}">selected</c:if>>Not Active</option>
-                                    </select>
-                                  </div>
-
-                                  <div class="form-group">
-                                    <label for="title">Nhập tiêu đề</label>
-                                    <input value="${title}" name ="title" class="form-control" type="text" />
+                                    <label for="name">Nhập tên dịch vụ</label>
+                                    <input value="${name}" name ="title" class="form-control" type="text" />
                                   </div>
                                   <div class="form-group">
                                      <label for="pagequan">Số lượng hiển thị</label>
@@ -69,7 +56,7 @@
           </div>
             </div>
 <div id="managerTable" class="table table-striped w-auto" >
-    
+        
         <table  class="slide-table table table-striped table-bordered" width="100%">
         
         <thead>
@@ -118,6 +105,42 @@
   
     
     </div>
+    <c:if test="${!pagequan.equals('all')}"> 
+<div class="pagination">
+   <a href="<c:url value="/admin/quanly-slide"/>?page=1">«</a>
+   
+  
+   <c:forEach begin = "1" end="${Math.ceil(count/Integer.parseInt(pagequan))}" var="i">
+   <c:if test="${page != i}">
+       <a href="<c:url value="/admin/services-manager">
+                    
+                    
+                    <c:param name="name"
+                    value="${name}"></c:param>
+                    <c:param name="pagequan"
+                    value="${pagequan}"></c:param>
+                    <c:param name="page"
+                    value="${i}"></c:param>
+                </c:url>"
+       >${i}</a></li>
+   </c:if>
+   <c:if test="${page == i}">
+   
+  <a class ="active"href="<c:url value="/admin/services-manager">
+                    <c:param name="name"
+                    value="${name}"></c:param>
+                    <c:param name="pagequan"
+                    value="${pagequan}"></c:param>
+                    <c:param name="page"
+                    value="${i}"></c:param>
+                </c:url>"
+       >${i}</a></li>
+   </c:if>
+   </c:forEach>
+   
+   <a href="#">»</a>
+ </div>
+   </c:if >
     
 
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-hidden="true">

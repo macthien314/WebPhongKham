@@ -9,6 +9,7 @@ import com.wpk.pojos.Doctor;
 import com.wpk.pojos.User;
 import com.wpk.service.DoctorService;
 import com.wpk.service.UserService;
+import static com.wpk.utils.util.isNumeric;
 import com.wpk.validator.WebAppValidator;
 import java.text.Normalizer;
 import java.util.Map;
@@ -42,20 +43,42 @@ public class DoctorManagerController {
     @Autowired
     private WebAppValidator doctorValidator;
     @Autowired
-   private UserService userDetailsService;
-     @InitBinder 
+    private UserService userDetailsService;
+    @InitBinder 
    public void initBinder(WebDataBinder binder)
    { 
        binder.setValidator(doctorValidator);
    }
 
-    @GetMapping("/admin/doctor-manager")
+    @RequestMapping("/admin/doctor-manager")
     public String DoctorManager (Model model, @RequestParam(required = false)Map<String, String> params){
-        String kw = params.getOrDefault("kw", "");
+        String firstName = params.getOrDefault("firstname", "");
+        String lastName = params.getOrDefault("lastname", "");
+        //xử lý số lượng hiển thị trong 1 trang
+        String pageQuan = params.getOrDefault("pagequan", "10");
+        String medID = params.getOrDefault("medid", "all");
+        String account = params.getOrDefault("account", "all");
+        if(pageQuan.isEmpty() ){
+            pageQuan = "10";
+        }
+        else if(!pageQuan.equals("all"))
+                if(!isNumeric(pageQuan))
+                    pageQuan = "all";
+                else if(Integer.parseInt(pageQuan) <= 0)
+                    pageQuan = "10";
+           
         int page = Integer.parseInt(params.getOrDefault("page", "1"));
- 
-        model.addAttribute("doctors", this.doctorService.getDoctor(kw, page));
-        model.addAttribute("counter", this.doctorService.countDoctor());
+        
+        model.addAttribute("doctors", this.doctorService.getDoctors(firstName, lastName, medID, account, pageQuan,page));
+        
+        model.addAttribute("count", this.doctorService.countDoctor(firstName, lastName, medID, account));
+        
+        model.addAttribute("page", Integer.toString(page));
+        model.addAttribute("pagequan",pageQuan);
+        model.addAttribute("firstname", firstName);
+        model.addAttribute("lastname", lastName);
+        model.addAttribute("medid", medID);
+        model.addAttribute("account", account);
         return "doctor-manager";
     }
     

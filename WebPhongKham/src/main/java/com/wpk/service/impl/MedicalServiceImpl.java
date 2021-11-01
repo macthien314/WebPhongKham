@@ -54,4 +54,14 @@ public class MedicalServiceImpl implements MedicalService{
     public boolean removeMedical(int i) {
         return this.medicalRepository.removeMedical(i);
     }
+
+    @Override
+    public List<Medical> getMedicals(String name, String pageQuan, int pageNum) {
+        return this.medicalRepository.getMedicals(name, pageQuan, pageNum);
+    }
+
+    @Override
+    public long countMedical(String name) {
+        return this.medicalRepository.countMedical(name);
+    }
 }

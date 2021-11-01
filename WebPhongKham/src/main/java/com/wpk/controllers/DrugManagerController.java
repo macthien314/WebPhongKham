@@ -38,9 +38,30 @@ public class DrugManagerController {
    }
     @GetMapping("/admin/drug-manager")
     public String DrugManager(Model model, @RequestParam(required = false)Map<String, String> params){
-        model.addAttribute("drug", new Drug());
-        model.addAttribute("drugs", this.drugService.getDrugs());
-        return "drug-manager";
+        
+       
+        String name = params.getOrDefault("name", "");
+        
+        //xử lý số lượng hiển thị trong 1 trang
+        String pageQuan = params.getOrDefault("pagequan", "10");
+        
+        if(pageQuan.isEmpty()){
+            pageQuan = "10";
+        }
+        else if(!pageQuan.equals("all"))
+                if(pageQuan.contains("a") || pageQuan.contains("l"))
+                    pageQuan = "all";
+                else if(Integer.parseInt(pageQuan) <= 0)
+                    pageQuan = "10";
+        
+        int page = Integer.parseInt(params.getOrDefault("page", "1"));
+        
+        model.addAttribute("drugs", this.drugService.getDrugs(name, pageQuan, page));
+        model.addAttribute("count", this.drugService.countDrug(name));
+        model.addAttribute("page", Integer.toString(page));
+        model.addAttribute("pagequan",pageQuan);
+        model.addAttribute("name", name);
+         return "drug-manager";
     }
     //chuc nang them chuyen khoa
     @GetMapping("/admin/drug-manager/add-drug")

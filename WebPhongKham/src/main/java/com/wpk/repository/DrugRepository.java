@@ -16,5 +16,6 @@ public interface DrugRepository {
      List<Drug> getDrugs();
      Drug getDrugByID(int id);
      boolean addOrUpdate(Drug m);
-    
+     List<Drug> getDrugs(String name, String pageQuan, int pageNum);
+     long countDrug(String name);
 }

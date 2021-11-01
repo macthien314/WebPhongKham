@@ -6,6 +6,7 @@
 package com.wpk.service;
 
 import com.wpk.pojos.Drug;
+import com.wpk.pojos.Services;
 import java.util.List;
 
 /**
@@ -13,7 +14,10 @@ import java.util.List;
  * @author macth
  */
 public interface DrugService {
-      List<Drug> getDrugs();
-    Drug getDrugByID(int id);
+     List<Drug> getDrugs();
+     Drug getDrugByID(int id);
      boolean addOrUpdate(Drug m);
+     List<Drug> getDrugs(String name, String pageQuan, int pageNum);
+     long countDrug(String name);
+     
 }

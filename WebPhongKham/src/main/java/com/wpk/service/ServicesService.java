@@ -14,7 +14,10 @@ import java.util.List;
  */
 public interface ServicesService {
     List<Services> getServices();
+    
     Services getServicesByID(int id);
-     boolean addOrUpdate(Services s);
-     boolean removeServices(int id);
+    boolean addOrUpdate(Services s);
+    boolean removeServices(int id);
+    long countService(String name);
+    List<Services> getServices(String name, String pageQuan, int pageNum);
 }

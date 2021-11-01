@@ -8,6 +8,7 @@ package com.wpk.service.impl;
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
 import com.wpk.pojos.Drug;
+import com.wpk.pojos.Services;
 import com.wpk.repository.DrugRepository;
 import com.wpk.service.DrugService;
 import java.io.IOException;
@@ -40,4 +41,17 @@ public class DrugServiceImpl implements DrugService{
     public boolean addOrUpdate(Drug m) {
      
         return this.drugRepository.addOrUpdate(m);
-    }}
+    }
+
+    @Override
+    public List<Drug> getDrugs(String name, String pageQuan, int pageNum) {
+        return this.drugRepository.getDrugs(name, pageQuan, pageNum);
+    }
+
+    @Override
+    public long countDrug(String name) {
+        return this.drugRepository.countDrug(name);
+    }
+
+    
+}

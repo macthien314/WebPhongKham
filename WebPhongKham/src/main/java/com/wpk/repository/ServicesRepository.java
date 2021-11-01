@@ -14,7 +14,10 @@ import java.util.List;
  */
 public interface ServicesRepository {
      List<Services> getServices();
+    
      Services getServiceByID(int id);
      boolean addOrUpdate(Services s);
      boolean removeServices(int id);
+     List<Services> getServices(String name, String pageQuan, int pageNum);
+     long countService(String name);
 }
