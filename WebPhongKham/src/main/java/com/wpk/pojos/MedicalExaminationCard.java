@@ -6,6 +6,7 @@
 package com.wpk.pojos;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -54,10 +55,9 @@ public class MedicalExaminationCard implements Serializable {
     private String num;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 45)
     @Column(name = "date")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private String date;
+    private Date date;
     @Basic(optional = false)
     @NotNull
     @Column(name = "fee")
@@ -88,7 +88,7 @@ public class MedicalExaminationCard implements Serializable {
         this.id = id;
     }
 
-    public MedicalExaminationCard(Integer id, String num, String date, long fee) {
+    public MedicalExaminationCard(Integer id, String num, Date date, long fee) {
         this.id = id;
         this.num = num;
         this.date = date;
@@ -111,13 +111,15 @@ public class MedicalExaminationCard implements Serializable {
         this.num = num;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
+
+  
 
     public long getFee() {
         return fee;

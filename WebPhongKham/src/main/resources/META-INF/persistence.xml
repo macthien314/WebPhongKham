@@ -18,7 +18,6 @@
     <class>com.wpk.pojos.Services</class>
     <class>com.wpk.pojos.Invoice</class>
     <class>com.wpk.pojos.Appointment</class>
-    <class>com.wpk.pojos.PrescriptionDrug</class>
     <class>com.wpk.pojos.User</class>
     <class>com.wpk.pojos.Drug</class>
     <class>com.wpk.pojos.Slide</class>
@@ -26,6 +25,7 @@
     <class>com.wpk.pojos.ServiceInvoice</class>
     <class>com.wpk.formatter.ServicesFormatter</class>
     <class>com.wpk.controllers.StatsManagerController</class>
+    <class>com.wpk.pojos.PrescriptionDrug</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/hospitaldb"/>

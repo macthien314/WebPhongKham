@@ -18,11 +18,11 @@
         <th>Năm</th>
         <th>Doanh thu trong tháng</th>
     </tr>
-    <c:forEach items="${invoicestats}" var="p">
+    <c:forEach items="${invoicestats}" var="i">
     <tr>
-        <td>${p[0]}</td>
-        <td>${p[1]}</td>
-        <td>${p[2]}</td>
+        <td>${i[0]}</td>
+        <td>${i[1]}</td>
+        <td>${i[2]}</td>
 
   
     </tr>
@@ -39,6 +39,6 @@
     </c:forEach>
         
     window.onload = function(){
-        numPatientChart("invoicesChart", numLabels, info)
+        invoiceMonthChart("invoicesChart", numLabels, info)
     }
 </script>

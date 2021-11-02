@@ -109,6 +109,20 @@
    
    
    
+     <!-- start admin :patient manager -->
+    <definition name="prescriptiondrug-manager" extends="adminLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/prescriptiondrug/prescriptiondrug_manager.jsp"/>
+    </definition>
+    <definition name="add-prescriptiondrug" extends="adminLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/prescriptiondrug/add_prescriptiondrug.jsp"/>
+    </definition>
+    <definition name="edit-prescriptiondrug" extends="adminLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/prescriptiondrug/edit_prescriptiondrug.jsp"/>
+    </definition>
+    <!-- End admin: user manager -->
+   
+   
+   
  
     
     

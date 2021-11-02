@@ -34,3 +34,30 @@ function numPatientChart(id, numLabels = [], info=[]){
     let ctx =document.getElementById(id).getContext("2d")
     new Chart(ctx, config)
 }
+
+
+function invoiceMonthChart(id, numLabels = [], info=[]){
+    let colors =[]
+    for (let i = 0; i < info.lenth; i++)
+        colors.push(generateColor())
+    
+   
+        const data = {
+            labels: numLabels,
+            datasets: [{
+            label: 'Thống kê doanh thu theo tháng',
+            data: info,
+            backgroundColor: 'rgb(75, 192, 192)',
+            hoverOffset: 4  
+            
+          }]
+        };
+
+        const config = {
+          type: 'bar',
+          data: data,
+         };
+        
+    let ctx =document.getElementById(id).getContext("2d")
+    new Chart(ctx, config)
+}

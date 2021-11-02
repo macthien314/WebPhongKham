@@ -95,6 +95,10 @@
                             <a href="<c:url value="/admin/invoice-manager"/>"><i class="fas fa-file-invoice-dollar"></i> Quản lý Hóa Đơn</a>
                         </li>
                         
+                         <li>
+                            <a href="<c:url value="/admin/prescriptiondrug-manager"/>"><i class="fas fa-file-prescription"></i>Chi Tiết Toa Thuốc</a>
+                        </li>
+                        
                         
                              <li class ="active">
                             <a href="#uiMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-drafting-compass"></i>Thống Kê Báo Cáo</a>

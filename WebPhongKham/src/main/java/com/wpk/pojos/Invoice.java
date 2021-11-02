@@ -6,6 +6,7 @@
 package com.wpk.pojos;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -44,13 +45,11 @@ public class Invoice implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
-    @Size(max = 45)
     @Column(name = "created_day")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private String createdDay;
-    @Size(max = 45)
-    @Column(name = "fee")
-    private String fee;
+    private Date createdDay;
+     @Column(name = "fee")
+    private int fee;
     
     @ManyToOne
     @JoinColumn(name = "prescription_id")
@@ -83,19 +82,21 @@ public class Invoice implements Serializable {
         this.id = id;
     }
 
-    public String getCreatedDay() {
+    public Date getCreatedDay() {
         return createdDay;
     }
 
-    public void setCreatedDay(String createdDay) {
+    public void setCreatedDay(Date createdDay) {
         this.createdDay = createdDay;
     }
 
-    public String getFee() {
+ 
+
+    public int getFee() {
         return fee;
     }
 
-    public void setFee(String fee) {
+    public void setFee(int fee) {
         this.fee = fee;
     }
 

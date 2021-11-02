@@ -17,42 +17,38 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author Admin
+ * @author macth
  */
 @Entity
 @Table(name = "prescription_drug")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "PrescriptionDrug.findAll", query = "SELECT p FROM PrescriptionDrug p"),
+    @NamedQuery(name = "PrescriptionDrug.findById", query = "SELECT p FROM PrescriptionDrug p WHERE p.id = :id"),
     @NamedQuery(name = "PrescriptionDrug.findByUserGuide", query = "SELECT p FROM PrescriptionDrug p WHERE p.userGuide = :userGuide"),
     @NamedQuery(name = "PrescriptionDrug.findByQuantity", query = "SELECT p FROM PrescriptionDrug p WHERE p.quantity = :quantity"),
-    @NamedQuery(name = "PrescriptionDrug.findById", query = "SELECT p FROM PrescriptionDrug p WHERE p.id = :id"),
-    @NamedQuery(name = "PrescriptionDrug.findByDrugDetailcol", query = "SELECT p FROM PrescriptionDrug p WHERE p.drugDetailcol = :drugDetailcol")})
+    @NamedQuery(name = "PrescriptionDrug.findByUnitPrice", query = "SELECT p FROM PrescriptionDrug p WHERE p.unitPrice = :unitPrice")})
 public class PrescriptionDrug implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "id")
+    private Integer id;
     @Size(max = 45)
     @Column(name = "user_guide")
     private String userGuide;
     @Column(name = "quantity")
     private Integer quantity;
-    @Id
-    @Basic(optional = false)
-    @NotNull
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Integer id;
-    @Size(max = 45)
-    @Column(name = "drug_detailcol")
-    private String drugDetailcol;
-    
-    @ManyToOne(optional = false)
+    @Column(name = "unit_price")
+    private Integer unitPrice;
+     @ManyToOne(optional = false)
     @JoinColumn(name = "drug")
     private Drug drug;
    
@@ -63,7 +59,24 @@ public class PrescriptionDrug implements Serializable {
     public PrescriptionDrug() {
     }
 
+    public PrescriptionDrug(Integer id, String userGuide, Integer quantity, Integer unitPrice, Drug drug, Prescription prescription) {
+        this.id = id;
+        this.userGuide = userGuide;
+        this.quantity = quantity;
+        this.unitPrice = unitPrice;
+        this.drug = drug;
+        this.prescription = prescription;
+    }
+
     public PrescriptionDrug(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -83,28 +96,20 @@ public class PrescriptionDrug implements Serializable {
         this.quantity = quantity;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getUnitPrice() {
+        return unitPrice;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getDrugDetailcol() {
-        return drugDetailcol;
-    }
-
-    public void setDrugDetailcol(String drugDetailcol) {
-        this.drugDetailcol = drugDetailcol;
+    public void setUnitPrice(Integer unitPrice) {
+        this.unitPrice = unitPrice;
     }
 
     public Drug getDrug() {
         return drug;
     }
 
-    public void setDrug(Drug drugId) {
-        this.drug = drugId;
+    public void setDrug(Drug drug) {
+        this.drug = drug;
     }
 
     public Prescription getPrescription() {
@@ -114,6 +119,8 @@ public class PrescriptionDrug implements Serializable {
     public void setPrescription(Prescription prescription) {
         this.prescription = prescription;
     }
+    
+    
 
     @Override
     public int hashCode() {

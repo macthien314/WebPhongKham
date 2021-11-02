@@ -87,7 +87,7 @@ public class MedicalExaminationCardManagerController {
     
     
      @RequestMapping(value="/admin/medicalexaminationcard-manager/delete-medicalexaminationcard/{id}",method = {RequestMethod.DELETE,RequestMethod.GET})
-    public String deleteDoctor(Model model,@PathVariable(value ="id") int id){
+    public String deleteMedicalExaminationCard(Model model,@PathVariable(value ="id") int id){
         
         if(this.medicalExaminationCardsService.removeMedicalExaminationCard(id)){
             return "redirect:/admin/medicalexaminationcard-manager";

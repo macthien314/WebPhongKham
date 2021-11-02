@@ -52,7 +52,8 @@ public class Prescription implements Serializable {
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date createdDate;
-    
+    @Column(name = "total_price")
+    private Integer totalPrice;
     @ManyToOne
     @JoinColumn(name = "doctor_id")
     private Doctor doctor;
@@ -75,6 +76,16 @@ public class Prescription implements Serializable {
     public Prescription(Integer id) {
         this.id = id;
     }
+
+    public Integer getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(Integer totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+ 
 
     public Integer getId() {
         return id;

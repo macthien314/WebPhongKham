@@ -59,13 +59,12 @@ public class Drug implements Serializable {
     private String name;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 45)
     @Column(name = "unit_price")
-    private String unitPrice;
+    private Integer unitPrice;
     @Basic(optional = false)
     @NotNull
     @Column(name = "quantity")
-    private int quantity;
+    private Integer quantity;
     @Basic(optional = false)
     @NotNull
     @Column(name = "expiry")
@@ -89,7 +88,7 @@ public class Drug implements Serializable {
         this.id = id;
     }
 
-    public Drug(Integer id, String name, String unitPrice, int quantity, Date expiry, Date manufacturer) {
+    public Drug(Integer id, String name, Integer unitPrice, Integer quantity, Date expiry, Date manufacturer) {
         this.id = id;
         this.name = name;
         this.unitPrice = unitPrice;
@@ -114,19 +113,19 @@ public class Drug implements Serializable {
         this.name = name;
     }
 
-    public String getUnitPrice() {
+    public Integer getUnitPrice() {
         return unitPrice;
     }
 
-    public void setUnitPrice(String unitPrice) {
+    public void setUnitPrice(Integer unitPrice) {
         this.unitPrice = unitPrice;
     }
 
-    public int getQuantity() {
+    public Integer getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
 

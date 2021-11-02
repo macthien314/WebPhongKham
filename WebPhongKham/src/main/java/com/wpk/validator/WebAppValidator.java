@@ -16,6 +16,7 @@ import com.wpk.pojos.MedicalExaminationCard;
 import com.wpk.pojos.Nurse;
 import com.wpk.pojos.Patient;
 import com.wpk.pojos.Prescription;
+import com.wpk.pojos.PrescriptionDrug;
 import com.wpk.pojos.Services;
 import com.wpk.pojos.ServiceInvoice;
 import com.wpk.pojos.Slide;
@@ -50,7 +51,8 @@ public class WebAppValidator implements Validator{
                 ||ServiceInvoice.class.isAssignableFrom(clazz)
                 ||Prescription.class.isAssignableFrom(clazz)
                 ||Invoice.class.isAssignableFrom(clazz)
-                ||Services.class.isAssignableFrom(clazz);
+                ||Services.class.isAssignableFrom(clazz)
+                ||PrescriptionDrug.class.isAssignableFrom(clazz);
     }
 
     @Override

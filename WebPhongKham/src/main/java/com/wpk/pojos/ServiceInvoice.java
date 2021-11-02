@@ -49,7 +49,7 @@ public class ServiceInvoice implements Serializable {
     @Column(name = "id")
     private Integer id;
     @Column(name = "fee")
-    private Long fee;
+    private Integer fee;
     @Column(name = "created_day")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Temporal(TemporalType.DATE)
@@ -73,7 +73,7 @@ public class ServiceInvoice implements Serializable {
     public ServiceInvoice() {
     }
 
-    public ServiceInvoice(Integer id, Long fee, Date createdDay, Nurse nurse, Patient patient, Services service) {
+    public ServiceInvoice(Integer id, Integer fee, Date createdDay, Nurse nurse, Patient patient, Services service) {
         this.id = id;
         this.fee = fee;
         this.createdDay = createdDay;
@@ -94,11 +94,11 @@ public class ServiceInvoice implements Serializable {
         this.id = id;
     }
 
-    public Long getFee() {
+    public Integer getFee() {
         return fee;
     }
 
-    public void setFee(Long fee) {
+    public void setFee(Integer fee) {
         this.fee = fee;
     }
 
