@@ -6,6 +6,7 @@
 package com.wpk.pojos;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -47,7 +48,7 @@ public class Services implements Serializable {
     @Column(name = "name")
     private String name;
     @Column(name = "fee")
-    private Long fee;
+    private BigDecimal fee;
     @Size(min = 1, max = 100)
     @Column(name = "image")
     private String image;
@@ -55,7 +56,7 @@ public class Services implements Serializable {
    
     private MultipartFile file;
 
-    public Services(Integer id, String name, Long fee, Medical medicalId) {
+    public Services(Integer id, String name, BigDecimal fee, Medical medicalId) {
         this.id = id;
         this.name = name;
         this.fee = fee;
@@ -85,11 +86,11 @@ public class Services implements Serializable {
         this.name = name;
     }
 
-    public Long getFee() {
+    public BigDecimal getFee() {
         return fee;
     }
 
-    public void setFee(Long fee) {
+    public void setFee(BigDecimal fee) {
         this.fee = fee;
     }
 

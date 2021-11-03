@@ -13,8 +13,9 @@ import java.util.List;
  * @author macth
  */
 public interface ServiceInvoiceService {
-           List<ServiceInvoice> getServiceInvoices();
+    List<ServiceInvoice> getServiceInvoices();
     ServiceInvoice getServiceInvoiceByID(int id);
-     boolean addOrUpdate(ServiceInvoice m);
-      boolean removeServiceInvoice(int id);
+    boolean addOrUpdate(ServiceInvoice m);
+    boolean removeServiceInvoice(int id);
+    List<ServiceInvoice> getServiceInvoicesByPatient(int patientiID);
 }

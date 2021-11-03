@@ -93,9 +93,9 @@ public class Nurse implements Serializable {
     @Size(min = 1, max = 100)
     @Column(name = "image")
     private String image;
-    @OneToMany(mappedBy = "nurse")
+    @OneToMany(mappedBy = "nurse",cascade=CascadeType.ALL)
     private List<MedicalExaminationCard> medicalExaminationCardList;
-    @OneToMany(mappedBy = "nurse")
+    @OneToMany(mappedBy = "nurse",cascade=CascadeType.ALL)
     private List<ServiceInvoice> serviceInvoiceList;
 
     @ManyToOne

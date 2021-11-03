@@ -13,7 +13,8 @@ import java.util.List;
  */
 public interface ServiceInvoiceRepository {
     List<ServiceInvoice> getServiceInvoice();
-     ServiceInvoice getServiceInvoiceByID(int id);
-     boolean addOrUpdate(ServiceInvoice m); 
-     boolean removeServiceInvoice(int id);
+    ServiceInvoice getServiceInvoiceByID(int id);
+    boolean addOrUpdate(ServiceInvoice m); 
+    boolean removeServiceInvoice(int id);
+    List<ServiceInvoice> getServiceInvoicesByPatient(int patientiID);
 }

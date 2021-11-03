@@ -31,9 +31,9 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 @Controller
 public class ServiceManagerController {
-     @Autowired
+    @Autowired
     private ServicesService servicesService;
-   @Autowired
+    @Autowired
     private WebAppValidator servicesValidator;
    @InitBinder
    public void initBinder(WebDataBinder binder)

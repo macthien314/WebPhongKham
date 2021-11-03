@@ -6,7 +6,7 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<%@taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
  <nav id="slidebar" >
 
                     <div class="sildebar-header">
@@ -15,7 +15,22 @@
 
                     <ul class="list-unstyle components">
                         
-                         
+                        <li class ="active">
+                            <a href="#uiMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-drafting-compass"></i>Demo cho y tá user</a>
+                            <ul class="collapse list-unstyled" id="uiMenu">
+                                <li>
+                                    <a href="<c:url value="/nurse/patient-manager"/>"><i class="fab fa-slideshare"></i>Danh sách bệnh nhân</a>
+                                </li>
+                                <li>
+                                    <a href="<c:url value="/nurse/patient-serviceinvoice"/>">Lập hóa đơn dịch vụ</a>
+
+                                </li>
+                                <li>
+                                    <a href="#">dog1</a>
+
+                                </li>
+                            </ul>
+                        </li> 
                         <li class ="active">
                             <a href="#uiMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-drafting-compass"></i>Quản lý giao diện</a>
                             <ul class="collapse list-unstyled" id="uiMenu">
@@ -112,7 +127,7 @@
                                 </li>    
                             </ul>
                         </li>
-
+                        
 
                         <li>
                             <a href="#">about</a>

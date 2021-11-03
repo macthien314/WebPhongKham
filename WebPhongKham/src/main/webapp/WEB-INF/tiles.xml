@@ -264,6 +264,18 @@
     
     <!-- End admin -->
     
+    <!-- Start nurse user -->
+    <definition name="nursepatient-manager" extends="adminLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/nurse/patientmanager/patient.jsp"/>
+    </definition>
+    <definition name="patient-serviceinvoice" extends="adminLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/nurse/serviceinvoice/patient.jsp"/>
+    </definition>
+    <definition name="serviceinvoice-list" extends="adminLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/nurse/serviceinvoice/service-invoice.jsp"/>
+    </definition>
+    <!-- End nurse user -->
+    
     <definition name="aboutus" extends="baseLayout">
         <put-attribute name="title" value="Về chúng tôi"/>
         <put-attribute name="slide" value="/WEB-INF/layout/slide.jsp"/>

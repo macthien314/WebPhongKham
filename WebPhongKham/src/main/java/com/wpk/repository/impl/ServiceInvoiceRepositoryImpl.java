@@ -5,10 +5,17 @@
  */
 package com.wpk.repository.impl;
 
+import com.wpk.pojos.Doctor;
 import com.wpk.pojos.MedicalExaminationCard;
 import com.wpk.pojos.ServiceInvoice;
+import com.wpk.pojos.User;
 import com.wpk.repository.ServiceInvoiceRepository;
+import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,5 +72,21 @@ public class ServiceInvoiceRepositoryImpl implements ServiceInvoiceRepository{
         
         }
         return false;
+    }
+
+    @Override
+    public List<ServiceInvoice> getServiceInvoicesByPatient(int patientiID) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<ServiceInvoice> query = builder.createQuery(ServiceInvoice.class);
+        Root root = query.from(ServiceInvoice.class);
+        query = query.select(root);
+  
+        Predicate p = builder.equal(root.get("patient").get("id").as(Integer.class),patientiID);
+       
+        query = query.where(p);
+        Query q = session.createQuery(query);
+        
+        return q.getResultList();
     }
 }

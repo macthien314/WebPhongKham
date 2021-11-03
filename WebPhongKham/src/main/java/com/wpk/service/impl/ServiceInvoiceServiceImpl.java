@@ -46,4 +46,9 @@ public class ServiceInvoiceServiceImpl implements ServiceInvoiceService {
     public boolean removeServiceInvoice(int i) {
         return this.serviceInvoiceRepository.removeServiceInvoice(i);
     }
+
+    @Override
+    public List<ServiceInvoice> getServiceInvoicesByPatient(int i) {
+        return this.serviceInvoiceRepository.getServiceInvoicesByPatient(i);
+    }
 }

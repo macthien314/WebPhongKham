@@ -6,18 +6,22 @@
 package com.wpk.pojos;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
+
 import java.util.Date;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
+
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -40,7 +44,7 @@ import org.springframework.web.multipart.MultipartFile;
     @NamedQuery(name = "ServiceInvoice.findByFee", query = "SELECT s FROM ServiceInvoice s WHERE s.fee = :fee"),
     @NamedQuery(name = "ServiceInvoice.findByCreatedDay", query = "SELECT s FROM ServiceInvoice s WHERE s.createdDay = :createdDay")})
 public class ServiceInvoice implements Serializable {
-
+    
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -49,7 +53,7 @@ public class ServiceInvoice implements Serializable {
     @Column(name = "id")
     private Integer id;
     @Column(name = "fee")
-    private Integer fee;
+    private BigDecimal fee;
     @Column(name = "created_day")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Temporal(TemporalType.DATE)
@@ -59,21 +63,21 @@ public class ServiceInvoice implements Serializable {
     @JoinColumn(name = "nurse_id")
     private Nurse nurse;
     
-    
-    @ManyToOne
-    @JoinColumn(name = "patient_id")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "patient_id",insertable = true, updatable = true)
     private Patient patient;
    
     @ManyToOne
     @JoinColumn(name ="service_id")
     private Services service;
     @Transient
-   
     private MultipartFile file;
     public ServiceInvoice() {
+        this.createdDay = new Date();
+        System.out.println(createdDay);
     }
 
-    public ServiceInvoice(Integer id, Integer fee, Date createdDay, Nurse nurse, Patient patient, Services service) {
+    public ServiceInvoice(Integer id, BigDecimal fee, Date createdDay, Nurse nurse, Patient patient, Services service) {
         this.id = id;
         this.fee = fee;
         this.createdDay = createdDay;
@@ -94,11 +98,11 @@ public class ServiceInvoice implements Serializable {
         this.id = id;
     }
 
-    public Integer getFee() {
+    public BigDecimal getFee() {
         return fee;
     }
 
-    public void setFee(Integer fee) {
+    public void setFee(BigDecimal fee) {
         this.fee = fee;
     }
 
@@ -168,4 +172,9 @@ public class ServiceInvoice implements Serializable {
     public void setFile(MultipartFile file) {
         this.file = file;
     }
+
+    /**
+     * @return the nowDate
+     */
+ 
 }
