@@ -14,7 +14,7 @@ import java.util.List;
  */
 public interface PrescriptionDrugRepository {
     List<PrescriptionDrug> getPrescriptionDrugs();
-    PrescriptionDrug getPrescriptionDrugByID(int id);
-    boolean addOrUpdate(PrescriptionDrug m);
+    PrescriptionDrug getPrescriptionDrugByID(int id); 
+    boolean addOrUpdate(PrescriptionDrug m);   
     boolean removePrescriptionDrug(int id); 
 }

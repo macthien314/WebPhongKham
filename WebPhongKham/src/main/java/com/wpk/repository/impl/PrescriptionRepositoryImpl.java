@@ -5,8 +5,17 @@
  */
 package com.wpk.repository.impl;
 import com.wpk.pojos.Prescription;
+import com.wpk.pojos.PrescriptionDrug;
+import com.wpk.repository.DoctorRepository;
+import com.wpk.repository.PatientRepository;
 import com.wpk.repository.PrescriptionRepository;
+import com.wpk.utils.util;
+
+import java.util.Date;
+
+
 import java.util.List;
+import java.util.Map;
 import org.hibernate.Query;
 
 
@@ -23,8 +32,12 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 @Transactional
 public class PrescriptionRepositoryImpl implements PrescriptionRepository {
-     @Autowired
+    @Autowired
     private LocalSessionFactoryBean sessionFactory;
+    @Autowired
+    private DoctorRepository doctorRepository; 
+    @Autowired
+    private PatientRepository patientRepository; 
       
       @Override
     public List<Prescription> getPrescriptions() {
@@ -50,6 +63,20 @@ public class PrescriptionRepositoryImpl implements PrescriptionRepository {
             System.err.println("==ADD PRODUCT===" + e.getMessage());
             e.printStackTrace();
         }
+        return false;
+    }
+
+    @Override
+    public boolean addReceipt(Map<String, PrescriptionDrug> m) {
+   
+        Prescription p = new Prescription();
+        p.setDoctor(this.doctorRepository.getDoctorByID(0));
+        p.setPatient(this.patientRepository.getPatientByID(0));        
+        p.setCreatedDate(new Date());
+        
+        Map<String, String> stats =util.invoiceStats(m);
+        p.setTotalPrice(Integer.parseInt(stats.get("amount")));
+        
         return false;
     }
 }

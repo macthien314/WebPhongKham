@@ -48,8 +48,9 @@ public class PrescriptionDrug implements Serializable {
     private Integer quantity;
     @Column(name = "unit_price")
     private Integer unitPrice;
-     @ManyToOne(optional = false)
-    @JoinColumn(name = "drug")
+    
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "drug_id")
     private Drug drug;
    
     @ManyToOne(optional = false)

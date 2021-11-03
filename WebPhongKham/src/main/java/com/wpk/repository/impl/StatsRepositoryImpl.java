@@ -85,21 +85,21 @@ public class StatsRepositoryImpl implements StatsRepository{
         Root rootD = q.from(Drug.class);
         
         List<Predicate> predicates = new ArrayList<>();
-       
+        predicates.add(b.equal(rootM.get("patient"), rootP.get("id")));
         predicates.add(b.equal(rootSI.get("patient"), rootP.get("id")));
         predicates.add(b.equal(rootPr.get("patient"), rootP.get("id")));
-        
+         
         predicates.add(b.equal(rootI.get("prescription"), rootPr.get("id")));
         
 
         predicates.add(b.equal(rootPD.get("prescription"), rootPr.get("id")));
-//        predicates.add(b.equal(rootPD.get("drug"), rootD.get("id")));
-         predicates.add(b.equal(rootM.get("patient"), rootP.get("id")));
+        predicates.add(b.equal(rootPD.get("drug"), rootD.get("id")));
+        
           
-        q.multiselect( b.function("MONTH",Integer.class, rootM.get("date")),
-        b.function("YEAR",Integer.class, rootM.get("date")),
-        b.sum(rootM.get("fee") ,rootSI.get("fee")));
-//        b.sum(b.sum(rootM.get("fee") ,rootSI.get("fee")), b.sum(b.prod(rootD.get("unitPrice"), rootD.get("quantity"))))); 
+        q.multiselect( b.function("MONTH",Integer.class, rootI.get("createdDay")),
+        b.function("YEAR",Integer.class, rootI.get("createdDay")),
+
+        b.sum(b.sum(rootM.get("fee") ,rootSI.get("fee")), b.sum(b.prod(rootD.get("unitPrice"), rootD.get("quantity"))))); 
             
         if(fromDate != null)
         {
@@ -112,8 +112,8 @@ public class StatsRepositoryImpl implements StatsRepository{
         
         q.where(predicates.toArray(new Predicate[]{}));            
                     
-        q.groupBy(b.function("MONTH",Integer.class, rootM.get("date")),
-        b.function("YEAR",Integer.class, rootM.get("date"))); 
+        q.groupBy(b.function("MONTH",Integer.class, rootI.get("createdDay")),
+        b.function("YEAR",Integer.class, rootI.get("createdDay"))); 
         
         Query query = session.createQuery(q);    
         return query.getResultList();

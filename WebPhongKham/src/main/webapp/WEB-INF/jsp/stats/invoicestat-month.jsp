@@ -33,9 +33,9 @@
 <script>
     let numLabels =[], info = []
     
-    <c:forEach items ="${invoicestats}" var ="p">
-        numLabels.push(${p[0]})
-        info.push(${p[2]})
+    <c:forEach items ="${invoicestats}" var ="i">
+        numLabels.push(${i[0]})
+        info.push(${i[2]})
     </c:forEach>
         
     window.onload = function(){

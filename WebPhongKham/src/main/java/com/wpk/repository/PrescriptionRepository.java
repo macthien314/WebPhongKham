@@ -5,7 +5,9 @@
  */
 package com.wpk.repository;
 import com.wpk.pojos.Prescription;
+import com.wpk.pojos.PrescriptionDrug;
 import java.util.List;
+import java.util.Map;
 /**
  *
  * @author macth
@@ -14,4 +16,6 @@ public interface PrescriptionRepository {
     List<Prescription> getPrescriptions();
      Prescription getPrescriptionByID(int id);
      boolean addOrUpdate(Prescription m); 
+     
+     boolean addReceipt(Map<String, PrescriptionDrug> m); 
 }

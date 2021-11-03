@@ -121,6 +121,10 @@ public class Doctor implements Serializable {
         this.id = id;
     }
 
+    public Doctor(String firstName) {
+        this.firstName = firstName;
+    }
+    
     public Doctor(Integer id, String firstName, String lastName, String phone, String email, String yearsExperience, String image) {
         this.id = id;
         this.firstName = firstName;

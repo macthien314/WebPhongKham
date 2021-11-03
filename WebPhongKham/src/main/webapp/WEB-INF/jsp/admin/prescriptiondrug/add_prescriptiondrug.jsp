@@ -68,7 +68,8 @@
                         </c:forEach>
                     </form:select>
                     <form:errors cssClass="alert alert-danger" path="prescription" element="div"/>
-                   </duv>
+                   </div>
+                </div>
                         
             <div class="form-group">
                 <button type="submit" class="btn btn-primary btn-block">Tạo Chi Tiết Toa Thuốc</button>

@@ -5,6 +5,13 @@
  */
 package com.wpk.utils;
 
+import com.wpk.pojos.PrescriptionDrug;
+import java.util.HashMap;
+import java.util.Map;
+
+
+import javax.swing.Spring;
+
 /**
  *
  * @author Admin
@@ -28,4 +35,22 @@ public class util {
     }
     return false;
 }
+    
+   
+
+    public static Map<String, String> invoiceStats(Map<String, PrescriptionDrug> m) {
+        int s = 0;
+
+        
+        if (m != null)
+            for(PrescriptionDrug p: m.values())
+            {
+                s += p.getQuantity() * p.getUnitPrice();
+            }
+        Map<String, String> kq = new HashMap<>();
+        kq.put("amount", String.valueOf(s));
+        return kq;
+    }
+
+ 
 }

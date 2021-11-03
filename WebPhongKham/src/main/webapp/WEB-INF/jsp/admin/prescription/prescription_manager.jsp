@@ -83,9 +83,6 @@
     </div>
     
 
-
-            <c:url value="/admin/quanly-toathuoc/them-toathuoc" var="action"/>
-                    <!-- Modal -->
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -96,15 +93,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form:form id="slide" action="${action}" modelAttribute="prescription" method="post" enctype="multipart/form-data">
-               <form:errors path="*" cssClass="alert alert-danger" element="div" />
-              
-                                          
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-block">Cập nhập</button>
-            </div>
-                
-            </form:form>
+        Bạn có muốn chắn xóa toa thuốc
       </div>
       <div class="modal-footer">
           <a href="" class="btn btn-primary" id="delRef">Vâng,tôi chắc</a> 
@@ -114,3 +103,9 @@
     </div>
   </div>
 </div>
+
+         
+         
+
+
+
