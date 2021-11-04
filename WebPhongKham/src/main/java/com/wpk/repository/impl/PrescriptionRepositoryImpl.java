@@ -76,7 +76,7 @@ public class PrescriptionRepositoryImpl implements PrescriptionRepository {
         p.setCreatedDate(new Date());
         
         Map<String, String> stats =util.invoiceStats(m);
-        p.setTotalPrice(BigDecimal.ONE.parseLong(stats.get("amount")));
+        p.setTotalPrice(BigDecimal.valueOf(Double.valueOf(stats.get("amount"))));
         
         return false;
     }

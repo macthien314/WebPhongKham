@@ -16,6 +16,7 @@ import com.wpk.formatter.MedicalFormatter;
 import com.wpk.formatter.NurseFormatter;
 import com.wpk.formatter.PatientFormatter;
 import com.wpk.formatter.PrescriptionFormatter;
+import com.wpk.formatter.ServicesFormatter;
 import com.wpk.validator.AppointmentValidator;
 import com.wpk.validator.DoctorValidator;
 import com.wpk.validator.DrugValidator;
@@ -242,6 +243,7 @@ public class WebApplicationContextConfig implements WebMvcConfigurer{
         registry.addFormatter(new InvoiceFormatter());
         registry.addFormatter(new PrescriptionFormatter());
         registry.addFormatter(new DrugFormatter());
+        registry.addFormatter(new ServicesFormatter());
     }
     @Bean
     public CommonsMultipartResolver multipartResolver(){

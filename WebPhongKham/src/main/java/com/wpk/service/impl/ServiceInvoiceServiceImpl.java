@@ -23,8 +23,9 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class ServiceInvoiceServiceImpl implements ServiceInvoiceService {
-   @Autowired
+    @Autowired
     private ServiceInvoiceRepository serviceInvoiceRepository;
+  
     @Autowired
     private Cloudinary cloudinary; 
     @Override

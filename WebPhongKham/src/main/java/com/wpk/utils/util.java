@@ -6,6 +6,7 @@
 package com.wpk.utils;
 
 import com.wpk.pojos.PrescriptionDrug;
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -39,13 +40,13 @@ public class util {
    
 
     public static Map<String, String> invoiceStats(Map<String, PrescriptionDrug> m) {
-        int s = 0;
+        BigDecimal s = null;
 
         
         if (m != null)
             for(PrescriptionDrug p: m.values())
             {
-                s += p.getQuantity() * p.getUnitPrice();
+                s.add(p.getUnitPrice().multiply(BigDecimal.valueOf(p.getQuantity())));
             }
         Map<String, String> kq = new HashMap<>();
         kq.put("amount", String.valueOf(s));

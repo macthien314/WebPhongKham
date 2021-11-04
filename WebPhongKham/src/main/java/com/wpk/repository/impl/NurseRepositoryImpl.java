@@ -4,10 +4,13 @@
  * and open the template in the editor.
  */
 package com.wpk.repository.impl;
-
+import javax.persistence.criteria.Root;
 import com.wpk.pojos.Nurse;
 import com.wpk.repository.NurseRepository;
 import java.util.List;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,5 +65,25 @@ public class NurseRepositoryImpl implements NurseRepository{
         
         }
         return false;
+    }
+
+    @Override
+    public Nurse findNurseByUsername(String usname) {
+         Session session = this.sessionFactory.getObject().getCurrentSession();
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<Nurse> query = builder.createQuery(Nurse.class);
+        Root root = query.from(Nurse.class);
+        query = query.select(root);
+        
+      
+       
+        Predicate p = builder.equal(root.get("user").get(usname).as(String.class),usname );
+       
+       
+       
+        query = query.where(p);
+        Query q = session.createQuery(query);
+        
+        return (Nurse) q.getResultList().get(0);
     }
 }

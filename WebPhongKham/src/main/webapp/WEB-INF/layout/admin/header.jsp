@@ -21,7 +21,11 @@
     <ul class="navbar-nav ml-auto nav-flex-icons">
       
       <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+           <c:if test="${pageContext.request.userPrincipal.name != null}">
+            
+            <i class="fa fa-user"></i> ${pageContext.request.userPrincipal.name}
+        </c:if>  
+          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
               <i class="fas fa-user"></i>
             </a>

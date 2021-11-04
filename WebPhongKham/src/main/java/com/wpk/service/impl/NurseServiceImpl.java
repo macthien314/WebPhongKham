@@ -54,5 +54,10 @@ public class NurseServiceImpl implements NurseService{
     public boolean removeNurse(int i) {
         return this.nurseRepository.removeNurse(i);
     }
+
+    @Override
+    public Nurse findNurseByUsername(String string) {
+        return this.nurseRepository.findNurseByUsername(string);
+    }
 }
 

@@ -76,7 +76,7 @@
   
     
     </div>
-    <c:url value="/nurse/patient-serviceinvoice/${patient.id}" var="action"/>
+    <c:url value="/nurse/patient-serviceinvoice/${patient.id}/create" var="action"/>
              
               <!-- Modal -->
 <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -94,25 +94,25 @@
                
                 <div class="form-row">
                    <div class="form-group col-md-6">
-                    <label for="tcate">Tên bệnh nhân</label>
-                    <form:select path="patient" id="p" cssClass="form-control">
-
-                        <c:forEach items="${patients}" var="p">
-                            <option value="${p.id}">${p.firstName}</option>
-                        </c:forEach>
-                    </form:select>
-                    <form:errors cssClass="alert alert-danger" path="patient" element="div"/>
-                </div>
-                
-                 <div class="form-group col-md-6">
-                 <label for="tcate">Tên y tá</label>
-                 <form:hidden  path="nurse" id="n" cssClass="form-control"/>
-
-                        
-                        
+                       <label for="tcate"><b>Tên bệnh nhân</b> : ${patient.firstName} ${patient.lastName}</label>
                     
-                    <form:errors cssClass="alert alert-danger" path="nurse" element="div"/>
-                 </div>
+                </div>
+                  <div class="form-group col-md-6">
+                       <label for="tcate"><b>Mã bệnh nhân</b> : ${patient.id} </label>
+                    
+                </div>     
+                
+               </div>  
+                 <div class="form-row">
+                   <div class="form-group col-md-6">
+                       <label for="tcate"><b>Tên Ý tá</b> : ${nurse.firstName}</label>
+                    
+                </div>
+                  <div class="form-group col-md-6">
+                       <label for="tcate"><b>Mã bệnh nhân</b> : ${patient.id} </label>
+                    
+                </div>     
+                
                </div>  
                    
                  <div class="form-group">
@@ -138,3 +138,24 @@
   </div>
 </div>
 
+              <c:if test="${!susscess.equals('')}">
+                  <div class="modal show fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Tạo thành công</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Bạn đã thêm hóa đơn dịch vụ thành công
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+              </c:if>
