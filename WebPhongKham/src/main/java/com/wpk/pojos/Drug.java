@@ -6,6 +6,7 @@
 package com.wpk.pojos;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Basic;
@@ -60,7 +61,7 @@ public class Drug implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "unit_price")
-    private Integer unitPrice;
+    private BigDecimal unitPrice;
     @Basic(optional = false)
     @NotNull
     @Column(name = "quantity")
@@ -88,7 +89,7 @@ public class Drug implements Serializable {
         this.id = id;
     }
 
-    public Drug(Integer id, String name, Integer unitPrice, Integer quantity, Date expiry, Date manufacturer) {
+    public Drug(Integer id, String name, BigDecimal unitPrice, Integer quantity, Date expiry, Date manufacturer) {
         this.id = id;
         this.name = name;
         this.unitPrice = unitPrice;
@@ -113,11 +114,11 @@ public class Drug implements Serializable {
         this.name = name;
     }
 
-    public Integer getUnitPrice() {
+    public BigDecimal getUnitPrice() {
         return unitPrice;
     }
 
-    public void setUnitPrice(Integer unitPrice) {
+    public void setUnitPrice(BigDecimal unitPrice) {
         this.unitPrice = unitPrice;
     }
 

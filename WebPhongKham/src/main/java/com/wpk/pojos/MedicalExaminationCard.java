@@ -6,6 +6,7 @@
 package com.wpk.pojos;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -52,7 +53,7 @@ public class MedicalExaminationCard implements Serializable {
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "num")
-    private String num;
+    private Integer num;
     @Basic(optional = false)
     @NotNull
     @Column(name = "date")
@@ -61,7 +62,7 @@ public class MedicalExaminationCard implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "fee")
-    private long fee;
+    private BigDecimal fee;
     @Size(max = 100)
     @Column(name = "sympton")
     private String sympton;
@@ -88,7 +89,7 @@ public class MedicalExaminationCard implements Serializable {
         this.id = id;
     }
 
-    public MedicalExaminationCard(Integer id, String num, Date date, long fee) {
+    public MedicalExaminationCard(Integer id, Integer num, Date date, BigDecimal fee) {
         this.id = id;
         this.num = num;
         this.date = date;
@@ -103,11 +104,11 @@ public class MedicalExaminationCard implements Serializable {
         this.id = id;
     }
 
-    public String getNum() {
+    public Integer getNum() {
         return num;
     }
 
-    public void setNum(String num) {
+    public void setNum(Integer num) {
         this.num = num;
     }
 
@@ -121,11 +122,11 @@ public class MedicalExaminationCard implements Serializable {
 
   
 
-    public long getFee() {
+    public BigDecimal getFee() {
         return fee;
     }
 
-    public void setFee(long fee) {
+    public void setFee(BigDecimal fee) {
         this.fee = fee;
     }
 

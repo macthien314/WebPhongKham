@@ -65,12 +65,12 @@
                    
                     <td class="setting">
 
-                         <a data-toggle="tooltip" title="xem thông tin" title="thông tin"href="<c:url value="/admin/quanly-slide/chitiet-slide/${s.id}"/>"> <i class="fas fa-info-circle" style="color:#18d26e"></i></a>
-                         <a data-toggle="tooltip" title="chỉnh sửa" href="<c:url value="/admin/appointment-manager/edit-appointment/${s.id}"/>">
+                         <a data-toggle="tooltip" title="xem thông tin" title="thông tin"href="<c:url value="/admin/quanly-slide/chitiet-slide/${s.appointmentId}"/>"> <i class="fas fa-info-circle" style="color:#18d26e"></i></a>
+                         <a data-toggle="tooltip" title="chỉnh sửa" href="<c:url value="/admin/appointment-manager/edit-appointment/${s.appointmentId}"/>">
                               <i class="fas fa-edit" style="color:#6633ff"></i>
                          </a>
 
-                         <a id="modal" href="<c:url value="/admin/appointment-manager/delete-appointment/${s.id}"/>" name="deleteButton" type="button" class="btn btn-primary" data-toggle="tooltip modal" data-target="#deleteModal" title="Xóa cuộc hẹn">
+                         <a id="modal" href="<c:url value="/admin/appointment-manager/delete-appointment/${s.appointmentId}"/>" name="deleteButton" type="button" class="btn btn-primary" data-toggle="tooltip modal" data-target="#deleteModal" title="Xóa cuộc hẹn">
                                <i class="fas fa-trash-alt" style="color:#ed3c0d"></i>
                          </a>
 

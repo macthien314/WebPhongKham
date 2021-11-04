@@ -10,6 +10,7 @@ import com.wpk.repository.DoctorRepository;
 import com.wpk.repository.PatientRepository;
 import com.wpk.repository.PrescriptionRepository;
 import com.wpk.utils.util;
+import java.math.BigDecimal;
 
 import java.util.Date;
 
@@ -75,7 +76,7 @@ public class PrescriptionRepositoryImpl implements PrescriptionRepository {
         p.setCreatedDate(new Date());
         
         Map<String, String> stats =util.invoiceStats(m);
-        p.setTotalPrice(Integer.parseInt(stats.get("amount")));
+        p.setTotalPrice(BigDecimal.ONE.parseLong(stats.get("amount")));
         
         return false;
     }

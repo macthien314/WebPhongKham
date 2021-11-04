@@ -36,30 +36,6 @@ import org.springframework.transaction.annotation.Transactional;
 public class DoctorRepositoryImpl implements DoctorRepository {
      @Autowired
     private LocalSessionFactoryBean sessionFactory;
-      
-      @Override
-    public List<Doctor> getDoctor(String kw, int page) {
-        Session s = sessionFactory.getObject().getCurrentSession();
-        CriteriaBuilder builder = s.getCriteriaBuilder();
-        CriteriaQuery<Doctor> q = builder.createQuery(Doctor.class);
-        Root root = q.from(Doctor.class);
-        q=q.select(root);
-        
-        if (kw != null)
-        {
-            Predicate p = builder.like(root.get("firstName").as(String.class),
-                    String.format("%%s%%", kw));
-            q = q.where(p);
-        }
-        q = q.orderBy(builder.asc(root.get("id")));
-        Query query = s.createQuery(q);
-        
-        int max = 3;
-        query.setMaxResults(max);
-        query.setFirstResult((page-1)* max);
-        return query.getResultList();
-    }
-
     @Override
     public Doctor getDoctorByID(int id) {
         Session s = sessionFactory.getObject().getCurrentSession();
@@ -92,13 +68,6 @@ public class DoctorRepositoryImpl implements DoctorRepository {
         
         }
         return false;
-    }
-
-    @Override
-    public long countDoctor() {
-        Session s = sessionFactory.getObject().getCurrentSession();
-        Query q = s.createQuery("Select Count(*) From Doctor ");
-        return Long.parseLong(q.getSingleResult().toString());
     }
 
     @Override

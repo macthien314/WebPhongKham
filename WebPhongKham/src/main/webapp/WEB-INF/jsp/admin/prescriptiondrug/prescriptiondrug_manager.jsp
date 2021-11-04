@@ -41,7 +41,7 @@
         <tbody>
             <c:forEach items="${prescriptiondrugs}" var="s">
                 <td>${s.id}</td>
-                <td>${s.name}</td>
+                <td>${s.userGuide}</td>
                 <td>${s.unitPrice}</td>
                 <td>${s.quantity}</td>
                 <td>${s.drug.name}</td>
@@ -55,7 +55,7 @@
                                   <i class="fas fa-edit" style="color:#6633ff"></i>
                                </a>
 
-                              <a id="modal" href="<c:url value="/admin/quanly-slide/xoa-slide/${s.id}"/>" name="deleteButton" type="button" class="btn btn-primary" data-toggle="tooltip modal" data-target="#deleteModal" title="Xóa sản phẩm">
+                              <a id="modal" href="<c:url value="/admin/prescriptiondrug-manager/delete-prescriptiondrug/${s.id}"/>" name="deleteButton" type="button" class="btn btn-primary" data-toggle="tooltip modal" data-target="#deleteModal" title="Xóa sản phẩm">
                                    <i class="fas fa-trash-alt" style="color:#ed3c0d"></i>
                               </a>
                                

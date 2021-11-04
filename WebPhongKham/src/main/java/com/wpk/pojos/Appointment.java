@@ -53,7 +53,7 @@ public class Appointment implements Serializable {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Temporal(TemporalType.DATE)
     private Date appointmentDate;
-    @Size(max = 256)
+    @Size(max = 4000)
     @Column(name = "description")
     private String description;
     

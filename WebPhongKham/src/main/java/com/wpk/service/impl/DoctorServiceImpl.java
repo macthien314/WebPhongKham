@@ -28,10 +28,6 @@ public class DoctorServiceImpl implements DoctorService{
     @Autowired
     private Cloudinary cloudinary; 
 
-    @Override
-    public List<Doctor> getDoctor(String kw, int page) {
-           return doctorRepository.getDoctor(kw, page);
-    }
 
     @Override
     public boolean addOrUpdate(Doctor d) {
@@ -55,12 +51,6 @@ public class DoctorServiceImpl implements DoctorService{
     @Override
     public boolean removeDoctor(int i) {
         return this.doctorRepository.removeDoctor(i);
-    }
-
-   @Override
-    public long countDoctor() {
-        
-        return doctorRepository.countDoctor();
     }
 
     @Override

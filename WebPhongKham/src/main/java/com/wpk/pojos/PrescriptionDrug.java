@@ -6,6 +6,7 @@
 package com.wpk.pojos;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -47,7 +48,7 @@ public class PrescriptionDrug implements Serializable {
     @Column(name = "quantity")
     private Integer quantity;
     @Column(name = "unit_price")
-    private Integer unitPrice;
+    private BigDecimal unitPrice;
     
     @ManyToOne(optional = false)
     @JoinColumn(name = "drug_id")
@@ -60,7 +61,7 @@ public class PrescriptionDrug implements Serializable {
     public PrescriptionDrug() {
     }
 
-    public PrescriptionDrug(Integer id, String userGuide, Integer quantity, Integer unitPrice, Drug drug, Prescription prescription) {
+    public PrescriptionDrug(Integer id, String userGuide, Integer quantity, BigDecimal unitPrice, Drug drug, Prescription prescription) {
         this.id = id;
         this.userGuide = userGuide;
         this.quantity = quantity;
@@ -97,11 +98,11 @@ public class PrescriptionDrug implements Serializable {
         this.quantity = quantity;
     }
 
-    public Integer getUnitPrice() {
+    public BigDecimal getUnitPrice() {
         return unitPrice;
     }
 
-    public void setUnitPrice(Integer unitPrice) {
+    public void setUnitPrice(BigDecimal unitPrice) {
         this.unitPrice = unitPrice;
     }
 

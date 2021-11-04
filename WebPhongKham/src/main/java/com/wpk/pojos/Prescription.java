@@ -6,6 +6,7 @@
 package com.wpk.pojos;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Basic;
@@ -53,7 +54,7 @@ public class Prescription implements Serializable {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date createdDate;
     @Column(name = "total_price")
-    private Integer totalPrice;
+    private BigDecimal totalPrice;
     @ManyToOne
     @JoinColumn(name = "doctor_id")
     private Doctor doctor;
@@ -77,11 +78,11 @@ public class Prescription implements Serializable {
         this.id = id;
     }
 
-    public Integer getTotalPrice() {
+    public BigDecimal getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(Integer totalPrice) {
+    public void setTotalPrice(BigDecimal totalPrice) {
         this.totalPrice = totalPrice;
     }
 

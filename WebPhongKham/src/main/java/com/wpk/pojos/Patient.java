@@ -107,7 +107,7 @@ public class Patient implements Serializable {
     private List<Prescription> prescriptionList;
     
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id",insertable = true, updatable = true)
     private User user;
     @Transient
    

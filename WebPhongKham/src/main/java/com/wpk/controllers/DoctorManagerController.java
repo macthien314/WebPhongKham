@@ -70,7 +70,6 @@ public class DoctorManagerController {
         int page = Integer.parseInt(params.getOrDefault("page", "1"));
         
         model.addAttribute("doctors", this.doctorService.getDoctors(firstName, lastName, medID, account, pageQuan,page));
-        
         model.addAttribute("count", this.doctorService.countDoctor(firstName, lastName, medID, account));
         
         model.addAttribute("page", Integer.toString(page));
@@ -82,12 +81,6 @@ public class DoctorManagerController {
         return "doctor-manager";
     }
     
-//    @GetMapping("/admin/doctor-manager")
-//    public String DoctorManagers(Model model, @RequestParam(required = false)Map<String, String> params){
-//        
-//        model.addAttribute("doctors", this.doctorService.getDoctor("", 1));    
-//        return "doctor-manager";
-//    }
     
  
     //chuc nang them bac si
