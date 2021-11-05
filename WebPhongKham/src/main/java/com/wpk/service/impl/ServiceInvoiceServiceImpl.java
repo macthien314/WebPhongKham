@@ -12,6 +12,8 @@ import com.wpk.pojos.ServiceInvoice;
 import com.wpk.repository.ServiceInvoiceRepository;
 import com.wpk.service.ServiceInvoiceService;
 import java.io.IOException;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +37,7 @@ public class ServiceInvoiceServiceImpl implements ServiceInvoiceService {
 
       @Override
     public boolean addOrUpdate(ServiceInvoice m) {
-       
+        m.setCreatedDay(new Date());
         return this.serviceInvoiceRepository.addOrUpdate(m);
     } 
 

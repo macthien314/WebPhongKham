@@ -107,7 +107,8 @@ public class Doctor implements Serializable {
     
     @OneToMany(mappedBy = "doctor")
     private List<Prescription> prescriptionList;
-    
+    @OneToMany(mappedBy = "doctor")
+    private List<MedicalExaminationCard> medicalExaminationCards; 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id",insertable = true, updatable = true)
     private User user;
@@ -281,6 +282,20 @@ public class Doctor implements Serializable {
      */
     public void setFile(MultipartFile file) {
         this.file = file;
+    }
+
+    /**
+     * @return the medicalExaminationCards
+     */
+    public List<MedicalExaminationCard> getMedicalExaminationCards() {
+        return medicalExaminationCards;
+    }
+
+    /**
+     * @param medicalExaminationCards the medicalExaminationCards to set
+     */
+    public void setMedicalExaminationCards(List<MedicalExaminationCard> medicalExaminationCards) {
+        this.medicalExaminationCards = medicalExaminationCards;
     }
     
 }

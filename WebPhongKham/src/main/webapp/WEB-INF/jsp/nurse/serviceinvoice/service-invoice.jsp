@@ -118,14 +118,13 @@
                  <div class="form-group">
                  <label for="tcate">Tên dịch vụ</label>
                     <form:select path="service" id="s" cssClass="form-control">
-
                         <c:forEach items="${services}" var="s">
                             <option value="${s.id}">${s.name}: giá tiền ${s.fee}VNĐ</option>
                         </c:forEach>
                     </form:select>
                     <form:errors cssClass="alert alert-danger" path="service" element="div"/>
                  </div>
-                        
+                 
             <div class="form-group">
                 <button type="submit" class="btn btn-primary btn-block">Tạo Hóa Đơn Dịch Vụ</button>
             </div>
@@ -138,24 +137,8 @@
   </div>
 </div>
 
-              <c:if test="${!susscess.equals('')}">
-                  <div class="modal show fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Tạo thành công</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        Bạn đã thêm hóa đơn dịch vụ thành công
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        
-      </div>
-    </div>
-  </div>
-</div>
+              <c:if test="${!success.equals('')}">
+                  <script>
+                      alert('Tạo hóa đơn thành công ${susscess}');
+                  </script>
               </c:if>

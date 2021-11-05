@@ -73,7 +73,9 @@ public class MedicalExaminationCard implements Serializable {
     @ManyToOne
     @JoinColumn(name = "nurse_id")
     private Nurse nurse;
-    
+    @ManyToOne
+    @JoinColumn(name = "doctor_id")
+    private Doctor doctor;
     @ManyToOne
     @JoinColumn(name = "patient_id")
     private Patient patient;
@@ -197,5 +199,19 @@ public class MedicalExaminationCard implements Serializable {
      */
     public void setFile(MultipartFile file) {
         this.file = file;
+    }
+
+    /**
+     * @return the doctor
+     */
+    public Doctor getDoctor() {
+        return doctor;
+    }
+
+    /**
+     * @param doctor the doctor to set
+     */
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
     }
 }

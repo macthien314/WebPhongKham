@@ -54,8 +54,8 @@ public class ServiceInvoice implements Serializable {
     @Column(name = "fee")
     private BigDecimal fee;
     @Column(name = "created_day")
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date createdDay;
     
     @ManyToOne

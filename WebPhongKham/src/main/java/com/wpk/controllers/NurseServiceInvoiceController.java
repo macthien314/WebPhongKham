@@ -69,6 +69,8 @@ public class NurseServiceInvoiceController {
         if(model.getAttribute("serviceinvoice") == null)
         model.addAttribute("serviceinvoice",new ServiceInvoice());
         model.addAttribute("services", this.servicesService.getServices());
+        if(model.getAttribute("success") == null)
+        model.addAttribute("success","");
         String name = principal.getName();
         model.addAttribute("nurse",userDetailsService.getUser(name).get(0).getNurse());
         return "serviceinvoice-list";
@@ -83,9 +85,9 @@ public class NurseServiceInvoiceController {
             m.setPatient(this.patientService.getPatientByID(patientid));
             m.setNurse(userDetailsService.getUser(name).get(0).getNurse());
             m.setFee(this.servicesService.getServicesByID(m.getService().getId()).getFee());
-        
+            
             if(this.serviceInvoiceService.addOrUpdate(m)==true){
-                attr.addFlashAttribute("susscess", "s");
+                attr.addFlashAttribute("success", "s");
                 return"redirect:/nurse/patient-serviceinvoice/" + patientid;
             }
             else{
