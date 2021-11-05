@@ -8,6 +8,7 @@ package com.wpk.service.impl;
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
 import com.wpk.pojos.Prescription;
+import com.wpk.pojos.PrescriptionDrug;
 import com.wpk.repository.PrescriptionRepository;
 import com.wpk.service.PrescriptionService;
 import java.io.IOException;
@@ -42,4 +43,9 @@ public class PrescriptionServiceImpl implements PrescriptionService{
     public Prescription getPrescriptionByID(int id) {
           return prescriptionRepository.getPrescriptionByID(id);
     }
+
+    @Override
+    public boolean addReceipt(Map<String, PrescriptionDrug> map, int id) {
+         return this.prescriptionRepository.addReceipt(map, id);             
+                 }  
 }

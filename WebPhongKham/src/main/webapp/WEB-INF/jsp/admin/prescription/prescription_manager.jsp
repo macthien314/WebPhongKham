@@ -48,6 +48,7 @@
                 <th>Ngày lập</th>
                 <th>Tên bệnh nhân</th>
                 <th>Tên bác sĩ</th>
+                <th>Tổng tiền</th>
    
                 <th><i class="fas fa-cog"></i></th>
            </tr>
@@ -59,7 +60,8 @@
                         <td>${s.id}</td>
                         <td>${s.createdDate}</td>
                         <td>${s.patient.firstName}</td>
-                          <td>${s.doctor.firstName}</td> 
+                        <td>${s.doctor.firstName}</td> 
+                        <td>${s.totalPrice}</td>
                        
                          <td class="setting">
                              

@@ -56,6 +56,12 @@
                     </form:select>
                     <form:errors cssClass="alert alert-danger" path="doctor" element="div"/>
                  </div>
+                 
+                  <div class=" form-group">
+                     <label for="totalPrice">Tổng tiền</label>   
+                     <form:input path="totalPrice" id="createdDate" name="title" type="text" cssClass="form-control"/>
+                     <form:errors path="totalPrice" cssClass="alert alert-danger" element="div" />
+                </div> <!-- form-group end.// -->
                 
                  
                      

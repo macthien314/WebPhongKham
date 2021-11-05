@@ -104,6 +104,8 @@ public class Prescription implements Serializable {
         this.createdDate = createdDate;
     }
 
+
+    
     public Doctor getDoctor() {
         return doctor;
     }

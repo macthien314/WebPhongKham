@@ -94,6 +94,7 @@ public class Patient implements Serializable {
     @Size(min = 1, max = 45)
     @Column(name = "email")
     private String email;
+    
     @OneToMany(mappedBy = "patient")
     private List<MedicalExaminationCard> medicalExaminationCard;
     
@@ -109,8 +110,8 @@ public class Patient implements Serializable {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id",insertable = true, updatable = true)
     private User user;
+    
     @Transient
-   
     private MultipartFile file;
     public Patient() {
     }

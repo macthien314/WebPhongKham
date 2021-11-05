@@ -17,5 +17,5 @@ public interface PrescriptionRepository {
      Prescription getPrescriptionByID(int id);
      boolean addOrUpdate(Prescription m); 
      
-     boolean addReceipt(Map<String, PrescriptionDrug> m); 
+     boolean addReceipt(Map<String, PrescriptionDrug> m, int id); 
 }

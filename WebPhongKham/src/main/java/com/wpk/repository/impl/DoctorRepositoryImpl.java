@@ -36,6 +36,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class DoctorRepositoryImpl implements DoctorRepository {
      @Autowired
     private LocalSessionFactoryBean sessionFactory;
+     
     @Override
     public Doctor getDoctorByID(int id) {
         Session s = sessionFactory.getObject().getCurrentSession();

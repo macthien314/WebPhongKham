@@ -5,7 +5,9 @@
  */
 package com.wpk.service;
 import com.wpk.pojos.Prescription;
+import com.wpk.pojos.PrescriptionDrug;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -15,4 +17,5 @@ public interface PrescriptionService {
     List<Prescription> getPrescriptions();
     Prescription getPrescriptionByID(int id);
      boolean addOrUpdate(Prescription d);  
+     boolean addReceipt(Map<String, PrescriptionDrug> m, int id); 
 }
