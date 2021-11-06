@@ -62,8 +62,8 @@ public class ServiceInvoice implements Serializable {
     @JoinColumn(name = "nurse_id")
     private Nurse nurse;
     
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "patient_id",insertable = true, updatable = true)
+    @ManyToOne
+    @JoinColumn(name = "patient_id")
     private Patient patient;
    
     @ManyToOne

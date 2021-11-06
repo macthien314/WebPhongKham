@@ -29,7 +29,7 @@
 
             <form:form id="patient" action="${action}" modelAttribute="patient" method="post" enctype="multipart/form-data">
                <form:errors path="*" cssClass="alert alert-danger" element="div" />
-                        
+                       
                 <div class="form-group preview text-center">
                     <img class="" src=""id="preview" alt="Preview Image" width="50%" height="20%"/>
                     <div class="browse-button">
@@ -85,7 +85,16 @@
                 </div> <!-- form-group end.// -->
                 
               
-               
+<!--                 <div class="form-group">
+                    <label for="tcate">Tên tài khoản</label>
+                    <form:select path="user" id="u" cssClass="form-control">
+
+                        <c:forEach items="${users}" var="u">
+                            <option value="${u.id}">${u.username}</option>
+                        </c:forEach>
+                    </form:select>
+                    <form:errors cssClass="alert alert-danger" path="user" element="div"/>
+                </div>-->
                 
                  
                 <!-- form-group end.// -->

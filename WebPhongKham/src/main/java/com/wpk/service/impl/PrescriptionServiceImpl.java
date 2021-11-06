@@ -48,4 +48,9 @@ public class PrescriptionServiceImpl implements PrescriptionService{
     public boolean addReceipt(Map<String, PrescriptionDrug> map, int id) {
          return this.prescriptionRepository.addReceipt(map, id);             
                  }  
+
+    @Override
+    public boolean removePrescription(int i) {
+        return this.prescriptionRepository.removePrescription(i);
+    }
 }

@@ -116,7 +116,7 @@ public class PatientManagerController {
     
     @GetMapping("/benh-nhan/{patientid}")
     public String patient(Model model,@PathVariable(value ="patientid") int patientid){
-        model.addAttribute("doctor", this.patientService.getPatientByID(patientid));
+        model.addAttribute("patient", this.patientService.getPatientByID(patientid));
         return "patient-detail";
     }
 }

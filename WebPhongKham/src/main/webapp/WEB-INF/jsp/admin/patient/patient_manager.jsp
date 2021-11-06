@@ -1,9 +1,8 @@
 <%-- 
     Document   : patient_manager
-    Created on : Oct 10, 2021, 2:51:41 PM
+    Created on : Nov 6, 2021, 12:05:52 PM
     Author     : macth
 --%>
-
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -53,7 +52,7 @@
             <th>SĐT</th>
             <th>Email</th>
             <th style="width:50%;" ">Ảnh</th>
-           
+            <th>Tên tài khoản</th>
 
             <th><i class="fas fa-cog"></i></th>
        </tr>
@@ -75,7 +74,7 @@
                           <img src="${s.image}" class="img-fluid img-thumbnail" alt="Sheep">
 
                     </td>
-                    <td>${s.user.username}</td>
+               
                      <td class="setting">
 
                          <a data-toggle="tooltip" title="xem thông tin" title="thông tin"href="<c:url value="/admin/quanly-slide/chitiet-slide/${s.id}"/>"> <i class="fas fa-info-circle" style="color:#18d26e"></i></a>
@@ -120,6 +119,5 @@
 
          
          
-
 
 

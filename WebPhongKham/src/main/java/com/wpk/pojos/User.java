@@ -106,7 +106,7 @@ public class User implements Serializable {
     private Doctor doctor;
     @OneToOne(mappedBy = "user", cascade=CascadeType.ALL)
     private Nurse nurse;
-    @OneToOne(mappedBy = "user")
+    @OneToOne(mappedBy = "user", cascade=CascadeType.ALL)
     private Patient patient;
     public User() {
     }

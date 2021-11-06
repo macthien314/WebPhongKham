@@ -28,7 +28,7 @@
 
             <form:form id="prescription" action="${action}" modelAttribute="prescription" method="post" enctype="multipart/form-data">
                <form:errors path="*" cssClass="alert alert-danger" element="div" />
-              
+            
                 <div class=" form-group">
                      <label for="createdDate">Ngày lập toa</label>   
                      <form:input path="createdDate" id="createdDate" name="title" type="date" cssClass="form-control"/>

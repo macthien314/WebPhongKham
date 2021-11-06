@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.wpk.repository.impl;
 import com.wpk.pojos.Prescription;
 import com.wpk.pojos.PrescriptionDrug;
@@ -62,7 +58,7 @@ public class PrescriptionRepositoryImpl implements PrescriptionRepository {
     public boolean addOrUpdate(Prescription m) {
          Session session = sessionFactory.getObject().getCurrentSession();
         try{
-            session.save(m);
+            session.saveOrUpdate(m);
             return true;
         }
         catch(Exception e){
@@ -92,6 +88,20 @@ public class PrescriptionRepositoryImpl implements PrescriptionRepository {
         catch(HibernateException ex){
             ex.printStackTrace();  
         } 
+        return false;
+    }
+    
+        @Override
+    public boolean removePrescription(int id) {
+       Session session = sessionFactory.getObject().getCurrentSession();
+        Prescription m = this.getPrescriptionByID(id);
+        try{
+            session.delete(m);
+            return true;
+        }
+        catch(Exception e){
+        
+        }
         return false;
     }
 }

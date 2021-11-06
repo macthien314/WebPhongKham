@@ -107,11 +107,14 @@ public class Doctor implements Serializable {
     
     @OneToMany(mappedBy = "doctor")
     private List<Prescription> prescriptionList;
+    
     @OneToMany(mappedBy = "doctor")
     private List<MedicalExaminationCard> medicalExaminationCards; 
+    
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id",insertable = true, updatable = true)
     private User user;
+    
       @Transient
    
     private MultipartFile file;

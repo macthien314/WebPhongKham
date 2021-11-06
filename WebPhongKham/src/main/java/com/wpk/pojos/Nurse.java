@@ -101,6 +101,7 @@ public class Nurse implements Serializable {
     @ManyToOne
     @JoinColumn(name = "medical_id")
     private Medical medical;
+    
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id",insertable = true, updatable = true)
     private User user;

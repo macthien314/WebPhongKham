@@ -51,7 +51,6 @@ public class MedicalExaminationCard implements Serializable {
     private Integer id;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 45)
     @Column(name = "num")
     private Integer num;
     @Basic(optional = false)

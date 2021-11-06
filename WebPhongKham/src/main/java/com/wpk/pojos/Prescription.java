@@ -13,6 +13,7 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -63,7 +64,7 @@ public class Prescription implements Serializable {
     @JoinColumn(name = "patient_id")
     private Patient patient;
     
-    @OneToMany(mappedBy="prescription")
+    @OneToMany(mappedBy="prescription", fetch = FetchType.EAGER)
     private List<PrescriptionDrug> prescriptionDrugList;
 
     public Prescription(Integer id, Date createdDate) {

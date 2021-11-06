@@ -64,17 +64,17 @@
                         <td>${s.totalPrice}</td>
                        
                          <td class="setting">
-                             
-                             <a data-toggle="tooltip" title="xem thông tin" title="thông tin"href="<c:url value="/admin/quanly-slide/chitiet-slide/${s.id}"/>"> <i class="fas fa-info-circle" style="color:#18d26e"></i></a>
-                              <a data-toggle="tooltip" title="chỉnh sửa" href="<c:url value="/admin/quanly-slide/sua-slide/${s.id}"/>">
-                                  <i class="fas fa-edit" style="color:#6633ff"></i>
-                               </a>
 
-                              <a id="modal" href="<c:url value="/admin/quanly-slide/xoa-slide/${s.id}"/>" name="deleteButton" type="button" class="btn btn-primary" data-toggle="tooltip modal" data-target="#deleteModal" title="Xóa sản phẩm">
-                                   <i class="fas fa-trash-alt" style="color:#ed3c0d"></i>
-                              </a>
-                               
-                         </td>
+                         <a data-toggle="tooltip" title="xem thông tin" title="thông tin"href="<c:url value="/admin/quanly-slide/chitiet-slide/${s.id}"/>"> <i class="fas fa-info-circle" style="color:#18d26e"></i></a>
+                         <a data-toggle="tooltip" title="chỉnh sửa" href="<c:url value="/admin/prescription-manager/edit-prescription/${s.id}"/>">
+                              <i class="fas fa-edit" style="color:#6633ff"></i>
+                         </a>
+
+                         <a id="modal" href="<c:url value="/admin/prescription-manager/delete-prescription/${s.id}"/>" name="deleteButton" type="button" class="btn btn-primary" data-toggle="tooltip modal" data-target="#deleteModal" title="Xóa toa thuốc">
+                               <i class="fas fa-trash-alt" style="color:#ed3c0d"></i>
+                         </a>
+
+                     </td>
                     </tr>
                 </c:forEach>
           </tbody>

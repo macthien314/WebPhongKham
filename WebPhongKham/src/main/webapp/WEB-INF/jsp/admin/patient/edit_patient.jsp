@@ -80,13 +80,9 @@
                 </div> <!-- form-group end.// -->
                 
                  
-               <div class=" form-group">
-                     <label for="title">Tài khoản</label>   
-                     <form:input path="user.id" id="user.id" name="email" type="text" cssClass="form-control"/>
-                     <form:errors path="user.id" cssClass="alert alert-danger" element="div" />
-                </div> <!-- form-group end.// -->
+             
                 
-                 
+              
                 <!-- form-group end.// -->
        
                 <!-- form-group end.// -->

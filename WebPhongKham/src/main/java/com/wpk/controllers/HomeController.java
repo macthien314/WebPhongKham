@@ -13,6 +13,7 @@ import com.wpk.service.MedicalService;
 import com.wpk.service.NurseService;
 import com.wpk.service.PatientService;
 import com.wpk.service.PrescriptionService;
+import com.wpk.service.UserService;
 
 
 import javax.servlet.http.HttpSession;
@@ -79,6 +80,13 @@ public class HomeController {
     @ModelAttribute
     public void commonAttrssssss(Model model, HttpSession session){
         model.addAttribute("invoices", this.invoiceService.getInvoices());
+    }
+    
+        @Autowired
+    private UserService userService;
+    @ModelAttribute
+    public void commonAttrsssssss(Model model, HttpSession session){
+        model.addAttribute("users", this.userService.getUsers());
     }
     
    

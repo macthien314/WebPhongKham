@@ -146,6 +146,9 @@
     <definition name="add-patient" extends="adminLayout">
         <put-attribute name="content" value="/WEB-INF/jsp/admin/patient/add_patient.jsp"/>
     </definition>
+     <definition name="edit-patient" extends="adminLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/patient/edit_patient.jsp"/>
+    </definition>
     <!-- End admin: user manager -->
     
           <!-- start admin :patient manager -->
@@ -191,6 +194,9 @@
     </definition>
     <definition name="add-prescription" extends="adminLayout">
         <put-attribute name="content" value="/WEB-INF/jsp/admin/prescription/add_prescription.jsp"/>
+    </definition>
+    <definition name="edit-prescription" extends="adminLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/prescription/edit_prescription.jsp"/>
     </definition>
     <!-- End admin: user manager -->
     

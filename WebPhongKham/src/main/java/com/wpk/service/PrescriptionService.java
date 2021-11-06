@@ -17,5 +17,6 @@ public interface PrescriptionService {
     List<Prescription> getPrescriptions();
     Prescription getPrescriptionByID(int id);
      boolean addOrUpdate(Prescription d);  
+     boolean removePrescription(int id); 
      boolean addReceipt(Map<String, PrescriptionDrug> m, int id); 
 }

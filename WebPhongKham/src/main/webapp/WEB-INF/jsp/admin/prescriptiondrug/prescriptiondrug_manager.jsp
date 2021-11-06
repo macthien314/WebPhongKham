@@ -44,8 +44,9 @@
                 <td>${s.userGuide}</td>
                 <td>${s.unitPrice}</td>
                 <td>${s.quantity}</td>
+                <td>${s.prescription.id}</td>   
                 <td>${s.drug.name}</td>
-                <td>${s.prescription.id}</td>    
+                
                
                             
                          <td class="setting">
