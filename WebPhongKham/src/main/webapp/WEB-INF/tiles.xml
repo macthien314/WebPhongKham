@@ -278,7 +278,10 @@
         <put-attribute name="content" value="/WEB-INF/jsp/nurse/serviceinvoice/patient.jsp"/>
     </definition>
     <definition name="serviceinvoice-list" extends="adminLayout">
-        <put-attribute name="content" value="/WEB-INF/jsp/nurse/serviceinvoice/service-invoice.jsp"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/nurse/serviceinvoice/service_invoice.jsp"/>
+    </definition>
+    <definition name="nurse-medcard" extends="adminLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/nurse/medicalcard/med_card.jsp"/>
     </definition>
     <!-- End nurse user -->
     

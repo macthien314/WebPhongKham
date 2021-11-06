@@ -36,14 +36,14 @@ public class NurseMedCardController {
        binder.setValidator(doctorValidator);
    }
 
-    @RequestMapping("/nurse/medical-excard")
-    public String DoctorManager (Model model, @RequestParam(required = false)Map<String, String> params){
+    @RequestMapping("/nurse/medical-examination-card")
+    public String medCard (Model model, @RequestParam(required = false)Map<String, String> params){
         String firstName = params.getOrDefault("firstname", "");
         String lastName = params.getOrDefault("lastname", "");
         //xử lý số lượng hiển thị trong 1 trang
         String pageQuan = params.getOrDefault("pagequan", "10");
         String medID = params.getOrDefault("medid", "all");
-        String account = params.getOrDefault("account", "all");
+      
         if(pageQuan.isEmpty() ){
             pageQuan = "10";
         }
@@ -55,15 +55,15 @@ public class NurseMedCardController {
            
         int page = Integer.parseInt(params.getOrDefault("page", "1"));
         
-        model.addAttribute("doctors", this.doctorService.getDoctors(firstName, lastName, medID, account, pageQuan,page));
-        model.addAttribute("count", this.doctorService.countDoctor(firstName, lastName, medID, account));
+        model.addAttribute("doctors", this.doctorService.getDoctors(firstName, lastName, medID, "1", pageQuan,page));
+        model.addAttribute("count", this.doctorService.countDoctor(firstName, lastName, medID, "1"));
         
         model.addAttribute("page", Integer.toString(page));
         model.addAttribute("pagequan",pageQuan);
         model.addAttribute("firstname", firstName);
         model.addAttribute("lastname", lastName);
         model.addAttribute("medid", medID);
-        model.addAttribute("account", account);
-        return "doctor-manager";
+
+        return "nurse-medcard";
     }
 }

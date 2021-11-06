@@ -17,4 +17,5 @@ public interface MedicalExaminationCardRepository {
      MedicalExaminationCard getMedicalExaminationCardByID(int id);
      boolean addOrUpdate(MedicalExaminationCard m); 
      boolean removeMedicalExaminationCard(int id);
+     //Long countMedCardByDoctor(doctor);
 }

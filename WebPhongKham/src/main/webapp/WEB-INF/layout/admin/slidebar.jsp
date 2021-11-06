@@ -26,7 +26,7 @@
 
                                 </li>
                                 <li>
-                                    <a href="#">dog1</a>
+                                    <a href="<c:url value="/nurse/medical-examination-card"/>">Phiếu khám</a>
 
                                 </li>
                             </ul>

@@ -50,17 +50,7 @@
                                     </select>
                                   </div>
                                     
-                                  <div class="form-group">
-                                    <label for="account">Account</label>
-                                    <select  name ="account"class="form-control">
-                                        <option value="all" <c:if test="${account.equals('all')}">selected</c:if>>Tất cả</option>
-                                        <option value="1"
-                                        <c:if test="${account.equals('1')}">selected</c:if>
-                                        >Đã cấp</option>
-                                        <option value="0"
-                                        <c:if test="${account.equals('0')}">selected</c:if>>Chưa cấp</option>
-                                    </select>
-                                  </div>  
+                                  
                                     
                                   
                                   <div class="form-group">
@@ -92,13 +82,12 @@
 
         <tr>
             <th class="th-sm">Mã</th>
-            <th>Họ</th>
-            <th >Tên</th>
+            <th>Họ Tên</th>
             <th>Ngày sinh</th>
             <th>Giới tính</th>
             <th>SĐT</th>
             <th>Email</th>
-            <th>Kinh nghiệm</th>
+           
             <th style="width: 70% ">Ảnh</th>
             <th>Tên Khoa</th>
             <th>Tên tài khoản</th>
@@ -111,20 +100,19 @@
             <c:forEach items="${doctors}" var="s">
                 <tr>
                     <td>${s.id}</td>
-                    <td>${s.firstName}</td>
-                    <td>${s.lastName}</td>
+                    <td>${s.firstName} ${s.lastName}</td>
                     <td>${s.birthDate}</td>
                     <td>${s.gender}</td>
                     <td>${s.phone}</td>
                     <td>${s.email}</td>
-                    <td>${s.yearsExperience}</td>
+                   
                     
                     <td class="w-auto">
                           <img src="${s.image}" class="img-fluid img-thumbnail" alt="Sheep">
 
                     </td>
                     <td>${s.medical.name}</td>
-                    <td>${s.user.username}</td>
+                    
                     <td class="setting">
 
                      </td>
@@ -161,8 +149,7 @@
   <a class ="active"href="<c:url value="/admin/doctor-manager">
                     <c:param name="lastname"
                     value="${lastname}"></c:param>
-                    <c:param name="account"
-                    value="${account}"></c:param>
+                    
                     <c:param name="firstname"
                     value="${firstname}"></c:param>
                     <c:param name="pagequan"

@@ -11,6 +11,7 @@ import com.wpk.pojos.User;
 import com.wpk.service.MedicalService;
 import com.wpk.service.NurseService;
 import com.wpk.service.UserService;
+import static com.wpk.utils.util.isNumeric;
 import com.wpk.validator.WebAppValidator;
 import java.text.Normalizer;
 import java.util.Map;
@@ -48,10 +49,35 @@ public class NurseManagerController {
    { 
        binder.setValidator(nurseValidator);
    }
-    @GetMapping("/admin/nurse-manager")
+    @RequestMapping("/admin/nurse-manager")
     public String NurseManager(Model model, @RequestParam(required = false)Map<String, String> params){
         
-        model.addAttribute("nurses", this.nurseService.getNurses());
+        String firstName = params.getOrDefault("firstname", "");
+        String lastName = params.getOrDefault("lastname", "");
+        //xử lý số lượng hiển thị trong 1 trang
+        String pageQuan = params.getOrDefault("pagequan", "10");
+        String medID = params.getOrDefault("medid", "all");
+        String account = params.getOrDefault("account", "all");
+        if(pageQuan.isEmpty() ){
+            pageQuan = "10";
+        }
+        else if(!pageQuan.equals("all"))
+                if(!isNumeric(pageQuan))
+                    pageQuan = "all";
+                else if(Integer.parseInt(pageQuan) <= 0)
+                    pageQuan = "10";
+           
+        int page = Integer.parseInt(params.getOrDefault("page", "1"));
+        
+        model.addAttribute("nurses", this.nurseService.getNurses(firstName, lastName, medID, account, pageQuan,page));
+        model.addAttribute("count", this.nurseService.countNurse(firstName, lastName, medID, account));
+        
+        model.addAttribute("page", Integer.toString(page));
+        model.addAttribute("pagequan",pageQuan);
+        model.addAttribute("firstname", firstName);
+        model.addAttribute("lastname", lastName);
+        model.addAttribute("medid", medID);
+        model.addAttribute("account", account);
         return "nurse-manager";
     }
     

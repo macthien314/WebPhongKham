@@ -19,5 +19,9 @@ public interface NurseService {
      boolean removeNurse(int id);
 
     Nurse findNurseByUsername(String name);
+
+    Long countNurse(String firstName, String lastName, String medID, String account);
+
+    List<Nurse> getNurses(String firstName, String lastName, String medID, String account, String pageQuan, int page);
      
 }

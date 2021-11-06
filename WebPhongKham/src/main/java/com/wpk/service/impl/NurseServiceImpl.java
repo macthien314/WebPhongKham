@@ -59,5 +59,16 @@ public class NurseServiceImpl implements NurseService{
     public Nurse findNurseByUsername(String string) {
         return this.nurseRepository.findNurseByUsername(string);
     }
+
+    @Override
+    public Long countNurse(String firstName, String lastName, String medID, String account) {
+        return this.nurseRepository.countNurse(firstName, lastName, medID, account);
+    }
+
+    @Override
+    public List<Nurse> getNurses(String firstName, String lastName, String medID, String account, String pageQuan, int page) {
+        return this.nurseRepository.getNurses(firstName, lastName, medID, account,pageQuan, page);    }
+
+  
 }
 
