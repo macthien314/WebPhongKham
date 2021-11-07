@@ -283,6 +283,9 @@
     <definition name="nurse-medcard" extends="adminLayout">
         <put-attribute name="content" value="/WEB-INF/jsp/nurse/medicalcard/med_card.jsp"/>
     </definition>
+    <definition name="nurse-medcardlist" extends="adminLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/nurse/medicalcard/med_card_list.jsp"/>
+    </definition>
     <!-- End nurse user -->
     
     <definition name="aboutus" extends="baseLayout">

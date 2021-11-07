@@ -9,7 +9,9 @@ import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
 import com.wpk.pojos.Doctor;
 import com.wpk.repository.DoctorRepository;
+import com.wpk.repository.MedicalExaminationCardRepository;
 import com.wpk.service.DoctorService;
+import com.wpk.service.MedicalExaminationCardService;
 import java.io.IOException;
 
 import java.util.List;
@@ -25,6 +27,8 @@ import org.springframework.stereotype.Service;
 public class DoctorServiceImpl implements DoctorService{
     @Autowired
     private DoctorRepository doctorRepository;
+    @Autowired
+    private MedicalExaminationCardRepository medicalExaminationCardRepository;
     @Autowired
     private Cloudinary cloudinary; 
 
@@ -62,5 +66,15 @@ public class DoctorServiceImpl implements DoctorService{
     public long countDoctor(String firstName, String lastName, String medID, String account) {
         return this.doctorRepository.countDoctor(firstName, lastName, medID, account);
     }
-    
+
+    @Override
+    public List<Doctor> getDoctorsWithMedCount (String firstName, String lastName, String medID, String account, String pageQuan, int page) {
+        List<Doctor> doctors = this.doctorRepository.getDoctors(firstName, lastName, medID, account,pageQuan, page);
+        for(Doctor d:doctors){
+            d.setMedCardCount(this.medicalExaminationCardRepository.countTodayMedCard(d.getId()));
+        }
+        return doctors;
+    }    
+
+  
 }

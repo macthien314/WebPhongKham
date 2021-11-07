@@ -62,8 +62,8 @@
                         <td>${s.patient.firstName}</td>
                         <td>${s.nurse.firstName}</td>
                         <td>
-                            <button  type="button" data-toggle="modal" data-target="#createModal"  class="btn btn-outline-primary">                         
-                           s
+                         <button  type="button" data-toggle="modal" data-target="#createModal"  class="btn btn-outline-primary">                         
+                           
                          </button>
                
                         </td>

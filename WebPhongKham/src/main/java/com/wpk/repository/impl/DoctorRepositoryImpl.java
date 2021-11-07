@@ -7,13 +7,23 @@ package com.wpk.repository.impl;
 
 
 import com.wpk.pojos.Doctor;
+import static com.wpk.pojos.Doctor_.id;
+import static com.wpk.pojos.Doctor_.medicalExaminationCards;
 import com.wpk.pojos.User;
 import com.wpk.repository.DoctorRepository;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import  com.wpk.pojos.MedicalExaminationCard;
+import com.wpk.pojos.MedicalExaminationCard_;
+import static com.wpk.pojos.MedicalExaminationCard_.date;
+import javax.persistence.criteria.Fetch;
+import javax.persistence.criteria.Join;
+import javax.persistence.criteria.JoinType;
+import javax.persistence.criteria.ListJoin;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
@@ -77,7 +87,7 @@ public class DoctorRepositoryImpl implements DoctorRepository {
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<Doctor> query = builder.createQuery(Doctor.class);
         Root root = query.from(Doctor.class);
-        query = query.select(root);
+        
         List<Predicate> predicates = new ArrayList<Predicate>();
       
         if(firstName != null && !firstName.isEmpty()){
@@ -98,12 +108,16 @@ public class DoctorRepositoryImpl implements DoctorRepository {
                 predicates.add(p);
             }
             else if(account.equals("1")){
-                 Predicate p = builder.isNotNull(root.get("user").as(User.class));
-                predicates.add(p);    
+                Predicate p = builder.isNotNull(root.get("user").as(User.class));
+                predicates.add(p);  
+                
             }
         }
        
+    
+      
         query = query.where(builder.and(predicates.toArray(new Predicate[] {})));
+       
         Query q = session.createQuery(query);
         if(pageQuan != null && !pageQuan.isEmpty() && !pageQuan.equals("all") ){
             int max = Integer.parseInt(pageQuan);

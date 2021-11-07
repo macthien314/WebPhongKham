@@ -118,6 +118,8 @@ public class Doctor implements Serializable {
       @Transient
    
     private MultipartFile file;
+    @Transient
+    private int medCardCount;
     public Doctor() {
     }
 
@@ -300,5 +302,19 @@ public class Doctor implements Serializable {
     public void setMedicalExaminationCards(List<MedicalExaminationCard> medicalExaminationCards) {
         this.medicalExaminationCards = medicalExaminationCards;
     }
-    
+
+    /**
+     * @return the medCardCount
+     */
+    public int getMedCardCount() {
+        return medCardCount;
+    }
+
+    /**
+     * @param medCardCount the medCardCount to set
+     */
+    public void setMedCardCount(int medCardCount) {
+        this.medCardCount = medCardCount;
+    }
+        
 }

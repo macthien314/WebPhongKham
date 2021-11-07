@@ -58,15 +58,7 @@ public class HomeController {
     public void commonAttrss(Model model, HttpSession session){
         model.addAttribute("drugs", this.drugService.getDrugs());
     }
-  
-    
-       @Autowired
-    private PatientService patientService;
-    @ModelAttribute
-    public void commonAttrssss(Model model, HttpSession session){
-        model.addAttribute("patients", this.patientService.getPatients());
-    }
-    
+ 
     
        @Autowired
     private PrescriptionService prescriptionService;
@@ -82,12 +74,7 @@ public class HomeController {
         model.addAttribute("invoices", this.invoiceService.getInvoices());
     }
     
-        @Autowired
-    private UserService userService;
-    @ModelAttribute
-    public void commonAttrsssssss(Model model, HttpSession session){
-        model.addAttribute("users", this.userService.getUsers());
-    }
+    
     
    
     

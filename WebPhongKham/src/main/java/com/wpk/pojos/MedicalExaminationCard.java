@@ -19,11 +19,16 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import org.hibernate.annotations.Where;
+
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.lang.NonNull;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
@@ -50,23 +55,25 @@ public class MedicalExaminationCard implements Serializable {
     @Column(name = "id")
     private Integer id;
     @Basic(optional = false)
-    @NotNull
     @Column(name = "num")
     private Integer num;
     @Basic(optional = false)
-    @NotNull
+    
     @Column(name = "date")
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @Temporal(TemporalType.TIMESTAMP)
+    
     private Date date;
     @Basic(optional = false)
-    @NotNull
     @Column(name = "fee")
     private BigDecimal fee;
     @Size(max = 100)
     @Column(name = "sympton")
+    @NonNull
     private String sympton;
     @Size(max = 100)
     @Column(name = "diagnosis")
+    @NotNull
     private String diagnosis;
     
     @ManyToOne
@@ -213,4 +220,5 @@ public class MedicalExaminationCard implements Serializable {
     public void setDoctor(Doctor doctor) {
         this.doctor = doctor;
     }
+
 }

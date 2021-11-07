@@ -20,7 +20,7 @@ public interface DoctorService {
     boolean removeDoctor(int id);
 
     List<Doctor> getDoctors(String firstName, String lastName, String medID, String account, String pageQuan, int page);
-
+    List<Doctor> getDoctorsWithMedCount(String firstName, String lastName, String medID, String account, String pageQuan, int page);
     long countDoctor(String firstName, String lastName, String medID, String account);
 }
 

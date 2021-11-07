@@ -45,4 +45,14 @@ public class MedicalExaminationCardServiceImpl implements MedicalExaminationCard
     public boolean removeMedicalExaminationCard(int i) {
         return this.medicalExaminationCardRepository.removeMedicalExaminationCard(i);
     }
+
+    @Override
+    public int countTodayMedCard(int doctorID) {
+        return this.medicalExaminationCardRepository.countTodayMedCard(doctorID);
+    }
+
+    @Override
+    public List<MedicalExaminationCard> getTodayMedCard(int i) {
+        return this.medicalExaminationCardRepository.getTodayMedCard(i);
+    }
 }

@@ -83,14 +83,14 @@
         <tr>
             <th class="th-sm">Mã</th>
             <th>Họ Tên</th>
-            <th>Ngày sinh</th>
+            
             <th>Giới tính</th>
             <th>SĐT</th>
             <th>Email</th>
            
             <th style="width: 70% ">Ảnh</th>
             <th>Tên Khoa</th>
-            <th>Tên tài khoản</th>
+            <th>Phiếu khám hôm nay</th>
 
             <th><i class="fas fa-cog"></i></th>
        </tr>
@@ -101,20 +101,25 @@
                 <tr>
                     <td>${s.id}</td>
                     <td>${s.firstName} ${s.lastName}</td>
-                    <td>${s.birthDate}</td>
+                    
                     <td>${s.gender}</td>
                     <td>${s.phone}</td>
                     <td>${s.email}</td>
                    
                     
-                    <td class="w-auto">
+                    <td class="w-25">
                           <img src="${s.image}" class="img-fluid img-thumbnail" alt="Sheep">
 
                     </td>
                     <td>${s.medical.name}</td>
                     
-                    <td class="setting">
-
+                    <td >
+                       ${s.medCardCount}    
+                     </td>
+                     <td>
+                         <button type="button" class="btn btn-outline-primary">                         
+                             <a data-toggle="tooltip" title="xem thông tin" title="thông tin"href="<c:url value="/nurse/medical-examination-card/${s.id}"/>">Check phiếu khám</a>
+                         </button>
                      </td>
                 </tr>
             </c:forEach>
