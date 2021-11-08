@@ -19,4 +19,6 @@ public interface InvoiceService {
     Invoice getInvoiceByID(int id);
      boolean addOrUpdate(Invoice d);
      boolean removeInvoice(int id);
+
+    List<Invoice> getInvoicesByPres(int presID);
 }

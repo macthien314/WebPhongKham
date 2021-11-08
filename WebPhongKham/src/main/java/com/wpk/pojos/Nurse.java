@@ -97,6 +97,8 @@ public class Nurse implements Serializable {
     private List<MedicalExaminationCard> medicalExaminationCardList;
     @OneToMany(mappedBy = "nurse",cascade=CascadeType.ALL)
     private List<ServiceInvoice> serviceInvoiceList;
+    @OneToMany(mappedBy="nurse")
+    private List<Invoice> invoices;
 
     @ManyToOne
     @JoinColumn(name = "medical_id")
@@ -277,6 +279,20 @@ public class Nurse implements Serializable {
      */
     public void setFile(MultipartFile file) {
         this.file = file;
+    }
+
+    /**
+     * @return the invoices
+     */
+    public List<Invoice> getInvoices() {
+        return invoices;
+    }
+
+    /**
+     * @param invoices the invoices to set
+     */
+    public void setInvoices(List<Invoice> invoices) {
+        this.invoices = invoices;
     }
     
 }

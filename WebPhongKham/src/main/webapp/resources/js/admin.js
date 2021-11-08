@@ -42,4 +42,19 @@ $('.table #modal').on('click', function(event){
             return false;
         return true;
     }
+   $(document).ready(function() {
+    $('.js-example-basic-single').select2();
+});
 
+function loadCreateModal(){
+    $('#createModal').modal('show');
+}
+//$('document').ready(function(){
+//    $('.table .btn').on('click',function(event){
+//        event.preventDefault();
+//        
+//        $.get(href, function(prescription)){
+//            ${presID}
+//        }
+//    });
+//});

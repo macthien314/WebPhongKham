@@ -55,9 +55,10 @@ public class NurseManagerController {
         String firstName = params.getOrDefault("firstname", "");
         String lastName = params.getOrDefault("lastname", "");
         //xử lý số lượng hiển thị trong 1 trang
-        String pageQuan = params.getOrDefault("pagequan", "10");
+        
         String medID = params.getOrDefault("medid", "all");
         String account = params.getOrDefault("account", "all");
+        String pageQuan = params.getOrDefault("pagequan", "10");
         if(pageQuan.isEmpty() ){
             pageQuan = "10";
         }

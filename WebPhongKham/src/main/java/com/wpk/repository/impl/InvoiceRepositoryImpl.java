@@ -5,8 +5,14 @@
  */
 package com.wpk.repository.impl;
 import com.wpk.pojos.Invoice;
+import com.wpk.pojos.Prescription;
 import com.wpk.repository.InvoiceRepository;
+import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 import org.hibernate.Query;
 
 import org.hibernate.Session;
@@ -65,6 +71,33 @@ public class InvoiceRepositoryImpl implements InvoiceRepository {
         
         }
         return false;
+    }
+     @Override
+    public List<Invoice> getInvoicesByPres(int presID){
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<Invoice> query = builder.createQuery(Invoice.class);
+        Root root = query.from(Invoice.class);
+       
+        Predicate p = builder.equal(root.get("prescription").get("id").as(Integer.class),presID);
+        
+        
+//        else{
+//            if(patientID != null && !patientID.isEmpty()){
+//                Predicate p = builder.equal(root.get("patient").get("id").as(Integer.class),Integer.parseInt(patientID));
+//                predicates.add(p);
+//            }
+//        }
+        
+        query = query.where(p);
+       
+        org.hibernate.query.Query q = session.createQuery(query);
+//        if(pageQuan != null && !pageQuan.isEmpty() && !pageQuan.equals("all") ){
+//            int max = Integer.parseInt(pageQuan);
+//            q.setMaxResults(max);
+//            q.setFirstResult((page- 1) * max);
+//        }
+        return q.getResultList();
     }
 }
 

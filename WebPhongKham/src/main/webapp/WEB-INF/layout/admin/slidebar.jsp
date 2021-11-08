@@ -29,6 +29,10 @@
                                     <a href="<c:url value="/nurse/medical-examination-card"/>">Phiếu khám</a>
 
                                 </li>
+                                <li>
+                                    <a href="<c:url value="/nurse/invoice/prescription-list"/>">HÓA ĐƠN</a>
+
+                                </li>
                             </ul>
                         </li> 
                         <li class ="active">

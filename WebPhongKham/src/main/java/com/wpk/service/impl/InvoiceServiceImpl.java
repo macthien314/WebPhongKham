@@ -41,4 +41,8 @@ public class InvoiceServiceImpl implements InvoiceService{
     public boolean removeInvoice(int i) {
         return this.invoiceRepository.removeInvoice(i);
     }
+    @Override
+    public List<Invoice> getInvoicesByPres(int presID){
+        return this.invoiceRepository.getInvoicesByPres(presID);
+    }
 }

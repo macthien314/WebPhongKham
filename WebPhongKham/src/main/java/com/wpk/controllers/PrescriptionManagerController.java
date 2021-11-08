@@ -6,7 +6,9 @@
 package com.wpk.controllers;
 import com.wpk.pojos.Prescription;
 import com.wpk.pojos.PrescriptionDrug;
+import com.wpk.service.PatientService;
 import com.wpk.service.PrescriptionService;
+import static com.wpk.utils.util.isNumeric;
 import com.wpk.validator.WebAppValidator;
 import java.util.Map;
 import javax.validation.Valid;
@@ -35,6 +37,8 @@ public class PrescriptionManagerController {
     private PrescriptionService prescriptionService;
     @Autowired
     private WebAppValidator prescriptionValidator;
+    @Autowired
+    private PatientService patientService;
      @InitBinder 
    public void initBinder(WebDataBinder binder)
    { 
@@ -42,8 +46,34 @@ public class PrescriptionManagerController {
    }
     @GetMapping("/admin/prescription-manager")
     public String PrescriptionManager(Model model, @RequestParam(required = false)Map<String, String> params){
-        model.addAttribute("prescription", new Prescription());
-        model.addAttribute("prescriptions", this.prescriptionService.getPrescriptions());
+        String presID = params.getOrDefault("id", "");
+        if(!isNumeric(presID))
+            presID = "";
+        
+        String patientID = params.getOrDefault("patientID", "");
+        if(!isNumeric(patientID))
+            patientID = "";
+        
+        //xử lý page
+        String pageQuan = params.getOrDefault("pagequan", "10");
+        if(pageQuan.isEmpty() ){
+            pageQuan = "10";
+        }
+        else if(!pageQuan.equals("all"))
+                if(!isNumeric(pageQuan))
+                    pageQuan = "all";
+                else if(Integer.parseInt(pageQuan) <= 0)
+                    pageQuan = "10";
+           
+        int page = Integer.parseInt(params.getOrDefault("page", "1"));
+        model.addAttribute("page", Integer.toString(page));
+        model.addAttribute("pagequan",pageQuan);
+        //kết thúc xử lý page
+        model.addAttribute("prescriptions",this.prescriptionService.getPrescriptions(presID, patientID,pageQuan,page));
+        model.addAttribute("count", this.prescriptionService.countPresciptions(presID, patientID));
+        model.addAttribute("patients",this.patientService.getPatients()); 
+        model.addAttribute("patientID", patientID);
+        model.addAttribute("presID",presID);
         return "prescription-manager";
     }
     

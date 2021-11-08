@@ -24,7 +24,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js" integrity="sha512-Tn2m0TIpgVyTzzvmxLNuqbSJH3JP8jm+Cy3hvHrW7ndTDcJ1w5mBiksqDBb8GpE2ksktFvDB/ykZ0mDpsZj20w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     
     <link href="<c:url value="/css/admin-style.css"/>" rel="stylesheet">
-    <link rel="stylesheet" href="https://harvesthq.github.io/chosen/chosen.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet">
+
     </head>
     
             <!--Slide bar-->
@@ -51,6 +52,6 @@
    <script src="<c:url value="/js/admin.js"/>"></script>
    
   <script src="https://harvesthq.github.io/chosen/chosen.jquery.js"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     
 </html>

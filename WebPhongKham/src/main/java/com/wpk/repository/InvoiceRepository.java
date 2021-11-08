@@ -17,4 +17,7 @@ public interface InvoiceRepository {
      Invoice getInvoiceByID(int id);
      boolean addOrUpdate(Invoice m);
      boolean removeInvoice(int id);
+     List<Invoice> getInvoicesByPres(int presID);
+    
+    
 }

@@ -93,10 +93,12 @@ public class NurseMedCardController {
         model.addAttribute("doctor", this.doctorService.getDoctorByID(id));
         model.addAttribute("medicalexaminationcard", new MedicalExaminationCard());
         model.addAttribute("medExCarts", this.medicalExaminationCardsService.getTodayMedCard(id));
+        
         if(model.getAttribute("medexcart") == null)
         model.addAttribute("medexcart",new MedicalExaminationCard());
         if(model.getAttribute("success") == null)
-        model.addAttribute("success","");
+        
+            model.addAttribute("success","");
         String name = principal.getName();
         model.addAttribute("nurse",userDetailsService.getUser(name).get(0).getNurse());
         return "nurse-medcardlist";

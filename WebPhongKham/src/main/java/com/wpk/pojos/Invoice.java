@@ -6,6 +6,7 @@
 package com.wpk.pojos;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Basic;
@@ -19,6 +20,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -36,7 +39,7 @@ import org.springframework.web.multipart.MultipartFile;
     @NamedQuery(name = "Invoice.findAll", query = "SELECT i FROM Invoice i"),
     @NamedQuery(name = "Invoice.findById", query = "SELECT i FROM Invoice i WHERE i.id = :id"),
     @NamedQuery(name = "Invoice.findByCreatedDay", query = "SELECT i FROM Invoice i WHERE i.createdDay = :createdDay"),
-    @NamedQuery(name = "Invoice.findByFee", query = "SELECT i FROM Invoice i WHERE i.fee = :fee")})
+    })
 public class Invoice implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -46,11 +49,14 @@ public class Invoice implements Serializable {
     @Column(name = "id")
     private Integer id;
     @Column(name = "created_day")
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date createdDay;
-     @Column(name = "fee")
-    private int fee;
-    
+     @Column(name = "total_price")
+    private BigDecimal totalPrice;
+    @ManyToOne
+    @JoinColumn(name = "nurse_id")
+    private Nurse nurse;
     @ManyToOne
     @JoinColumn(name = "prescription_id")
     private Prescription prescription;
@@ -90,18 +96,6 @@ public class Invoice implements Serializable {
         this.createdDay = createdDay;
     }
 
- 
-
-    public int getFee() {
-        return fee;
-    }
-
-    public void setFee(int fee) {
-        this.fee = fee;
-    }
-
-
-
     @Override
     public int hashCode() {
         int hash = 0;
@@ -136,5 +130,33 @@ public class Invoice implements Serializable {
      */
     public void setFile(MultipartFile file) {
         this.file = file;
+    }
+
+    /**
+     * @return the nurse
+     */
+    public Nurse getNurse() {
+        return nurse;
+    }
+
+    /**
+     * @param nurse the nurse to set
+     */
+    public void setNurse(Nurse nurse) {
+        this.nurse = nurse;
+    }
+
+    /**
+     * @return the totalPrice
+     */
+    public BigDecimal getTotalPrice() {
+        return totalPrice;
+    }
+
+    /**
+     * @param totalPrice the totalPrice to set
+     */
+    public void setTotalPrice(BigDecimal totalPrice) {
+        this.totalPrice = totalPrice;
     }
 }

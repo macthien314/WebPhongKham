@@ -14,8 +14,12 @@ import java.util.Map;
  */
 public interface PrescriptionRepository {
     List<Prescription> getPrescriptions();
-     Prescription getPrescriptionByID(int id);
-     boolean addOrUpdate(Prescription m); 
-     boolean removePrescription(int id); 
-     boolean addReceipt(Map<String, PrescriptionDrug> m, int id); 
+    Prescription getPrescriptionByID(int id);
+    boolean addOrUpdate(Prescription m); 
+    boolean removePrescription(int id); 
+    boolean addReceipt(Map<String, PrescriptionDrug> m, int id); 
+    
+    List<Prescription> getPrescriptions(String invoiceID, String patientID, String pageQuan, int page);
+    long countPresciptions(String invoiceID, String patientID);
+
 }

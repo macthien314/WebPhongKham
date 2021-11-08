@@ -1,7 +1,7 @@
 <%-- 
-    Document   : PrescriptionService
-    Created on : Oct 18, 2021, 10:29:55 PM
-    Author     : macth
+    Document   : Invoice
+    Created on : Nov 8, 2021, 1:26:58 PM
+    Author     : Admin
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Hellos World!</h1>
     </body>
 </html>

@@ -53,4 +53,14 @@ public class PrescriptionServiceImpl implements PrescriptionService{
     public boolean removePrescription(int i) {
         return this.prescriptionRepository.removePrescription(i);
     }
+
+    @Override
+    public List<Prescription> getPrescriptions(String presID, String patientID, String pageQuan, int page) {
+        return this.prescriptionRepository.getPrescriptions(presID, patientID, pageQuan, page);
+    }
+
+    @Override
+    public long countPresciptions(String presID, String patientID) {
+        return this.prescriptionRepository.countPresciptions(presID, patientID);
+    }
 }

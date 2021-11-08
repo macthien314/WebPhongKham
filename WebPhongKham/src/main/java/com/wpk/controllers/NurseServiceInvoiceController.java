@@ -71,6 +71,8 @@ public class NurseServiceInvoiceController {
         model.addAttribute("services", this.servicesService.getServices());
         if(model.getAttribute("success") == null)
         model.addAttribute("success","");
+        if(model.getAttribute("wrong") == null)
+        model.addAttribute("wrong", "");
         String name = principal.getName();
         model.addAttribute("nurse",userDetailsService.getUser(name).get(0).getNurse());
         return "serviceinvoice-list";
@@ -95,7 +97,7 @@ public class NurseServiceInvoiceController {
                 
             }
         }
-        attr.addFlashAttribute("wrong", "");
+        attr.addFlashAttribute("wrong", "Lỗi");
         attr.addFlashAttribute("org.springframework.validation.BindingResult.serviceinvoice", result);
         attr.addFlashAttribute("serviceinvoice", m);
         return "redirect:/nurse/patient-serviceinvoice/" + patientid ;
