@@ -9,13 +9,14 @@
       <div id="demo" class="carousel slide" data-ride="carousel">
   <ul class="carousel-indicators">
     <li data-target="#demo" data-slide-to="0" class="active"></li>
-    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="1" ></li>
     <li data-target="#demo" data-slide-to="2"></li>
     <li data-target="#demo" data-slide-to="3"></li>
     <li data-target="#demo" data-slide-to="4"></li>
     <li data-target="#demo" data-slide-to="5"></li><!-- comment -->
     <li data-target="#demo" data-slide-to="6"></li>
   </ul>
+          
   <div class="carousel-inner">
     <div class="carousel-item active">
       <img src="https://res.cloudinary.com/ikj/image/upload/v1632561338/slide1_pxtfkh.jpg" alt="Los Angeles" width="1100" height="500">  
@@ -46,5 +47,5 @@
     <span class="carousel-control-next-icon"></span>
   </a>
 </div>
-    </div>
+    </div>    
   </section><!-- End Hero -->

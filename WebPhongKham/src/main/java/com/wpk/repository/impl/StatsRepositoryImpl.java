@@ -89,10 +89,8 @@ public class StatsRepositoryImpl implements StatsRepository{
         List<Predicate> predicates = new ArrayList<>();
         predicates.add(b.equal(rootM.get("patient"), rootP.get("id")));
         predicates.add(b.equal(rootSI.get("patient"), rootP.get("id")));
-        predicates.add(b.equal(rootPr.get("patient"), rootP.get("id")));
-         
+        predicates.add(b.equal(rootPr.get("patient"), rootP.get("id")));   
         predicates.add(b.equal(rootI.get("prescription"), rootPr.get("id")));
-        
 
         predicates.add(b.equal(rootPD.get("prescription"), rootPr.get("id")));
         predicates.add(b.equal(rootPD.get("drug"), rootD.get("id")));

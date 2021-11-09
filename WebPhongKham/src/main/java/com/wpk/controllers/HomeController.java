@@ -13,6 +13,7 @@ import com.wpk.service.MedicalService;
 import com.wpk.service.NurseService;
 import com.wpk.service.PatientService;
 import com.wpk.service.PrescriptionService;
+import com.wpk.service.ServicesService;
 import com.wpk.service.UserService;
 
 
@@ -75,6 +76,12 @@ public class HomeController {
     }
     
     
+    @Autowired
+    private ServicesService servicesService;
+    @ModelAttribute
+    public void commonAttrssss(Model model, HttpSession session){
+        model.addAttribute("services", this.servicesService.getServices());
+    }
     
    
     

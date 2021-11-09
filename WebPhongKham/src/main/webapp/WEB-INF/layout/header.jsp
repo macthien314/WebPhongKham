@@ -42,7 +42,7 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="index.html">Home</a></li>
+          <li class="active"><a href="http://localhost:8080/WebPhongKham/">Home</a></li>
           <li class="drop-down"><a href="">Giới thiệu</a>
             <ul>
              
@@ -54,9 +54,28 @@
               
             </ul>
           </li>
-          <li><a href="#services">Services</a></li>
+          <li class="drop-down"><a href="#services">Services</a>
+              <ul>
+          <c:forEach var="s" items="${services}">
+                  <li><a href="<c:url value="/dich-vu/${s.id}"/>">${s.name}</a></li>
+              </c:forEach> 
+              </ul>
+          </li>
+        
           <li><a href="#departments">Departments</a></li>
-          <li><a href="#doctors">Doctors</a></li>
+          <li class="drop-down"><a href="#doctors">Doctors</a>
+           <ul>
+              
+<!--              <li class="drop-down"><a href="#">Deep Drop Down</a>
+                <ul>
+                 
+                </ul>
+              </li>-->
+              <c:forEach var="d" items="${doctors}">
+                  <li><a href="<c:url value="/bac-si/${d.id}"/>">${d.firstName}</a></li>
+              </c:forEach> 
+              
+            </ul></li>
           <li class="drop-down"><a href="">Chuyên Khoa</a>
             <ul>
               
