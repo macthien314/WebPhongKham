@@ -93,6 +93,7 @@
                         </c:forEach>
                     </form:select>
                     <form:errors cssClass="alert alert-danger" path="medical" element="div"/>
+                  
                 </div>
                 <!-- form-group end.// -->
                        

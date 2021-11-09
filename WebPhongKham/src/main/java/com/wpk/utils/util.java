@@ -5,6 +5,7 @@
  */
 package com.wpk.utils;
 
+import com.wpk.pojos.DrugCart;
 import com.wpk.pojos.PrescriptionDrug;
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -52,6 +53,11 @@ public class util {
         kq.put("amount", String.valueOf(s));
         return kq;
     }
-
+    public static int countCart(Map<Integer,DrugCart> drugCart){
+        int q = 0;
+        for(DrugCart c : drugCart.values())
+            q += c.getQuantity();
+        return q;
+    }
  
 }

@@ -66,7 +66,7 @@
                                   <i class="fas fa-edit" style="color:#6633ff"></i>
                                </a>
 
-                             <a id="modal" href="<c:url value="/admin/invoice-manager/delete-invoice/${s.id}"/>" name="deleteButton" type="button" class="btn btn-primary" data-toggle="tooltip modal" data-target="#deleteModal" title="Xóa hóa đơn">
+                            <a id="modal" href="<c:url value="/admin/invoice-manager/delete-invoice/${s.id}"/>" name="deleteButton" type="button" class="btn btn-primary" data-toggle="tooltip modal" data-target="#deleteModal" title="Xóa hóa đơn">
                                <i class="fas fa-trash-alt" style="color:#ed3c0d"></i>
                             </a>
                                

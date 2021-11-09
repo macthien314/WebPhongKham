@@ -69,8 +69,10 @@ public class MedicalExaminationCard implements Serializable {
     private BigDecimal fee;
     @Size(max = 100)
     @Column(name = "sympton")
-    @NonNull
+    @NotNull
     private String sympton;
+    @Column(name = "receive")
+    private boolean receive;
     @Size(max = 100)
     @Column(name = "diagnosis")
     @NotNull
@@ -219,6 +221,20 @@ public class MedicalExaminationCard implements Serializable {
      */
     public void setDoctor(Doctor doctor) {
         this.doctor = doctor;
+    }
+
+    /**
+     * @return the recive
+     */
+    public boolean isReceive() {
+        return receive;
+    }
+
+    /**
+     * @param recive the recive to set
+     */
+    public void setReceive(boolean receive) {
+        this.receive = receive;
     }
 
 }

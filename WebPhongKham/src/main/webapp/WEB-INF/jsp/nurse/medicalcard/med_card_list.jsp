@@ -74,8 +74,7 @@
                     <td>${s.patient.firstName} ${s.patient.lastName} </td>
                     <td>${s.doctor.id}.${s.doctor.firstName} ${s.doctor.lastName}</td>
                     <td class="setting">
-
-                       
+                    
 
                      </td>
                 </tr>

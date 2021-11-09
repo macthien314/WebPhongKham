@@ -297,6 +297,16 @@
     </definition>
     <!-- End nurse user -->
     
+    <!-- Start Doctor user -->
+    <definition name="doctor-today-medcard" extends="adminLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/doctor/medcard_today.jsp"/>
+    </definition>
+    <definition name="recive-medcard" extends="adminLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/doctor/recive_medcard.jsp"/>
+    </definition>
+    <!-- END DOCTOR user -->
+    
+    
     <definition name="aboutus" extends="baseLayout">
         <put-attribute name="title" value="Về chúng tôi"/>
         <put-attribute name="slide" value="/WEB-INF/layout/slide.jsp"/>

@@ -36,8 +36,21 @@
                             </ul>
                         </li> 
                         <li class ="active">
-                            <a href="#uiMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-drafting-compass"></i>Quản lý giao diện</a>
-                            <ul class="collapse list-unstyled" id="uiMenu">
+                            <a href="#uiMenud" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-drafting-compass"></i>Demo Bác sĩ</a>
+                            <ul class="collapse list-unstyled" id="uiMenud">
+                                <li>
+                                    <a href="<c:url value="/doctor/today-medcard"/>"><i class="fab fa-slideshare"></i>Phiếu khám hôm nay</a>
+                                </li>
+                                <li>
+                                    <a href="<c:url value="/nurse/patient-serviceinvoice"/>">Lập hóa đơn dịch vụ</a>
+
+                                </li>
+                                
+                            </ul>
+                        </li>
+                        <li class ="active">
+                            <a href="#uiMenus" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-drafting-compass"></i>Quản lý giao diện</a>
+                            <ul class="collapse list-unstyled" id="uiMenus">
                                 <li>
                                     <a href="<c:url value="/admin/quanly-slide"/>"><i class="fab fa-slideshare"></i>Quản lý slide</a>
                                 </li>

@@ -87,7 +87,7 @@ public class NurseMedCardController {
 
         return "nurse-medcard";
     }
-     @GetMapping("/nurse/medical-examination-card/{doctorid}")
+    @GetMapping("/nurse/medical-examination-card/{doctorid}")
     public String todayMedCardList (Principal principal,Model model,@PathVariable(value ="doctorid") int id){
         model.addAttribute("patients",this.patientService.getPatients());
         model.addAttribute("doctor", this.doctorService.getDoctorByID(id));
@@ -118,7 +118,7 @@ public class NurseMedCardController {
             m.setDate(new Date());
             if(this.medicalExaminationCardsService.addOrUpdate(m)==true){
                 attr.addFlashAttribute("success", "s");
-                return"redirect:/nurse/medical-examination-card" + id;
+                return"redirect:/nurse/medical-examination-card/" + id;
             }
             else{
                 model.addAttribute("err","Something wrong");

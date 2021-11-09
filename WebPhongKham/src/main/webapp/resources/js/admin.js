@@ -3,6 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+/* global fetch */
+
 $(document).ready(function(){
    $("#slidebarCollapse").on('click',function(){
    $("#slidebar").toggleClass('active') ;   
@@ -58,3 +60,35 @@ function loadCreateModal(){
 //        }
 //    });
 //});
+//XỬ LÝ CART thuốc
+function addToDrugCart(id, name){
+    event.preventDefault()
+    fetch("/WebPhongKham/doctor/api/drug-cart",{
+        method: "post",
+        body: JSON.stringify({
+            "drugID" : id,
+            "drugName":name,
+            "quantity": 1
+        }),
+        headers:{
+            "Content-Type": "application/json",
+        "Accept": "application/json"
+        }
+        }).then(function(res){
+            return res.json()
+        });
+//                .then(function(data){
+//            let counter = document.getElementById("cartCounter");
+//            counter.innerText = data;
+//        });
+}
+
+
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#drugTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+    });
+  });
+});

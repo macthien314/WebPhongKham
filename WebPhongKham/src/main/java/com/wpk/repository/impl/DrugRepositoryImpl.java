@@ -11,6 +11,7 @@ import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import com.wpk.repository.DrugRepository;
+import java.util.Date;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
@@ -88,6 +89,17 @@ public class DrugRepositoryImpl implements DrugRepository{
         q.setParameter("name", "%%" + name + "%%");
      
         return Long.parseLong(q.getSingleResult().toString());
+    }
+
+    @Override
+    public List<Drug> getUnexpiredDrug() {
+        Date d = new Date(); 
+        Session session = sessionFactory.getObject().getCurrentSession();
+        String query="FROM Drug d where expiry > :date";
+        
+        org.hibernate.Query q = session.createQuery(query);
+        q.setParameter("date", d);
+        return q.getResultList();
     }
     
 }

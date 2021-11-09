@@ -53,5 +53,10 @@ public class DrugServiceImpl implements DrugService{
         return this.drugRepository.countDrug(name);
     }
 
+    @Override
+    public List<Drug> getUnexpiredDrug() {
+        return this.drugRepository.getUnexpiredDrug();
+    }
+
     
 }

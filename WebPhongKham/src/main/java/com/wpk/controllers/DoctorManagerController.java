@@ -36,7 +36,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 
 @Controller
-@ControllerAdvice
+
 public class DoctorManagerController {
     @Autowired
     private DoctorService doctorService;

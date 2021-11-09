@@ -19,5 +19,7 @@ public interface DrugService {
      boolean addOrUpdate(Drug m);
      List<Drug> getDrugs(String name, String pageQuan, int pageNum);
      long countDrug(String name);
+
+    List<Drug> getUnexpiredDrug();
      
 }

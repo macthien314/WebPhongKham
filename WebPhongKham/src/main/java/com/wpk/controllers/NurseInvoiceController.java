@@ -64,7 +64,7 @@ public class NurseInvoiceController {
         model.addAttribute("patients", this.patientService.getPatients());
         return "nurse-patient-invoice";
     }
-    @GetMapping("/nurse/invoice/Prescription-list")
+    @GetMapping("/nurse/invoice/prescription-list")
     public String prescriptionList(Model model,@RequestParam(required = false)Map<String, String> params){
         
         String presID = params.getOrDefault("id", "");
