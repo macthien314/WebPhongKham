@@ -7,6 +7,8 @@ package com.wpk.service.impl;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
+import com.wpk.pojos.DrugCart;
+import com.wpk.pojos.MedicalExaminationCard;
 import com.wpk.pojos.Prescription;
 import com.wpk.pojos.PrescriptionDrug;
 import com.wpk.repository.PrescriptionRepository;
@@ -62,5 +64,9 @@ public class PrescriptionServiceImpl implements PrescriptionService{
     @Override
     public long countPresciptions(String presID, String patientID) {
         return this.prescriptionRepository.countPresciptions(presID, patientID);
+    }
+    @Override
+    public boolean addPrescription(Prescription p,MedicalExaminationCard m, Map<Integer,DrugCart> map){
+        return this.prescriptionRepository.addPrescription(p, m, map);
     }
 }

@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package com.wpk.service;
+import com.wpk.pojos.DrugCart;
+import com.wpk.pojos.MedicalExaminationCard;
 import com.wpk.pojos.Prescription;
 import com.wpk.pojos.PrescriptionDrug;
 import java.util.List;
@@ -22,4 +24,6 @@ public interface PrescriptionService {
 
     List<Prescription> getPrescriptions(String presID, String patientID, String pageQuan, int page);
     long countPresciptions(String PresID, String patientID);
+    boolean addPrescription(Prescription p,MedicalExaminationCard m, Map<Integer,DrugCart> map);
+
 }

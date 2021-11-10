@@ -68,7 +68,7 @@ public class ServiceInvoice implements Serializable {
    
     @ManyToOne
     @JoinColumn(name ="service_id")
-    @NotNull(message = "{serviceinvoice.err.notnull }")
+    @NotNull(message = "serviceinvoice.err.notnull")
     private Services service;
     @Transient
     private MultipartFile file;

@@ -47,7 +47,7 @@ public class util {
         if (m != null)
             for(PrescriptionDrug p: m.values())
             {
-                s.add(p.getUnitPrice().multiply(BigDecimal.valueOf(p.getQuantity())));
+                //s.add(p.getUnitPrice().multiply(BigDecimal.valueOf(p.getQuantity())));
             }
         Map<String, String> kq = new HashMap<>();
         kq.put("amount", String.valueOf(s));

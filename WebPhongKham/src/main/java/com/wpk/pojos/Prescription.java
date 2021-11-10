@@ -26,6 +26,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -44,27 +45,28 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Prescription implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
+   @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
     @Column(name = "id")
     private Integer id;
     @Column(name = "created_date")
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date createdDate;
-    @Column(name = "total_price")
-    private BigDecimal totalPrice;
+    
     @ManyToOne
     @JoinColumn(name = "doctor_id")
     private Doctor doctor;
+    @Column(name ="diagnosis")
+    @Size(min = 10, max = 45,message = "serviceinvoice.err.notnull")
+    private String diagnosis;
     
     @ManyToOne
     @JoinColumn(name = "patient_id")
     private Patient patient;
     
-    @OneToMany(mappedBy="prescription", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy="prescription")
     private List<PrescriptionDrug> prescriptionDrugList;
 
     public Prescription(Integer id, Date createdDate) {
@@ -79,13 +81,7 @@ public class Prescription implements Serializable {
         this.id = id;
     }
 
-    public BigDecimal getTotalPrice() {
-        return totalPrice;
-    }
-
-    public void setTotalPrice(BigDecimal totalPrice) {
-        this.totalPrice = totalPrice;
-    }
+   
 
  
 
@@ -155,6 +151,20 @@ public class Prescription implements Serializable {
     @Override
     public String toString() {
         return "com.wpk.pojos.Prescription[ id=" + id + " ]";
+    }
+
+    /**
+     * @return the diagnosis
+     */
+    public String getDiagnosis() {
+        return diagnosis;
+    }
+
+    /**
+     * @param diagnosis the diagnosis to set
+     */
+    public void setDiagnosis(String diagnosis) {
+        this.diagnosis = diagnosis;
     }
     
 }

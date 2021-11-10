@@ -14,6 +14,7 @@ import com.wpk.service.NurseService;
 import com.wpk.service.PatientService;
 import com.wpk.service.PrescriptionService;
 import com.wpk.service.ServicesService;
+import com.wpk.service.SlideService;
 import com.wpk.service.UserService;
 
 
@@ -34,9 +35,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HomeController {
     @Autowired
     private MedicalService medicalService;
+    @Autowired
+    private SlideService slideService;
     @ModelAttribute
     public void commonAttr(Model model, HttpSession session){
         model.addAttribute("medicals", this.medicalService.getMedicals());
+        model.addAttribute("showSlide", this.slideService.getSlides("", "true", "5", 1));
     }
     
      @Autowired

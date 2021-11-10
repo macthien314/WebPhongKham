@@ -84,6 +84,8 @@ public class SlideRepositoryImpl implements SlideRepository{
         }
         return false;
     }
+    
+    //get slides with search and paging
     @Override
     public List<Slide> getSlides(String kw, String active,String pageQuan, int pageNum) {
         Session session = this.sessionFactory.getObject().getCurrentSession();

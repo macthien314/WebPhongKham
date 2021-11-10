@@ -14,17 +14,13 @@ import java.math.BigDecimal;
 public class DrugCart {
     private int drugID;
     private String drugName;
-   
+    private String userGuide;
     private int quantity;
 
     public DrugCart() {
     }
 
-    public DrugCart(int drugID, String drugName, int quantity) {
-        this.drugID = drugID;
-        this.drugName = drugName;
-        this.quantity = quantity;
-    }
+ 
     
     /**
      * @return the drugID
@@ -71,5 +67,19 @@ public class DrugCart {
      */
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    /**
+     * @return the userGuide
+     */
+    public String getUserGuide() {
+        return userGuide;
+    }
+
+    /**
+     * @param userGuide the userGuide to set
+     */
+    public void setUserGuide(String userGuide) {
+        this.userGuide = userGuide;
     }
 }

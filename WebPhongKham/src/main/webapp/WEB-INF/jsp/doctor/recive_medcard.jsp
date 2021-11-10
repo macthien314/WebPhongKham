@@ -7,7 +7,7 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<c:url value="/admin/medicalexaminationcard-manager/add-medicalexaminationcard" var="action"/>
+<c:url value="/doctor/today-medcard/receive/${medcard.id}" var="action"/>
 <h2 class="mt-4">Tiếp nhận phiếu khám</h2>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="index.html">admin</a></li>
@@ -48,17 +48,28 @@
                          </div>
                 </div>
                 <div class="form-group">
+                    <label for="diagnosis">Chuẩn đoán của bác: </label>
+                    <form:textarea rows="3" cols="30" path ="diagnosis" cssClass="form-control"/>
+                    <form:errors path="diagnosis" cssClass="alert alert-danger" element="div" />
+
+                </div>
+                <div class="form-group">
+                    <button  type="button" data-toggle="modal" data-target="#createModal"  class="btn btn-outline-primary">                         
+                          Thêm thuốc
+                    </button>
+                    <br>
                     <c:if test="${drugCarts == null}">
                         <h4 class="text-danger">Chưa có thuốc trong toa</h4>
                     </c:if>
                         
                     <c:if test="${drugCarts != null}">
-                        <h4 class="text-danger">Thuốc Trong Toa</h4>
+                        
                         <table class="table table-striped table-bordered table-sm">
                             <tr>
                                 <th>Mã thuốc</th>
                                 <th>tên thuốc</th>
-                                <th>Số lương</th>
+                                <th>Số lương(Viên)</th>
+                                <th>Cách sử dụng</th>
                                 <th></th>
                             </tr>
                             <c:forEach items="${drugCarts}" var="d">
@@ -66,10 +77,16 @@
                                 <td>${d.drugID}</td>
                                 <td>${d.drugName}</td>
                                 <td>
-                                    <input type="number" class="form-control" value="${d.quantity}"/>
+                                   <input id="quantity${d.drugID}"onblur="updateDrugCart(${d.drugID})" type="number" class="form-control" value="${d.quantity}"/>
                                 </td>
                                 <td>
-                                    <input type="button"  value="xóa"/>
+                                    <textarea id="userGuide${d.drugID}" rows="3" cols="30" onblur="updateDrugCart(${d.drugID})" class="form-control">${d.userGuide}</textarea>
+                                </td>
+                                <td>
+                                    <input type="button" 
+                                           value="xóa"
+                                           onclick="deleteDrugCart(${d.drugID})"
+                                           class="btn btn-danger"/>
                                 </td>
                             </tr>
                             </c:forEach>
@@ -85,9 +102,7 @@
        
         </div>
 
-<button  type="button" data-toggle="modal" data-target="#createModal"  class="btn btn-outline-primary">                         
-                          LẬP HÓA ĐƠN
-                 </button>
+
 
 
 
@@ -126,7 +141,7 @@
                         <td>${s.name}</td>
                         
                         <td>
-                            <a href="" class="btn btn-primary" onclick="addToDrugCart(${s.id}, '${s.name}')">Thêm thuốc</a>   
+                            <a href="#" class="btn btn-primary" onclick="addToDrugCart(${s.id}, '${s.name}')">Thêm thuốc</a>   
                          </td>
                     </tr>
                 </c:forEach>

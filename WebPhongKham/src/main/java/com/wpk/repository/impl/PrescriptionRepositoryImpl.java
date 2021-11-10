@@ -1,6 +1,8 @@
 
 package com.wpk.repository.impl;
 
+import com.wpk.pojos.DrugCart;
+import com.wpk.pojos.MedicalExaminationCard;
 import com.wpk.pojos.Prescription;
 import com.wpk.pojos.PrescriptionDrug;
 import com.wpk.repository.DoctorRepository;
@@ -20,6 +22,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
+import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 
@@ -75,7 +78,7 @@ public class PrescriptionRepositoryImpl implements PrescriptionRepository {
     }
 
     @Override
-    @Transactional(propagation = Propagation.MANDATORY)
+    @Transactional(propagation = Propagation.REQUIRED)
     public boolean addReceipt(Map<String, PrescriptionDrug> m, int id) {
         try{
              Session s = sessionFactory.getObject().getCurrentSession();
@@ -86,7 +89,7 @@ public class PrescriptionRepositoryImpl implements PrescriptionRepository {
         p.setCreatedDate(new Date());
         
         Map<String, String> stats =util.invoiceStats(m);
-        p.setTotalPrice(BigDecimal.valueOf(Double.valueOf(stats.get("amount"))));
+        //p.setTotalPrice(BigDecimal.valueOf(Double.valueOf(stats.get("amount"))));
         
         s.saveOrUpdate(p);    
          return true;   
@@ -162,6 +165,35 @@ public class PrescriptionRepositoryImpl implements PrescriptionRepository {
               }
         return Long.parseLong(q.getSingleResult().toString());
    }
-
+    
+    //tạo mào toa thuốc đồng thời hoàn thành phiếu khám
+    @Override
+    @Transactional(propagation = Propagation.REQUIRED)
+    public boolean addPrescription(Prescription p,MedicalExaminationCard m, Map<Integer,DrugCart> map){
+        try{
+            Session session = this.sessionFactory.getObject().getCurrentSession();
+            p.setCreatedDate(new Date());
+            p.setDoctor(m.getDoctor());
+            p.setPatient(m.getPatient());
+            
+            session.save(p);
+            
+            for(DrugCart c: map.values()){
+                PrescriptionDrug d = new PrescriptionDrug();
+                d.setPrescription(p);
+                d.setDrug(this.drugRepository.getDrugByID(c.getDrugID()));
+                d.setUserGuide(c.getUserGuide());
+                d.setQuantity(c.getQuantity());
+                session.save(d);
+            }
+            m.setReceive(true);
+            session.saveOrUpdate(m);
+            return true;
+        }
+        catch(HibernateException ex){
+            ex.printStackTrace();
+        }
+        return false;
+    }
 
 }

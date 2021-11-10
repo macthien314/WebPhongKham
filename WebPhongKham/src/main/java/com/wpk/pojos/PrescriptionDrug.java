@@ -32,8 +32,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "PrescriptionDrug.findAll", query = "SELECT p FROM PrescriptionDrug p"),
     @NamedQuery(name = "PrescriptionDrug.findById", query = "SELECT p FROM PrescriptionDrug p WHERE p.id = :id"),
     @NamedQuery(name = "PrescriptionDrug.findByUserGuide", query = "SELECT p FROM PrescriptionDrug p WHERE p.userGuide = :userGuide"),
-    @NamedQuery(name = "PrescriptionDrug.findByQuantity", query = "SELECT p FROM PrescriptionDrug p WHERE p.quantity = :quantity"),
-    @NamedQuery(name = "PrescriptionDrug.findByUnitPrice", query = "SELECT p FROM PrescriptionDrug p WHERE p.unitPrice = :unitPrice")})
+    @NamedQuery(name = "PrescriptionDrug.findByQuantity", query = "SELECT p FROM PrescriptionDrug p WHERE p.quantity = :quantity")})
 public class PrescriptionDrug implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -47,8 +46,7 @@ public class PrescriptionDrug implements Serializable {
     private String userGuide;
     @Column(name = "quantity")
     private Integer quantity;
-    @Column(name = "unit_price")
-    private BigDecimal unitPrice;
+   
     
     @ManyToOne(optional = false)
     @JoinColumn(name = "drug_id")
@@ -61,11 +59,11 @@ public class PrescriptionDrug implements Serializable {
     public PrescriptionDrug() {
     }
 
-    public PrescriptionDrug(Integer id, String userGuide, Integer quantity, BigDecimal unitPrice, Drug drug, Prescription prescription) {
+    public PrescriptionDrug(Integer id, String userGuide, Integer quantity, Drug drug, Prescription prescription) {
         this.id = id;
         this.userGuide = userGuide;
         this.quantity = quantity;
-        this.unitPrice = unitPrice;
+    
         this.drug = drug;
         this.prescription = prescription;
     }
@@ -98,13 +96,7 @@ public class PrescriptionDrug implements Serializable {
         this.quantity = quantity;
     }
 
-    public BigDecimal getUnitPrice() {
-        return unitPrice;
-    }
-
-    public void setUnitPrice(BigDecimal unitPrice) {
-        this.unitPrice = unitPrice;
-    }
+  
 
     public Drug getDrug() {
         return drug;

@@ -62,27 +62,65 @@ function loadCreateModal(){
 //});
 //XỬ LÝ CART thuốc
 function addToDrugCart(id, name){
-    event.preventDefault()
+   
     fetch("/WebPhongKham/doctor/api/drug-cart",{
         method: "post",
         body: JSON.stringify({
             "drugID" : id,
             "drugName":name,
+            "userGuide":"",
             "quantity": 1
         }),
         headers:{
             "Content-Type": "application/json",
         "Accept": "application/json"
         }
-        }).then(function(res){
-            return res.json()
-        });
-//                .then(function(data){
-//            let counter = document.getElementById("cartCounter");
-//            counter.innerText = data;
-//        });
+        }).then(function(){
+            
+        })
+            .then(function(){
+       location.reload()
+      });
 }
 
+function updateDrugCart(drugID){
+   let quan = document.getElementById("quantity"+drugID.toString());
+   let guide = document.getElementById("userGuide"+drugID.toString());
+   fetch("/WebPhongKham/doctor/api/drug-cart",{
+        method: "put",
+        body: JSON.stringify({
+            "drugID" : drugID,
+            "drugName":"",
+            "userGuide":guide.value,
+            "quantity": quan.value
+                
+        }),
+        headers:{
+            "Content-Type": "application/json",
+        }
+        }).then(function(res){
+            return res.json()
+        }).then(function(data){
+            
+        })
+        ;
+
+}
+
+function deleteDrugCart(drugID){
+    if(confirm("bạn chắc chắn muốn xóa thuốc này không") == true){
+    fetch(`/WebPhongKham/doctor/api/drug-cart/${drugID}`,{
+        method: "delete"
+         
+        }).then(function(res){
+          
+        }).then(function(){
+             location.reload()
+        })
+        
+
+}
+}
 
 $(document).ready(function(){
   $("#myInput").on("keyup", function() {
@@ -92,3 +130,4 @@ $(document).ready(function(){
     });
   });
 });
+
