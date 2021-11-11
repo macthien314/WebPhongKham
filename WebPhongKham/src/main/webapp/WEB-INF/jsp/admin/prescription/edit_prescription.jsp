@@ -57,7 +57,11 @@
                     </form:select>
                     <form:errors cssClass="alert alert-danger" path="doctor" element="div"/>
                  </div>
-                
+                <div class=" form-group">
+                     <label for="totalPrice">Chuẩn đoán</label>   
+                     <form:input path="diagnosis" id="createdDate" name="title" type="text" cssClass="form-control"/>
+                     <form:errors path="diagnosis" cssClass="alert alert-danger" element="div" />
+                </div> <!-- form-group end.// -->
                  
                      
             <div class="form-group">

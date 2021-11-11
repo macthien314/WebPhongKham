@@ -48,6 +48,7 @@
                 <th>Ngày tạo</th>
                 <th>Giá tiền</th>
                 <th>Mã toa thuốc</th>
+                <th>Y tá tạo hóa đơn</th>
                 
                 <th><i class="fas fa-cog"></i></th>
            </tr>
@@ -60,8 +61,9 @@
                     <tr>
                         <td>${s.id}</td>
                         <td>${s.createdDay}</td>
-                        <td>${s.fee}</td>
+                        <td>${s.totalPrice}</td>
                         <td>${s.prescription.id}</td>
+                        <td>${s.nurse.firstName}</td>
                             
                          <td class="setting">
                              

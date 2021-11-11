@@ -7,7 +7,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <c:url value="/admin/prescription-manager/add-prescription" var="action"/>
-<h2 class="mt-4">Thêm chuyên khoa </h2>
+<h2 class="mt-4">Thêm Toa Thuốc </h2>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="index.html">admin</a></li>
                             <li class="breadcrumb-item active">quanly-toathuoc</li>
@@ -58,13 +58,12 @@
                  </div>
                  
                   <div class=" form-group">
-                     <label for="totalPrice">Tổng tiền</label>   
-                     <form:input path="totalPrice" id="createdDate" name="title" type="text" cssClass="form-control"/>
-                     <form:errors path="totalPrice" cssClass="alert alert-danger" element="div" />
+                     <label for="totalPrice">Chuẩn đoán</label>   
+                     <form:input path="diagnosis" id="createdDate" name="title" type="text" cssClass="form-control"/>
+                     <form:errors path="diagnosis" cssClass="alert alert-danger" element="div" />
                 </div> <!-- form-group end.// -->
                 
-                 
-                     
+                      
             <div class="form-group">
                 <button type="submit" class="btn btn-primary btn-block">Tạo thuốc</button>
             </div>

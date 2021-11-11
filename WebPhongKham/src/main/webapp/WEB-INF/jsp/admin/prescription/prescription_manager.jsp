@@ -17,7 +17,7 @@
     <div class="row">
             
         <div class="col-md-3">
-            <a href="<c:url value="/admin/doctor-manager/add-doctor"/>" class=" btn btn-primary btn-xs pull-right"><b>+</b> ADD Service</a>
+            <a href="<c:url value="/admin/prescription-manager/add-prescription"/>" class=" btn btn-primary btn-xs pull-right"><b>+</b> ADD Service</a>
             </div>
              
              <div class="col-md-8">
@@ -79,7 +79,7 @@
                 <th>Ngày lập</th>
                 <th>Tên bệnh nhân</th>
                 <th>Tên bác sĩ</th>
-                <th>Tổng tiền</th>
+                <th>Chuẩn đoán</th>
    
                 <th><i class="fas fa-cog"></i></th>
            </tr>
@@ -92,7 +92,7 @@
                         <td>${s.createdDate}</td>
                         <td>${s.patient.firstName}</td>
                         <td>${s.doctor.firstName}</td> 
-                        <td>${s.totalPrice}</td>
+                        <td>${s.diagnosis}</td>
                        
                          <td class="setting">
 

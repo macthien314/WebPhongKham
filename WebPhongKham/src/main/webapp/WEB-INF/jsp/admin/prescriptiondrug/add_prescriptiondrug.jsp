@@ -30,18 +30,13 @@
 
             <form:form id="drug" action="${action}" modelAttribute="prescriptiondrug" method="post" enctype="multipart/form-data">
                 <form:errors path="*" cssClass="alert alert-danger" element="div" />
-                
-                <div class=" form-group">
-                     <label for="userGuide">Hướng dẫn sử dụng</label>   
-                     <form:input path="userGuide" id="userGuide" name="title" type="text" cssClass="form-control"/>
-                     <form:errors path="userGuide" cssClass="alert alert-danger" element="div" />
-                </div> <!-- form-group end.// -->
+      
                 
                 <div class=" form-row">
                     <div class=" form-group col-md-6">  
-                     <label for="unitPrice">Giá tiền</label>   
-                     <form:input path="unitPrice" id="unitPrice" name="title" type="text" cssClass="form-control"/>
-                     <form:errors path="unitPrice" cssClass="alert alert-danger" element="div" /></div>
+                     <label for="userGuide">Hướng dẫn sử dụng</label>   
+                     <form:input path="userGuide" id="userGuide" name="title" type="text" cssClass="form-control"/>
+                     <form:errors path="userGuide" cssClass="alert alert-danger" element="div" /></div>
                      <div class=" form-group col-md-6">  
                      <label for="quantity">Số lượng</label>   
                      <form:input path="quantity" id="quantity" name="title" type="number" cssClass="form-control"/>

@@ -47,8 +47,8 @@
                 <div class=" form-row">
                     <div class=" form-group col-md-6">  
                      <label for="fee">Giá tiền</label>   
-                     <form:input path="fee" id="fee" name="fee" type="text" cssClass="form-control"/>
-                     <form:errors path="fee" cssClass="alert alert-danger" element="div" />
+                     <form:input path="totalPrice" id="fee" name="fee" type="text" cssClass="form-control"/>
+                     <form:errors path="totalPrice" cssClass="alert alert-danger" element="div" />
                     </div>
                 
                

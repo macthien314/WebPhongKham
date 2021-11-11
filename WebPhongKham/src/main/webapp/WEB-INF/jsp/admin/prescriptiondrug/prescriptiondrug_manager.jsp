@@ -18,7 +18,7 @@
 </c:if>
     <div class="row">
             <div class="col-md-3">
-            <a href="<c:url value="/admin/prescriptiondrug-manager/add-prescriptiondrug"/>" class=" btn btn-primary btn-xs pull-right"><b>+</b> ADD Drug</a>
+            <a href="<c:url value="/admin/prescriptiondrug-manager/add-prescriptiondrug"/>" class=" btn btn-primary btn-xs pull-right"><b>+</b>Thêm chi tiết toa thuốc</a>
              </div>
     
         <table  class="table table-striped table-bordered" width="100%">
@@ -28,7 +28,6 @@
       <tr>
                 <th class="th-sm">Mã</th>
                 <th>Hướng dẫn sử dụng</th>
-                <th>Giá</th>
                 <th>Số lượng</th>
                 <th>Mã toa thuốc</th>
                 <th>Tên thuốc</th>
@@ -42,7 +41,6 @@
             <c:forEach items="${prescriptiondrugs}" var="s">
                 <td>${s.id}</td>
                 <td>${s.userGuide}</td>
-                <td>${s.unitPrice}</td>
                 <td>${s.quantity}</td>
                 <td>${s.prescription.id}</td>   
                 <td>${s.drug.name}</td>
