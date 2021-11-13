@@ -9,7 +9,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="Spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -25,17 +25,18 @@
     
     <link href="<c:url value="/css/admin-style.css"/>" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="<c:url value="/vendor/icofont/icofont.min.css"/>">
     </head>
     
             <!--Slide bar-->
         
-          <tiles:insertAttribute name="header"/>
+         
         <div class ="wrapper">
             
          <tiles:insertAttribute name="slidebar"/>
 
             <div id="content">
+                 <tiles:insertAttribute name="header"/>
              <div class="container-fluid col-m-8">
          <tiles:insertAttribute name="content"/>
               </div>
@@ -50,7 +51,7 @@
   <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
   
    <script src="<c:url value="/js/admin.js"/>"></script>
-   
+   <script src="<c:url value="/js/stats.js"/>"></script>
   <script src="https://harvesthq.github.io/chosen/chosen.jquery.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     

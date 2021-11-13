@@ -3,13 +3,14 @@
     Created on : Sep 30, 2021, 4:58:50 PM
     Author     : Admin
 --%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<h1 class="mt-4">Quản lý Thuốc</h1>
+<h4 class="mt-4">Quản lý Thuốc</h4>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item"><a href="index.html">admin</a></li>
+                            <li class="breadcrumb-item"><a href="<c:url value="/admin">admin</a></li>
                             <li class="breadcrumb-item active">quanly-thuoc</li>
                         </ol>
 <c:if test="${err != null}">
@@ -68,7 +69,8 @@
                 <th>Hạn sử dụng</th>
                 <th>Ngày sản xuất</th>
                 
-                <th><i class="fas fa-cog"></i></th>
+                <th>Edit</th>
+                <th>Xóa</th>
            </tr>
 
             
@@ -85,15 +87,18 @@
                         <td>${s.manufacturer}</td>
                             
                          <td class="setting">
-                             
-                             <a data-toggle="tooltip" title="xem thông tin" title="thông tin"href="<c:url value="/admin/quanly-slide/chitiet-slide/${s.id}"/>"> <i class="fas fa-info-circle" style="color:#18d26e"></i></a>
-                              <a data-toggle="tooltip" title="chỉnh sửa" href="<c:url value="/admin/drug-manager/edit-drug/${s.id}"/>">
+                             <a data-toggle="tooltip" title="chỉnh sửa" href="<c:url value="/admin/drug-manager/edit-drug/${s.id}"/>">
                                   <i class="fas fa-edit" style="color:#6633ff"></i>
-                               </a>
-
-                              <a id="modal" href="<c:url value="/admin/quanly-slide/xoa-slide/${s.id}"/>" name="deleteButton" type="button" class="btn btn-primary" data-toggle="tooltip modal" data-target="#deleteModal" title="Xóa sản phẩm">
+                             </a>
+                         </td>
+                         <td>
+                             <a id="modal" href="<c:url value="/admin/quanly-slide/xoa-slide/${s.id}"/>" name="deleteButton" type="button" class="btn btn-primary" data-toggle="tooltip modal" data-target="#deleteModal" title="Xóa sản phẩm">
                                    <i class="fas fa-trash-alt" style="color:#ed3c0d"></i>
                               </a>
+                         </td>   
+                              
+
+                              
                                
                          </td>
                     </tr>
@@ -108,7 +113,17 @@
                                      
  <c:if test="${!pagequan.equals('all')}"> 
 <div class="pagination">
-   <a href="<c:url value="/admin/drug-manager"/>?page=1">«</a>
+   <a href="<c:url value="/admin/drug-manager">
+                    
+                    
+                    <c:param name="name"
+                    value="${name}"></c:param>
+                    <c:param name="pagequan"
+                    value="${pagequan}"></c:param>
+                    <c:param name="page"
+                    value="1"></c:param>
+                </c:url>"
+       >«</a>
    
   
    <c:forEach begin = "1" end="${Math.ceil(count/Integer.parseInt(pagequan))}" var="i">
@@ -139,7 +154,15 @@
    </c:if>
    </c:forEach>
    
-   <a href="#">»</a>
+   <a href="<c:url value="/admin/drug-manager">
+                    <c:param name="name"
+                    value="${name}"></c:param>
+                    <c:param name="pagequan"
+                    value="${pagequan}"></c:param>
+                    <c:param name="page"
+                    value="${fn:replace((Math.ceil(count/Integer.parseInt(pagequan))), '.0', '')}"></c:param>
+                </c:url>"
+       >»</a>
  </div>
    </c:if >
     

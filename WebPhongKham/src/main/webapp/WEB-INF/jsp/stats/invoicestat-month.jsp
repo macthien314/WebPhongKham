@@ -8,9 +8,23 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="<c:url value="/js/stats.js"/>"></script>
-<h1 class ="text-center text-danger">THỐNG KÊ DOANH THU THEO THÁNG</h1>
+<h3 class ="text-center text-danger">THỐNG KÊ DOANH THU THEO THÁNG</h3>
+<form>
+    <div class="form-group">
+        <label for="fromDate">Từ thời điểm</label>
+        <input type="date" name="fromDate" class="form-control"><!-- comment -->
+    </div>
+    <div class="form-group">
+        <label for="fromDate">Đến thời điểm</label>
+    <input type="date" name="toDate"  class="form-control"><!-- comment -->
+    </div>
+    <div class="form-group">
+        
+        <input type="submit" value="Thống kê" class="btn btn-success"><!-- comment -->
+    </div>
+</form>
 <div>
-  <canvas id="invoicesChart"></canvas>
+  <canvas id="revenueStats"></canvas>
 </div>
 <table class="table">
     <tr>
@@ -18,11 +32,11 @@
         <th>Năm</th>
         <th>Doanh thu trong tháng</th>
     </tr>
-    <c:forEach items="${invoicestats}" var="i">
+    <c:forEach items="${revenueStats}" var="i">
     <tr>
-        <td>${i[0]}</td>
-        <td>${i[1]}</td>
-        <td>${i[2]}</td>
+        <td>${i.month}</td>
+        <td>${i.year}</td>
+        <td>${i.price}</td>
 
   
     </tr>
@@ -33,12 +47,12 @@
 <script>
     let numLabels =[], info = []
     
-    <c:forEach items ="${invoicestats}" var ="i">
-        numLabels.push(${i[0]})
-        info.push(${i[2]})
+    <c:forEach items ="${revenueStats}" var ="i">
+        numLabels.push('Tháng: ' + '${i.month}/${i.year}')
+        info.push(${i.price})
     </c:forEach>
         
     window.onload = function(){
-        invoiceMonthChart("invoicesChart", numLabels, info)
+        revenueMonthChart("revenueStats", numLabels, info)
     }
 </script>

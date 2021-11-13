@@ -30,10 +30,10 @@
                <form:errors path="*" cssClass="alert alert-danger" element="div" />
                         
                 <div class="form-group preview text-center">
-                    <img class="" src=""id="preview" alt="Preview Image" width="50%" height="20%"/>
+                    <img  src=""id="preview" alt="Preview Image" class="img-fluid"/>
                     <div class="browse-button">
                         <i class="fa fa-pencil-alt"></i>
-                        <form:input path="file" type="file" requiredname="UploadedFile" id="UploadedFile"/>
+                        <form:input  accept="image/png, image/gif, image/jpeg"  path="file" type="file" requiredname="UploadedFile" id="UploadedFile"/>
                     </div>
                     <span class="Error"></span>
                 </div>

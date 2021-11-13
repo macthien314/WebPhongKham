@@ -111,8 +111,8 @@ public class Doctor implements Serializable {
     @OneToMany(mappedBy = "doctor")
     private List<MedicalExaminationCard> medicalExaminationCards; 
     
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id",insertable = true, updatable = true)
+    @OneToOne
+    @JoinColumn(name = "user_id")
     private User user;
     
       @Transient

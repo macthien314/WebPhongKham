@@ -58,18 +58,22 @@ public class DoctorManagerController {
         String pageQuan = params.getOrDefault("pagequan", "10");
         String medID = params.getOrDefault("medid", "all");
         String account = params.getOrDefault("account", "all");
-        if(pageQuan.isEmpty() ){
-            pageQuan = "10";
+        int page = 1;
+        try{
+            if(pageQuan.isEmpty() ){
+                pageQuan = "10";
+            }
+            else if(!pageQuan.equals("all"))
+                    if(!isNumeric(pageQuan))
+                        pageQuan = "all";
+                    else if(Integer.parseInt(pageQuan) <= 0)
+                        pageQuan = "10";
+
+             page= Integer.parseInt(params.getOrDefault("page", "1"));
+        }catch(Exception e){
+            e.printStackTrace();
         }
-        else if(!pageQuan.equals("all"))
-                if(!isNumeric(pageQuan))
-                    pageQuan = "all";
-                else if(Integer.parseInt(pageQuan) <= 0)
-                    pageQuan = "10";
-           
-        int page = Integer.parseInt(params.getOrDefault("page", "1"));
-        
-        model.addAttribute("doctors", this.doctorService.getDoctors(firstName, lastName, medID, account, pageQuan,page));
+        model.addAttribute("pdoctors", this.doctorService.getDoctors(firstName, lastName, medID, account, pageQuan,page));
         model.addAttribute("count", this.doctorService.countDoctor(firstName, lastName, medID, account));
         
         model.addAttribute("page", Integer.toString(page));
@@ -104,16 +108,18 @@ public class DoctorManagerController {
     //chuc nang xoa bac si
      @RequestMapping(value="/admin/doctor-manager/delete-doctor/{id}",method = {RequestMethod.DELETE,RequestMethod.GET})
     public String deleteDoctor(Model model,@PathVariable(value ="id") int id){
-        
-        if(this.doctorService.removeDoctor(id)){
+        try{
+            if(this.doctorService.removeDoctor(id)){
             return "redirect:/admin/doctor-manager";
+            }
+            else model.addAttribute("err","Something wrong");
         }
-        else model.addAttribute("err","Something wrong");
-        
+        catch(Exception e){
+        }
         return "redirect:/admin/doctor-manager";
     }
     
-    //chuc nang sua y tá
+    //chuc nang sua bác sĩ
     
     @GetMapping("/admin/doctor-manager/edit-doctor/{doctorID}")
     public String editDoctorShow(Model model,@PathVariable(value ="doctorID") int doctorID){
@@ -121,8 +127,8 @@ public class DoctorManagerController {
         model.addAttribute("doctor", m);
         return "edit-doctor";
     }
-    @PostMapping("/admin/doctor-manager/edit-doctor")
-    public String editDoctorProsses(Model model, @ModelAttribute(value = "doctor")@Valid Doctor m, BindingResult result){
+    @PostMapping("/admin/doctor-manager/edit-doctor/{doctorID}")
+    public String editDoctorProsses(Model model,@PathVariable(value ="doctorID") int doctorID, @ModelAttribute(value = "doctor")@Valid Doctor m, BindingResult result){
         
         if(!result.hasErrors())
         {   
@@ -132,7 +138,7 @@ public class DoctorManagerController {
                 model.addAttribute("err","Something wrong");
         }
         
-        return "redirect:/admin/doctor-manager/edit-doctor/{"+m.getId().toString()+"}" ;
+        return "edit-doctor" ;
     }
     
     

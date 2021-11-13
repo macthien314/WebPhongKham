@@ -72,7 +72,7 @@ public class MedicalExaminationCard implements Serializable {
     @NotNull
     private String sympton;
     @Column(name = "receive")
-    private boolean receive;
+    private Boolean receive;
     @Size(max = 100)
     @Column(name = "diagnosis")
     @NotNull

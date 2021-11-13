@@ -26,6 +26,7 @@ import javax.persistence.criteria.JoinType;
 import javax.persistence.criteria.ListJoin;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
+import org.hibernate.HibernateException;
 
 
 
@@ -75,8 +76,8 @@ public class DoctorRepositoryImpl implements DoctorRepository {
             session.delete(m);
             return true;
         }
-        catch(Exception e){
-        
+        catch(HibernateException e){
+            e.printStackTrace();
         }
         return false;
     }

@@ -16,8 +16,8 @@
     <tr>
         <th>Tháng</th>
         <th>Năm</th>
-        <th>Số lần bệnh nhân đến khám</th>
-        <th>Số lượng bệnh nhân đến khám</th>
+        <th>Số lượt khám</th>
+        <th>Số bệnh nhân đến khám</th>
     </tr>
     <c:forEach items="${numPatientMonths}" var="p">
     <tr>

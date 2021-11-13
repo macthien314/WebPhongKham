@@ -101,14 +101,17 @@ public class NurseManagerController {
         return "add-nurse";
     }
      //chuc nang xoa y tá
-     @RequestMapping(value="/admin/nurse-manager/delete-nurse/{id}",method = {RequestMethod.DELETE,RequestMethod.GET})
+    @RequestMapping(value="/admin/nurse-manager/delete-nurse/{id}",method = {RequestMethod.DELETE,RequestMethod.GET})
     public String deleteNurse(Model model,@PathVariable(value ="id") int id){
-        
-        if(this.nurseService.removeNurse(id)){
-            return "redirect:/admin/nurse-manager";
+        try{
+            if(this.nurseService.removeNurse(id)){
+                return "redirect:/admin/nurse-manager";
+            }
+            else model.addAttribute("err","Something wrong");
         }
-        else model.addAttribute("err","Something wrong");
-        
+        catch(Exception e){
+            e.printStackTrace();
+        }
         return "redirect:/admin/nurse-manager";
     }
     
@@ -120,8 +123,8 @@ public class NurseManagerController {
         model.addAttribute("nurse", m);
         return "edit-nurse";
     }
-    @PostMapping("/admin/nurse-manager/edit-nurse")
-    public String editNurseProsses(Model model, @ModelAttribute(value = "nurse")@Valid Nurse m, BindingResult result){
+    @PostMapping("/admin/nurse-manager/edit-nurse/{nurseID}")
+    public String editNurseProsses(Model model,@PathVariable(value ="nurseID") int nurseID, @ModelAttribute(value = "nurse")@Valid Nurse m, BindingResult result){
         
         if(!result.hasErrors())
         {   
@@ -131,7 +134,7 @@ public class NurseManagerController {
                 model.addAttribute("err","Something wrong");
         }
         
-        return "redirect:/admin/nurse-manager/edit-nurse/{"+m.getId().toString()+"}" ;
+        return "edit-nurse" ;
     }
     //cấp tài khoản cho y tá
     @PostMapping("/admin/nurse-manager/create-user")

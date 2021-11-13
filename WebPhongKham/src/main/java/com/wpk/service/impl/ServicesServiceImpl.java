@@ -37,11 +37,12 @@ public class ServicesServiceImpl implements ServicesService{
         try {
           
             Map r = this.cloudinary.uploader().upload(s.getFile().getBytes(),
-                    ObjectUtils.asMap("resource_type","auto","folder","services"));
-        
+                    ObjectUtils.asMap("resource_type","auto","folder","service"));
+            s.setImage((String) r.get("secure_url"));
         } catch (IOException ex) {
             System.out.println("==ADD USER==");
         }}
+
         return this.servicesRepository.addOrUpdate(s);
     }
 

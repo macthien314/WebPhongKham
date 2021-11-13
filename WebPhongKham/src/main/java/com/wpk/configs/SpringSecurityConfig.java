@@ -7,6 +7,8 @@ package com.wpk.configs;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
+import com.wpk.configs.handlers.LoginSuccessHandler;
+import com.wpk.configs.handlers.logoutHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -18,6 +20,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
@@ -34,6 +38,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
     @Autowired
     private UserDetailsService userDetailsService;
+    @Autowired
+    private AuthenticationSuccessHandler loginSuccessHandler;
+    @Autowired
+    private LogoutSuccessHandler logoutHandler;
     @Bean
     public BCryptPasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
@@ -52,8 +60,8 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
         
         http.formLogin().defaultSuccessUrl("/")
                 .failureUrl("/login?error");
-        
-        http.logout().logoutSuccessUrl("/login");
+        http.formLogin().successHandler(this.loginSuccessHandler);
+        http.logout().logoutSuccessHandler(this.logoutHandler);
         http.exceptionHandling().accessDeniedPage("/login?accessDinied");
         //cấu hình User duoc phep truy cap
         http.authorizeRequests().antMatchers("/").permitAll()
@@ -71,5 +79,13 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
                 "secure",true
                  ));
         return c;
+    }
+    @Bean
+    public AuthenticationSuccessHandler loginSuccessHandler(){
+        return new LoginSuccessHandler();
+    }
+    @Bean
+    public LogoutSuccessHandler logoutHandler(){
+        return new logoutHandler();
     }
 }

@@ -8,7 +8,10 @@ package com.wpk.controllers;
 
 import com.wpk.pojos.MedicalExaminationCard;
 import com.wpk.service.MedicalExaminationCardService;
+import static com.wpk.utils.util.isNumeric;
 import com.wpk.validator.WebAppValidator;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Map;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,8 +45,56 @@ public class MedicalExaminationCardManagerController {
    }
     @GetMapping("/admin/medicalexaminationcard-manager")
     public String MedicalExaminationCardManager(Model model, @RequestParam(required = false)Map<String, String> params){
-        model.addAttribute("medicalexaminationcard", new MedicalExaminationCard());
-        model.addAttribute("medicalexaminationcards", this.medicalExaminationCardsService.getMedicalExaminationCards());
+        //xử lý lấy ngày
+        SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
+        Date now = new Date();
+        int nowYear = now.getYear();
+              
+        Date fromDate = null;
+        Date toDate = null;
+        try{  
+            
+            String from =params.getOrDefault("fromDate", null);
+
+            if(from != null){
+                fromDate = f.parse(from);
+            }
+              
+            String to =params.getOrDefault("toDate",null);
+
+            if(from != null){
+               toDate = f.parse(to);
+            }
+        }catch(Exception e){
+        }
+
+        //xử lý số lượng hiển thị trong 1 trang
+        String pageQuan = params.getOrDefault("pagequan", "10");
+        int page = 1;
+        try{
+            if(pageQuan.isEmpty() ){
+                pageQuan = "10";
+            }
+            else if(!pageQuan.equals("all"))
+                    if(!isNumeric(pageQuan))
+                        pageQuan = "all";
+                    else if(Integer.parseInt(pageQuan) <= 0)
+                        pageQuan = "10";
+
+             page= Integer.parseInt(params.getOrDefault("page", "1"));
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        
+         
+        model.addAttribute("page", Integer.toString(page));
+        model.addAttribute("pagequan",pageQuan);
+        model.addAttribute("fromDate", fromDate);
+        model.addAttribute("toDate", toDate);
+        
+        model.addAttribute("medicalexaminationcards", this.medicalExaminationCardsService.getMedicalExaminationCards(fromDate, toDate,pageQuan, page));
+        model.addAttribute("count", this.medicalExaminationCardsService.countMedCards(fromDate, toDate));
+
         return "medicalexaminationcard-manager";
     }
     //chuc nang them chuyen khoa

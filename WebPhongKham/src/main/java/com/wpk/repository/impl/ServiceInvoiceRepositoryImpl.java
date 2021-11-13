@@ -13,6 +13,7 @@ import com.wpk.pojos.ServiceInvoice;
 import com.wpk.pojos.User;
 import com.wpk.repository.ServiceInvoiceRepository;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -76,21 +77,63 @@ public class ServiceInvoiceRepositoryImpl implements ServiceInvoiceRepository{
         }
         return false;
     }
-
+    //lấy danh sách hóa đơn dịch vụ
     @Override
-    public List<ServiceInvoice> getServiceInvoicesByPatient(int patientiID) {
+    public List<ServiceInvoice> getServiceInvoicesByPatient(int patientiID,Date fromDate,Date toDate,String pageQuan,int page) {
         Session session = this.sessionFactory.getObject().getCurrentSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<ServiceInvoice> query = builder.createQuery(ServiceInvoice.class);
         Root root = query.from(ServiceInvoice.class);
         query = query.select(root);
   
-        Predicate p = builder.equal(root.get("patient").get("id").as(Integer.class),patientiID);
+       List<Predicate> predicates = new ArrayList<Predicate>();
+      
+        if(patientiID != 0){
+            predicates.add(builder.equal(root.get("patient").get("id").as(Integer.class), patientiID));
+        }
+         if(fromDate != null)
+        {
+           predicates.add(builder.greaterThanOrEqualTo(root.get("date"), fromDate));
+        }
+        if(toDate != null)
+        {
+           predicates.add(builder.lessThanOrEqualTo(root.get("date"), toDate));
+        }
        
-        query = query.where(p);
+    
+      
+        query = query.where(builder.and(predicates.toArray(new Predicate[] {})));
+       
         Query q = session.createQuery(query);
+        if(pageQuan != null && !pageQuan.isEmpty() && !pageQuan.equals("all") ){
+            int max = Integer.parseInt(pageQuan);
+            q.setMaxResults(max);
+            q.setFirstResult((page- 1) * max);
+        }
         
         return q.getResultList();
     }
+    @Override
+    public long countServiceInvoicesByPatient(int patientid,Date fromDate,Date toDate){
+        Session session = sessionFactory.getObject().getCurrentSession();
+        String query="SELECT COUNT(*) FROM  ServiceInvoice p where p.id is not null";
+        if(patientid != 0){
+             query = query + " and p.patient.id == :id";
+        }
+        if(fromDate != null)
+            query = query + " and p.date >= :fromDate";
+        if(toDate != null)
+            query = query + " and p.date <= :toDate";
+        
+        Query q = session.createQuery(query);    
+        if(patientid != 0)
+           q.setParameter("id",patientid );
+        if(fromDate != null)
+            q.setParameter("fromDate",fromDate );
+        if(toDate != null)
+            q.setParameter("toDate",toDate );
     
+     
+        return Long.parseLong(q.getSingleResult().toString());
+    }
 }

@@ -7,6 +7,7 @@ package com.wpk.controllers;
 
 import com.wpk.pojos.Slide;
 import com.wpk.service.SlideService;
+import static com.wpk.utils.util.isNumeric;
 import com.wpk.validator.WebAppValidator;
 import java.util.Map;
 import javax.servlet.http.HttpSession;
@@ -49,17 +50,21 @@ public class SlideManagerController {
         String active = params.getOrDefault("active", "all");
         //xử lý số lượng hiển thị trong 1 trang
         String pageQuan = params.getOrDefault("pagequan", "10");
-        
-        if(pageQuan.isEmpty()){
-            pageQuan = "10";
+        int page = 1;
+        try{
+            if(pageQuan.isEmpty() ){
+                pageQuan = "10";
+            }
+            else if(!pageQuan.equals("all"))
+                    if(!isNumeric(pageQuan))
+                        pageQuan = "all";
+                    else if(Integer.parseInt(pageQuan) <= 0)
+                        pageQuan = "10";
+
+             page= Integer.parseInt(params.getOrDefault("page", "1"));
+        }catch(Exception e){
+            e.printStackTrace();
         }
-        else if(!pageQuan.equals("all"))
-                if(pageQuan.contains("a") || pageQuan.contains("l"))
-                    pageQuan = "all";
-                else if(Integer.parseInt(pageQuan) <= 0)
-                    pageQuan = "10";
-        
-        int page = Integer.parseInt(params.getOrDefault("page", "1"));
         
         model.addAttribute("slides", this.slideService.getSlides(title,active,pageQuan, page));
         model.addAttribute("count", this.slideService.countSlide(title,active));

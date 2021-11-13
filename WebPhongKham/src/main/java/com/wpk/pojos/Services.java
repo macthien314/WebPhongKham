@@ -44,16 +44,18 @@ public class Services implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
-    @Size(max = 45)
+  
+    
     @Column(name = "name")
+    @Size(min = 5, max = 100,message = "service.name.sizeErr")
     private String name;
     @Column(name = "fee")
+    @NotNull(message = "err.null.notNull")
     private BigDecimal fee;
-    @Size(min = 1, max = 100)
+    
     @Column(name = "image")
     private String image;
     @Transient
-   
     private MultipartFile file;
 
     public Services(Integer id, String name, BigDecimal fee, Medical medicalId) {
@@ -99,7 +101,7 @@ public class Services implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        hash += (getId() != null ? getId().hashCode() : 0);
         return hash;
     }
 
@@ -110,16 +112,13 @@ public class Services implements Serializable {
             return false;
         }
         Services other = (Services) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if ((this.getId() == null && other.getId() != null) || (this.getId() != null && !this.id.equals(other.id))) {
             return false;
         }
         return true;
     }
 
-    @Override
-    public String toString() {
-        return "com.wpk.pojos.Services[ id=" + id + " ]";
-    }
+   
        public MultipartFile getFile() {
         return file;
     }

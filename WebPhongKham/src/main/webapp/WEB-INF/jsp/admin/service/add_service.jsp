@@ -7,7 +7,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <c:url value="/admin/services-manager/add-services" var="action"/>
-<h2 class="mt-4">Thêm dịch vụ </h2>
+<h4 class="mt-4">Thêm dịch vụ </h4>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="index.html">admin</a></li>
                             <li class="breadcrumb-item active">quanly-dichvu</li>
@@ -26,14 +26,14 @@
             
         
 
-            <form:form id="services" action="${action}" modelAttribute="services" method="post" enctype="multipart/form-data">
+            <form:form id="service" action="${action}" modelAttribute="service" method="post" enctype="multipart/form-data">
                <form:errors path="*" cssClass="alert alert-danger" element="div" />
                         
                 <div class="form-group preview text-center">
-                    <img class="" src=""id="preview" alt="Preview Image" width="50%" height="20%"/>
+                    <img class="img-fluid" src=""id="preview" alt="Preview Image"/>
                     <div class="browse-button">
                         <i class="fa fa-pencil-alt"></i>
-                        <form:input path="file" type="file" requiredname="UploadedFile" id="UploadedFile"/>
+                        <form:input accept="image/png, image/gif, image/jpeg" path="file" type="file" requiredname="UploadedFile" id="UploadedFile"/>
                     </div>
                     <span class="Error"></span>
                 </div>

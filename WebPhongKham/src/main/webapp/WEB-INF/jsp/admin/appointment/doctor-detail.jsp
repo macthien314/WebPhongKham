@@ -13,19 +13,31 @@
  <main id="main">
 
     <!-- ======= Breadcrumbs Section ======= -->
-    <section class="breadcrumbs">
-      <div class="container">
-        <div class="d-flex justify-content-between align-items-center">
-          <h2 style=" font-weight: bold;">Đội ngũ bác sĩ</h2>
-          <ol>
-            <li><a href="index.html">Home</a></li>
-            <li>Đội ngũ bác sĩ</li>
+    <section style="margin-top: -50px; margin-bottom: -50px;" class="breadcrumbs">
+      <div class="container">    
+          <div class="d-flex justify-content-between align-items-center">
+            <h2 style=" font-weight: bold;">Giới Thiệu Đội Ngũ Bác Sĩ</h2>
+            <ol>
+            <li><a href="http://localhost:8080/WebPhongKham/">Home</a></li>
+             <li>
+              <c:if test="${pageContext.request.userPrincipal.name == null}">
+     
+                <a href="<c:url value="/login"/>"><i class="fa fa-user"></i>Login</a>
+              </c:if>
+    
+              <c:if test="${pageContext.request.userPrincipal.name != null}">
+            
+                <a href="<c:url value="/login"/>"><i class="fa fa-user"></i> ${pageContext.request.userPrincipal.name}</a>
+              </c:if>
+          </li>
           </ol>
         </div>
-</div>
-    </section>
+
+      </div>
+    </section><!-- End Breadcrumbs Section -->
+
     <section class="inner-page">
-<c:forEach items="${doctor}" var="d">
+         <c:forEach items="${doctor}" var="d">
       <div class="container">
           <h1 style="margin-top: 40px; 
                      font-family:verdana; 

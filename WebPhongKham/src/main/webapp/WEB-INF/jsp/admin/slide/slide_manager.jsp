@@ -3,10 +3,10 @@
     Created on : Sep 26, 2021, 5:40:57 PM
     Author     : Admin
 --%>
-
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<h1 class="mt-4">Quản lý Slide</h1>
+<h4 class="mt-4">Quản lý Slide</h4>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="index.html">admin</a></li>
                             <li class="breadcrumb-item active">quan-ly-slide</li>
@@ -118,8 +118,19 @@
        
     </table>
   <c:if test="${!pagequan.equals('all')}"> 
-<div class="pagination">
-   <a href="<c:url value="/admin/quanly-slide"/>?page=${1}">«</a>
+    <div class="pagination">
+   <a href="<c:url value="/admin/quanly-slide">
+                    <c:param name="title"
+                    value="${title}"></c:param>
+                    
+                    <c:param name="active"
+                    value="${active}"></c:param>
+                    <c:param name="pagequan"
+                    value="${pagequan}"></c:param>
+                    <c:param name="page"
+                    value="1"></c:param>
+                </c:url>"
+       >«</a>
    
   
    <c:forEach begin = "1" end="${Math.ceil(count/Integer.parseInt(pagequan))}" var="i">
@@ -150,11 +161,22 @@
                     <c:param name="page"
                     value="${i}"></c:param>
                 </c:url>"
-       >${i}</a></li>
+                >${i}</a>
    </c:if>
    </c:forEach>
    
-   <a href="#">»</a>
+   <a href="<c:url value="/admin/quanly-slide">
+                    <c:param name="title"
+                    value="${title}"></c:param>
+                    
+                    <c:param name="active"
+                    value="${active}"></c:param>
+                    <c:param name="pagequan"
+                    value="${pagequan}"></c:param>
+                    <c:param name="page"
+                    value="${fn:replace((Math.ceil(count/Integer.parseInt(pagequan))), '.0', '')}"></c:param>
+                </c:url>"
+                >»</a>
  </div>
    </c:if >
     

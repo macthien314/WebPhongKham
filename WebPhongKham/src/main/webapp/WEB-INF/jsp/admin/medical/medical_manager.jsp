@@ -6,9 +6,10 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <h1 class="mt-4">Quản lý Chuyên khoa</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item"><a href="index.html">admin</a></li>
+                            <li class="breadcrumb-item"><a href="<c:url value="/admin"/>">admin</a></li>
                             <li class="breadcrumb-item active">quanly-chuyenkhoa</li>
                         </ol>
 <c:if test="${err != null}">
@@ -57,7 +58,7 @@
     
 <div id="managerTable" class="table table-striped w-auto" >
     
-        <table  class="slide-table table table-striped table-bordered" width="100%">
+        <table  class="table table-striped table-bordered" width="100%">
         
         <thead>
         
@@ -79,7 +80,7 @@
                     <tr>
                         <td>${s.id}</td>
                         <td>${s.name}</td>
-                        <td>${s.description}</td>
+                        <td>${fn:substring(s.description,0, 50)}...</td>
                         
                             <td class="w-auto">
 			      <img src="${s.image}" class="img-fluid img-thumbnail" alt="Sheep">
@@ -109,7 +110,17 @@
     
     <c:if test="${!pagequan.equals('all')}"> 
 <div class="pagination">
-   <a href="<c:url value="/admin/medical-manager"/>?page=1">«</a>
+   <a  href="<c:url value="/admin/medical-manager">
+                    
+                    
+                    <c:param name="name"
+                    value="${name}"></c:param>
+                    <c:param name="pagequan"
+                    value="${pagequan}"></c:param>
+                    <c:param name="page"
+                    value="1"></c:param>
+                </c:url>"
+       >«</a>
    
   
    <c:forEach begin = "1" end="${Math.ceil(count/Integer.parseInt(pagequan))}" var="i">
@@ -140,7 +151,15 @@
    </c:if>
    </c:forEach>
    
-   <a href="#">»</a>
+   <a href="<c:url value="/admin/medical-manager">
+                    <c:param name="name"
+                    value="${name}"></c:param>
+                    <c:param name="pagequan"
+                    value="${pagequan}"></c:param>
+                    <c:param name="page"
+                    value="${fn:replace((Math.ceil(count/Integer.parseInt(pagequan))), '.0', '')}"></c:param>
+                </c:url>"
+       >»</a>
  </div>
    </c:if >                                 
 

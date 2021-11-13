@@ -10,6 +10,7 @@ import com.wpk.pojos.Slide;
 import com.wpk.service.MedicalService;
 import com.wpk.validator.WebAppValidator;
 import java.util.Map;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,6 +25,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
  *
@@ -82,17 +84,18 @@ public class MedicalManagerController {
         else
                 model.addAttribute("err","Something wrong");
         }
-        return "add-medicals";
+        return "add-medical";
     }
     //chuc nang xoa slide
      @RequestMapping(value="/admin/medical-manager/delete-medical/{id}",method = {RequestMethod.DELETE,RequestMethod.GET})
     public String deleteMedical(Model model,@PathVariable(value ="id") int id){
-        
+        try{
         if(this.medicalService.removeMedical(id)){
             return "redirect:/admin/medical-manager";
         }
         else model.addAttribute("err","Something wrong");
-        
+        }catch(Exception e){
+        }
         return "redirect:/admin/medical-manager";
     }
     
@@ -101,11 +104,13 @@ public class MedicalManagerController {
     @GetMapping("/admin/medical-manager/edit-medical/{medicalID}")
     public String editMedicalShow(Model model,@PathVariable(value ="medicalID") int medicalID){
         Medical m = this.medicalService.getMedicalByID(medicalID);
+        if(model.getAttribute("medical") == null)
         model.addAttribute("medical", m);
         return "edit-medical";
     }
-    @PostMapping("/admin/medical-manager/edit-medical")
-    public String editMedicalProsses(Model model, @ModelAttribute(value = "medical")@Valid Medical m, BindingResult result){
+    @PostMapping("/admin/medical-manager/edit-medical/{medicalID}")
+    public String editMedicalProsses(Model model,@PathVariable(value ="medicalID") int medicalID, @ModelAttribute(value = "medical")@Valid Medical m, BindingResult result
+            ,RedirectAttributes attr, HttpSession session){
         
         if(!result.hasErrors())
         {   
@@ -114,7 +119,8 @@ public class MedicalManagerController {
         else
                 model.addAttribute("err","Something wrong");
         }
-        
-        return "redirect:/admin/quanly-slide/sua-slide/{"+m.getId().toString()+"}" ;
+        attr.addFlashAttribute("org.springframework.validation.BindingResult.medical", result);
+        attr.addFlashAttribute("medical",m);
+        return "redirect:/admin/medical-manager/edit-medical/" + medicalID ;
     }
 }

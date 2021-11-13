@@ -17,4 +17,6 @@ public interface PatientRepository {
      Patient getPatientByID(int id);
      boolean addOrUpdate(Patient m);
      boolean removePatient(int id);
+     List<Patient> getPatients(String firstName, String lastName, String account, String pageQuan, int page);
+    long countPatient(String firstName, String lastName, String account); 
 }

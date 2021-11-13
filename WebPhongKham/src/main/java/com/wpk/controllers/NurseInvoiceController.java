@@ -130,7 +130,7 @@ public class NurseInvoiceController {
             m.setPrescription(this.prescriptionService.getPrescriptionByID(id));
           
             m.setTotalPrice(BigDecimal.valueOf(Double.parseDouble("90000")));
-            m.setCreatedDay(new Date());
+            m.setCreatedDate(new Date());
             if(this.invoiceService.addOrUpdate(m)==true){
                 attr.addFlashAttribute("success", "s");
                 return"redirect:/nurse/invoice/prescription-list/" + id;

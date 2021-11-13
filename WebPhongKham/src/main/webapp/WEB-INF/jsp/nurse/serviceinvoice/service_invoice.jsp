@@ -9,46 +9,82 @@
 <c:if test="${err != null}">
     <div class="alert alert-danger">${err}</div>
 </c:if>
-    <c:set var="now" value="<%=new java.util.Date()%>" />
+    <div class="card mr-auto ml-auto" style="width: 18rem;">
+
+  <div class="card-body">
+    <h5 class="card-title text-center">Bệnh nhân</h5>
+    <p class="card-text">${patient.id} . ${patient.firstName} ${patient.lastName}</p>
+    <p class="card-text">Ngày sinh: ${patient.birthDate} </p>
+  </div>
+</div>
+    <br>
+
+<div class="row">
+            
+
+        <div class="col-md-3">
+            <button  type="button" data-toggle="modal" data-target="#createModal"  class="btn btn-outline-primary">                         
+                           TẠO HÓA ĐƠN DỊCH VỤ
+                 </button>
+        </div>
+            
+             <div class="col-md-8">
+            
+                 <div class="input-group" id="adv-search">
+                <form  id ="find"role="form">
+                    <input disabled="true" name="lastname" type="text" class="form-control" placeholder="Click vào mũi tên để tìm kiếm" />
+                </form>
+                <div class="input-group-btn">
+                    <div class="btn-group" role="group">
+                        <div class="dropdown dropdown-lg">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
+                            <div class="dropdown-menu dropdown-menu-right" role="menu">
+                                <form  class="form-horizontal" role="form">
+                                 
+                                 <div class="form-group">
+                                    <label for="fromDate">Từ thời điểm</label>
+                                    <input value="${fromDate}" type="date" name="fromDate" class="form-control"><!-- comment -->
+                                </div>
+                                <div class="form-group">
+                                    <label for="fromDate">Đến thời điểm</label>
+                                <input value="${toDate}" type="date" name="toDate"  class="form-control"><!-- comment -->
+                                </div>
+                                 
+                                    
+                                  
+                                  <div class="form-group">
+                                     <label for="pagequan">Số lượng hiển thị</label>
+                                     <input autocomplete="off" value="${pagequan}" class="form-control" name ="pagequan"maxlength="3" type="text" onkeypress="return onlyNumberKey(event)" list="cars" />
+                                     <datalist id="cars">
+                                          <option>all</option>
+                                     </datalist>
+                                  </div>
+                                    
+                                  <button type="submit" class="btn btn-primary">Tìm</button>
+                                </form>
+                            </div>
+                        </div>
+                 
+                        
+                    </div>
+                </div>
+            </div>
+          </div>
+            </div>
+    
 <div id="managerTable" class="table table-striped w-auto" >
     
         <table  class="slide-table table table-striped table-bordered" width="100%">
         
         <thead>
-         <form action="">
-        <div class="row">
-            <div class="col-md-3">
-                <button  type="button" data-toggle="modal" data-target="#createModal"  class="btn btn-outline-primary">                         
-                           TẠO HÓA ĐƠN DỊCH VỤ
-                 </button>
-            </div>
-             <div class="col-md-3">
-                          
-             <select name="quantity" id="inputState" class="form-control">
-                            
-                              <option>10</option>
-                              <option>15</option>
-                              <option>All</option>
-                              
-             </select>
-             </div>
-             
-            
-              <div style="margin-right: 0; margin-left: auto;"class="col-md-2">
-             <input type="submit" value="Lọc" class="btn btn-danger"/>
-                </div>  
-            </div>
-          </form>
-    
-
-            <tr>
+         <tr>
                 <th class="th-sm">Mã</th>
                 <th>Giá tiền</th>
                 <th>Ngày Tạo Hóa Đơn</th>
                 <th>Tên dịch vụ</th>
                 <th>Tên bệnh nhân</th>
                 <th>Tên y tá</th>
-                <th>Chi tiết</th>
+                
            </tr>
         </thead>
         <tbody>
@@ -57,16 +93,11 @@
                     <tr>
                         <td>${s.id}</td>
                         <td>${s.fee}</td>
-                        <td>${s.createdDay}</td>
+                        <td>${s.createdDate}</td>
                         <td>${s.service.name}</td>
-                        <td>${s.patient.firstName}</td>
-                        <td>${s.nurse.firstName}</td>
-                        <td>
-                         <button  type="button" data-toggle="modal" data-target="#createModal"  class="btn btn-outline-primary">                         
-                           
-                         </button>
-               
-                        </td>
+                        <td>${s.patient.firstName} ${s.patient.lastName}</td>
+                        <td>${s.nurse.id}. ${s.nurse.firstName} ${s.nurse.lastName}</td>
+                       
                           
                     </tr>
                 </c:forEach>

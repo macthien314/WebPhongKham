@@ -55,4 +55,12 @@ public class PatientServiceImpl implements PatientService{
     public boolean removePatient(int i) {
         return this.patientRepository.removePatient(i);
     }
+    @Override
+    public List<Patient> getPatients(String firstName, String lastName, String account, String pageQuan, int page){
+        return this.patientRepository.getPatients( firstName, lastName,  account, pageQuan,page);
+    }
+    @Override
+    public long countPatient(String firstName, String lastName, String account){
+        return this.patientRepository.countPatient(firstName, lastName,  account);
+    }
 }

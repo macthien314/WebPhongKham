@@ -13,8 +13,11 @@ import com.wpk.service.PatientService;
 import com.wpk.service.ServiceInvoiceService;
 import com.wpk.service.ServicesService;
 import com.wpk.service.UserService;
+import static com.wpk.utils.util.isNumeric;
 import com.wpk.validator.WebAppValidator;
 import java.security.Principal;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Map;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -62,15 +65,67 @@ public class NurseServiceInvoiceController {
         model.addAttribute("patients", this.patientService.getPatients());
         return "patient-serviceinvoice";
     }
+    //trang hien thi cac hóa đơn của bệnh nhân
     @GetMapping("/nurse/patient-serviceinvoice/{patientid}")
-    public String serviceInvoiceManager(Principal principal,Model model,@PathVariable(value ="patientid") int patientid){
+    public String serviceInvoiceManager(Principal principal,Model model,@PathVariable(value ="patientid") int patientid
+                                     ,@RequestParam(required = false)Map<String, String> params){
+        SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
+        Date now = new Date();
+       
+              
+        Date fromDate = null;
+        Date toDate = null;
+        try{  
+            
+            String from =params.getOrDefault("fromDate", null);
+
+            if(from != null){
+                fromDate = f.parse(from);
+            }
+              
+            String to =params.getOrDefault("toDate",null);
+
+            if(from != null){
+               toDate = f.parse(to);
+            }
+        }catch(Exception e){
+        }
+        
+        //xử lý số lượng hiển thị trong 1 trang
+        String pageQuan = params.getOrDefault("pagequan", "10");
+        int page = 1;
+        try{
+            if(pageQuan.isEmpty() ){
+                pageQuan = "10";
+            }
+            else if(!pageQuan.equals("all"))
+                    if(!isNumeric(pageQuan))
+                        pageQuan = "all";
+                    else if(Integer.parseInt(pageQuan) <= 0)
+                        pageQuan = "10";
+
+             page= Integer.parseInt(params.getOrDefault("page", "1"));
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        //atteibute liên quan tìm kiếm
+        model.addAttribute("page", Integer.toString(page));
+        model.addAttribute("pagequan",pageQuan);
+        model.addAttribute("fromDate", fromDate);
+        model.addAttribute("toDate", toDate);
+        
+        //attribute hien thi
         model.addAttribute("patient",this.patientService.getPatientByID(patientid));
-        model.addAttribute("serviceinvoices", this.serviceInvoiceService.getServiceInvoicesByPatient(patientid));
+        //lấy với phân trang
+        model.addAttribute("serviceinvoices", this.serviceInvoiceService.getServiceInvoicesByPatient(patientid, fromDate, toDate,pageQuan, page));
+        model.addAttribute("count", this.serviceInvoiceService.countServiceInvoicesByPatient(patientid, fromDate, toDate));
+
         if(model.getAttribute("serviceinvoice") == null)
         model.addAttribute("serviceinvoice",new ServiceInvoice());
-        model.addAttribute("services", this.servicesService.getServices());
+        
         if(model.getAttribute("success") == null)
         model.addAttribute("success","");
+        
         if(model.getAttribute("wrong") == null)
         model.addAttribute("wrong", "");
         String name = principal.getName();

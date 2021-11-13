@@ -60,7 +60,7 @@
                 <c:forEach items="${invoices}" var="s">
                     <tr>
                         <td>${s.id}</td>
-                        <td>${s.createdDay}</td>
+                        <td>${s.createdDate}</td>
                         <td>${s.totalPrice}</td>
                         <td>${s.prescription.id}</td>
                         <td>${s.nurse.firstName}</td>

@@ -3,7 +3,7 @@
     Created on : Sep 26, 2021, 9:41:22 PM
     Author     : Admin
 --%>
-
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <h2 class="mt-4">Chi tiết Slide</h2>
                         <ol class="breadcrumb mb-4">
@@ -28,6 +28,6 @@
                 <p>ID      : ${slide.id}</p>  
                 <p>Title   : ${slide.title}</p>  
                 <p>Mô tả   : ${slide.description}</p>
-                <p>Link ảnh:<a href="${slide.image}"> link ảnh</a></p>
+                <p>Link ảnh:<a href="${slide.image}"> ${slide.image}</a></p>
             </article>    
         </div>

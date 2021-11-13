@@ -1,7 +1,7 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<c:url value="/admin/doctor-manager/edit-doctor" var="action"/>
+<c:url value="/admin/doctor-manager/edit-doctor/${doctorID}" var="action"/>
 <c:url value="/admin/doctor-manager/create-doctoruser" var="createUser"/>
 <h2 class="mt-4">Chỉnh sửa bác sĩ</h2>
                         <ol class="breadcrumb mb-4">
@@ -24,7 +24,8 @@
 
             <form:form id="doctor" action="${action}" modelAttribute="doctor" method="post" enctype="multipart/form-data">
                <form:errors path="*" cssClass="alert alert-danger" element="div" />
-               <form:hidden path="id" />
+               <form:hidden path="id"/>
+               <form:hidden path="user"/>
              <form:hidden path="image"/>          
                 <div class="form-group preview text-center">
                     <img class="" src="${doctor.image}"id="preview" alt="Preview Image" width="50%" height="20%"/>

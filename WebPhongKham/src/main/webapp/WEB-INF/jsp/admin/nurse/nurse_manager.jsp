@@ -9,9 +9,9 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<h1 class="mt-4">Quản lý Y Tá</h1>
+<h4 class="mt-4">Quản lý Y Tá</h4>
                 <ol class="breadcrumb mb-4">
-                    <li class="breadcrumb-item"><a href="index.html">admin</a></li>
+                    <li class="breadcrumb-item"><a href="<c:url value="/admin"/>">admin</a></li>
                     <li class="breadcrumb-item active">quanly-yta</li>
                 </ol>
 <c:if test="${err != null}">
@@ -24,8 +24,7 @@
         </div>
              
              <div class="col-md-8">
-            
-                 <div class="input-group" id="adv-search">
+                <div class="input-group" id="adv-search">
                 <form  id ="find"role="form">
                     <input value="${lastname}" name="lastname" type="text" class="form-control" placeholder="tên điệm và tên" />
                 </form>
@@ -99,8 +98,8 @@
 
         <tr>
             <th class="th-sm">Mã</th>
-            <th>Họ</th>
-            <th >Tên</th>
+            <th>tên</th>
+            
             <th>Ngày sinh</th>
             <th>Giới tính</th>
             <th>SĐT</th>
@@ -109,7 +108,12 @@
             <th>Tên Khoa</th>
             <th>Tên tài khoản</th>
             
-            <th><i class="fas fa-cog"></i></th>
+            <th>
+                chỉnh sửa
+            </th>
+            <th>
+                Xóa
+            </th>
        </tr>
     </thead>
     <tbody>
@@ -117,32 +121,31 @@
             <c:forEach items="${nurses}" var="s">
                 <tr>
                     <td>${s.id}</td>
-                    <td>${s.lastName}</td>
-                    <td>${s.firstName}</td>
+                    <td>${s.firstName} ${s.lastName}</td>
+                    
                     <td>${s.birthDate}</td>
                     <td>${s.gender}</td>
                     <td>${s.phone}</td>
                     <td>${s.email}</td>
 
 
-                        <td class="w-auto">
+                        <td class="w-50">
                           <img src="${s.image}" class="img-fluid img-thumbnail" alt="Sheep">
 
                     </td>
                     <td>${s.medical.name}</td>
                     <td>${s.user.username}</td>
-                     <td class="setting">
-
-                         <a data-toggle="tooltip" title="xem thông tin" title="thông tin"href="<c:url value="/admin/quanly-slide/chitiet-slide/${s.id}"/>"> <i class="fas fa-info-circle" style="color:#18d26e"></i></a>
+                    <td>
                           <a data-toggle="tooltip" title="chỉnh sửa" href="<c:url value="/admin/nurse-manager/edit-nurse/${s.id}"/>">
                               <i class="fas fa-edit" style="color:#6633ff"></i>
                            </a>
-
-                          <a id="modal" href="<c:url value="/admin/nurse-manager/delete-nurse/${s.id}"/>" name="deleteButton" type="button" class="btn btn-primary" data-toggle="tooltip modal" data-target="#deleteModal" title="Xóa sản phẩm">
+                    </td>   
+                    <td>
+                         <a id="modal" href="<c:url value="/admin/nurse-manager/delete-nurse/${s.id}"/>" name="deleteButton" type="button" class="btn btn-primary" data-toggle="tooltip modal" data-target="#deleteModal" title="Xóa sản phẩm">
                                <i class="fas fa-trash-alt" style="color:#ed3c0d"></i>
                           </a>
-                               
-                     </td>
+                    </td> 
+                
                 </tr>
             </c:forEach>
       </tbody>

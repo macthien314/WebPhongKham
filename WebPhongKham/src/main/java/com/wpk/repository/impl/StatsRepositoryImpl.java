@@ -15,6 +15,7 @@ import com.wpk.pojos.Prescription;
 import com.wpk.pojos.PrescriptionDrug;
 import com.wpk.pojos.ServiceInvoice;
 import com.wpk.repository.StatsRepository;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -72,50 +73,121 @@ public class StatsRepositoryImpl implements StatsRepository{
         return query.getResultList();
     }
 
+    //danh thu đến từ lập hóa đơn bán thuốc
     @Override
     public List<Object[]> invoiceMonthStats(Date fromDate, Date toDate) {
+      
         Session session = sessionFactory.getObject().getCurrentSession();
         CriteriaBuilder b = session.getCriteriaBuilder();
         CriteriaQuery<Object[]> q = b.createQuery(Object[].class);
-         
-        Root rootP = q.from(Patient.class);
-        Root rootM = q.from(MedicalExaminationCard.class);
+        
         Root rootI = q.from(Invoice.class);
-        Root rootSI = q.from(ServiceInvoice.class);
-        Root rootPr = q.from(Prescription.class);
-        Root rootPD = q.from(PrescriptionDrug.class);
-        Root rootD = q.from(Drug.class);
         
         List<Predicate> predicates = new ArrayList<>();
-        predicates.add(b.equal(rootM.get("patient"), rootP.get("id")));
-        predicates.add(b.equal(rootSI.get("patient"), rootP.get("id")));
-        predicates.add(b.equal(rootPr.get("patient"), rootP.get("id")));   
-        predicates.add(b.equal(rootI.get("prescription"), rootPr.get("id")));
-
-        predicates.add(b.equal(rootPD.get("prescription"), rootPr.get("id")));
-        predicates.add(b.equal(rootPD.get("drug"), rootD.get("id")));
+        
+        
+        
         
           
-        q.multiselect( b.function("MONTH",Integer.class, rootI.get("createdDay")),
-        b.function("YEAR",Integer.class, rootI.get("createdDay")),
+        q.multiselect( 
+                b.function("MONTH",Integer.class, rootI.get("createdDate")),
+        b.function("YEAR",Integer.class, rootI.get("createdDate")),
 
-        b.sum(b.sum(rootM.get("fee") ,rootSI.get("fee")), b.sum(b.prod(rootD.get("unitPrice"), rootD.get("quantity"))))); 
+        b.sum(rootI.get("totalPrice"))); 
             
         if(fromDate != null)
         {
-           predicates.add(b.greaterThanOrEqualTo(rootI.get("createdDay"), fromDate));
+           predicates.add(b.greaterThanOrEqualTo(rootI.get("createdDate"), fromDate));
         }
         if(toDate != null)
         {
-           predicates.add(b.lessThanOrEqualTo(rootI.get("createdDay"), toDate));
+           predicates.add(b.lessThanOrEqualTo(rootI.get("createdDate"), toDate));
         }
         
-        q.where(predicates.toArray(new Predicate[]{}));            
+        q.where(b.and(predicates.toArray(new Predicate[]{})));            
                     
-        q.groupBy(b.function("MONTH",Integer.class, rootI.get("createdDay")),
-        b.function("YEAR",Integer.class, rootI.get("createdDay"))); 
+        q.groupBy(b.function("MONTH",Integer.class, rootI.get("createdDate")),
+        b.function("YEAR",Integer.class, rootI.get("createdDate"))); 
+        
+        Query query = session.createQuery(q);    
+        return query.getResultList();
+    }
+    //danh thu đến từ lập phiếu khám
+    @Override
+    public List<Object[]> medCardRevenueMonthStats(Date fromDate, Date toDate) {
+        Session session = sessionFactory.getObject().getCurrentSession();
+        CriteriaBuilder b = session.getCriteriaBuilder();
+        CriteriaQuery<Object[]> q = b.createQuery(Object[].class);
+        
+        Root rootm = q.from(MedicalExaminationCard.class);
+        
+        List<Predicate> predicates = new ArrayList<>();
+        
+        
+        
+        
+          
+        q.multiselect( 
+                b.function("MONTH",Integer.class, rootm.get("date")),
+        b.function("YEAR",Integer.class, rootm.get("date")),
+
+        b.sum(rootm.get("fee"))); 
+            
+        if(fromDate != null)
+        {
+           predicates.add(b.greaterThanOrEqualTo(rootm.get("date"), fromDate));
+        }
+        if(toDate != null)
+        {
+           predicates.add(b.lessThanOrEqualTo(rootm.get("date"), toDate));
+        }
+        
+         q.where(b.and(predicates.toArray(new Predicate[]{})));        
+                    
+        q.groupBy(b.function("MONTH",Integer.class, rootm.get("date")),
+        b.function("YEAR",Integer.class, rootm.get("date"))); 
+        
+        Query query = session.createQuery(q);    
+        return query.getResultList();
+    }
+    
+    //danh thu đến từ các hóa đơn dịch vụ
+    @Override
+    public List<Object[]> serviceInvoiceMonthStats(Date fromDate, Date toDate) {
+        Session session = sessionFactory.getObject().getCurrentSession();
+        CriteriaBuilder b = session.getCriteriaBuilder();
+        CriteriaQuery<Object[]> q = b.createQuery(Object[].class);
+        
+        Root rootm = q.from(ServiceInvoice.class);
+        
+        List<Predicate> predicates = new ArrayList<>();
+        
+        
+        
+        
+          
+        q.multiselect( 
+                b.function("MONTH",Integer.class, rootm.get("createdDate")),
+        b.function("YEAR",Integer.class, rootm.get("createdDate")),
+
+        b.sum(rootm.get("fee"))); 
+            
+        if(fromDate != null)
+        {
+           predicates.add(b.greaterThanOrEqualTo(rootm.get("createdDate"), fromDate));
+        }
+        if(toDate != null)
+        {
+           predicates.add(b.lessThanOrEqualTo(rootm.get("createdDate"), toDate));
+        }
+        
+         q.where(b.and(predicates.toArray(new Predicate[]{}))); 
+                    
+        q.groupBy(b.function("MONTH",Integer.class, rootm.get("createdDate")),
+        b.function("YEAR",Integer.class, rootm.get("createdDate"))); 
         
         Query query = session.createQuery(q);    
         return query.getResultList();
     }
 }
+

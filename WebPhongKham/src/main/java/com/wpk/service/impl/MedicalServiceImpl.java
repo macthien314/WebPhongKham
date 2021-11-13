@@ -12,6 +12,7 @@ import com.wpk.repository.MedicalRepository;
 
 import com.wpk.service.MedicalService;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,6 +49,7 @@ public class MedicalServiceImpl implements MedicalService{
         } catch (IOException ex) {
             System.out.println("==ADD USER==");
         }}
+       
         return this.medicalRepository.addOrUpdate(m);
     }
     @Override

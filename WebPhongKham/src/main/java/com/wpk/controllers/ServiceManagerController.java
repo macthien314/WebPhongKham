@@ -8,6 +8,7 @@ package com.wpk.controllers;
 import com.wpk.pojos.Doctor;
 import com.wpk.pojos.Services;
 import com.wpk.service.ServicesService;
+import static com.wpk.utils.util.isNumeric;
 import com.wpk.validator.WebAppValidator;
 import java.util.Map;
 import javax.validation.Valid;
@@ -49,16 +50,21 @@ public class ServiceManagerController {
         //xử lý số lượng hiển thị trong 1 trang
         String pageQuan = params.getOrDefault("pagequan", "10");
         
-        if(pageQuan.isEmpty()){
-            pageQuan = "10";
+        int page = 1;
+        try{
+            if(pageQuan.isEmpty() ){
+                pageQuan = "10";
+            }
+            else if(!pageQuan.equals("all"))
+                    if(!isNumeric(pageQuan))
+                        pageQuan = "all";
+                    else if(Integer.parseInt(pageQuan) <= 0)
+                        pageQuan = "10";
+
+             page= Integer.parseInt(params.getOrDefault("page", "1"));
+        }catch(Exception e){
+            e.printStackTrace();
         }
-        else if(!pageQuan.equals("all"))
-                if(pageQuan.contains("a") || pageQuan.contains("l"))
-                    pageQuan = "all";
-                else if(Integer.parseInt(pageQuan) <= 0)
-                    pageQuan = "10";
-        
-        int page = Integer.parseInt(params.getOrDefault("page", "1"));
         
         model.addAttribute("services", this.servicesService.getServices(name, pageQuan, page));
         
@@ -72,11 +78,11 @@ public class ServiceManagerController {
     //chuc nang them dịch vụ
     @GetMapping("/admin/services-manager/add-services")
     private String addServiceShow(Model model){
-        model.addAttribute("services", new Services());
+        model.addAttribute("service", new Services());
         return "add-services";
    }
     @PostMapping("/admin/services-manager/add-services")
-    private String addServicesProcess(Model model, @ModelAttribute(value = "services")@Valid Services s, BindingResult result){
+    private String addServicesProcess(Model model, @ModelAttribute(value = "service")@Valid Services s, BindingResult result){
         if(!result.hasErrors())
         {      
             if(this.servicesService.addOrUpdate(s)==true)
@@ -103,11 +109,11 @@ public class ServiceManagerController {
     @GetMapping("/admin/services-manager/edit-services/{servicesID}")
     public String editServicesShow(Model model,@PathVariable(value ="servicesID") int servicesID){
         Services m = this.servicesService.getServicesByID(servicesID);
-        model.addAttribute("services", m);
+        model.addAttribute("service", m);
         return "edit-services";
     }
-    @PostMapping("/admin/services-manager/edit-services")
-    public String editServicesProsses(Model model, @ModelAttribute(value = "services")@Valid Services m, BindingResult result){
+    @PostMapping("/admin/services-manager/edit-services/{servicesID}")
+    public String editServicesProsses(Model model,@PathVariable(value ="servicesID") int servicesID, @ModelAttribute(value = "service")@Valid Services m, BindingResult result){
         
         if(!result.hasErrors())
         {   
@@ -117,6 +123,6 @@ public class ServiceManagerController {
                 model.addAttribute("err","Something wrong");
         }
         
-        return "redirect:/admin/services-manager/edit-services/{"+m.getId().toString()+"}" ;
+        return "edit-services" ;
     }
 }

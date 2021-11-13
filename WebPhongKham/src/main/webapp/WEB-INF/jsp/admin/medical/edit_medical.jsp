@@ -12,7 +12,7 @@
                             <li class="breadcrumb-item"><a href="index.html">admin</a></li>
                             <li class="breadcrumb-item active">quanly-chuyenkhoa</li>
                         </ol>
- <c:url value="/admin/medical-manager/edit-medical" var="action"/>
+ <c:url value="/admin/medical-manager/edit-medical/${medical.id}" var="action"/>
 
        <div class="Back">
             <i class="fa fa-arrow-left" onclick=""></i>

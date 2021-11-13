@@ -19,7 +19,7 @@
           
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="https://res.cloudinary.com/ikj/image/upload/v1632561338/slide1_pxtfkh.jpg" alt="Los Angeles" width="1100" height="500">  
+      <img src="https://res.cloudinary.com/ikj/image/upload/v1632561338/slide1_pxtfkh.jpg" alt="Los Angeles" class="w-100">  
     </div>
     <div class="carousel-item">
       <img src="https://res.cloudinary.com/ikj/image/upload/v1632561338/slide2_xdpuka.png" alt="Chicago" width="1100" height="500">   

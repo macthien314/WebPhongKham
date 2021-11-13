@@ -204,6 +204,7 @@
     
      
     <definition name="admin" extends="adminLayout">
+         <put-attribute name="content" value="/WEB-INF/jsp/admin/dashboard/dashboard.jsp"/>
     </definition>
     
     <definition name="profile" extends="adminLayout">
@@ -331,6 +332,10 @@
         <put-attribute name="slide" value=""/>
         <put-attribute name="content" value="/WEB-INF/jsp/introduce/team.jsp"/>
     </definition>
-    
+    <definition name="services-detail" extends="baseLayout">
+        <put-attribute name="title" value="Thông tin bác sĩ"/>
+        <put-attribute name="slide" value="/WEB-INF/layout/slide.jsp"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/services-detail.jsp"/>
+    </definition>
     
 </tiles-definitions>

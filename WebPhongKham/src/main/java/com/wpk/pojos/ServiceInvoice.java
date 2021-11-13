@@ -42,7 +42,7 @@ import org.springframework.web.multipart.MultipartFile;
     @NamedQuery(name = "ServiceInvoice.findAll", query = "SELECT s FROM ServiceInvoice s"),
     @NamedQuery(name = "ServiceInvoice.findById", query = "SELECT s FROM ServiceInvoice s WHERE s.id = :id"),
     @NamedQuery(name = "ServiceInvoice.findByFee", query = "SELECT s FROM ServiceInvoice s WHERE s.fee = :fee"),
-    @NamedQuery(name = "ServiceInvoice.findByCreatedDay", query = "SELECT s FROM ServiceInvoice s WHERE s.createdDay = :createdDay")})
+    @NamedQuery(name = "ServiceInvoice.findByCreatedDate", query = "SELECT s FROM ServiceInvoice s WHERE s.createdDate = :createdDate")})
 public class ServiceInvoice implements Serializable {
     
     private static final long serialVersionUID = 1L;
@@ -53,10 +53,10 @@ public class ServiceInvoice implements Serializable {
     private Integer id;
     @Column(name = "fee")
     private BigDecimal fee;
-    @Column(name = "created_day")
+    @Column(name = "created_date")
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date createdDay;
+    private Date createdDate;
     
     @ManyToOne
     @JoinColumn(name = "nurse_id")
@@ -73,14 +73,13 @@ public class ServiceInvoice implements Serializable {
     @Transient
     private MultipartFile file;
     public ServiceInvoice() {
-        this.createdDay = new Date();
-        System.out.println(createdDay);
+       
     }
 
     public ServiceInvoice(Integer id, BigDecimal fee, Date createdDay, Nurse nurse, Patient patient, Services service) {
         this.id = id;
         this.fee = fee;
-        this.createdDay = createdDay;
+        this.createdDate = createdDay;
         this.nurse = nurse;
         this.patient = patient;
         this.service = service;
@@ -106,12 +105,12 @@ public class ServiceInvoice implements Serializable {
         this.fee = fee;
     }
 
-    public Date getCreatedDay() {
-        return createdDay;
+    public Date getCreatedDate() {
+        return createdDate;
     }
 
-    public void setCreatedDay(Date createdDay) {
-        this.createdDay = createdDay;
+    public void setCreatedDate(Date createdDay) {
+        this.createdDate = createdDay;
     }
 
     public Nurse getNurse() {

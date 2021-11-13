@@ -6,6 +6,7 @@
 package com.wpk.repository;
 
 import com.wpk.pojos.MedicalExaminationCard;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -19,4 +20,6 @@ public interface MedicalExaminationCardRepository {
      boolean removeMedicalExaminationCard(int id);
      List<MedicalExaminationCard> getTodayMedCard(int doctorID);
      int countTodayMedCard(int doctorID);
+     List<MedicalExaminationCard> getMedicalExaminationCards(Date fromDate,Date toDate,String pageQuan, int page);
+     Long countMedCards(Date fromDate,Date toDate);
 }

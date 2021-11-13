@@ -7,9 +7,24 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:url value="/valuevision" var="action"/>
+<main id="main">
+    <section class="breadcrumbs">
+      <div class="container">
 
+        <div class="d-flex justify-content-between align-items-center">
+          <h2 style=" font-weight: bold;">Tầm nhìn-sứ mệnh-giá trị cốt lỗi</h2>
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li>Login</li>
+          </ol>
+        </div>
+
+      </div>
+    </section>
+    <section class="inner-page">
 <div class=" col-md-12 col-sm-12 col-xs-12 pd5 h1lienhe">
-              <h1>Tầm nhìn - Sứ mệnh - Giá trị cốt lõi</h1>
+             
+              
               
               <div class="info-description-article clearfix">
           <p>&nbsp;</p><p>&nbsp;</p>
@@ -128,4 +143,5 @@ Tạo nên một mái nhà thứ hai cho Người bệnh và Đội ngũ y tế<
       </div>
     </div>
   </div>
-
+</section>
+</main>

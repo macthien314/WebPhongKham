@@ -7,6 +7,7 @@ package com.wpk.controllers;
 
 import com.wpk.pojos.Patient;
 import com.wpk.service.PatientService;
+import static com.wpk.utils.util.isNumeric;
 import com.wpk.validator.WebAppValidator;
 import java.util.Map;
 import javax.validation.Valid;
@@ -42,8 +43,37 @@ public class PatientManagerController {
    }
     @GetMapping("/admin/patient-manager")
     public String PatientManager(Model model, @RequestParam(required = false)Map<String, String> params){
-        model.addAttribute("patient", new Patient());
-        model.addAttribute("patients", this.patientService.getPatients());
+        String firstName = params.getOrDefault("firstname", "");
+        String lastName = params.getOrDefault("lastname", "");
+        //xử lý số lượng hiển thị trong 1 trang
+        String pageQuan = params.getOrDefault("pagequan", "10");
+        String account = params.getOrDefault("account", "all");
+        int page = 1;
+        try{
+            if(pageQuan.isEmpty() ){
+                pageQuan = "10";
+            }
+            else if(!pageQuan.equals("all"))
+                    if(!isNumeric(pageQuan))
+                        pageQuan = "all";
+                    else if(Integer.parseInt(pageQuan) <= 0)
+                        pageQuan = "10";
+
+             page= Integer.parseInt(params.getOrDefault("page", "1"));
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        
+        
+        model.addAttribute("patients", this.patientService.getPatients(firstName, lastName, account, pageQuan,page));
+        model.addAttribute("count", this.patientService.countPatient(firstName, lastName, account));
+        
+        model.addAttribute("page", Integer.toString(page));
+        model.addAttribute("pagequan",pageQuan);
+        model.addAttribute("firstname", firstName);
+        model.addAttribute("lastname", lastName);
+        
+        model.addAttribute("account", account);
         return "patient-manager";
     }
     //chuc nang them bac si

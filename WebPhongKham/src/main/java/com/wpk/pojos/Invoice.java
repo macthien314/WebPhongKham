@@ -37,8 +37,7 @@ import org.springframework.web.multipart.MultipartFile;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Invoice.findAll", query = "SELECT i FROM Invoice i"),
-    @NamedQuery(name = "Invoice.findById", query = "SELECT i FROM Invoice i WHERE i.id = :id"),
-    @NamedQuery(name = "Invoice.findByCreatedDay", query = "SELECT i FROM Invoice i WHERE i.createdDay = :createdDay"),
+    @NamedQuery(name = "Invoice.findById", query = "SELECT i FROM Invoice i WHERE i.id = :id")
     })
 public class Invoice implements Serializable {
 
@@ -48,10 +47,10 @@ public class Invoice implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
-    @Column(name = "created_day")
+    @Column(name = "created_date")
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date createdDay;
+    private Date createdDate;
      @Column(name = "total_price")
     private BigDecimal totalPrice;
     @ManyToOne
@@ -88,12 +87,12 @@ public class Invoice implements Serializable {
         this.id = id;
     }
 
-    public Date getCreatedDay() {
-        return createdDay;
+    public Date getCreatedDate() {
+        return createdDate;
     }
 
-    public void setCreatedDay(Date createdDay) {
-        this.createdDay = createdDay;
+    public void setCreatedDate(Date createdDay) {
+        this.createdDate = createdDay;
     }
 
     @Override

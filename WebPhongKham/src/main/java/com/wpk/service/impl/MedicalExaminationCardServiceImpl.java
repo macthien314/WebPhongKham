@@ -11,6 +11,7 @@ import com.wpk.pojos.MedicalExaminationCard;
 import com.wpk.repository.MedicalExaminationCardRepository;
 import com.wpk.service.MedicalExaminationCardService;
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,5 +55,16 @@ public class MedicalExaminationCardServiceImpl implements MedicalExaminationCard
     @Override
     public List<MedicalExaminationCard> getTodayMedCard(int i) {
         return this.medicalExaminationCardRepository.getTodayMedCard(i);
+    }
+
+    @Override
+    public List<MedicalExaminationCard> getMedicalExaminationCards(Date fromDate,Date toDate,String pageQuan, int page) {
+        return this.medicalExaminationCardRepository.getMedicalExaminationCards(fromDate, toDate, pageQuan, page);
+    }
+
+    @Override
+    public Long countMedCards(Date fromDate,Date toDate) {
+        return this.medicalExaminationCardRepository.countMedCards(fromDate, toDate);
+
     }
 }

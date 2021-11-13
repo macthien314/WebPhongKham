@@ -37,56 +37,30 @@ public class HomeController {
     private MedicalService medicalService;
     @Autowired
     private SlideService slideService;
+    @Autowired
+    private DoctorService doctorService;
+      @Autowired
+    private ServicesService servicesService;
     @ModelAttribute
     public void commonAttr(Model model, HttpSession session){
         model.addAttribute("medicals", this.medicalService.getMedicals());
         model.addAttribute("showSlide", this.slideService.getSlides("", "true", "5", 1));
-    }
-    
-     @Autowired
-    private DoctorService doctorService;
-    @ModelAttribute
-    public void commonAttrs(Model model, HttpSession session, String firstName, String lastName, String medID, String account, String pageQuan){
-        model.addAttribute("doctors", this.doctorService.getDoctors(firstName, lastName, medID, account, pageQuan, 0));
-    }
-    
-      @Autowired
-    private NurseService nurseService;
-    @ModelAttribute
-    public void commonAttrsss(Model model, HttpSession session){
-        model.addAttribute("nurses", this.nurseService.getNurses());
-    }
-    
-    @Autowired
-    private DrugService drugService;
-    @ModelAttribute
-    public void commonAttrss(Model model, HttpSession session){
-        model.addAttribute("drugs", this.drugService.getDrugs());
-    }
- 
-    
-       @Autowired
-    private PrescriptionService prescriptionService;
-    @ModelAttribute
-    public void commonAttrsssss(Model model, HttpSession session){
-        model.addAttribute("prescriptions", this.prescriptionService.getPrescriptions());
-    }
-    
-       @Autowired
-    private InvoiceService invoiceService;
-    @ModelAttribute
-    public void commonAttrssssss(Model model, HttpSession session){
-        model.addAttribute("invoices", this.invoiceService.getInvoices());
-    }
-    
-    
-    @Autowired
-    private ServicesService servicesService;
-    @ModelAttribute
-    public void commonAttrssss(Model model, HttpSession session){
+        model.addAttribute("currentUser", session.getAttribute("currentUser"));
         model.addAttribute("services", this.servicesService.getServices());
+        model.addAttribute("doctors", this.doctorService.getDoctors("", "", "all", "all", "all", 0));
+
     }
     
+  
+
+   
+    
+    
+   
+    
+    
+  
+ 
    
     
     @RequestMapping("/")

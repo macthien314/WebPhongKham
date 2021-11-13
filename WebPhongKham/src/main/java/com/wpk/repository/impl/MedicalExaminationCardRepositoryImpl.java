@@ -115,4 +115,54 @@ public class MedicalExaminationCardRepositoryImpl implements MedicalExaminationC
      
         return Integer.parseInt(q.getSingleResult().toString());
     }
+
+    @Override
+    public List<MedicalExaminationCard> getMedicalExaminationCards(Date fromDate,Date toDate,String pageQuan, int page) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<MedicalExaminationCard> query = builder.createQuery(MedicalExaminationCard.class);
+        Root root = query.from(MedicalExaminationCard.class);
+        
+        List<Predicate> predicates = new ArrayList<Predicate>();
+      
+         if(fromDate != null)
+        {
+           predicates.add(builder.greaterThanOrEqualTo(root.get("date"), fromDate));
+        }
+        if(toDate != null)
+        {
+           predicates.add(builder.lessThanOrEqualTo(root.get("date"), toDate));
+        }
+       
+    
+      
+        query = query.where(builder.and(predicates.toArray(new Predicate[] {})));
+       
+        Query q = session.createQuery(query);
+        if(pageQuan != null && !pageQuan.isEmpty() && !pageQuan.equals("all") ){
+            int max = Integer.parseInt(pageQuan);
+            q.setMaxResults(max);
+            q.setFirstResult((page- 1) * max);
+        }
+            return q.getResultList();
+    }
+
+    @Override
+    public Long countMedCards(Date fromDate, Date toDate) {
+         Session session = sessionFactory.getObject().getCurrentSession();
+        String query="SELECT COUNT(*) FROM  MedicalExaminationCard p where p.id is not null";
+        if(fromDate != null)
+            query = query + " and p.date >= :fromDate";
+        if(toDate != null)
+            query = query + " and p.date <= :toDate";
+        
+        Query q = session.createQuery(query);      
+        if(fromDate != null)
+            q.setParameter("fromDate",fromDate );
+        if(toDate != null)
+            q.setParameter("toDate",toDate );
+    
+     
+        return Long.parseLong(q.getSingleResult().toString());
+    }
 }

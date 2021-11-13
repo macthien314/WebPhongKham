@@ -9,18 +9,20 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<h1 class="mt-4">Quản lý Bác Sĩ</h1>
+<h4 class="mt-4">Quản lý Bác Sĩ</h4>
                 <ol class="breadcrumb mb-4">
-                    <li class="breadcrumb-item"><a href="index.html">admin</a></li>
+                    <li class="breadcrumb-item"><a href="<c:url value="admin"/>">admin</a></li>
                     <li class="breadcrumb-item active">quanly-bacsi</li>
                 </ol>
-
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <div class="row">
-            
+            <c:if test="${err != null}">
+    <div class="alert alert-danger">${err}</div>
+</c:if>
         <div class="col-md-3">
             <a href="<c:url value="/admin/doctor-manager/add-doctor"/>" class=" btn btn-primary btn-xs pull-right"><b>+</b> ADD Service</a>
             </div>
-             
+            
              <div class="col-md-8">
             
                  <div class="input-group" id="adv-search">
@@ -89,9 +91,10 @@
             </div>
           </div>
             </div>
+                                     <br><!-- comment -->
 <div id="managerTable" class="table table-striped w-auto" >
-
-    <table  class=" table table-striped table-bordered" width="100%">
+    
+        <table  class="slide-table table table-striped table-bordered" width="100%">
 
     <thead>
    
@@ -106,16 +109,17 @@
             <th>SĐT</th>
             <th>Email</th>
             <th>Kinh nghiệm</th>
-            <th style="width: 70% ">Ảnh</th>
+            <th >Ảnh</th>
             <th>Tên Khoa</th>
             <th>Tên tài khoản</th>
 
-            <th><i class="fas fa-cog"></i></th>
+            <th>Chỉnh sửa</th>
+            <th>Xóa bỏ</th>
        </tr>
     </thead>
     <tbody>
 
-            <c:forEach items="${doctors}" var="s">
+            <c:forEach items="${pdoctors}" var="s">
                 <tr>
                     <td>${s.id}</td>
                     <td>${s.firstName}</td>
@@ -126,24 +130,22 @@
                     <td>${s.email}</td>
                     <td>${s.yearsExperience}</td>
                     
-                    <td class="w-auto">
+                    <td class="w-25">
                           <img src="${s.image}" class="img-fluid img-thumbnail" alt="Sheep">
 
                     </td>
                     <td>${s.medical.name}</td>
                     <td>${s.user.username}</td>
-                    <td class="setting">
-
-                         <a data-toggle="tooltip" title="xem thông tin" title="thông tin"href="<c:url value="/admin/quanly-slide/chitiet-slide/${s.id}"/>"> <i class="fas fa-info-circle" style="color:#18d26e"></i></a>
-                         <a data-toggle="tooltip" title="chỉnh sửa" href="<c:url value="/admin/doctor-manager/edit-doctor/${s.id}"/>">
-                              <i class="fas fa-edit" style="color:#6633ff"></i>
+                    <td >
+                        <a data-toggle="tooltip" class="btn btn-success"title="chỉnh sửa" href="<c:url value="/admin/doctor-manager/edit-doctor/${s.id}"/>">
+                              <i class="fas fa-edit" style=""></i>
                          </a>
-
-                         <a id="modal" href="<c:url value="/admin/doctor-manager/delete-doctor/${s.id}"/>" name="deleteButton" type="button" class="btn btn-primary" data-toggle="tooltip modal" data-target="#deleteModal" title="Xóa sản phẩm">
+                    </td>
+                     <td >
+                        <a id="modal"  href="<c:url value="/admin/doctor-manager/delete-doctor/${s.id}"/>" name="deleteButton" type="button" class="btn btn-primary" data-toggle="tooltip modal" data-target="#deleteModal" title="Xóa sản phẩm">
                                <i class="fas fa-trash-alt" style="color:#ed3c0d"></i>
                          </a>
-
-                     </td>
+                    </td>
                 </tr>
             </c:forEach>
       </tbody>
@@ -152,7 +154,19 @@
 </div>
        <c:if test="${!pagequan.equals('all')}"> 
 <div class="pagination">
-   <a href="<c:url value="/admin/doctor-manager"/>?page=1">«</a>
+   <a href="<c:url value="/admin/doctor-manager">
+                    <c:param name="lastname"
+                    value="${lastname}"></c:param>
+                    <c:param name="account"
+                    value="${account}"></c:param>
+                    <c:param name="firstname"
+                    value="${firstname}"></c:param>
+                    <c:param name="pagequan"
+                    value="${pagequan}"></c:param>
+                    <c:param name="page"
+                    value="1"></c:param>
+                </c:url>"
+       >«</a>
    
   
    <c:forEach begin = "1" end="${Math.ceil(count/Integer.parseInt(pagequan))}" var="i">
@@ -190,7 +204,19 @@
    </c:if>
    </c:forEach>
    
-   <a href="#">»</a>
+   <a href="<c:url value="/admin/doctor-manager">
+                    <c:param name="lastname"
+                    value="${lastname}"></c:param>
+                    <c:param name="account"
+                    value="${account}"></c:param>
+                    <c:param name="firstname"
+                    value="${firstname}"></c:param>
+                    <c:param name="pagequan"
+                    value="${pagequan}"></c:param>
+                    <c:param name="page"
+                    value="${fn:replace((Math.ceil(count/Integer.parseInt(pagequan))), '.0', '')}"></c:param>
+                </c:url>"
+       >»</a>
  </div>
    </c:if >     
     <!-- Modal -->

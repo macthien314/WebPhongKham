@@ -7,11 +7,11 @@ function generateColor(){
     let r = parseInt(Math.random()*255);
     let g = parseInt(Math.random()*255);
     let b = parseInt(Math.random()*255);
-    return 'rgb( ${r}, ${g}, ${b})'
+    return `rgb( ${r}, ${g}, ${b})`;
 }
-function numPatientChart(id, numLabels = [], info=[]){
+function numPatientChart(id, numLabels = [], info=[],infoMedCart=[]){
     let colors =[]
-    for (let i = 0; i < info.lenth; i++)
+    for (let i = 0; i < info.length; i++)
         colors.push(generateColor())
     
    
@@ -20,12 +20,14 @@ function numPatientChart(id, numLabels = [], info=[]){
             datasets: [{
             label: 'Thống kê số lượng bệnh nhân đến khám theo tháng',
             data: info,
-            backgroundColor: 'rgb(75, 192, 192)',
+            backgroundColor: colors,
             hoverOffset: 4  
             
-          }]
+          }],
+            labels: numLabels,
+          
         };
-
+        
         const config = {
           type: 'bar',
           data: data,
@@ -36,9 +38,9 @@ function numPatientChart(id, numLabels = [], info=[]){
 }
 
 
-function invoiceMonthChart(id, numLabels = [], info=[]){
+function revenueMonthChart(id, numLabels = [], info=[]){
     let colors =[]
-    for (let i = 0; i < info.lenth; i++)
+    for (let i = 0; i < info.length; i++)
         colors.push(generateColor())
     
    
@@ -47,7 +49,7 @@ function invoiceMonthChart(id, numLabels = [], info=[]){
             datasets: [{
             label: 'Thống kê doanh thu theo tháng',
             data: info,
-            backgroundColor: 'rgb(75, 192, 192)',
+            backgroundColor: colors,
             hoverOffset: 4  
             
           }]

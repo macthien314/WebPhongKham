@@ -5,8 +5,10 @@
 --%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<h1 class="mt-4">Quản lý dịch vụ</h1>
+
+<h4 class="mt-4">Quản lý dịch vụ</h4>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="index.html">admin</a></li>
                             <li class="breadcrumb-item active">quanly-chuyenkhoa</li>
@@ -107,7 +109,17 @@
     </div>
     <c:if test="${!pagequan.equals('all')}"> 
 <div class="pagination">
-   <a href="<c:url value="/admin/quanly-slide"/>?page=1">«</a>
+   <a href="<c:url value="/admin/services-manager">
+                    
+                    
+                    <c:param name="name"
+                    value="${name}"></c:param>
+                    <c:param name="pagequan"
+                    value="${pagequan}"></c:param>
+                    <c:param name="page"
+                    value="1"></c:param>
+                </c:url>"
+       >«</a>
    
   
    <c:forEach begin = "1" end="${Math.ceil(count/Integer.parseInt(pagequan))}" var="i">
@@ -122,7 +134,7 @@
                     <c:param name="page"
                     value="${i}"></c:param>
                 </c:url>"
-       >${i}</a></li>
+       >${i}</a>
    </c:if>
    <c:if test="${page == i}">
    
@@ -134,11 +146,19 @@
                     <c:param name="page"
                     value="${i}"></c:param>
                 </c:url>"
-       >${i}</a></li>
+       >${i}</a>
    </c:if>
    </c:forEach>
    
-   <a href="#">»</a>
+   <a href="<c:url value="/admin/services-manager">
+                    <c:param name="name"
+                    value="${name}"></c:param>
+                    <c:param name="pagequan"
+                    value="${pagequan}"></c:param>
+                    <c:param name="page"
+                             value="${fn:replace((Math.ceil(count/Integer.parseInt(pagequan))), '.0', '')}"></c:param>
+                </c:url>"
+       >»</a
  </div>
    </c:if >
     

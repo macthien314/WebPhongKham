@@ -8,7 +8,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <c:url value="/admin/doctor-manager/add-doctor" var="action"/>
-<h2 class="mt-4">Thêm bác sĩ</h2>
+<h4 class="mt-4">Thêm bác sĩ</h4>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="index.html">admin</a></li>
                             <li class="breadcrumb-item active">quanly-bacsi</li>

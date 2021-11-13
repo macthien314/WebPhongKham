@@ -49,17 +49,14 @@ public class Medical implements Serializable {
     @Column(name = "id")
     private Integer id;
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 45)
+    @Size(min = 1, max = 45,message = "medical.name.check")
     @Column(name = "name")
     private String name;
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 4000)
+    @Size(min = 30, max = 4000,message = "medical.description.check")
     @Column(name = "description")
     private String description;
     @Basic(optional = false)
-    @Size(min = 1, max = 100)
     @Column(name = "image")
     private String image;
     @OneToMany(mappedBy = "medical")

@@ -5,8 +5,9 @@
  */
 package com.wpk.validator;
 
-import com.wpk.pojos.ServiceInvoice;
+
 import com.wpk.pojos.Services;
+
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
@@ -24,7 +25,11 @@ public class ServicesValidator implements Validator{
 
     @Override
     public void validate(Object target, Errors errors) {
-       
+        Services s =  (Services) target;
+     
+        if(s.getImage()== null && s.getFile().isEmpty()){
+           errors.rejectValue("file", "slide.file.imageEmtyErr");
+        }
     }
     
 }

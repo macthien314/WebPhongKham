@@ -5,6 +5,7 @@
  */
 package com.wpk.repository;
 import com.wpk.pojos.ServiceInvoice;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -16,5 +17,7 @@ public interface ServiceInvoiceRepository {
     ServiceInvoice getServiceInvoiceByID(int id);
     boolean addOrUpdate(ServiceInvoice m); 
     boolean removeServiceInvoice(int id);
-    List<ServiceInvoice> getServiceInvoicesByPatient(int patientiID);
+
+    List<ServiceInvoice> getServiceInvoicesByPatient(int patientiID,Date fromDate,Date toDate,String pageQuan,int page);
+    long countServiceInvoicesByPatient(int patientid,Date fromDate,Date toDate);
 }

@@ -5,6 +5,7 @@
  */
 package com.wpk.service;
 
+import com.wpk.pojos.Revenue;
 import java.util.Date;
 import java.util.List;
 
@@ -15,4 +16,7 @@ import java.util.List;
 public interface StatsService {
      List<Object[]> numPatientMonthStats(Date fromDate, Date toDate);
      List<Object[]> invoiceMonthStats(Date fromDate, Date toDate);
+     
+     //danh thu đến từ: hóa đơn, hóa đơn dịch vụ, phiếu khám
+     List<Revenue> revenueMonthStats(Date fromDate, Date toDate);
 }
