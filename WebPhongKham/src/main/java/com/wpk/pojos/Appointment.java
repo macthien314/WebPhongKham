@@ -62,12 +62,11 @@ public class Appointment implements Serializable {
     @Column(name = "first_name")
     private String firstName;
     @Basic(optional = false)
-    @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "last_name")
     private String lastName;
     @Basic(optional = false)
-    @NotNull
+    
     @Size(min = 9, max = 11)
     @Column(name = "phone")
     private String phone;
@@ -79,7 +78,6 @@ public class Appointment implements Serializable {
     @ManyToOne
     @JoinColumn(name = "doctor_id")
     private Doctor doctor;
-    
     @ManyToOne
     @JoinColumn(name = "patient_id")
     private Patient patient;
