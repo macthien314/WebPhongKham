@@ -4,10 +4,11 @@
     Author     : macth
 --%>
 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<c:url value="/doctor/today-medcard/receive/${medcard.id}" var="action"/>
+<c:url value="/doctor/today-medcard/receive/${medcardID}" var="action"/>
 <h2 class="mt-4">Tiếp nhận phiếu khám</h2>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="index.html">admin</a></li>
@@ -35,18 +36,37 @@
                         <div class=" form-group col-md-3">
                              <label for="createdDate">Mã bác sĩ: ${doctor.id} </label>   
                         </div> <!-- form-group end.// -->
-                        <div class=" form-group col-md-6">
+                        <div class=" form-group col-md-3">
                             <label for="firstName">Tên: ${doctor.firstName} ${doctor.lastName}</label>
                          </div>
+                         
                 </div>
                 <div class="form-row">
                         <div class=" form-group col-md-3">
-                             <label for="createdDate">Mã bệnh nhân: ${medcard.patient.id} </label>   
+                             <label for="createdDate"><b>Mã Bệnh nhân:</b> ${medcard.patient.id} </label>   
                         </div> <!-- form-group end.// -->
-                        <div class=" form-group col-md-6">
-                            <label for="firstName">Tên: ${medcard.patient.firstName} ${medcard.patient.lastName}</label>
+                        <div class=" form-group col-md-3">
+                            <label for="firstName"><b>Tên:</b>  ${medcard.patient.firstName} ${medcard.patient.lastName}</label>
+                         </div>
+                        <div class=" form-group col-md-3">
+                            <label for="firstName"><b>Địa chỉ:</b>  ${medcard.patient.address}</label>
                          </div>
                 </div>
+               <div class="row">
+                    <div class=" form-group col-md-3">
+                   
+                             <label for="createdDate"><b>Ngày sinh:</b>  <fmt:formatDate value="${medcard.patient.birthDate}" pattern="dd-MM-yyyy" /></label>   
+                    </div> <!-- form-group end.// -->
+                    <div class=" form-group col-md-3">
+                            <label for="firstName"><b>Giới tính:</b> ${medcard.patient.gender}</label>
+                    </div>
+                    <div class=" form-group col-md-3">
+                            <label for="firstName"><b>SDT:</b> ${medcard.patient.phone}</label>
+                    </div>
+                    
+                    
+
+                </div>        
                 <div class="form-group">
                     <label for="diagnosis">Chuẩn đoán của bác: </label>
                     <form:textarea rows="3" cols="30" path ="diagnosis" cssClass="form-control"/>

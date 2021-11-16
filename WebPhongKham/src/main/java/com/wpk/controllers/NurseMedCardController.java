@@ -64,17 +64,21 @@ public class NurseMedCardController {
         //xử lý số lượng hiển thị trong 1 trang
         String pageQuan = params.getOrDefault("pagequan", "10");
         String medID = params.getOrDefault("medid", "all");
-      
-        if(pageQuan.isEmpty() ){
-            pageQuan = "10";
+        int page = 1;
+        try{
+            if(pageQuan.isEmpty() )
+                pageQuan = "10";
+
+            else if(!pageQuan.equals("all"))
+                    if(!isNumeric(pageQuan))
+                        pageQuan = "all";
+                    else if(Integer.parseInt(pageQuan) <= 0)
+                        pageQuan = "10";
+            page = Integer.parseInt(params.getOrDefault("page", "1"));
         }
-        else if(!pageQuan.equals("all"))
-                if(!isNumeric(pageQuan))
-                    pageQuan = "all";
-                else if(Integer.parseInt(pageQuan) <= 0)
-                    pageQuan = "10";
-           
-        int page = Integer.parseInt(params.getOrDefault("page", "1"));
+         catch(Exception e){
+             e.printStackTrace();
+         }
         
         model.addAttribute("doctors", this.doctorService.getDoctorsWithMedCount(firstName, lastName, medID, "1", pageQuan,page));
         model.addAttribute("count", this.doctorService.countDoctor(firstName, lastName, medID, "1"));
@@ -96,15 +100,12 @@ public class NurseMedCardController {
         
         if(model.getAttribute("medexcart") == null)
         model.addAttribute("medexcart",new MedicalExaminationCard());
-        if(model.getAttribute("success") == null)
-        
-            model.addAttribute("success","");
         String name = principal.getName();
         model.addAttribute("nurse",userDetailsService.getUser(name).get(0).getNurse());
         return "nurse-medcardlist";
     }
     @PostMapping("/nurse/medical-examination-card/{doctorid}/create")
-    private String addServiceInvoiceProcess(Principal principal,Model model,@PathVariable(value ="doctorid") int id, @ModelAttribute(value = "medexcart")@Valid MedicalExaminationCard m, BindingResult result
+    private String addMedCardProcess(Principal principal,Model model,@PathVariable(value ="doctorid") int id, @ModelAttribute(value = "medexcart")@Valid MedicalExaminationCard m, BindingResult result
             ,RedirectAttributes attr, HttpSession session){
    
         if(!result.hasErrors())
@@ -116,16 +117,15 @@ public class NurseMedCardController {
             m.setNum(this.medicalExaminationCardsService.countTodayMedCard(id) + 1);
             m.setFee(BigDecimal.valueOf(Double.parseDouble("90000")));
             m.setDate(new Date());
+            m.setReceive(false);
             if(this.medicalExaminationCardsService.addOrUpdate(m)==true){
-                attr.addFlashAttribute("success", "s");
+                attr.addFlashAttribute("success", "Tạo hóa đơn thành công");
                 return"redirect:/nurse/medical-examination-card/" + id;
             }
-            else{
-                model.addAttribute("err","Something wrong");
-                
-            }
+            
         }
-        attr.addFlashAttribute("wrong", "");
+        attr.addFlashAttribute("err","Something wrong");
+        
         attr.addFlashAttribute("org.springframework.validation.BindingResult.medexcart", result);
         attr.addFlashAttribute("medexcart", m);
         return "redirect:/nurse/medical-examination-card/" + id ;

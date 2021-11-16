@@ -3,6 +3,7 @@
     Created on : Sep 22, 2021, 9:08:40 PM
     Author     : Admin
 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <section id="hero" class="d-flex align-items-center">
     <div class="container">
@@ -16,30 +17,23 @@
     <li data-target="#demo" data-slide-to="5"></li><!-- comment -->
     <li data-target="#demo" data-slide-to="6"></li>
   </ul>
-          
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="https://res.cloudinary.com/ikj/image/upload/v1632561338/slide1_pxtfkh.jpg" alt="Los Angeles" class="w-100">  
-    </div>
-    <div class="carousel-item">
-      <img src="https://res.cloudinary.com/ikj/image/upload/v1632561338/slide2_xdpuka.png" alt="Chicago" width="1100" height="500">   
-    </div>
-    <div class="carousel-item">
-      <img src="https://res.cloudinary.com/ikj/image/upload/v1632561338/slide3_qoymfk.png" alt="New York" width="1100" height="500">
-    </div>
-      <div class="carousel-item">
-      <img src="https://res.cloudinary.com/ikj/image/upload/v1632561338/slide4_d3op6q.jpg" alt="New York" width="1100" height="500">
-    </div>
-      <div class="carousel-item">
-      <img src="https://res.cloudinary.com/ikj/image/upload/v1632561337/slide5_upggmg.png" alt="New York" width="1100" height="500">
-      </div>
-      <div class="carousel-item">
-      <img src="https://res.cloudinary.com/ikj/image/upload/v1632561339/slide6_cin79g.png" alt="New York" width="1100" height="500"> 
-    </div>
-      <div class="carousel-item">
-      <img src="https://res.cloudinary.com/ikj/image/upload/v1632561340/slide7_kqakxd.png" alt="New York" width="1100" height="500"> 
-    </div>
+  
+  <div id ="carousel"class="carousel-inner">
+     <c:forEach items="${showSlide}" var="s" >    
+      
+      <c:if test="${showSlide.indexOf(s) == 0}">
+            <div class="carousel-item active">
+      <img src="${s.image}" alt="Los Angeles" class="w-100">  
+            </div>
+     </c:if>
+          <c:if test="${showSlide.indexOf(s) != 0}">
+            <div class="carousel-item">
+      <img src="${s.image}" alt="Los Angeles" class="w-100">  
+            </div>
+     </c:if>
+      </c:forEach>
   </div>
+  
   <a class="carousel-control-prev" href="#demo" data-slide="prev">
     <span class="carousel-control-prev-icon"></span>
   </a>
@@ -49,3 +43,9 @@
 </div>
     </div>    
   </section><!-- End Hero -->
+  <script>
+      $('#carousel').carousel({
+  interval: 1,
+  cycle: true
+}); 
+      </script>

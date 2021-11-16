@@ -8,16 +8,23 @@ package com.wpk.controllers;
 import com.wpk.pojos.Invoice;
 import com.wpk.pojos.MedicalExaminationCard;
 import com.wpk.pojos.Patient;
+import com.wpk.pojos.PrescriptionDrug;
+import com.wpk.pojos.User;
 import com.wpk.service.DoctorService;
 import com.wpk.service.InvoiceService;
 import com.wpk.service.PatientService;
+import com.wpk.service.PrescriptionDrugService;
 import com.wpk.service.PrescriptionService;
 import com.wpk.service.UserService;
+import com.wpk.utils.util;
+import static com.wpk.utils.util.checkDrug;
 import static com.wpk.utils.util.isNumeric;
+import static com.wpk.utils.util.presTotalPrice;
 import com.wpk.validator.WebAppValidator;
 import java.math.BigDecimal;
 import java.security.Principal;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -43,14 +50,15 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class NurseInvoiceController {
     @Autowired
     private PatientService patientService;
-    @Autowired
-    private DoctorService doctorService;
+    
    @Autowired
    private UserService userDetailsService;
     @Autowired
     private InvoiceService invoiceService;
     @Autowired
     private PrescriptionService prescriptionService;
+    @Autowired
+    private PrescriptionDrugService prescriptionDrugService;
     @Autowired
     private WebAppValidator invoiceValidator;
      @InitBinder
@@ -103,46 +111,42 @@ public class NurseInvoiceController {
         return "nurse-prescription";
     }
     @GetMapping("/nurse/invoice/prescription-list/{presid}")
-    public String prescriptionInvoice(Principal principal,Model model,@PathVariable(value ="presid") int presID){
+    public String prescriptionInvoice(HttpSession session,Model model,@PathVariable(value ="presid") int presID){
         
-        model.addAttribute("invoices", this.invoiceService.getInvoicesByPres(presID));
+        List<PrescriptionDrug> presDrugs = this.prescriptionDrugService.getPrescriptionDrugsByPres(presID);
+        
         model.addAttribute("prescription", this.prescriptionService.getPrescriptionByID(presID));
-        
+        model.addAttribute("prescriptionDrugs",presDrugs);
+        model.addAttribute("check", checkDrug(presDrugs));
+        model.addAttribute("totalPrice",presTotalPrice(presDrugs));
         if(model.getAttribute("invoice") ==  null)
             model.addAttribute("invoice", new Invoice());
-        if(model.getAttribute("success") == null)
-            model.addAttribute("success","");
-        
-        String name = principal.getName();
-        model.addAttribute("nurse",userDetailsService.getUser(name).get(0).getNurse());
+        User u = (User) session.getAttribute("currentUser");
+        model.addAttribute("nurse",u.getNurse());
         return "nurse-prescription-invoice";
     }
    
     @PostMapping("/nurse/invoice/prescription-list/{presid}/create")
-    private String addServiceInvoiceProcess(Principal principal,Model model,@PathVariable(value ="presid") int id, @ModelAttribute(value = "invoice")@Valid Invoice m, BindingResult result
+    private String createInvoiceProcess(Model model,@PathVariable(value ="presid") int presID, @ModelAttribute(value = "invoice")@Valid Invoice m, BindingResult result
             ,RedirectAttributes attr, HttpSession session){
-   
+         List<PrescriptionDrug> presDrugs = this.prescriptionDrugService.getPrescriptionDrugsByPres(presID);
         if(!result.hasErrors())
         {   
-            String name = principal.getName();
-            
-            m.setNurse(userDetailsService.getUser(name).get(0).getNurse());
-            m.setPrescription(this.prescriptionService.getPrescriptionByID(id));
+            User u = (User) session.getAttribute("currentUser");
+            m.setTotalPrice(BigDecimal.ONE);
+            m.setNurse(u.getNurse());
+            m.setPrescription(this.prescriptionService.getPrescriptionByID(presID));
           
             m.setTotalPrice(BigDecimal.valueOf(Double.parseDouble("90000")));
             m.setCreatedDate(new Date());
             if(this.invoiceService.addOrUpdate(m)==true){
                 attr.addFlashAttribute("success", "s");
-                return"redirect:/nurse/invoice/prescription-list/" + id;
-            }
-            else{
-                model.addAttribute("err","Something wrong");
-                
+                return"redirect:/nurse/invoice/prescription-list/" + presID;
             }
         }
-        attr.addFlashAttribute("wrong", "");
+        attr.addFlashAttribute("err","Something wrong");
         attr.addFlashAttribute("org.springframework.validation.BindingResult.medexcart", result);
         attr.addFlashAttribute("medexcart", m);
-        return "redirect:/nurse/invoice/prescription-list/" + id ;
+        return "redirect:/nurse/invoice/prescription-list/" + presID ;
     }
 }

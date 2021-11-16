@@ -13,8 +13,10 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Order;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
+import org.hibernate.HibernateException;
 
 
 import org.hibernate.Session;
@@ -63,13 +65,14 @@ public class PatientRepositoryImpl implements PatientRepository {
      @Override
     public boolean removePatient(int id) {
        Session session = sessionFactory.getObject().getCurrentSession();
-        Patient m = this.getPatientByID(id);
+        
         try{
+            Patient m = this.getPatientByID(id);
             session.delete(m);
             return true;
         }
-        catch(Exception e){
-        
+        catch(HibernateException e){
+            e.printStackTrace();
         }
         return false;
     }
@@ -106,7 +109,9 @@ public class PatientRepositoryImpl implements PatientRepository {
     
       
         query = query.where(builder.and(predicates.toArray(new Predicate[] {})));
-       
+        List<Order> orderList = new ArrayList();
+        orderList.add(builder.desc(root.get("id").as(Integer.class)));
+        query.orderBy(orderList);
         org.hibernate.query.Query q = session.createQuery(query);
         if(pageQuan != null && !pageQuan.isEmpty() && !pageQuan.equals("all") ){
             int max = Integer.parseInt(pageQuan);

@@ -6,10 +6,18 @@
 package com.wpk.repository.impl;
 
 
+import com.wpk.pojos.MedicalExaminationCard;
 import com.wpk.pojos.PrescriptionDrug;
 import com.wpk.repository.PrescriptionDrugRepository;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.Query;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
+import org.apache.commons.lang.time.DateUtils;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
@@ -68,6 +76,22 @@ public class PrescriptionDrugRepositoryImpl implements PrescriptionDrugRepositor
         }
         return false;
     }
-
+    @Override
+    public List<PrescriptionDrug> getPrescriptionDrugsByPres(int presID){
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<PrescriptionDrug> query = builder.createQuery(PrescriptionDrug.class);
+        Root root = query.from(PrescriptionDrug.class);
+        
+        query = query.select(root);
+        Date today = new Date();
+       
+        Predicate p1 = builder.equal(root.get("prescription").get("id").as(Integer.class), presID);
+        
+        query = query.where(p1);
+        org.hibernate.query.Query q = session.createQuery(query);
+        
+        return q.getResultList();
+    }  
   
 }

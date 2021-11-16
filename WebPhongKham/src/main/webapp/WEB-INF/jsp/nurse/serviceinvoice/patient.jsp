@@ -2,10 +2,10 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<h1 class="mt-4">Tra cứu hóa đơn</h1>
+<h4 class="mt-4">Tìm và lập hóa đơn theo bệnh nhân</h4>
                 <ol class="breadcrumb mb-4">
                     <li class="breadcrumb-item"><a href="index.html">admin</a></li>
-                    <li class="breadcrumb-item active">quanly-benhnhan</li>
+                    <li class="breadcrumb-item active">patient-serviceinvoice</li>
                 </ol>
 <c:if test="${err != null}">
 <div class="alert alert-danger">${err}</div>

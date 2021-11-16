@@ -6,11 +6,14 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<h1 class="mt-4">Quản lý toa thuốc </h1>
+<c:if test="${currentUser.userRole.equals('ROLE_NURSE')}">
+<h1 class="mt-4">kiểm tra toa thuốc và lập HĐ </h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item"><a href="index.html">admin</a></li>
-                            <li class="breadcrumb-item active">quanly-toathuoc</li>
+                            <li class="breadcrumb-item"><a href="<c:url value="/nurse"/>">nurse</a></li>
+                            <li class="breadcrumb-item active">invoice</li>
+                            <li class="breadcrumb-item active">prescription-list</li>
                         </ol>
+</c:if>
 <c:if test="${err != null}">
     <div class="alert alert-danger">${err}</div>
 </c:if>
@@ -36,9 +39,9 @@
              
                                   <div class="form-group">
                                     <label for="patientID">Bệnh nhân</label>
-                                    <select  name ="patientID"class="form-control">
-                                        <option value="all" <c:if test="${medid.equals('all')}">selected</c:if>>ALL</option>
-                                        <option>TẤT CÁ</option>
+                                    <select  style="width:50%"name ="patientID"  class="js-example-basic-single">
+                                        <option selected="true" value="">Chưa chọn</option>
+                                  
                                         <c:forEach items="${patients}" var="p">
                                             <option value="${p.id}"<c:if test="${patientID.equals(Integer.toString(p.id))}"> selected</c:if>>${p.id} ${p.firstName} ${p.lastName}</option>
                                          </c:forEach>
@@ -79,7 +82,7 @@
                 <th>Ngày lập</th>
                 <th>Tên bệnh nhân</th>
                 <th>Tên bác sĩ</th>
-                <th>Tổng tiền</th>
+                
    
                 <th><i class="fas fa-cog"></i></th>
            </tr>
@@ -92,7 +95,7 @@
                         <td>${s.createdDate}</td>
                         <td>${s.patient.firstName}</td>
                         <td>${s.doctor.firstName}</td> 
-                        <td>${s.totalPrice}</td>
+                        
                        
                          <td class="setting">
                          <a href="<c:url value="/nurse/invoice/prescription-list/${s.id}"/>">
@@ -119,6 +122,9 @@
        <a href="<c:url value="/admin/doctor-manager">
                     
                     <c:param name="lastname"
+                             
+                             
+                             
                     value="${presID}"></c:param>
                     <c:param name="account"
                     value="${patientID}"></c:param>

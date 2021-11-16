@@ -10,7 +10,7 @@
 
 <h1 class="mt-4">Phiếu Khám của Bác sĩ(Hôm nay)</h1>
                 <ol class="breadcrumb mb-4">
-                    <li class="breadcrumb-item"><a href="index.html">admin</a></li>
+                    <li class="breadcrumb-item"><a href="<c:url value="/doctor"/>">doctor</a></li>
                     <li class="breadcrumb-item active">quanly-phieukham</li>
                 </ol>
 <c:if test="${err != null}">
@@ -73,14 +73,23 @@
                     <td>${s.nurse.id}.${s.nurse.firstName} ${s.nurse.lastName}</td>
                     <td>${s.patient.firstName} ${s.patient.lastName} </td>
                     <td>${s.doctor.id}.${s.doctor.firstName} ${s.doctor.lastName}</td>
-          
+                    
                    
                     <td class="setting">
-                        <a><a data-toggle="tooltip" title="xem thông tin" title="thông tin"href="<c:url value="/nurse/patient-serviceinvoice/${s.id}"/>">
+                        <c:if test="${s.receive == false}">
+                      <a data-toggle="tooltip" title="xem thông tin" title="thông tin"href="<c:url value="/doctor/today-medcard/receive/${s.id}"/>">
                        <button type="button" class="btn btn-outline-primary">                         
                            Tiếp nhận
                        </button>
                     </a>
+                       </c:if>
+                        <c:if test="${s.receive == true}">
+                      <a data-toggle="tooltip" title="xem thông tin" title="thông tin"href="<c:url value="/doctor/today-medcard/receive/${s.id}"/>">
+                       <button type="button" class="btn btn-danger">                         
+                           Đã tiếp nhận
+                       </button>
+                    </a>
+                       </c:if>
                      </td>
                 </tr>
             </c:forEach>

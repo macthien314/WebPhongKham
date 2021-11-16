@@ -42,6 +42,7 @@ public class PatientManagerController {
        binder.setValidator(patientValidator);
    }
     @GetMapping("/admin/patient-manager")
+    
     public String PatientManager(Model model, @RequestParam(required = false)Map<String, String> params){
         String firstName = params.getOrDefault("firstname", "");
         String lastName = params.getOrDefault("lastname", "");

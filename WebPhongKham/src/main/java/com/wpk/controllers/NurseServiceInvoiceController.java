@@ -66,8 +66,8 @@ public class NurseServiceInvoiceController {
         return "patient-serviceinvoice";
     }
     //trang hien thi cac hóa đơn của bệnh nhân
-    @GetMapping("/nurse/patient-serviceinvoice/{patientid}")
-    public String serviceInvoiceManager(Principal principal,Model model,@PathVariable(value ="patientid") int patientid
+    @GetMapping("/nurse/patient-serviceinvoice/{patientID}")
+    public String serviceInvoiceManager(Principal principal,Model model,@PathVariable(value ="patientID") int patientid
                                      ,@RequestParam(required = false)Map<String, String> params){
         SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
         Date now = new Date();
@@ -75,15 +75,17 @@ public class NurseServiceInvoiceController {
               
         Date fromDate = null;
         Date toDate = null;
+        String from = params.getOrDefault("fromDate", null);
+        String to =params.getOrDefault("toDate",null);
         try{  
             
-            String from =params.getOrDefault("fromDate", null);
+            
 
             if(from != null){
                 fromDate = f.parse(from);
             }
               
-            String to =params.getOrDefault("toDate",null);
+             
 
             if(from != null){
                toDate = f.parse(to);
@@ -111,8 +113,8 @@ public class NurseServiceInvoiceController {
         //atteibute liên quan tìm kiếm
         model.addAttribute("page", Integer.toString(page));
         model.addAttribute("pagequan",pageQuan);
-        model.addAttribute("fromDate", fromDate);
-        model.addAttribute("toDate", toDate);
+        model.addAttribute("fromDate", from);
+        model.addAttribute("toDate", to);
         
         //attribute hien thi
         model.addAttribute("patient",this.patientService.getPatientByID(patientid));
@@ -123,17 +125,14 @@ public class NurseServiceInvoiceController {
         if(model.getAttribute("serviceinvoice") == null)
         model.addAttribute("serviceinvoice",new ServiceInvoice());
         
-        if(model.getAttribute("success") == null)
-        model.addAttribute("success","");
-        
-        if(model.getAttribute("wrong") == null)
-        model.addAttribute("wrong", "");
         String name = principal.getName();
         model.addAttribute("nurse",userDetailsService.getUser(name).get(0).getNurse());
         return "serviceinvoice-list";
     }
-    @PostMapping("/nurse/patient-serviceinvoice/{patientid}/create")
-    private String addServiceInvoiceProcess(Principal principal,Model model,@PathVariable(value ="patientid") int patientid, @ModelAttribute(value = "serviceinvoice")@Valid ServiceInvoice m, BindingResult result
+    
+    //tạo hóa đơn dịch vụ
+    @PostMapping("/nurse/patient-serviceinvoice/{patientID}")
+    private String addServiceInvoiceProcess(Principal principal,Model model,@PathVariable(value ="patientID") int patientid, @ModelAttribute(value = "serviceinvoice")@Valid ServiceInvoice m, BindingResult result
             ,RedirectAttributes attr, HttpSession session){
    
         if(!result.hasErrors())
@@ -144,17 +143,15 @@ public class NurseServiceInvoiceController {
             m.setFee(this.servicesService.getServicesByID(m.getService().getId()).getFee());
             
             if(this.serviceInvoiceService.addOrUpdate(m)==true){
-                attr.addFlashAttribute("success", "s");
+                attr.addFlashAttribute("success", "Tạo hóa đơn dịch vụ thành công");
                 return"redirect:/nurse/patient-serviceinvoice/" + patientid;
             }
-            else{
-                model.addAttribute("err","Something wrong");
-                
-            }
+          
         }
-        attr.addFlashAttribute("wrong", "Lỗi");
+        attr.addFlashAttribute("err","Đã có lỗi gì đó");
+        
         attr.addFlashAttribute("org.springframework.validation.BindingResult.serviceinvoice", result);
         attr.addFlashAttribute("serviceinvoice", m);
-        return "redirect:/nurse/patient-serviceinvoice/" + patientid ;
+        return"redirect:/nurse/patient-serviceinvoice/" + patientid;
     }
 }

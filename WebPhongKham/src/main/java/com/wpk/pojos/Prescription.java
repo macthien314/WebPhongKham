@@ -51,7 +51,7 @@ public class Prescription implements Serializable {
     @Column(name = "id")
     private Integer id;
     @Column(name = "created_date")
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date createdDate;
     

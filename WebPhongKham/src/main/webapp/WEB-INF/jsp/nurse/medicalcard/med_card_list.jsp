@@ -8,13 +8,25 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<h1 class="mt-4">Phiếu Khám của Bác sĩ(Hôm nay)</h1>
+<h4 class="mt-4">Phiếu Khám của Bác sĩ(Hôm nay)</h4>
                 <ol class="breadcrumb mb-4">
-                    <li class="breadcrumb-item"><a href="index.html">admin</a></li>
-                    <li class="breadcrumb-item active">quanly-phieukham</li>
+                    <li class="breadcrumb-item"><a href="index.html">Nurse</a></li>
+                    <li class="breadcrumb-item active">medical-examination-card</li>
+                    <li class="breadcrumb-item active">${doctor.id}. ${doctor.firstName} ${doctor.lastName}</li>
                 </ol>
 <c:if test="${err != null}">
-<div class="alert alert-danger">${err}</div>
+    
+          <div class="alert alert-danger">
+            <strong>Tạo phiếu khám thất bại</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">x</button>
+         </div>
+    
+</c:if>
+<c:if test="${success != null}">
+    <div class="alert alert-success">
+            <strong>Tạo phiếu khám thành công</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">x</button>
+         </div>
 </c:if>
 <div id="managerTable" class="table table-striped w-auto" >
 
@@ -57,7 +69,7 @@
             <th>y tá</th>
             <th>bệnh nhân</th>
             <th>Bác sĩ</th>
-            <th><i class="fas fa-cog"></i></th>
+            <th>Đã khám</th>
        </tr>
     </thead>
     <tbody>
@@ -73,10 +85,15 @@
                     <td>${s.nurse.id}.${s.nurse.firstName} ${s.nurse.lastName}</td>
                     <td>${s.patient.firstName} ${s.patient.lastName} </td>
                     <td>${s.doctor.id}.${s.doctor.firstName} ${s.doctor.lastName}</td>
-                    <td class="setting">
-                    
-
-                     </td>
+                    <td>
+                        <c:if test="${s.receive == true}">
+                            <i class="far fa-check-circle" style="color:green"></i>
+                       
+                            </c:if>
+                        <c:if test="${s.receive == false}">
+                            <i class="fas fa-times" style="color:red"></i>
+                       </c:if>
+                    </td>
                 </tr>
             </c:forEach>
       </tbody>
@@ -124,16 +141,17 @@
                      <form:textarea path="diagnosis" id="diagnosis" name="diagnosis" type="text" cssClass="form-control"/>
                      <form:errors path="diagnosis" cssClass="alert alert-danger" element="div" />
                 </div>  
-                 <div class="chosen-container chosen-container-single form-group">
+                 <div class="chosen-container chosen-container-single" >
                     <label for="tcate">Tên bệnh nhân</label>
-                    <form:select required="required" path="patient"  id="patient" cssClass="form-control">
-
+                    <form:select style="width: 50%" required="required" path="patient"  id="find" cssClass=" js-example-basic-single"> >
+                        <option selected="true" value="">(mã bệnh nhân). (họ và tên)</option>
                         <c:forEach items="${patients}" var="p">
-                            <option value="${p.id}">${p.firstName}</option>
+                            <option value="${p.id}">${p.id}. ${p.firstName} ${p.lastName}</option>
                         </c:forEach>
                     </form:select>
                     <form:errors cssClass="alert alert-danger" path="patient" element="div"/>
                 </div>
+                 
             <div class="form-group">
                 <button type="submit" class="btn btn-primary btn-block">Tạo Hóa Đơn Dịch Vụ</button>
             </div>
@@ -146,9 +164,14 @@
   </div>
 
 
-              <c:if test="${!success.equals('')}">
+              <c:if test="${success != null}">
                   <script>
-                      alert('Tạo hóa đơn thành công ${susscess}');
+                      alert('Tạo phiếu khám thành công');
+                  </script>
+              </c:if>
+               <c:if test="${err != null}">
+                  <script>
+                      alert('Tạo phiếu khám lỗi');
                   </script>
               </c:if>
 

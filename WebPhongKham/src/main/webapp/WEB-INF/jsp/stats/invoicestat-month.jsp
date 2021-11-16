@@ -12,12 +12,13 @@
 <form>
     <div class="form-group">
         <label for="fromDate">Từ thời điểm</label>
-        <input type="date" name="fromDate" class="form-control"><!-- comment -->
+        <input type="date" value="${fromDate}" name="fromDate" class="form-control"><!-- comment -->
     </div>
     <div class="form-group">
         <label for="fromDate">Đến thời điểm</label>
-    <input type="date" name="toDate"  class="form-control"><!-- comment -->
+    <input type="date" valu="${toDate}" name="toDate"  class="form-control"><!-- comment -->
     </div>
+
     <div class="form-group">
         
         <input type="submit" value="Thống kê" class="btn btn-success"><!-- comment -->

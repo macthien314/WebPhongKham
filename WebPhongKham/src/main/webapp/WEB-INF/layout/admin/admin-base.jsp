@@ -27,7 +27,7 @@
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet">
     <link rel="stylesheet" href="<c:url value="/vendor/icofont/icofont.min.css"/>">
     </head>
-    
+    <body>
             <!--Slide bar-->
         
          
@@ -54,5 +54,5 @@
    <script src="<c:url value="/js/stats.js"/>"></script>
   <script src="https://harvesthq.github.io/chosen/chosen.jquery.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    
+    </body>
 </html>

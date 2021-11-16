@@ -4,11 +4,26 @@
     Author     : macth
 --%>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="<c:url value="/js/stats.js"/>"></script>
-<h1 class ="text-center text-danger">THỐNG KÊ SỐ LƯỢNG BỆNH NHÂN ĐẾN KHÁM</h1>
+<h3 class ="text-center text-danger">THỐNG KÊ SỐ LƯỢNG BỆNH NHÂN ĐẾN KHÁM</h3>
+<form>
+    <div class="form-group">
+        <label for="fromDate">Từ thời điểm</label>
+        <input type="date" value="${fromDate}" name="fromDate" class="form-control"><!-- comment -->
+    </div>
+    <div class="form-group">
+        <label for="fromDate">Đến thời điểm</label>
+    <input type="date" valu="${toDate}" name="toDate"  class="form-control"><!-- comment -->
+    </div>
+    <div class="form-group">
+        
+        <input type="submit" value="Thống kê" class="btn btn-success"><!-- comment -->
+    </div>
+</form>
+
 <div>
   <canvas id="numPatientChart"></canvas>
 </div>

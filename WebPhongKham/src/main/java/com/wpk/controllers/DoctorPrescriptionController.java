@@ -10,16 +10,24 @@ import com.wpk.pojos.DrugCart;
 import com.wpk.pojos.Invoice;
 import com.wpk.pojos.MedicalExaminationCard;
 import com.wpk.pojos.Prescription;
+import com.wpk.pojos.PrescriptionDrug;
+import com.wpk.pojos.User;
 import com.wpk.service.DoctorService;
 import com.wpk.service.DrugService;
 import com.wpk.service.MedicalExaminationCardService;
 import com.wpk.service.PatientService;
+import com.wpk.service.PrescriptionDrugService;
 import com.wpk.service.PrescriptionService;
 import com.wpk.service.UserService;
+import com.wpk.utils.util;
+import static com.wpk.utils.util.checkDrug;
+import static com.wpk.utils.util.isNumeric;
+import static com.wpk.utils.util.presTotalPrice;
 import com.wpk.validator.WebAppValidator;
 import java.math.BigDecimal;
 import java.security.Principal;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import javax.servlet.http.HttpSession;
@@ -35,6 +43,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
@@ -53,9 +62,11 @@ public class DoctorPrescriptionController {
     private PrescriptionService prescriptionService;
      @Autowired
     private MedicalExaminationCardService medicalExaminationCardsService;
+     @Autowired
+    private PrescriptionDrugService prescriptionDrugService;
     @Autowired
     private WebAppValidator prescriptionValidator;
-    
+  
    
     @Autowired
     private UserService userDetailsService;
@@ -79,22 +90,23 @@ public class DoctorPrescriptionController {
         return "doctor-today-medcard";
     }
     //recive and create prescription
-    @GetMapping("doctor/today-medcard/receive/{medcardID}")
-    public String recieveMedcard(Authentication aut,Model model,@PathVariable(value ="medcardID") int id,HttpSession session){        
+    @GetMapping("/doctor/today-medcard/receive/{medcardID}")
+    public String recieveMedcard(Model model,@PathVariable(value ="medcardID") int id,HttpSession session){        
         
         MedicalExaminationCard medCart = this.medicalExaminationCardsService.getMedicalExaminationCardByID(id);
         
-        String name = aut.getName();
-        Doctor d = userDetailsService.getUser(name).get(0).getDoctor();
-        
+        User u = (User) session.getAttribute("currentUser");
+        Doctor d = u.getDoctor();
         //redirect khi không phải phieu cua bac si
-        if(!Objects.equals(medCart.getDoctor().getId(), d.getId()))
+        if(!Objects.equals(medCart.getDoctor().getId(), d.getId()) || medCart == null || util.compareToNow(medCart.getDate()) == false)
             return "redirect:/doctor/today-medcard";
         Map<Integer, DrugCart> drugCart = (Map<Integer, DrugCart>) session.getAttribute("drugCart");
+        
         if(drugCart != null && !drugCart.isEmpty())
             model.addAttribute("drugCarts", drugCart.values());
         else model.addAttribute("drugCarts", null);
         
+        if(model.getAttribute("prescription") == null)
         model.addAttribute("prescription", new Prescription());
         model.addAttribute("medcard", medCart);
         model.addAttribute("doctor", d);
@@ -103,20 +115,77 @@ public class DoctorPrescriptionController {
     }
     
     //tạo toa thuốc
-    @PostMapping("doctor/today-medcard/receive/{medcardID}")
-    public String recievceAndCreate(Authentication aut,Model model,@PathVariable(value ="medcardID") int id, @ModelAttribute(value = "prescription")@Valid Prescription m, BindingResult result, HttpSession session){
+    @PostMapping("/doctor/today-medcard/receive/{medcardID}")
+    public String recievceAndCreate(Model model,@PathVariable(value ="medcardID") int id, @ModelAttribute(value = "prescription")@Valid Prescription m, BindingResult result, HttpSession session,RedirectAttributes attr){
         if(!result.hasErrors())
         {   
+            User u = (User) session.getAttribute("currentUser");
             MedicalExaminationCard medCart = this.medicalExaminationCardsService.getMedicalExaminationCardByID(id);
             Map<Integer, DrugCart> drugCart = (Map<Integer, DrugCart>) session.getAttribute("drugCart");
             if(this.prescriptionService.addPrescription(m, medCart,drugCart)==true){
-               
+                session.setAttribute("drugCart", null);
                 return"redirect:/doctor/today-medcard";
             }
-            else{
-                model.addAttribute("err","Something wrong");     
-            }
+          
         }
-        return "recive-medcard";
+       
+        attr.addFlashAttribute("err","Something wrong");
+        
+        attr.addFlashAttribute("org.springframework.validation.BindingResult.prescription", result);
+        attr.addFlashAttribute("prescription", m);
+        return "redirect:/doctor/today-medcard/receive/" + id ;
     } 
+    @GetMapping("/doctor/prescription-list")
+    public String prescriptionList(Model model,@RequestParam(required = false)Map<String, String> params){
+        
+        String presID = params.getOrDefault("id", "");
+        if(!isNumeric(presID))
+            presID = "";
+        
+        String patientID = params.getOrDefault("patientID", "");
+        if(!isNumeric(patientID))
+            patientID = "";
+        
+        //xử lý page
+        String pageQuan = params.getOrDefault("pagequan", "10");
+        if(pageQuan.isEmpty() ){
+            pageQuan = "10";
+        }
+        else if(!pageQuan.equals("all"))
+                if(!isNumeric(pageQuan))
+                    pageQuan = "all";
+                else if(Integer.parseInt(pageQuan) <= 0)
+                    pageQuan = "10";
+           
+        int page = Integer.parseInt(params.getOrDefault("page", "1"));
+        model.addAttribute("page", Integer.toString(page));
+        model.addAttribute("pagequan",pageQuan);
+        //kết thúc xử lý page
+        model.addAttribute("prescriptions",this.prescriptionService.getPrescriptions(presID, patientID,pageQuan,page));
+        model.addAttribute("count", this.prescriptionService.countPresciptions(presID, patientID));
+        model.addAttribute("patients",this.patientService.getPatients()); 
+        model.addAttribute("patientID", patientID);
+        model.addAttribute("presID",presID);
+        
+
+        
+        
+        
+        return "nurse-prescription";
+    }
+    @GetMapping("/doctor/prescription-list/{presid}")
+    public String prescriptionInvoice(HttpSession session,Model model,@PathVariable(value ="presid") int presID){
+        
+        List<PrescriptionDrug> presDrugs = this.prescriptionDrugService.getPrescriptionDrugsByPres(presID);
+        
+        model.addAttribute("prescription", this.prescriptionService.getPrescriptionByID(presID));
+        model.addAttribute("prescriptionDrugs",presDrugs);
+        model.addAttribute("check", checkDrug(presDrugs));
+        model.addAttribute("totalPrice",presTotalPrice(presDrugs));
+        if(model.getAttribute("invoice") ==  null)
+            model.addAttribute("invoice", new Invoice());
+        User u = (User) session.getAttribute("currentUser");
+        model.addAttribute("nurse",u.getNurse());
+        return "nurse-prescription-invoice";
+    }
 }

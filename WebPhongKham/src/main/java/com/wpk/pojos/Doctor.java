@@ -91,9 +91,7 @@ public class Doctor implements Serializable {
     @NotNull
     @Column(name = "years_experience")
     private String yearsExperience;
-    @Basic(optional = false)
-  
-    @Size(min = 1, max = 100)
+    
     @Column(name = "image")
     private String image;
     

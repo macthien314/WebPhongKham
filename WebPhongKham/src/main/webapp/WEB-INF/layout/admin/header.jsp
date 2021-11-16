@@ -33,10 +33,9 @@
               aria-haspopup="true" aria-expanded="false">
               <i class="fas fa-user"></i>
             </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink-333">
-                <a class="dropdown-item" href="<c:url value="/logout"/>">Action</a>
-              <a class="dropdown-item" href="#!">Another action</a>
-              <a class="dropdown-item" href="#!">Something else here</a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink-333"> 
+              <a class="dropdown-item" href="<c:url value="/profil"/>">Thông tin người dùng</a>
+              <a class="dropdown-item" href="<c:url value="/logout"/>">Đăng xuất</a>
             </div>
       </li>
     </ul>

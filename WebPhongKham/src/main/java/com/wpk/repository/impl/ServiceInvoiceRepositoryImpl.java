@@ -18,6 +18,8 @@ import java.util.List;
 import java.util.Map;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Order;
+
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import org.hibernate.Session;
@@ -85,7 +87,7 @@ public class ServiceInvoiceRepositoryImpl implements ServiceInvoiceRepository{
         CriteriaQuery<ServiceInvoice> query = builder.createQuery(ServiceInvoice.class);
         Root root = query.from(ServiceInvoice.class);
         query = query.select(root);
-  
+      
        List<Predicate> predicates = new ArrayList<Predicate>();
       
         if(patientiID != 0){
@@ -93,18 +95,22 @@ public class ServiceInvoiceRepositoryImpl implements ServiceInvoiceRepository{
         }
          if(fromDate != null)
         {
-           predicates.add(builder.greaterThanOrEqualTo(root.get("date"), fromDate));
+           predicates.add(builder.greaterThanOrEqualTo(root.get("createdDate"), fromDate));
         }
         if(toDate != null)
         {
-           predicates.add(builder.lessThanOrEqualTo(root.get("date"), toDate));
+           predicates.add(builder.lessThanOrEqualTo(root.get("createdDate"), toDate));
         }
        
     
       
         query = query.where(builder.and(predicates.toArray(new Predicate[] {})));
-       
+         List<Order> orderList = new ArrayList();
+        orderList.add(builder.desc(root.get("id").as(Integer.class)));
+        query.orderBy(orderList);
+        
         Query q = session.createQuery(query);
+       
         if(pageQuan != null && !pageQuan.isEmpty() && !pageQuan.equals("all") ){
             int max = Integer.parseInt(pageQuan);
             q.setMaxResults(max);
@@ -118,12 +124,12 @@ public class ServiceInvoiceRepositoryImpl implements ServiceInvoiceRepository{
         Session session = sessionFactory.getObject().getCurrentSession();
         String query="SELECT COUNT(*) FROM  ServiceInvoice p where p.id is not null";
         if(patientid != 0){
-             query = query + " and p.patient.id == :id";
+             query = query + " and p.patient.id = :id";
         }
         if(fromDate != null)
-            query = query + " and p.date >= :fromDate";
+            query = query + " and p.createdDate >= :fromDate";
         if(toDate != null)
-            query = query + " and p.date <= :toDate";
+            query = query + " and p.createdDate <= :toDate";
         
         Query q = session.createQuery(query);    
         if(patientid != 0)

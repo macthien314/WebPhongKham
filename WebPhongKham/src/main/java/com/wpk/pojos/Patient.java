@@ -53,9 +53,9 @@ public class Patient implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
     @Column(name = "id")
     private Integer id;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
@@ -78,8 +78,7 @@ public class Patient implements Serializable {
     @Column(name = "gender")
     private String gender;
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 100)
+    
     @Column(name = "image")
     private String image;
     // @Pattern(regexp="^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$", message="Invalid phone/fax format, should be as xxx-xxx-xxxx")//if the field contains phone or fax number consider using this annotation to enforce field validation
@@ -94,7 +93,9 @@ public class Patient implements Serializable {
     @Size(min = 1, max = 45)
     @Column(name = "email")
     private String email;
-    
+    @Basic(optional = false)
+    @Column(name = "address")
+    private String address;
     @OneToMany(mappedBy = "patient")
     private List<MedicalExaminationCard> medicalExaminationCard;
     
@@ -107,7 +108,7 @@ public class Patient implements Serializable {
     @OneToMany(mappedBy = "patient")
     private List<Prescription> prescriptionList;
     
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "user_id",insertable = true, updatable = true)
     private User user;
     
@@ -277,5 +278,19 @@ public class Patient implements Serializable {
      */
     public void setFile(MultipartFile file) {
         this.file = file;
+    }
+
+    /**
+     * @return the address
+     */
+    public String getAddress() {
+        return address;
+    }
+
+    /**
+     * @param address the address to set
+     */
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

@@ -45,6 +45,11 @@ public class PrescriptionDrugServiceImpl implements PrescriptionDrugService {
     public boolean removePrescriptionDrug(int id) {
         return this.prescriptionDrugRepository.removePrescriptionDrug(id);
     }
+
+    @Override
+    public List<PrescriptionDrug> getPrescriptionDrugsByPres(int i) {
+        return this.prescriptionDrugRepository.getPrescriptionDrugsByPres(i);
+    }
     
   
 }

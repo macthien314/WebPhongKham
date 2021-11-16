@@ -1,20 +1,36 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<c:url value="/nurse/patient-serviceinvoice/${patientID}" var="action"/>
 <h1 class="mt-4">Hóa Đơn Dịch Vụ</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="index.html">admin</a></li>
                             <li class="breadcrumb-item active">quanly-hoadondichvu</li>
                         </ol>
 <c:if test="${err != null}">
-    <div class="alert alert-danger">${err}</div>
+    <script>
+                      alert('!ERROR!Tạo hóa đơn Thất bại');
+   </script>
+          <div class="alert alert-danger">
+            <strong>${err}</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">x</button>
+         </div>
+         
+</c:if>
+<c:if test="${success != null}">
+    <div class="alert alert-success">
+            <strong>${success }</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">x</button>
+         </div>
 </c:if>
     <div class="card mr-auto ml-auto" style="width: 18rem;">
 
   <div class="card-body">
     <h5 class="card-title text-center">Bệnh nhân</h5>
     <p class="card-text">${patient.id} . ${patient.firstName} ${patient.lastName}</p>
-    <p class="card-text">Ngày sinh: ${patient.birthDate} </p>
+    <p class="card-text">Ngày sinh: <fmt:formatDate value="${patient.birthDate}" pattern="dd-MM-yyyy" /></p>
   </div>
 </div>
     <br>
@@ -107,7 +123,7 @@
   
     
     </div>
-    <c:url value="/nurse/patient-serviceinvoice/${patient.id}/create" var="action"/>
+    
              
               <!-- Modal -->
 <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -149,8 +165,8 @@
                  <div class="form-group">
                  <label for="tcate">Tên dịch vụ</label>
                     
-                    <form:select path="service" id="find" cssClass="js-example-basic-single">
-                        <option disabled selected="true">Chưa chọn</option>
+                    <form:select style="width:50%" path="service" id="find" cssClass="js-example-basic-single">
+                        <option selected="true" value="">Chưa chọn</option>
                         <c:forEach items="${services}" var="s">
                             <option  value="${s.id}">${s.name}: giá tiền ${s.fee}VNĐ</option>
                         </c:forEach>
@@ -169,16 +185,73 @@
     </div>
   </div>
 </div>
+    <c:if test="${pagequan != null && count >0}"> 
+    <c:if test="${!pagequan.equals('all')}"> 
+<div class="pagination">
+   <a href="<c:url value="/nurse/patient-serviceinvoice/${patientID}">
+                   <c:param name="name"
+                    value="${name}"></c:param>
+                    <c:param name="fromDate"
+                    value="${from}"></c:param>
+                    <c:param name="toDate"
+                    value="${to}"></c:param>
+                    <c:param name="pagequan"
+                    value="${pagequan}"></c:param>
+                    <c:param name="page"
+                    value="1"></c:param>
+                </c:url>"
+       >«</a>
+   
+  
+   <c:forEach begin = "1" end="${Math.ceil(count/Integer.parseInt(pagequan))}" var="i">
+   <c:if test="${page != i}">
+       <a href="<c:url value="/nurse/patient-serviceinvoice/${patientID}">
+                    <c:param name="name"
+                    value="${name}"></c:param>
+                    <c:param name="fromDate"
+                    value="${from}"></c:param>
+                    <c:param name="toDate"
+                    value="${to}"></c:param>
+                    <c:param name="pagequan"
+                    value="${pagequan}"></c:param>
+                    <c:param name="page"
+                    value="${i}"></c:param>
+                </c:url>"
+       >${i}</a></li>
+   </c:if>
+   <c:if test="${page == i}">
+   
+  <a class ="active"href="<c:url value="/nurse/patient-serviceinvoice/${patientID}">
+                    <c:param name="name"
+                    value="${name}"></c:param>
+                    <c:param name="fromDate"
+                    value="${from}"></c:param>
+                    <c:param name="toDate"
+                    value="${to}"></c:param>
+                    <c:param name="pagequan"
+                    value="${pagequan}"></c:param>
+                    <c:param name="page"
+                    value="${i}"></c:param>
+                </c:url>"
+       >${i}</a></li>
+   </c:if>
+   </c:forEach>
+   
+   <a href="<c:url value="/nurse/patient-serviceinvoice/${patientID}">
+                    <c:param name="name"
+                    value="${name}"></c:param>
+                    <c:param name="fromDate"
+                    value="${from}"></c:param>
+                    <c:param name="toDate"
+                    value="${to}"></c:param>
+                    <c:param name="pagequan"
+                    value="${pagequan}"></c:param>
+                    <c:param name="page"
+                    value="${fn:replace((Math.ceil(count/Integer.parseInt(pagequan))), '.0', '')}"></c:param>
+                </c:url>"
+       >»</a>
+ </div>
+              </c:if>
+   </c:if >
 
-              <c:if test="${!success.equals('')}">
-                  <script>
-                      alert('Tạo hóa đơn thành công ${susscess}');
-                  </script>
-              </c:if>
-              <c:if test="${!wrong.equals('')}">
-                  <script type="text/javascript">
-    
-        $('#createModal').modal('show');
-    
-                  </script>             <p>f</p>
-              </c:if>
+              

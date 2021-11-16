@@ -2,18 +2,17 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<h1 class="mt-4">Quản lý Bác Sĩ</h1>
+<h4 class="mt-4">Phiếu khám</h4>
                 <ol class="breadcrumb mb-4">
-                    <li class="breadcrumb-item"><a href="index.html">admin</a></li>
-                    <li class="breadcrumb-item active">quanly-bacsi</li>
+                    <li class="breadcrumb-item"><a href="<c:url value="/nurse"/>">nurse</a></li>
+                    <li class="breadcrumb-item active">medical-examination-card</li>
                 </ol>
 
 <div class="row">
             
         <div class="col-md-3">
-            <a href="<c:url value="/admin/doctor-manager/add-doctor"/>" class=" btn btn-primary btn-xs pull-right"><b>+</b> ADD Service</a>
             </div>
-             
+    <br><br>
              <div class="col-md-8">
             
                  <div class="input-group" id="adv-search">

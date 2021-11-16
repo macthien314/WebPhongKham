@@ -59,11 +59,11 @@ public class ServiceInvoiceServiceImpl implements ServiceInvoiceService {
 
      @Override
     public List<ServiceInvoice> getServiceInvoicesByPatient(int patientiID,Date fromDate,Date toDate,String pageQuan,int page) {
-        return this.getServiceInvoicesByPatient(patientiID, fromDate, toDate, pageQuan, page);
+        return this.serviceInvoiceRepository.getServiceInvoicesByPatient(patientiID, fromDate, toDate, pageQuan, page);
     }
     @Override
     public long countServiceInvoicesByPatient(int patientid,Date fromDate,Date toDate){
-        return this.countServiceInvoicesByPatient(patientid, fromDate, toDate);
+        return this.serviceInvoiceRepository.countServiceInvoicesByPatient(patientid, fromDate, toDate);
     }
     
 }

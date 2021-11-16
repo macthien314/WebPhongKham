@@ -8,7 +8,7 @@
 <%@taglib prefix="Spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<h1 class="mt-4">NURSE User</h1>
+<h1 class="mt-4">Doctor User</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="index.html">admin</a></li>
                             <li class="breadcrumb-item active">quan-ly-slide</li>
@@ -28,7 +28,7 @@
                 <img class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm" src="<c:url value="https://res.cloudinary.com/ikj/image/upload/v1629733269/xj1uz3fcgzxigczoqu8m.png"/>" alt="${p.name}" />
 
             </c:if>
-           <h5 class="mb-0">${u.username}</h5><span class="small text-uppercase text-muted">Bệnh nhân</span>
+           <h5 class="mb-0">${u.username}</h5><span class="small text-uppercase text-muted">Bác sĩ</span>
           <ul class="social mb-0 list-inline mt-3">
             <li class="list-inline-item"><a href="#" class="social-link"><i class="fas fa-info-circle"></i></i></a></li>
             

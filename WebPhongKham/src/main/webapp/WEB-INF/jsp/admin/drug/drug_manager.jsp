@@ -10,7 +10,7 @@
 
 <h4 class="mt-4">Quản lý Thuốc</h4>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item"><a href="<c:url value="/admin">admin</a></li>
+                            <li class="breadcrumb-item"><a href="<c:url value="/admin"/>">admin</a></li>
                             <li class="breadcrumb-item active">quanly-thuoc</li>
                         </ol>
 <c:if test="${err != null}">

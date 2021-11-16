@@ -21,4 +21,6 @@ public interface PrescriptionDrugService {
     PrescriptionDrug getPrescriptionDrugByID(int id);
     boolean addOrUpdate(PrescriptionDrug m);
     boolean removePrescriptionDrug(int id); 
+
+    List<PrescriptionDrug> getPrescriptionDrugsByPres(int presID);
 }

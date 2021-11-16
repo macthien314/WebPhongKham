@@ -15,6 +15,7 @@ import java.util.Date;
 import java.util.List;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Order;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import org.apache.commons.lang.time.DateUtils;
@@ -93,6 +94,9 @@ public class MedicalExaminationCardRepositoryImpl implements MedicalExaminationC
         
           
         query = query.where(builder.and(p1, p2));
+         List<Order> orderList = new ArrayList();
+        orderList.add(builder.desc(root.get("id").as(Integer.class)));
+        query.orderBy(orderList);
         Query q = session.createQuery(query);
         
         return q.getResultList();

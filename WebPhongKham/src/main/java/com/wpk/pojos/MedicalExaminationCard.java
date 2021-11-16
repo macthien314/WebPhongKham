@@ -67,15 +67,15 @@ public class MedicalExaminationCard implements Serializable {
     @Basic(optional = false)
     @Column(name = "fee")
     private BigDecimal fee;
-    @Size(max = 100)
+    
     @Column(name = "sympton")
-    @NotNull
+    @Size(min = 5, max = 100,message = "medcard.string.size")
     private String sympton;
-    @Column(name = "receive")
-    private Boolean receive;
-    @Size(max = 100)
+    @Column(name = "receive", nullable = true)
+    private boolean receive;
+    
     @Column(name = "diagnosis")
-    @NotNull
+    @Size(min = 5, max = 100,message = "medcard.string.size")
     private String diagnosis;
     
     @ManyToOne
