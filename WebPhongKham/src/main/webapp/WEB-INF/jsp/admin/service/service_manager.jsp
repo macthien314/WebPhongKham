@@ -19,7 +19,7 @@
     <div class="row">
             
         <div class="col-md-3">
-            <a href="<c:url value="/admin/services-manager/add-services"/>" class=" btn btn-primary btn-xs pull-right"><b>+</b> ADD Service</a>
+            <a href="<c:url value="/admin/services-manager/add-services"/>" class=" btn btn-primary btn-xs pull-right"><b>+</b>Thêm dịch vụ</a>
             </div>
              
              <div class="col-md-8">

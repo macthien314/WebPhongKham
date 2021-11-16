@@ -7,17 +7,17 @@
  <main id="main">
 
     <!-- ======= Breadcrumbs Section ======= -->
-      <section style="margin-top: -50px; margin-bottom: -30px;" class="breadcrumbs">
+      <section class="breadcrumbs">
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
           <h2 style=" font-weight: bold;">Giới Thiệu Về Dịch Vụ</h2>
           <ol>
-            <li><a href="http://localhost:8080/WebPhongKham/">Home</a></li>
+            <li><a href="http://localhost:8080/WebPhongKham/">Trang chủ</a></li>
              <li>
               <c:if test="${pageContext.request.userPrincipal.name == null}">
      
-                <a href="<c:url value="/login"/>"><i class="fa fa-user"></i>Login</a>
+                <a href="<c:url value="/login"/>"><i class="fa fa-user"></i>Đăng nhập</a>
               </c:if>
     
               <c:if test="${pageContext.request.userPrincipal.name != null}">

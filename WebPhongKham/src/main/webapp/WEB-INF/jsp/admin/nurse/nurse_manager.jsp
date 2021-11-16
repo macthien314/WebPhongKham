@@ -20,7 +20,7 @@
 <div class="row">
             
         <div class="col-md-3">
-<a href="<c:url value="/admin/nurse-manager/add-nurse"/>" class=" btn btn-primary btn-xs pull-right"><b>+</b> ADD Nurse</a>
+<a href="<c:url value="/admin/nurse-manager/add-nurse"/>" class=" btn btn-primary btn-xs pull-right"><b>+</b>Thêm y tá</a>
         </div>
              
              <div class="col-md-8">
@@ -98,13 +98,13 @@
 
         <tr>
             <th class="th-sm">Mã</th>
-            <th>tên</th>
+            <th>Tên</th>
             
             <th>Ngày sinh</th>
             <th>Giới tính</th>
             <th>SĐT</th>
             <th>Email</th>
-            <th style="width: 70% ">Ảnh</th>
+            <th style="width:100% ">Ảnh</th>
             <th>Tên Khoa</th>
             <th>Tên tài khoản</th>
             

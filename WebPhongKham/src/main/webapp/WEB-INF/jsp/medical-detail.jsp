@@ -12,15 +12,24 @@
 
  <main id="main">
 
-    <!-- ======= Breadcrumbs Section ======= -->
     <section class="breadcrumbs">
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Inner Page</h2>
+          <h2 style=" font-weight: bold;">Giới Thiệu Về Chuyên Khoa</h2>
           <ol>
-            <li><a href="index.html">Home</a></li>
-            <li>Inner Page</li>
+            <li><a href="http://localhost:8080/WebPhongKham/">Trang chủ</a></li>
+             <li>
+              <c:if test="${pageContext.request.userPrincipal.name == null}">
+     
+                <a href="<c:url value="/login"/>"><i class="fa fa-user"></i>Đăng nhập</a>
+              </c:if>
+    
+              <c:if test="${pageContext.request.userPrincipal.name != null}">
+            
+                <a href="<c:url value="/login"/>"><i class="fa fa-user"></i> ${pageContext.request.userPrincipal.name}</a>
+              </c:if>
+          </li>
           </ol>
         </div>
 

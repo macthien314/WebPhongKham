@@ -47,6 +47,27 @@
         <put-attribute name="content" value="/WEB-INF/jsp/nurse-detail.jsp"/>
     </definition>
     
+     <definition name="services-detail" extends="baseLayout">
+        <put-attribute name="title" value="Thông tin dịch vụ"/>
+        <put-attribute name="slide" value="/WEB-INF/layout/slide.jsp"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/services-detail.jsp"/>
+    </definition>
+    
+      <definition name="appointment-date" extends="baseLayout">
+        <put-attribute name="title" value=""/>
+        <put-attribute name="slide" value="/WEB-INF/layout/slide.jsp"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/appointment-date.jsp"/>
+    </definition>
+    
+    
+    <definition name="contact" extends="baseLayout">
+        <put-attribute name="title" value=""/>
+        <put-attribute name="slide" value="/WEB-INF/layout/slide.jsp"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/contact.jsp"/>
+    </definition>
+    
+   
+    
     
      <!-- start admin -->
      <definition name="adminLayout" template="/WEB-INF/layout/admin/admin-base.jsp">
@@ -333,15 +354,8 @@
     </definition>
     
     
-    <definition name="team" extends="baseLayout">
-        <put-attribute name="title" value="Đội ngũ bác sĩ"/>
-        <put-attribute name="slide" value=""/>
-        <put-attribute name="content" value="/WEB-INF/jsp/introduce/team.jsp"/>
-    </definition>
-    <definition name="services-detail" extends="baseLayout">
-        <put-attribute name="title" value="Thông tin bác sĩ"/>
-        <put-attribute name="slide" value="/WEB-INF/layout/slide.jsp"/>
-        <put-attribute name="content" value="/WEB-INF/jsp/services-detail.jsp"/>
-    </definition>
+
+    
+   
     
 </tiles-definitions>

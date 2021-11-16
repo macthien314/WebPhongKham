@@ -7,9 +7,32 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <c:url value="/organizationchart" var="action"/>
 <div class="container gioithieumo">
+    <section style="margin-top: -50px; margin-bottom: -30px;" class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+             <h2 style=" font-weight: bold;">Sơ đồ tổ chức</h2>
+          <ol>
+            <li><a href="http://localhost:8080/WebPhongKham/">Trang chủ</a></li>
+              <li>
+              <c:if test="${pageContext.request.userPrincipal.name == null}">
+     
+                <a href="<c:url value="/login"/>"><i class="fa fa-user"></i>Đăng nhập</a>
+             </c:if>
+    
+             <c:if test="${pageContext.request.userPrincipal.name != null}">
+            
+                <a href="<c:url value="/login"/>"><i class="fa fa-user"></i> ${pageContext.request.userPrincipal.name}</a>
+             </c:if>
+          </li>
+          </ol>
+        </div>
+
+      </div>
+    </section>
             
             <div class=" col-md-12 col-sm-12 col-xs-12 pd5 h1lienhe">
-              <h1>Sơ đồ tổ chức</h1>
+            
               
               
               <div class="info-description-article clearfix">

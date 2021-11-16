@@ -23,7 +23,7 @@
           
         <div class="col-md-3">
 <button  type="button" data-toggle="modal" data-target="#createModal"  class="btn btn-outline-primary">                         
-                           TẠO HÓA ĐƠN DỊCH VỤ
+                           Thêm bệnh nhân
                  </button>
         </div>
             

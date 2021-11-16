@@ -7,21 +7,29 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:url value="/valuevision" var="action"/>
-<main id="main">
-    <section class="breadcrumbs">
+   <section style="margin-top: -50px; margin-bottom: -30px;" class="breadcrumbs">
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2 style=" font-weight: bold;">Tầm nhìn-sứ mệnh-giá trị cốt lỗi</h2>
+           <h2 style=" font-weight: bold; ">Tầm nhìn - Sứ mệnh - Giá trị cốt lõi</h2>
           <ol>
-            <li><a href="index.html">Home</a></li>
-            <li>Login</li>
+            <li><a href="http://localhost:8080/WebPhongKham/">Trang chủ</a></li>
+              <li>
+              <c:if test="${pageContext.request.userPrincipal.name == null}">
+     
+                <a href="<c:url value="/login"/>"><i class="fa fa-user"></i>Đăng nhập</a>
+             </c:if>
+    
+             <c:if test="${pageContext.request.userPrincipal.name != null}">
+            
+                <a href="<c:url value="/login"/>"><i class="fa fa-user"></i> ${pageContext.request.userPrincipal.name}</a>
+             </c:if>
+          </li>
           </ol>
         </div>
 
       </div>
     </section>
-    <section class="inner-page">
 <div class=" col-md-12 col-sm-12 col-xs-12 pd5 h1lienhe">
              
               
@@ -143,5 +151,4 @@ Tạo nên một mái nhà thứ hai cho Người bệnh và Đội ngũ y tế<
       </div>
     </div>
   </div>
-</section>
-</main>
+

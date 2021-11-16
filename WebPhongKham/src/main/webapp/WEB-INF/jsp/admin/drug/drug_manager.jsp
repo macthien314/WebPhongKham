@@ -18,7 +18,7 @@
 </c:if>
     <div class="row">
             <div class="col-md-3">
-            <a href="<c:url value="/admin/drug-manager/add-drug"/>" class=" btn btn-primary btn-xs pull-right"><b>+</b> ADD Drug</a>
+            <a href="<c:url value="/admin/drug-manager/add-drug"/>" class=" btn btn-primary btn-xs pull-right"><b>+</b>Thêm thuốc</a>
              </div>
              <div class="col-md-8">
             <div class="input-group" id="adv-search">

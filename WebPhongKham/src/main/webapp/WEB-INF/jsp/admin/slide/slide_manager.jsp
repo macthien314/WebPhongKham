@@ -17,7 +17,7 @@
     	<c:url var="post_url"  value="/admin/quanly-slide" />
   <div class="row">
             <div class="col-md-3">
-            <a href="<c:url value="/admin/quanly-slide/them-slide"/>" class=" btn btn-primary btn-xs pull-right"><b>+</b> ADD NEW SLIDE</a>
+            <a href="<c:url value="/admin/quanly-slide/them-slide"/>" class=" btn btn-primary btn-xs pull-right"><b>+</b>Thêm slide mới</a>
              </div>
              <div class="col-md-8">
             <div class="input-group" id="adv-search">

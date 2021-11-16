@@ -20,7 +20,7 @@
     <div class="alert alert-danger">${err}</div>
 </c:if>
         <div class="col-md-3">
-            <a href="<c:url value="/admin/doctor-manager/add-doctor"/>" class=" btn btn-primary btn-xs pull-right"><b>+</b> ADD Service</a>
+            <a href="<c:url value="/admin/doctor-manager/add-doctor"/>" class=" btn btn-primary btn-xs pull-right"><b>+</b>Thêm bác sĩ</a>
             </div>
             
              <div class="col-md-8">
@@ -36,12 +36,12 @@
                             <div class="dropdown-menu dropdown-menu-right" role="menu">
                                 <form  class="form-horizontal" role="form">
                                   <div class="form-group">
-                                    <label for="firstName">Nhập họ</label>
-                                    <input value="${firstname}" name ="firstname" class="form-control" type="text" />
+                                    <label for="lastname">Nhập họ</label>
+                                    <input value="${lastname}" name ="lastname" class="form-control" type="text" />
                                   </div>
                                   <div class="form-group">
-                                    <label for="lastname">Nhập tên đệm và tên</label>
-                                    <input value="${lastname}" name ="lastname" class="form-control" type="text" />
+                                    <label for="firstName">Nhập tên đệm và tên</label>
+                                    <input value="${firstName}" name ="firstName" class="form-control" type="text" />
                                   </div>
                                   <div class="form-group">
                                     <label for="medid">Chuyên khoa</label>
@@ -122,8 +122,8 @@
             <c:forEach items="${pdoctors}" var="s">
                 <tr>
                     <td>${s.id}</td>
-                    <td>${s.firstName}</td>
                     <td>${s.lastName}</td>
+                    <td>${s.firstName}</td>
                     <td>${s.birthDate}</td>
                     <td>${s.gender}</td>
                     <td>${s.phone}</td>

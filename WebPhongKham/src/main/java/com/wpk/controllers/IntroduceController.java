@@ -26,9 +26,6 @@ public class IntroduceController {
     public String organizationChart(){
     return "organizationchart";  
 }
-    @GetMapping("/team")
-    public String team(){
-    return "team";  
-}
+ 
     
 }

@@ -98,4 +98,55 @@ public class AppointmentManagerController {
         return "redirect:/admin/appointment-manager/edit-appointment/{"+m.getAppointmentId().toString()+"}" ;
     }
     
+    @GetMapping("/")
+    private String addAppointmentShowIndex(Model model){
+        model.addAttribute("appointment", new Appointment());
+        return "index";
+   }
+    @PostMapping("/")
+    private String addAppointmentProcessIndex(Model model, @ModelAttribute(value = "appointment")@Valid Appointment m, BindingResult result){
+        if(!result.hasErrors())
+        {      
+            if(this.appointmentService.addOrUpdate(m)==true)
+                    return "redirect:/";
+        else
+                model.addAttribute("err","Something wrong");
+        }
+        return "/";
+    }
+    
+    @GetMapping("/contact")
+    private String addContactShowIndex(Model model){
+        model.addAttribute("appointment", new Appointment());
+        return "contact";
+   }
+    @PostMapping("/contact")
+    private String addContactProcessIndex(Model model, @ModelAttribute(value = "appointment")@Valid Appointment m, BindingResult result){
+        if(!result.hasErrors())
+        {      
+            if(this.appointmentService.addOrUpdate(m)==true)
+                    return "redirect:/contact";
+        else
+                model.addAttribute("err","Something wrong");
+        }
+        return "contact";
+    }
+    
+      @GetMapping("/appointment-date")
+    private String addAppointmentClient(Model model){
+        model.addAttribute("appointment", new Appointment());
+        return "appointment-date";
+   }
+    @PostMapping("/appointment-date")
+    private String addAppointmentClient(Model model, @ModelAttribute(value = "appointment")@Valid Appointment m, BindingResult result){
+        if(!result.hasErrors())
+        {      
+            if(this.appointmentService.addOrUpdate(m)==true)
+                    return "redirect:/appointment-date";
+        else
+                model.addAttribute("err","Something wrong");
+        }
+        return "appointment-date";
+    }
+    
 }

@@ -50,7 +50,7 @@
     let numLabels =[], info = []
     
     <c:forEach items ="${numPatientMonths}" var ="p">
-        numLabels.push(${p[0]})
+        numLabels.push('Tháng: ' + '${p[0]}/${p[1]}')
         info.push(${p[3]})
     </c:forEach>
         

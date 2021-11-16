@@ -21,7 +21,7 @@
           <div class="col-lg-3 col-md-6">
             <div class="count-box">
               <i class="icofont-doctor-alt"></i>
-              <span data-toggle="counter-up">85</span>
+              <span data-toggle="counter-up">10</span>
               <p>Bác sĩ</p>
             </div>
           </div>
@@ -29,7 +29,7 @@
           <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
             <div class="count-box">
               <i class="icofont-nurse-alt"></i>
-              <span data-toggle="counter-up">18</span>
+              <span data-toggle="counter-up">6</span>
               <p>Y tá</p>
             </div>
           </div>
@@ -46,7 +46,7 @@
               <a href="<c:url value="/admin"/>">
             <div class="count-box">
               <i class="icofont-award"></i>
-              <span data-toggle="counter-up">150</span>
+              <span data-toggle="counter-up">20</span>
               <p>Dịch vụ</p>
             </div>
               </a>
@@ -83,12 +83,11 @@
             </div>
         </div>
     </div>
-            
     <script>
     let numLabels =[], info = [], infoMedCar=[]
     
     <c:forEach items ="${numPatientMonths}" var ="p">
-        numLabels.push(${p[0]})
+        numLabels.push('Tháng: ' + '${p[0]}/${p[1]}')
         infoMedCar.push(${p[2]})
         info.push(${p[3]})
     </c:forEach>
@@ -109,6 +108,5 @@
         revenueMonthChart("revenueStats", numLabels2, info2)
     })
 </script>
-
 
 

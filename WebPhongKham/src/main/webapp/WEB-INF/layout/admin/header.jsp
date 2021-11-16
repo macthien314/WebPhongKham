@@ -20,7 +20,7 @@
   <div class="collapse navbar-collapse" id="basicExampleNav3">
       <ul class="nav ml-auto mr-auto">
         <li class="nav-item">
-            <a class=" hopname nav-link active" href="#"><h3 style="margin: 0px 0px 0px 0px;"><b>phòng khám của tôi</b></h3></a>
+            <a class=" hopname nav-link active" href="#"><h3 style="margin: 0px 0px 0px 0px;"><b>PHÒNG KHÁM CỦA TÔI</b></h3></a>
         </li>
 
       </ul>

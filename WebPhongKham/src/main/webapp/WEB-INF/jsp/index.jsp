@@ -4,97 +4,242 @@
     Author     : macth
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<c:url value="/" var="action"/>
 <main id="main">
     
     <!-- ======= Why Us Section ======= -->
    
+    
+
     <section id="why-us" class="why-us">
-        
-        <div class="container">
-
-        <div class="row">
-          <div class="col-lg-4 d-flex align-items-stretch">
-            <div class="content">
-              <h3>Why Choose Medilab?</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
-                Asperiores dolores sed et. Tenetur quia eos. Autem tempore quibusdam vel necessitatibus optio ad corporis.
-              </p>
-              <div class="text-center">
-                <a href="#" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-8 d-flex align-items-stretch">
-            <div class="icon-boxes d-flex flex-column justify-content-center">
-              <div class="row">
-                <div class="col-xl-4 d-flex align-items-stretch">
-                  <div class="icon-box mt-4 mt-xl-0">
-                    <i class="bx bx-receipt"></i>
-                    <h4>Corporis voluptates sit</h4>
-                    <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
-                  </div>
-                </div>
-                <div class="col-xl-4 d-flex align-items-stretch">
-                  <div class="icon-box mt-4 mt-xl-0">
-                    <i class="bx bx-cube-alt"></i>
-                    <h4>Ullamco laboris ladore pan</h4>
-                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
-                  </div>
-                </div>
-                <div class="col-xl-4 d-flex align-items-stretch">
-                  <div class="icon-box mt-4 mt-xl-0">
-                    <i class="bx bx-images"></i>
-                    <h4>Labore consequatur</h4>
-                    <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End .content-->
-          </div>
+         <div class="section-title">
+          <h2>LÝ DO BẠN NÊN LỰA CHỌN PHÒNG KHÁM ĐA KHOA TÂM AN</h2>
+         
         </div>
+        <div class="container">
+            <div class="row">
 
-      </div>
+    <div class="col-sm-6">
+    <div class="row">
+      
+   <div id="la_icon_boxes_6191e2eea3bec" class="la-sc-icon-boxes wpb_content_element icon-type-normal icon-pos-left icon-style-square ib-link-none">
+  <div class="col-sm-2">        
+    <div class="icon-boxes-inner">
+       
+        <div class="box-icon-left">
+            <div class="box-icon-inner type-icon">
+                <div class="wrap-icon">
+                    <div class="box-icon box-icon-style-square"><span><i class="fa fa-desktop"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+       
+       
+       <div class="col-sm-12">
+        <div class="box-contents">
+            <div class="box-heading">
+    <div class="h5 js-el la-unit-responsive icon-heading font-weight-600">Trang thiết bị hiện đại</div></div>
+    <div class="js-el la-unit-responsive box-description" style="">
+    <p style="text-align: justify;">Phòng khám Tâm An đã đầu tư cho hệ thống y tế với những thiết bị y khoa tân tiến, tương đương với các bệnh viện hàng đầu tại để hỗ trợ tối đa cho công tác chẩn đoán và điều trị.</p>
+    </div>
+   </div>
+    </div>
+    
+   </div>
+    </div>
+        
+         
+          <div class="row"> 
+       <div class="wpb_column vc_column_container vc_col-sm-6">
+           
+           <div class="vc_column-inner ">
+               
+               <div class="wpb_wrapper">
+                   <div id="la_icon_boxes_6191e2eea5021" class="la-sc-icon-boxes wpb_content_element icon-type-normal icon-pos-left icon-style-square ib-link-none">
+      
+        <div class="icon-boxes-inner">
+            
+             
+                <div class="col-sm-2"> 
+            <div class="box-icon-left">
+                <div class="box-icon-inner type-icon">
+                    <div class="wrap-icon">
+                        <div class="box-icon box-icon-style-square">
+                            <span>
+                                <i class="fa fa-heartbeat"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+                     <div class="col-sm-12">
+            <div class="box-contents">
+                <div class="box-heading">
+                    <div class="h5 js-el la-unit-responsive icon-heading font-weight-600">Chi phí hợp lý</div></div>
+                    <div class="js-el la-unit-responsive box-description" style=""><p style="text-align: justify;">100% chi phí của chúng tôi đều công khai minh bạch và được nhập hệ thống cẩn thận.</p>
+                    </div></div></div></div></div></div></div></div></div>     
+        
+ 
+        
+          <div class="row"> 
+    <div class="vc_row wpb_row vc_inner vc_row-fluid">
+            <div class="vc_column-inner ">
+                <div class="wpb_wrapper">
+                    <div id="la_icon_boxes_6191e2eea4a08" class="la-sc-icon-boxes wpb_content_element icon-type-normal icon-pos-left icon-style-square ib-link-none">
+        <div class="icon-boxes-inner"> 
+            <div class="col-sm-2">
+                <div class="box-icon-left">
+                <div class="box-icon-inner type-icon">
+                    <div class="wrap-icon">
+                        <div class="box-icon box-icon-style-square"><span><i class="fa fa-stethoscope"></i></span></div></div></div></div></div>
+                       <div class="col-sm-12"> 
+                           <div class="box-contents">
+                               <div class="box-heading">
+                                   <div class="h5 js-el la-unit-responsive icon-heading font-weight-600" >Dịch vụ chuyên nghiệp</div></div>
+                            <div class="js-el la-unit-responsive box-description" style=""><p style="text-align: justify;">Phòng Khám Tâm An luôn coi khách hàng là trọng tâm, chúng tôi luôn sẵn sàng chăm sóc bạn ân cần như chính thành viên trong gia đình.</p>
+                            </div></div></div></div></div></div></div></div>
+   </div></div>
+       
+                
+                
+       <div class="col-sm-6">
+      
+                     <div class="row">    
+   <div><div id="la_icon_boxes_6191e2eea41d3" class="la-sc-icon-boxes wpb_content_element icon-type-normal icon-pos-left icon-style-square ib-link-none">
+        <div class="icon-boxes-inner">
+        <div class="col-sm-2"><div class="box-icon-left">
+        <div class="box-icon-inner type-icon">
+        <div class="wrap-icon">
+            <div class="box-icon box-icon-style-square"><span><i class="fa fa-user-md"></i></span></div></div></div></div></div>
+            <div class="col-sm-12">  <div class="box-contents">
+                <div class="box-heading">
+                  <div class="h5 js-el la-unit-responsive icon-heading font-weight-600">Đội ngũ y bác sĩ đầu ngành</div></div>
+                    <div class="js-el la-unit-responsive box-description" style="">
+                        <p style="text-align: justify;">Phòng khám Tâm An có đội ngũ y bác sĩ đầu ngành đến từ BV ĐH Y DƯỢC TP HCM, BV CHỢ RẪY, BV MEDIC,… có trình độ chuyên môn cao, tay nghề giỏi, tận tâm và chuyên nghiệp.</p>
+                    </div></div></div></div></div>
+   </div></div>
+            
+    
+            
+   <div class="row">          
+ <div class="wpb_column vc_column_container vc_col-sm-6">
+     <div class="vc_column-inner ">
+                <div class="wpb_wrapper">
+                    <div id="la_icon_boxes_6191e2eea5b2e" class="la-sc-icon-boxes wpb_content_element icon-type-normal icon-pos-left icon-style-square ib-link-none">
+        <div class="icon-boxes-inner">
+            
+             <div class="col-sm-2">
+            <div class="box-icon-left">
+                <div class="box-icon-inner type-icon">
+                    <div class="wrap-icon">
+                        <div class="box-icon box-icon-style-square"><span><i class="fa fa-credit-card"></i></span></div></div></div></div>
+             </div>
+            
+                         <div class="col-sm-12">
+                        <div class="box-contents">
+                            <div class="box-heading">
+                                <div class="h5 js-el la-unit-responsive icon-heading font-weight-600 ">Áp dụng thanh toán bảo hiểm y tế lên đến 100%</div></div>
+                                <div><p style="text-align: justify;">PKĐK Tâm An hỗ trợ thanh toán bảo hiểm y tế giúp bạn và người thân an tâm khám chưa bệnh hơn.</p>
+                                </div></div></div>
+        </div> </div></div></div></div></div>
+           
+           
+           <div class="row"> 
+       <div id="la_icon_boxes_6191e2eea60da" class="la-sc-icon-boxes wpb_content_element icon-type-normal icon-pos-left icon-style-square ib-link-none">
+        <div class="icon-boxes-inner">
+              <div class="col-sm-2"> 
+            <div class="box-icon-left">
+                <div class="box-icon-inner type-icon">
+                    <div class="wrap-icon">
+                        <div class="box-icon box-icon-style-square"><span><i class="far fa-hourglass"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+              </div>
+           <div class="col-sm-12">  
+               <div class="box-contents">
+                <div class="box-heading">
+                    <div class="h5 js-el la-unit-responsive icon-heading font-weight-600 ">Phòng khám đa khoa nhiều năm kinh nghiệm</div></div>
+                    <div class="js-el la-unit-responsive box-description" style=""><p style="text-align: justify;">PKĐK Tâm An là đơn vị đi tiên phong và đã có 10 năm kinh nghiệm trong việc thăm khám và chăm sóc người bệnh.</p>
+                    </div></div></div></div></div>
+       </div>      
+       </div>
+           </div>
+        </div>
     </section><!-- End Why Us Section -->
 
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about">
-      <div class="container-fluid">
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services">
+      <div class="container">
+
+        <div class="section-title">
+            <h2>CÁC DỊCH VỤ CỦA PHÒNG KHÁM</h2>
+        </div>
 
         <div class="row">
-          <div class="col-xl-5 col-lg-6 video-box d-flex justify-content-center align-items-stretch">
-            <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="icon-box">
+              <div class="icon"><i class="icofont-heart-beat"></i></div>
+              <h4><a href="">Đo Điện Tim(Ecg)</a></h4>
+              <p id="text">Phòng khám Tâm An đã ứng dụng kỹ thuật điện tâm đồ trong thăm khám, chẩn đoán nhiều bệnh tim mạch. Điện tâm đồ tại Tâm An được thực hiện bài bản, đúng chuẩn quy trình bởi đội ngũ y bác sĩ tay nghề chuyên môn cao, hệ thống máy móc hiện đại.</p>
+            </div>
           </div>
 
-          <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5">
-            <h3>Enim quis est voluptatibus aliquid consequatur fugiat</h3>
-            <p>Esse voluptas cumque vel exercitationem. Reiciendis est hic accusamus. Non ipsam et sed minima temporibus laudantium. Soluta voluptate sed facere corporis dolores excepturi. Libero laboriosam sint et id nulla tenetur. Suscipit aut voluptate.</p>
-
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
             <div class="icon-box">
-              <div class="icon"><i class="bx bx-fingerprint"></i></div>
-              <h4 class="title"><a href="">Lorem Ipsum</a></h4>
-              <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+              <div class="icon"><i class="icofont-drug"></i></div>
+              <h4><a href="">Khám Sức Khỏe Tỏng Quát</a></h4>
+              <p id="text"> Với Phương châm “ Phòng bệnh hơn chữa bệnh”, PK thường xuyên triển khai đẩy mạnh các chương trình Khám tổng quát tầm soát bệnh hằng năm, khuyến khích người dân tham gia KSK bằng các chương trình khuyến mãi được áp dụng 2 lần/năm cho mọi đối tượng. </p>
             </div>
-
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-gift"></i></div>
-              <h4 class="title"><a href="">Nemo Enim</a></h4>
-              <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
-            </div>
-
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-atom"></i></div>
-              <h4 class="title"><a href="">Dine Pad</a></h4>
-              <p class="description">Explicabo est voluptatum asperiores consequatur magnam. Et veritatis odit. Sunt aut deserunt minus aut eligendi omnis</p>
-            </div>
-
           </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
+            <div class="icon-box">
+              <div class="icon"><i class="icofont-dna-alt-2"></i></div>
+              <h4><a href="">Chụp X Quang Kỹ Thuật Số</a></h4>
+              <p id="text">Chụp X-quang tại phòng khám Tâm An có ưu điểm là chi phí thấp, thời gian nhanh chóng, thực hiện dễ dàng. 
+Để cho ra chất lượng hình ảnh chính xác, rõ nét, bệnh nhân nên lựa chọn những cơ sở y tế trang bị máy chụp X-quang mới nhất, hiện đại nhất..</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
+            <div class="icon-box">
+              <div class="icon"><i class="fas fa-syringe"></i></div>
+              <h4><a href="">Xét Nghiệm Máu</a></h4>
+              <p id="text">Phóng khám là địa chỉ xét nghiệm đáng tin cậy với 20 năm kinh nghiệm, độ chính xác cao đã được Sở Y tế cấp chứng nhận đủ điều kiện.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
+            <div class="icon-box">
+              <div class="icon"><i class="fas fa-tooth"></i></div>
+              <h4><a href="">Răng Hàm Mặt</a></h4>
+              <p id="text">Phòng khám phục vụ về: nắn sai khớp hàm, điều trị laze bề mặt, chữa các bệnh viêm quanh răng, chích, rạch áp xe, lấy cao răng, nhổ răn, làm răng, hàm giả, chỉnh hình răng miệng, tiểu phẫu thuật răng miệng.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
+            <div class="icon-box">
+              <div class="icon"><i class="fas fa-assistive-listening-systems"></i></div>
+              <h4><a href="">Nội Soi Tai Mũi Họng</a></h4>
+              <p id="text">Nhằm mang lại lợi ích cao nhất và sự thoải mái nhất cho bệnh nhân, cũng như tiết kiệm chi phí điều trị và thời gian điều trị, chúng tôi thực hiện nội soi tai mũi họng theo tiêu chuẩn quốc tế, môi trường sạch sẽ - dụng cụ vô trùng – thao tác không đau – chẩn đoán chính xác và điều trị hiệu quả.</p>
+            </div>
+          </div>
+
         </div>
 
       </div>
-    </section><!-- End About Section -->
-
-    <!-- ======= Counts Section ======= -->
+    </section><!-- End Services Section -->
+    
+    
+   
     <section id="counts" class="counts">
       <div class="container">
 
@@ -103,16 +248,16 @@
           <div class="col-lg-3 col-md-6">
             <div class="count-box">
               <i class="icofont-doctor-alt"></i>
-              <span data-toggle="counter-up">85</span>
-              <p>Doctors</p>
+              <span data-toggle="counter-up">10</span>
+              <p>Bác Sĩ</p>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
             <div class="count-box">
               <i class="icofont-patient-bed"></i>
-              <span data-toggle="counter-up">18</span>
-              <p>Departments</p>
+              <span data-toggle="counter-up">6</span>
+              <p>Chuyên Khoa</p>
             </div>
           </div>
 
@@ -120,15 +265,15 @@
             <div class="count-box">
               <i class="icofont-laboratory"></i>
               <span data-toggle="counter-up">8</span>
-              <p>Research Labs</p>
+              <p>Thành Quả Nghiên Cứu</p>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
             <div class="count-box">
               <i class="icofont-award"></i>
-              <span data-toggle="counter-up">150</span>
-              <p>Awards</p>
+              <span data-toggle="counter-up">20</span>
+              <p>Giải Thưởng</p>
             </div>
           </div>
 
@@ -137,120 +282,93 @@
       </div>
     </section><!-- End Counts Section -->
 
-    <!-- ======= Services Section ======= -->
-    <section id="services" class="services">
+    <!-- ======= Doctors Section ======= -->
+    <section id="doctors" class="doctors">
       <div class="container">
 
         <div class="section-title">
-          <h2>Services</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <h2>ĐỘI NGŨ BÁC SĨ</h2>
         </div>
-
+        
         <div class="row">
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-            <div class="icon-box">
-              <div class="icon"><i class="icofont-heart-beat"></i></div>
-              <h4><a href="">Lorem Ipsum</a></h4>
-              <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+ 
+  <c:forEach items="${doctors}" var="d">
+          <div class="col-lg-6 mt-4">
+            
+            <div class="member d-flex align-items-start">
+              <div class="pic"><img src="${d.image}" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>${d.lastName} ${d.firstName}</h4>
+                <span><b>Chuyên khoa:</b> ${d.medical.name}</span>
+                <p><b>Kinh nghiệm:</b> ${d.yearsExperience}</p>
+                <div class="social">
+                  <a href=""><i class="fab fa-twitter"></i></a>
+                  <a href=""><i class="fab fa-facebook-f"></i></a>
+                  <a href=""><i class="fab fa-google-plus-g"></i></a>
+                  <a href=""> <i class="fab fa-linkedin-in"></i></a>
+                </div>
+              </div>
             </div>
+            
           </div>
+                 </c:forEach>
 
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
-            <div class="icon-box">
-              <div class="icon"><i class="icofont-drug"></i></div>
-              <h4><a href="">Sed ut perspiciatis</a></h4>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
-            <div class="icon-box">
-              <div class="icon"><i class="icofont-dna-alt-2"></i></div>
-              <h4><a href="">Magni Dolores</a></h4>
-              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-            <div class="icon-box">
-              <div class="icon"><i class="icofont-heartbeat"></i></div>
-              <h4><a href="">Nemo Enim</a></h4>
-              <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-            <div class="icon-box">
-              <div class="icon"><i class="icofont-disabled"></i></div>
-              <h4><a href="">Dele cardo</a></h4>
-              <p>Quis consequatur saepe eligendi voluptatem consequatur dolor consequuntur</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-            <div class="icon-box">
-              <div class="icon"><i class="icofont-autism"></i></div>
-              <h4><a href="">Divera don</a></h4>
-              <p>Modi nostrum vel laborum. Porro fugit error sit minus sapiente sit aspernatur</p>
-            </div>
-          </div>
+          
 
         </div>
 
       </div>
-    </section><!-- End Services Section -->
+    </section><!-- End Doctors Section -->
+
 
     <!-- ======= Appointment Section ======= -->
     <section id="appointment" class="appointment section-bg">
       <div class="container">
 
         <div class="section-title">
-          <h2>Make an Appointment</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <h2>ĐẶT LỊCH HẸN</h2>
         </div>
 
-        <form action="forms/appointment.php" method="post" role="form" class="php-email-form">
+        <form id="appointment" action="${action}" modelAttribute="appointment"  method="post" role="form" class="php-email-form">
           <div class="form-row">
             <div class="col-md-4 form-group">
-              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              <input  path="lastName" type="text" name="lastName" class="form-control" id="lastName" placeholder="Họ" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              <div class="validate"></div>
+            </div>
+            <div  class="col-md-4 form-group">
+              <input  path="firstName" type="text" class="form-control" name="firstName" id="firstName" placeholder="Tên" data-rule="email" data-msg="Please enter a valid email">
               <div class="validate"></div>
             </div>
             <div class="col-md-4 form-group">
-              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email">
-              <div class="validate"></div>
-            </div>
-            <div class="col-md-4 form-group">
-              <input type="tel" class="form-control" name="phone" id="phone" placeholder="Your Phone" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              <input  path="phone" type="text" class="form-control" name="phone" id="phone" placeholder="Số điện thoại" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
               <div class="validate"></div>
             </div>
           </div>
           <div class="form-row">
             <div class="col-md-4 form-group">
-              <input type="datetime" name="date" class="form-control datepicker" id="date" placeholder="Appointment Date" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              <input path="appointmentDate" type="date" name="appointmentDate" class="form-control datepicker" id="date" placeholder="Ngày đặt lịch" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
               <div class="validate"></div>
             </div>
             <div class="col-md-4 form-group">
-              <select name="department" id="department" class="form-control">
-                <option value="">Select Department</option>
-                <option value="Department 1">Department 1</option>
-                <option value="Department 2">Department 2</option>
-                <option value="Department 3">Department 3</option>
-              </select>
+              <input path="email" type="text" class="form-control" name="email" id="email" placeholder="Email" data-rule="email" data-msg="Please enter a valid email">
               <div class="validate"></div>
             </div>
+           
             <div class="col-md-4 form-group">
-              <select name="doctor" id="doctor" class="form-control">
-                <option value="">Select Doctor</option>
-                <option value="Doctor 1">Doctor 1</option>
-                <option value="Doctor 2">Doctor 2</option>
-                <option value="Doctor 3">Doctor 3</option>
-              </select>
+                
+              <select path="doctor" name="doctor" id="doctor" class="form-control">
+                   <c:forEach items="${doctors}" var="d">
+                  <option value="${d.id}">${d.firstName}</option>
+                  </c:forEach>
+              </select>  
               <div class="validate"></div>
+             
             </div>
+           
           </div>
 
           <div class="form-group">
-            <textarea class="form-control" name="message" rows="5" placeholder="Message (Optional)"></textarea>
+            <textarea path="description" class="form-control" name="description" rows="5" placeholder="Nôi dung đặt lịch"></textarea>
             <div class="validate"></div>
           </div>
           <div class="mb-3">
@@ -258,7 +376,7 @@
             <div class="error-message"></div>
             <div class="sent-message">Your appointment request has been sent successfully. Thank you!</div>
           </div>
-          <div class="text-center"><button type="submit">Make an Appointment</button></div>
+          <div class="text-center"><button type="submit">Đặt lịch hẹn</button></div>
         </form>
 
       </div>
@@ -269,27 +387,26 @@
       <div class="container">
 
         <div class="section-title">
-          <h2>Departments</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <h2>CHUYÊN KHOA CHỦ LỰC TẠI PHÒNG KHÁM</h2>
         </div>
-
+       
         <div class="row">
           <div class="col-lg-3">
             <ul class="nav nav-tabs flex-column">
               <li class="nav-item">
-                <a class="nav-link active show" data-toggle="tab" href="#tab-1">Cardiology</a>
+                <a class="nav-link active show" data-toggle="tab" href="#tab-1">Khoa Tim Mạch</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#tab-2">Neurology</a>
+                <a class="nav-link" data-toggle="tab" href="#tab-2">Khoa Tâm Lý</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#tab-3">Hepatology</a>
+                <a class="nav-link" data-toggle="tab" href="#tab-3">Khoa Da Liễu</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#tab-4">Pediatrics</a>
+                <a class="nav-link" data-toggle="tab" href="#tab-4">Khoa Tai Mũi Họng</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#tab-5">Eye Care</a>
+                <a class="nav-link" data-toggle="tab" href="#tab-5">Khoa Nhi</a>
               </li>
             </ul>
           </div>
@@ -298,60 +415,67 @@
               <div class="tab-pane active show" id="tab-1">
                 <div class="row">
                   <div class="col-lg-8 details order-2 order-lg-1">
-                    <h3>Cardiology</h3>
-                    <p class="font-italic">Qui laudantium consequatur laborum sit qui ad sapiente dila parde sonata raqer a videna mareta paulona marka</p>
-                    <p>Et nobis maiores eius. Voluptatibus ut enim blanditiis atque harum sint. Laborum eos ipsum ipsa odit magni. Incidunt hic ut molestiae aut qui. Est repellat minima eveniet eius et quis magni nihil. Consequatur dolorem quaerat quos qui similique accusamus nostrum rem vero</p>
+                    <h3>Khoa Tim Mạch</h3>
+                    <p class="font-italic">Trực tiếp khám và điều trị là các Bác sĩ có nhiều năm kinh nghiệm khám, điều trị bệnh về Tim và Mạch máu, được đào tạo, giảng dạy và làm việc tại bv ĐH Y Dược, Viện Tim TP.HCM, bv Nguyễn Trãi và là các Phó Trưởng khoa về hưu của các bệnh viện hàng đầu của Tim Mạch TP.HCM.</p>
+
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
-                    <img src="assets/img/departments-1.jpg" alt="" class="img-fluid">
+                    <img src="https://res.cloudinary.com/ikj/image/upload/v1634963439/khoanoitongquat_bfjvq9.jpg" alt="" class="img-fluid">
                   </div>
                 </div>
               </div>
+                
               <div class="tab-pane" id="tab-2">
                 <div class="row">
                   <div class="col-lg-8 details order-2 order-lg-1">
-                    <h3>Et blanditiis nemo veritatis excepturi</h3>
-                    <p class="font-italic">Qui laudantium consequatur laborum sit qui ad sapiente dila parde sonata raqer a videna mareta paulona marka</p>
-                    <p>Ea ipsum voluptatem consequatur quis est. Illum error ullam omnis quia et reiciendis sunt sunt est. Non aliquid repellendus itaque accusamus eius et velit ipsa voluptates. Optio nesciunt eaque beatae accusamus lerode pakto madirna desera vafle de nideran pal</p>
+                    <h3>Khoa Tâm Lý</h3>
+                    <p class="font-italic">Mục đích đầu tiên của chuyên ngành này làm giảm nhẹ những rối loạn tâm thần và nhằm cải thiện trạng thái sức khỏe tâm thần. Những hoạt động này có thể tiến hành ở bệnh viện, phòng khám hoặc ở cộng đồng và người bệnh có thể tham gia một cách tự nguyện hoặc không tự nguyện. Tâm bệnh học tiếp cận theo học thuyết về y học, đồng thời có tính đến các quan điểm sinh học, tâm lý học, xã hội học và văn hóa. Điều trị bằng các thuốc cùng phối hợp với các liệu pháptâm lý có thể đem lại hiệu quả điều trị tối ưu. </p>
+                   
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
-                    <img src="assets/img/departments-2.jpg" alt="" class="img-fluid">
+                    <img src="https://res.cloudinary.com/ikj/image/upload/v1634963260/IMG_1830_hucd9j.jpg" alt="" class="img-fluid">
                   </div>
                 </div>
               </div>
               <div class="tab-pane" id="tab-3">
                 <div class="row">
                   <div class="col-lg-8 details order-2 order-lg-1">
-                    <h3>Impedit facilis occaecati odio neque aperiam sit</h3>
-                    <p class="font-italic">Eos voluptatibus quo. Odio similique illum id quidem non enim fuga. Qui natus non sunt dicta dolor et. In asperiores velit quaerat perferendis aut</p>
-                    <p>Iure officiis odit rerum. Harum sequi eum illum corrupti culpa veritatis quisquam. Neque necessitatibus illo rerum eum ut. Commodi ipsam minima molestiae sed laboriosam a iste odio. Earum odit nesciunt fugiat sit ullam. Soluta et harum voluptatem optio quae</p>
+                    <h3>Khoa Da Liễu</h3>
+                    <p class="font-italic">Các vấn đề bệnh lý Da liễu được chẩn đoán, điều trị:
+                                            Mụn trứng cá và thâm sau mụn
+                                            Nám, tàn nhanh, sẹo lồi
+                                            Dị ứng mỹ phẩm
+                                            Mề đay mạn tính tái phát
+                                            Các bệnh da thông thường: vẩy nến, tổ dĩa, lang ben, bệnh da nghề nghiệp
+                                            Các bệnh lý về móng
+                                            Rụng tóc, gàu, ngứa da đầu</p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
-                    <img src="assets/img/departments-3.jpg" alt="" class="img-fluid">
+                    <img src="https://res.cloudinary.com/ikj/image/upload/v1634963168/rhm_uudtci.png" alt="" class="img-fluid">
                   </div>
                 </div>
               </div>
               <div class="tab-pane" id="tab-4">
                 <div class="row">
                   <div class="col-lg-8 details order-2 order-lg-1">
-                    <h3>Fuga dolores inventore laboriosam ut est accusamus laboriosam dolore</h3>
-                    <p class="font-italic">Totam aperiam accusamus. Repellat consequuntur iure voluptas iure porro quis delectus</p>
-                    <p>Eaque consequuntur consequuntur libero expedita in voluptas. Nostrum ipsam necessitatibus aliquam fugiat debitis quis velit. Eum ex maxime error in consequatur corporis atque. Eligendi asperiores sed qui veritatis aperiam quia a laborum inventore</p>
+                    <h3>Khoa Tai Mũi Họng</h3>
+                    <p class="font-italic">Chuyên khám và điều trị :
+ Đau tai, chảy mũ tai và ù tai, ngứa tai, nghe kém, thủng màng nhĩ, chấn thương tai.Đau họng, nuốt vướng, khó nuốt, hơi thở hôi.Chấn thương mũi, dị vật vùng TMH, hóc xương, các khối u và đường dò cổ mặt.Ngứa mũi, hắt xì, sổ mũi, chảy máu mũi, đau mũi, nghẹt mũi, mất mùi.Nội soi chẩn đoán hình ảnh rõ đẹp, 
+ chính xác phát hiện sớm các bệnh lí ung thư vòm mũi họng, thanh quản giúp điều trị nhanh chóng hiệu quả.</p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
-                    <img src="assets/img/departments-4.jpg" alt="" class="img-fluid">
+                    <img src="https://res.cloudinary.com/ikj/image/upload/v1634961452/9_NOI_SOI_TAI_ooj1xj.jpg" alt="" class="img-fluid">
                   </div>
                 </div>
               </div>
               <div class="tab-pane" id="tab-5">
                 <div class="row">
                   <div class="col-lg-8 details order-2 order-lg-1">
-                    <h3>Est eveniet ipsam sindera pad rone matrelat sando reda</h3>
-                    <p class="font-italic">Omnis blanditiis saepe eos autem qui sunt debitis porro quia.</p>
-                    <p>Exercitationem nostrum omnis. Ut reiciendis repudiandae minus. Omnis recusandae ut non quam ut quod eius qui. Ipsum quia odit vero atque qui quibusdam amet. Occaecati sed est sint aut vitae molestiae voluptate vel</p>
+                    <h3>Khoa Nhi</h3>
+                    <p class="font-italic">Phòng khám chuyên khoa Nhi được Bs CKI về nhi khoa nhiều kinh nghiệm đảm trách cùng đội ngũ nhân viên luôn nhiệt tình, vui vẻ với đầy đủ các trang thiết bị y tế, xét nghiệm mới nhất. Không gian phòng khám thoáng mát sạch đẹp, tạo môi trường thân thiện với các bệnh Nhi.</p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
-                    <img src="assets/img/departments-5.jpg" alt="" class="img-fluid">
+                    <img src="https://res.cloudinary.com/ikj/image/upload/v1634961785/khamnhi2_ojumoi.jpg" alt="" class="img-fluid">
                   </div>
                 </div>
               </div>
@@ -362,142 +486,61 @@
       </div>
     </section><!-- End Departments Section -->
 
-    <!-- ======= Doctors Section ======= -->
-    <section id="doctors" class="doctors">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Doctors</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-        </div>
-
-        <div class="row">
-
-          <div class="col-lg-6">
-            <div class="member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/doctors/doctors-1.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Walter White</h4>
-                <span>Chief Medical Officer</span>
-                <p>Explicabo voluptatem mollitia et repellat qui dolorum quasi</p>
-                <div class="social">
-                  <a href=""><i class="ri-twitter-fill"></i></a>
-                  <a href=""><i class="ri-facebook-fill"></i></a>
-                  <a href=""><i class="ri-instagram-fill"></i></a>
-                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-6 mt-4 mt-lg-0">
-            <div class="member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/doctors/doctors-2.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Sarah Jhonson</h4>
-                <span>Anesthesiologist</span>
-                <p>Aut maiores voluptates amet et quis praesentium qui senda para</p>
-                <div class="social">
-                  <a href=""><i class="ri-twitter-fill"></i></a>
-                  <a href=""><i class="ri-facebook-fill"></i></a>
-                  <a href=""><i class="ri-instagram-fill"></i></a>
-                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-6 mt-4">
-            <div class="member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/doctors/doctors-3.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>William Anderson</h4>
-                <span>Cardiology</span>
-                <p>Quisquam facilis cum velit laborum corrupti fuga rerum quia</p>
-                <div class="social">
-                  <a href=""><i class="ri-twitter-fill"></i></a>
-                  <a href=""><i class="ri-facebook-fill"></i></a>
-                  <a href=""><i class="ri-instagram-fill"></i></a>
-                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-6 mt-4">
-            <div class="member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/doctors/doctors-4.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Amanda Jepson</h4>
-                <span>Neurosurgeon</span>
-                <p>Dolorum tempora officiis odit laborum officiis et et accusamus</p>
-                <div class="social">
-                  <a href=""><i class="ri-twitter-fill"></i></a>
-                  <a href=""><i class="ri-facebook-fill"></i></a>
-                  <a href=""><i class="ri-instagram-fill"></i></a>
-                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Doctors Section -->
-
+    
     <!-- ======= Frequently Asked Questions Section ======= -->
     <section id="faq" class="faq section-bg">
       <div class="container">
 
         <div class="section-title">
-          <h2>Frequently Asked Questions</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <h2>TỔNG HỢP CÁC CÂU HỎI THƯỜNG GẶP</h2>
+          
         </div>
 
         <div class="faq-list">
           <ul>
             <li data-aos="fade-up">
-              <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" class="collapse" href="#faq-list-1">Non consectetur a erat nam at lectus urna duis? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" class="collapse" href="#faq-list-1">Hỏi: Mua thẻ BHYT ở đâu để được hưởng đầy đủ quyền lợi BHYT khi khám tại Tâm An?<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
               <div id="faq-list-1" class="collapse show" data-parent=".faq-list">
                 <p>
-                  Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
-                </p>
-              </div>
+                  Trả lời: Cô (Chú) mua thẻ BHYT có mã nơi đăng ký khám chữa bệnh ban đầu tại PKĐK Hợp Nhân(79-536) hoặc
+
+                  <br> -Cô (Chú) mua thẻ BHYT có mã nơi đăng ký khám chữa bệnh ban đầu tại 1 trong các bệnh viện quận trong Tp HCM đều được.
+                  <br> -Cô (Chú ) có thể tham khảo thêm thông tin về các đơn vị khám chữa bệnh BHYT trên trang website của phòng khám Tâm An. nếu cột khám thông tuyến có kết quả là được nghĩa là thẻ BHYT đăng ký tại cơ sở y tế đó được khám thông tuyến tại phòng khám Tâm An và được hưởng quyền lợi BHYT như nhau vì cùng tuyến 3.
+                </p></div>
             </li>
 
             <li data-aos="fade-up" data-aos-delay="100">
-              <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#faq-list-2" class="collapsed">Feugiat scelerisque varius morbi enim nunc? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#faq-list-2" class="collapsed">Hỏi: Phòng khám Tâm An có khám sức khỏe định kỳ bằng thẻ BHYT không? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
               <div id="faq-list-2" class="collapse" data-parent=".faq-list">
                 <p>
-                  Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
+                  Trả lời: Theo quy định của Bảo hiểm y tế thì thẻ BHYT chỉ được hưởng quyền lợi khi khám bệnh, không được hưởng quyền lợi thanh toán khi khám sức khỏe định kỳ ạ.
                 </p>
               </div>
             </li>
 
             <li data-aos="fade-up" data-aos-delay="200">
-              <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#faq-list-3" class="collapsed">Dolor sit amet consectetur adipiscing elit? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#faq-list-3" class="collapsed">Hỏi: Phòng khám có khám sức khỏe tổng quát để đi làm không? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
               <div id="faq-list-3" class="collapse" data-parent=".faq-list">
                 <p>
-                  Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
+                 Trả lời: Hiện tại phòng khám chưa triển khai khám sức khỏe, khám tổng quát để làm hồ sơ, hợp đồng lao động.
                 </p>
               </div>
             </li>
 
             <li data-aos="fade-up" data-aos-delay="300">
-              <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#faq-list-4" class="collapsed">Tempus quam pellentesque nec nam aliquam sem et tortor consequat? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#faq-list-4" class="collapsed">Hỏi: Khi có thẻ BHYT, tôi được đi khám bao nhiêu lần trong thời hạn thẻ? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
               <div id="faq-list-4" class="collapse" data-parent=".faq-list">
                 <p>
-                  Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in.
+                  Trả lời: Hiện tại theo luật Bảo hiểm y tế, người bệnh được hỗ trợ chi phí khám chữa bệnh bằng thẻ BHYT, không quy định số lần khám trong thời hạn thẻ ạ. Tùy theo bệnh lý và phác đồ điều trị của bác sỹ để có thời gian điều trị phù hợp.
                 </p>
               </div>
             </li>
 
             <li data-aos="fade-up" data-aos-delay="400">
-              <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#faq-list-5" class="collapsed">Tortor vitae purus faucibus ornare. Varius vel pharetra vel turpis nunc eget lorem dolor? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <i class="bx bx-help-circle icon-help"></i> <a data-toggle="collapse" href="#faq-list-5" class="collapsed">Hỏi: Khi khám bệnh xong tôi có nhận được hóa đơn VAT của bệnh viện không? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
               <div id="faq-list-5" class="collapse" data-parent=".faq-list">
                 <p>
-                  Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer malesuada nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut venenatis tellus in metus vulputate eu scelerisque.
+                 Trả lời: Phòng khám cung cấp hóa đơn VAT ngay sau khi hoàn tất thanh toán ạ
                 </p>
               </div>
             </li>
@@ -508,89 +551,12 @@
       </div>
     </section><!-- End Frequently Asked Questions Section -->
 
-    <!-- ======= Testimonials Section ======= -->
-    <section id="testimonials" class="testimonials">
-      <div class="container">
-
-        <div class="owl-carousel testimonials-carousel">
-
-          <div class="testimonial-wrap">
-            <div class="testimonial-item">
-              <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-              <h3>Saul Goodman</h3>
-              <h4>Ceo &amp; Founder</h4>
-              <p>
-                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-              </p>
-            </div>
-          </div>
-
-          <div class="testimonial-wrap">
-            <div class="testimonial-item">
-              <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-              <h3>Sara Wilsson</h3>
-              <h4>Designer</h4>
-              <p>
-                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
-                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-              </p>
-            </div>
-          </div>
-
-          <div class="testimonial-wrap">
-            <div class="testimonial-item">
-              <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-              <h3>Jena Karlis</h3>
-              <h4>Store Owner</h4>
-              <p>
-                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-              </p>
-            </div>
-          </div>
-
-          <div class="testimonial-wrap">
-            <div class="testimonial-item">
-              <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-              <h3>Matt Brandon</h3>
-              <h4>Freelancer</h4>
-              <p>
-                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
-                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-              </p>
-            </div>
-          </div>
-
-          <div class="testimonial-wrap">
-            <div class="testimonial-item">
-              <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-              <h3>John Larson</h3>
-              <h4>Entrepreneur</h4>
-              <p>
-                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
-                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-              </p>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Testimonials Section -->
-
     <!-- ======= Gallery Section ======= -->
     <section id="gallery" class="gallery">
       <div class="container">
 
         <div class="section-title">
-          <h2>Gallery</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <h2>MỘT SỐ HÌNH ẢNH CỦA PHÒNG KHÁM</h2>
         </div>
       </div>
 
@@ -599,64 +565,64 @@
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
-              <a href="assets/img/gallery/gallery-1.jpg" class="venobox" data-gall="gallery-item">
-                <img src="assets/img/gallery/gallery-1.jpg" alt="" class="img-fluid">
+              <a href="https://res.cloudinary.com/ikj/image/upload/v1637046505/20_lv9xpo.png">
+                <img src="https://res.cloudinary.com/ikj/image/upload/v1637046505/20_lv9xpo.png" alt="" class="img-fluid">
               </a>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
-              <a href="assets/img/gallery/gallery-2.jpg" class="venobox" data-gall="gallery-item">
-                <img src="assets/img/gallery/gallery-2.jpg" alt="" class="img-fluid">
+              <a href="https://res.cloudinary.com/ikj/image/upload/v1637045285/11_ttlkne.png" class="img-fluid">
+                <img src="https://res.cloudinary.com/ikj/image/upload/v1637045285/11_ttlkne.png" alt="" class="img-fluid">
               </a>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
-              <a href="assets/img/gallery/gallery-3.jpg" class="venobox" data-gall="gallery-item">
-                <img src="assets/img/gallery/gallery-3.jpg" alt="" class="img-fluid">
+              <a href="https://res.cloudinary.com/ikj/image/upload/v1637045613/12_exbseu.jpg" class="venobox" data-gall="gallery-item">
+                <img src="https://res.cloudinary.com/ikj/image/upload/v1637045613/12_exbseu.jpg" alt="" class="img-fluid">
               </a>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
-              <a href="assets/img/gallery/gallery-4.jpg" class="venobox" data-gall="gallery-item">
-                <img src="assets/img/gallery/gallery-4.jpg" alt="" class="img-fluid">
+              <a href="https://res.cloudinary.com/ikj/image/upload/v1637045987/13_dnnu7d.jpg" class="venobox" data-gall="gallery-item">
+                <img src="https://res.cloudinary.com/ikj/image/upload/v1637045987/13_dnnu7d.jpg" alt="" class="img-fluid">
               </a>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
-              <a href="assets/img/gallery/gallery-5.jpg" class="venobox" data-gall="gallery-item">
-                <img src="assets/img/gallery/gallery-5.jpg" alt="" class="img-fluid">
+              <a href="https://res.cloudinary.com/ikj/image/upload/v1637045285/10_o4iw3k.jpg" class="venobox" data-gall="gallery-item">
+                <img src="https://res.cloudinary.com/ikj/image/upload/v1637045285/10_o4iw3k.jpg" alt="" class="img-fluid">
               </a>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
-              <a href="assets/img/gallery/gallery-6.jpg" class="venobox" data-gall="gallery-item">
-                <img src="assets/img/gallery/gallery-6.jpg" alt="" class="img-fluid">
+              <a href="https://res.cloudinary.com/ikj/image/upload/v1637045285/9_mibbl7.jpg" class="venobox" data-gall="gallery-item">
+                <img src="https://res.cloudinary.com/ikj/image/upload/v1637045285/9_mibbl7.jpg" alt="" class="img-fluid">
               </a>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
-              <a href="assets/img/gallery/gallery-7.jpg" class="venobox" data-gall="gallery-item">
-                <img src="assets/img/gallery/gallery-7.jpg" alt="" class="img-fluid">
+              <a href="https://res.cloudinary.com/ikj/image/upload/v1637044918/7_p7cxy7.png" class="venobox" data-gall="gallery-item">
+                <img src="https://res.cloudinary.com/ikj/image/upload/v1637044918/7_p7cxy7.png" alt="" class="img-fluid">
               </a>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
-              <a href="assets/img/gallery/gallery-8.jpg" class="venobox" data-gall="gallery-item">
-                <img src="assets/img/gallery/gallery-8.jpg" alt="" class="img-fluid">
+              <a  href="https://res.cloudinary.com/ikj/image/upload/v1637044918/8_jrspxh.jpg"  class="venobox" data-gall="gallery-item">
+                <img src="https://res.cloudinary.com/ikj/image/upload/v1637044918/8_jrspxh.jpg" alt="" class="img-fluid">
               </a>
             </div>
           </div>
@@ -666,13 +632,14 @@
       </div>
     </section><!-- End Gallery Section -->
 
+
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
       <div class="container">
 
         <div class="section-title">
-          <h2>Contact</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <h2>LIÊN HỆ</h2>
+         
         </div>
       </div>
 
@@ -687,20 +654,20 @@
             <div class="info">
               <div class="address">
                 <i class="icofont-google-map"></i>
-                <h4>Location:</h4>
-                <p>A108 Adam Street, New York, NY 535022</p>
+                <h4>Địa Chỉ:</h4>
+                    <p>371 Nguyễn Kiệm, Phường 3, Quận Gò Gấp, TP.Hồ Chí Minh</p>
               </div>
 
               <div class="email">
                 <i class="icofont-envelope"></i>
                 <h4>Email:</h4>
-                <p>info@example.com</p>
+                <p>phongkhamtaman@gmail.com</p>
               </div>
 
               <div class="phone">
                 <i class="icofont-phone"></i>
-                <h4>Call:</h4>
-                <p>+1 5589 55488 55s</p>
+                <h4>Số Điện Thoại:</h4>
+                <p>(028) 3873 8994</p>
               </div>
 
             </div>
@@ -709,31 +676,38 @@
 
           <div class="col-lg-8 mt-5 mt-lg-0">
 
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form action="${action}" modelAttribute="appointment" method="post" role="form" class="php-email-form">
               <div class="form-row">
                 <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                  <input path="lastName" type="text" name="lastName" class="form-control" id="lastName" placeholder="Họ" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                   <div class="validate"></div>
                 </div>
                 <div class="col-md-6 form-group">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                  <input path="firstName" type="text" class="form-control" name="firstName" id="firstName" placeholder="Tên" data-rule="firstName" data-msg="Please enter a valid email" />
                   <div class="validate"></div>
                 </div>
               </div>
-              <div class="form-group">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+              <div class="form-row">
+              <div class="col-md-6 form-group">
+                <input path="email" type="text" class="form-control" name="email" id="subject" placeholder="Email" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
                 <div class="validate"></div>
               </div>
+              <div class="col-md-6 form-group">
+                <input path="phone" type="text" class="form-control" name="phone" id="subject" placeholder="Số điện thoại" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                <div class="validate"></div>
+              </div>    
+                </div>    
               <div class="form-group">
-                <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                <textarea path="description" class="form-control" name="description" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Nội dung liên hệ"></textarea>
                 <div class="validate"></div>
               </div>
+            
               <div class="mb-3">
                 <div class="loading">Loading</div>
                 <div class="error-message"></div>
                 <div class="sent-message">Your message has been sent. Thank you!</div>
               </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
+              <div class="text-center"><button type="submit">Gửi liên hệ</button></div>
             </form>
 
           </div>
@@ -743,6 +717,9 @@
       </div>
     </section><!-- End Contact Section -->
 
+
+
+
   </main><!-- End #main -->
 
-  
+   

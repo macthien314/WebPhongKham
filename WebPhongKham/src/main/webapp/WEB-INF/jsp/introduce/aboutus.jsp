@@ -7,19 +7,27 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <c:url value="/aboutus" var="action"/>
 
-
-
 <main id="main">
 
     <!-- ======= Breadcrumbs Section ======= -->
-    <section class="breadcrumbs">
+     <section style="margin-top: -50px; margin-bottom: -30px;" class="breadcrumbs">
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Đăng nhập</h2>
+          <h2  style=" font-weight: bold;" >Về Chúng Tôi</h2>
           <ol>
-            <li><a href="index.html">Home</a></li>
-            <li>Login</li>
+            <li><a href="http://localhost:8080/WebPhongKham/">Trang chủ</a></li>
+              <li>
+              <c:if test="${pageContext.request.userPrincipal.name == null}">
+     
+                <a href="<c:url value="/login"/>"><i class="fa fa-user"></i>Đăng nhập</a>
+             </c:if>
+    
+             <c:if test="${pageContext.request.userPrincipal.name != null}">
+            
+                <a href="<c:url value="/login"/>"><i class="fa fa-user"></i> ${pageContext.request.userPrincipal.name}</a>
+             </c:if>
+          </li>
           </ol>
         </div>
 
@@ -34,7 +42,7 @@
                 <div class=" col-md-12 col-sm-12 col-xs-12 pd5 h1lienhe">
                     <div class="info-description-article clearfix">
                         <div style="width:950px; margin:0 auto;">
-                        <p style="padding: 0px; font-size: 13px; color: rgb(79, 191, 242); line-height: 18px; margin-top: 5px; font-family: arial; text-align: justify; background-image: none !important; background-position: initial !important; background-size: initial !important; background-repeat: initial !important; background-attachment: initial !important; background-origin: initial !important; background-clip: initial !important;"><img alt="logobaiviet" src="/data/images/LogoLeftSmall.jpg" style="border: medium none; padding-bottom: 0px; max-width: 96%; width: 300px; height: 53px;"></p>
+                        <p style="padding: 0px; font-size: 13px; color: rgb(79, 191, 242); line-height: 18px; margin-top: 5px; font-family: arial; text-align: justify; background-image: none !important; background-position: initial !important; background-size: initial !important; background-repeat: initial !important; background-attachment: initial !important; background-origin: initial !important; background-clip: initial !important;"></p>
                         <p style="text-align: center;"><strong><span style="font-size:22px;">LỊCH SỬ HÌNH THÀNH </span></strong></p>
                         <p style="text-align: center;"><span style="color:#FF0000;"><span style="font-size:22px;">PHÒNG KHÁM ĐA KHOA TÂM AN</span></span></p>
                         <p style="text-align: justify;"><br>
@@ -96,12 +104,7 @@
                     </div>
                 </div>
                <!-- Điểm kết thúc -->
-            </div>    
-       
-
-        
-        
-      
+            </div>        
     </section>
 
   </main>
