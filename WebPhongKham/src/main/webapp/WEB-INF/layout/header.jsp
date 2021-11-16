@@ -73,17 +73,61 @@
             </ul>
           </li>
           <li><a href="<c:url value="/contact"/>">LIÊN HỆ</a></li>
-          <li>
-              <c:if test="${pageContext.request.userPrincipal.name == null}">
-     
+          
+           <c:if test="${pageContext.request.userPrincipal.name == null}">
+               <li>
                 <a href="<c:url value="/login"/>"><i class="fa fa-user"></i> Đăng Nhập</a>
-        </c:if>
-    
-        <c:if test="${pageContext.request.userPrincipal.name != null}">
+            </li>   
+           </c:if>
+                
+           <c:if test="${pageContext.request.userPrincipal.name != null}">
             
-            <a href="<c:url value="/login"/>"><i class="fa fa-user"></i> ${pageContext.request.userPrincipal.name}</a>
-        </c:if>
+            
+            
+           <c:if test="${currentUser.userRole.equals('ROLE_USER')}">
+            
+            <li class="drop-down"><a href=""/><i class="fa fa-user"></i> ${pageContext.request.userPrincipal.name}</a>
+            <ul>
+             
+              <li><a href="<c:url value="/"/>">Bảng điều khiển</a></li>
+              <li><a href="<c:url value="/logout"/>">Đăng xuất</a></li>
+              
+            </ul>
           </li>
+            </c:if>
+            
+            
+            <c:if test="${currentUser.userRole.equals('ROLE_DOCTOR')}">
+                 <li class="drop-down"><a href=""/><i class="fa fa-user"></i> ${pageContext.request.userPrincipal.name}</a>
+            <ul>
+             <li><a href="<c:url value="/doctor"/>">Bảng điều khiển</a></li>
+              <li><a href="<c:url value="/logout"/>">Đăng xuất</a></li>
+              
+            </ul>
+          </li>
+           
+           </c:if>
+            <c:if test="${currentUser.userRole.equals('ROLE_NURSE')}">
+             <li class="drop-down"><a href=""/><i class="fa fa-user"></i> ${pageContext.request.userPrincipal.name}</a>
+            <ul>
+             <li><a href="<c:url value="/nurse"/>">Bảng điều khiển</a></li>
+             <li><a href="<c:url value="/logout"/>">Đăng xuất</a></li>
+              
+            </ul>
+          </li>
+            </c:if>
+            <c:if test="${currentUser.userRole.equals('ROLE_ADMIN')}">
+             <li class="drop-down"><a href=""/><i class="fa fa-user"></i> ${pageContext.request.userPrincipal.name}</a>
+            <ul>
+             <li><a href="<c:url value="/admin"/>">Bảng điều khiển</a></li>
+             <li><a href="<c:url value="/logout"/>">Đăng xuất</a></li>
+              
+            </ul>
+          </li>
+            </c:if>
+        
+        </c:if>
+         
         </ul>
       </nav><!-- .nav-menu -->
 

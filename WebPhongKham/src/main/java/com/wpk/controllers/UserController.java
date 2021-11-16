@@ -9,6 +9,7 @@ import com.wpk.pojos.User;
 import com.wpk.service.UserService;
 import com.wpk.validator.UserImageValidator;
 import com.wpk.validator.WebAppValidator;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,7 +37,9 @@ public class UserController {
         binder.setValidator(userValidator);
     }
     @GetMapping("/login")
-    public String login(){
+    public String login(Model model, HttpSession session){
+        if(session.getAttribute("currentUser") != null)
+            return "redirect:/";
         return "login";
     }
    
