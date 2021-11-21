@@ -22,7 +22,7 @@
          <form action="">
         <div class="row">
             <div class="col-md-3">
-            <a href="<c:url value="/admin/serviceinvoice-manager/add-serviceinvoice"/>" class=" btn btn-primary btn-xs pull-right"><b>+</b> ADD ServiceInvoice</a>
+            <a href="<c:url value="/admin/serviceinvoice-manager/add-serviceinvoice"/>" class=" btn btn-primary btn-xs pull-right"><b>+</b>Thêm hóa đơn dịch vụ</a>
              </div>
              <div class="col-md-3">
                           
@@ -50,7 +50,8 @@
                 <th>Tên dịch vụ</th>
                 <th>Tên bệnh nhân</th>
                 <th>Tên y tá</th>
-                <th><i class="fas fa-cog"></i></th>
+                <th>Chỉnh sửa</th>
+                <th>Xóa bỏ</th>
            </tr>
         </thead>
         <tbody>
@@ -65,13 +66,18 @@
                         <td>${s.nurse.firstName}</td>
                            
 
-                         <td class="setting">
-                             
-                              <a id="modal" href="<c:url value="/admin/quanly-slide/xoa-slide/${s.id}"/>" name="deleteButton" type="button" class="btn btn-primary" data-toggle="tooltip modal" data-target="#deleteModal" title="Xóa sản phẩm">
-                                   <i class="fas fa-trash-alt" style="color:#ed3c0d"></i>
-                              </a>
+                           <td >
+                        <a data-toggle="tooltip" class="btn btn-success"title="chỉnh sửa" href="<c:url value="/admin/serviceinvoice-manager/edit-serviceinvoice/${s.id}"/>">
+                              <i class="fas fa-edit" style=""></i>
+                         </a>
+                        </td>
+                        <td >
+                        <a id="modal"  href="<c:url value="/admin/serviceinvoice-manager/delete-serviceinvoice/${s.id}"/>" name="deleteButton" type="button" class="btn btn-primary" data-toggle="tooltip modal" data-target="#deleteModal" title="Xóa sản phẩm">
+                               <i class="fas fa-trash-alt" style="color:#ed3c0d"></i>
+                         </a>
+                        </td>
                                
-                         </td>
+                        
                     </tr>
                 </c:forEach>
           </tbody>

@@ -45,12 +45,17 @@
       </form>
 
         <tr>
-            <th class="th-sm">Mã</th> 
+           <th class="th-sm">Mã</th> 
             <th>Tên Bác Sĩ</th>
             <th>Tên Bệnh Nhân</th>
             <th>Ngày hẹn</th>
+            <th>Họ</th>
+            <th>Tên</th>
+            <th>Email</th>
+            <th>Số điện thoại</th>
             <th>Chi tiết</th>
-            <th><i class="fas fa-cog"></i></th>
+           <th><i class="fas fa-cog"></i>
+</th>
        </tr>
     </thead>
     <tbody>
@@ -59,8 +64,12 @@
                 <tr>
                     <td>${s.appointmentId}</td>
                     <td>${s.doctor.firstName}</td>
-                    <td>${s.patient.firstName}</td>
+                    <td>${s.patient.lastName}</td>
                     <td>${s.appointmentDate}</td>
+                    <td>${s.lastName}</td>
+                    <td>${s.firstName}</td>
+                    <td>${s.email}</td>
+                    <td>${s.phone}</td>
                     <td>${s.description}</td>
                    
                     <td class="setting">

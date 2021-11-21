@@ -39,6 +39,7 @@ public class PrescriptionManagerController {
     private WebAppValidator prescriptionValidator;
     @Autowired
     private PatientService patientService;
+
      @InitBinder 
    public void initBinder(WebDataBinder binder)
    { 
@@ -81,13 +82,15 @@ public class PrescriptionManagerController {
     @GetMapping("/admin/prescription-manager/add-prescription")
     private String addPrescriptionShow(Model model){
         model.addAttribute("prescription", new Prescription());
+         model.addAttribute("patients", this.patientService.getPatients());
         return "add-prescription";
    }
     @PostMapping("/admin/prescription-manager/add-prescription")
-    private String addPrescriptionProcess(Model model, @ModelAttribute(value = "prescription")@Valid Prescription m,Map<String, PrescriptionDrug> t, int id, BindingResult result){
+    private String addPrescriptionProcess(Model model, @ModelAttribute(value = "prescription")@Valid Prescription m,BindingResult result){
+        model.addAttribute("patients", this.patientService.getPatients());
         if(!result.hasErrors())
         {      
-            if(this.prescriptionService.addReceipt(t, id)==true)
+            if(this.prescriptionService.addOrUpdate(m)==true)
                     return "redirect:/admin/prescription-manager";
         else
                 model.addAttribute("err","Something wrong");
@@ -114,11 +117,12 @@ public class PrescriptionManagerController {
     public String editPatientShow(Model model,@PathVariable(value ="prescriptionID") int prescriptionID){
         Prescription m = this.prescriptionService.getPrescriptionByID(prescriptionID);
         model.addAttribute("prescription", m);
+        model.addAttribute("patients", this.patientService.getPatients());
         return "edit-prescription";
     }
     @PostMapping("/admin/prescription-manager/edit-prescription")
     public String editPrescriptionProsses(Model model, @ModelAttribute(value = "prescription")@Valid Prescription m, BindingResult result){
-        
+         model.addAttribute("patients", this.patientService.getPatients());
         if(!result.hasErrors())
         {   
             if(this.prescriptionService.addOrUpdate(m)==true)

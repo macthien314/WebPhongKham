@@ -69,7 +69,7 @@
                 <th>Hạn sử dụng</th>
                 <th>Ngày sản xuất</th>
                 
-                <th>Edit</th>
+                <th>Chỉnh sửa</th>
                 <th>Xóa</th>
            </tr>
 
@@ -86,15 +86,15 @@
                         <td>${s.expiry}</td>
                         <td>${s.manufacturer}</td>
                             
-                         <td class="setting">
-                             <a data-toggle="tooltip" title="chỉnh sửa" href="<c:url value="/admin/drug-manager/edit-drug/${s.id}"/>">
-                                  <i class="fas fa-edit" style="color:#6633ff"></i>
-                             </a>
+                         <td>
+                              <a data-toggle="tooltip" class="btn btn-success"title="chỉnh sửa" href="<c:url value="/admin/drug-manager/edit-drug/${s.id}"/>">
+                              <i class="fas fa-edit" style=""></i>
+                                </a>
                          </td>
                          <td>
-                             <a id="modal" href="<c:url value="/admin/quanly-slide/xoa-slide/${s.id}"/>" name="deleteButton" type="button" class="btn btn-primary" data-toggle="tooltip modal" data-target="#deleteModal" title="Xóa sản phẩm">
-                                   <i class="fas fa-trash-alt" style="color:#ed3c0d"></i>
-                              </a>
+                               <a id="modal"  href="<c:url value="/admin/drug-manager/delete-drug/${s.id}"/>" name="deleteButton" type="button" class="btn btn-primary" data-toggle="tooltip modal" data-target="#deleteModal" title="Xóa sản phẩm">
+                               <i class="fas fa-trash-alt" style="color:#ed3c0d"></i>
+                                </a>
                          </td>   
                               
 

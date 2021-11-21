@@ -16,8 +16,8 @@
 
 
        <div class="Back">
-            <i class="fa fa-arrow-left" onclick=""></i>
-        </div>
+         <a href="<c:url value="/admin/prescription-manager"/>">  <i class="fa fa-arrow-left" onclick=""></i></a>
+       </div>
        <div class="card">
         <header class="card-header">
                
@@ -35,8 +35,8 @@
                      <form:input path="createdDate" id="createdDate" name="title" type="date" cssClass="form-control"/>
                      <form:errors path="createdDate" cssClass="alert alert-danger" element="div" />
                 </div> <!-- form-group end.// -->
-                
-                   <div class="form-group">
+                <div class=" form-row">
+                   <div class="form-group col-md-6">
                     <label for="tcate">Tên bệnh nhân</label>
                     <form:select path="patient" id="p" cssClass="form-control">
 
@@ -47,7 +47,7 @@
                     <form:errors cssClass="alert alert-danger" path="patient" element="div"/>
                 </div>
                 
-                 <div class="form-group">
+                 <div class="form-group col-md-6">
                  <label for="tcate">Tên bác sĩ</label>
                  <form:select path="doctor" id="d" cssClass="form-control">
 
@@ -57,12 +57,13 @@
                     </form:select>
                     <form:errors cssClass="alert alert-danger" path="doctor" element="div"/>
                  </div>
-                <div class=" form-group">
+                </div>
+                 
+                  <div class=" form-group">
                      <label for="totalPrice">Chuẩn đoán</label>   
-                     <form:input path="diagnosis" id="createdDate" name="title" type="text" cssClass="form-control"/>
+                     <form:input path="diagnosis" rows="5" id="diagnosis" name="title" type="text" cssClass="form-control"/>
                      <form:errors path="diagnosis" cssClass="alert alert-danger" element="div" />
                 </div> <!-- form-group end.// -->
-                 
                      
             <div class="form-group">
                 <button type="submit" class="btn btn-primary btn-block">Sửa toa thuốc</button>

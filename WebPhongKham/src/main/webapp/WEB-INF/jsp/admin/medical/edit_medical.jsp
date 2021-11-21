@@ -6,17 +6,17 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<c:url value="/admin/medical-manager/edit-medical/${medical.id}" var="action"/>
 <h2 class="mt-4">Thêm chuyên khoa </h2>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="index.html">admin</a></li>
                             <li class="breadcrumb-item active">quanly-chuyenkhoa</li>
                         </ol>
- <c:url value="/admin/medical-manager/edit-medical/${medical.id}" var="action"/>
 
-       <div class="Back">
-            <i class="fa fa-arrow-left" onclick=""></i>
-        </div>
+
+        <div class="Back">
+         <a href="<c:url value="/admin/medical-manager"/>">  <i class="fa fa-arrow-left" onclick=""></i></a>
+       </div>
        <div class="card">
         <header class="card-header">
                

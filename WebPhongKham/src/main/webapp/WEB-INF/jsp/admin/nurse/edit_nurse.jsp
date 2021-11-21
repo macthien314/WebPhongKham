@@ -11,13 +11,13 @@
                         </ol>
 
 
-       <div class="Back">
-            <i class="fa fa-arrow-left" onclick=""></i>
-        </div>
+        <div class="Back">
+         <a href="<c:url value="/admin/nurse-manager"/>">  <i class="fa fa-arrow-left" onclick=""></i></a>
+       </div>
        <div class="card">
         <header class="card-header">
                
-                <h2 class="card-title mt-2">Nurse</h2>
+                <h2 class="card-title mt-2">Y tá</h2>
         </header>
         <article class="card-body">
             

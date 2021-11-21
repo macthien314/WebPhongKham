@@ -17,7 +17,7 @@
     <div class="row">
             
         <div class="col-md-3">
-            <a href="<c:url value="/admin/prescription-manager/add-prescription"/>" class=" btn btn-primary btn-xs pull-right"><b>+</b> ADD Service</a>
+            <a href="<c:url value="/admin/prescription-manager/add-prescription"/>" class=" btn btn-primary btn-xs pull-right"><b>+</b>Thêm toa thuốc</a>
             </div>
              
              <div class="col-md-8">

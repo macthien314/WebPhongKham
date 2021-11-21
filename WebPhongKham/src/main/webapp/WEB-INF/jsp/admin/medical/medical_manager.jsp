@@ -18,7 +18,7 @@
     
     <div class="row">
             <div class="col-md-3">
-            <a href="<c:url value="/admin/medical-manager/add-medical"/>" class=" btn btn-primary btn-xs pull-right"><b>+</b> ADD Medical</a>
+            <a href="<c:url value="/admin/medical-manager/add-medical"/>" class=" btn btn-primary btn-xs pull-right"><b>+</b>Thêm chuyên khoa</a>
              </div>
              <div class="col-md-8">
             <div class="input-group" id="adv-search">

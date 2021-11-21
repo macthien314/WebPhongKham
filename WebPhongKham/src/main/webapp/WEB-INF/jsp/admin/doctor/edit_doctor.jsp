@@ -10,9 +10,9 @@
                         </ol>
 
 
-       <div class="Back">
-            <i class="fa fa-arrow-left" onclick=""></i>
-        </div>
+         <div class="Back">
+         <a href="<c:url value="/admin/doctor-manager"/>">  <i class="fa fa-arrow-left" onclick=""></i></a>
+       </div>
        <div class="card">
         <header class="card-header">
                

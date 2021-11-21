@@ -14,9 +14,9 @@
                         </ol>
 
 
-       <div class="Back">
-            <i class="fa fa-arrow-left" onclick=""></i>
-        </div>
+      <div class="Back">
+         <a href="<c:url value="/admin/serviceinvoice-manager"/>">  <i class="fa fa-arrow-left" onclick=""></i></a>
+       </div>
        <div class="card">
         <header class="card-header">
                
@@ -58,12 +58,12 @@
                      <form:input path="fee" id="yearsExperience" name="yearsExperience" type="text" cssClass="form-control"/>
                      <form:errors path="fee" cssClass="alert alert-danger" element="div" />
                 </div> <!-- form-group end.// -->
-                
-                 <div class=" form-group">
+               <div class="form-row">
+                 <div class=" form-group col-md-6">
 
                             <label for="date">Ngày tạo hóa đơn</label>
-                            <form:input path="createdDay" id="title" name="title" type="date" cssClass="form-control"/>
-                            <form:errors path="createdDay" cssClass="alert alert-danger" element="div" />
+                            <form:input path="createdDate" id="title" name="title" type="date" cssClass="form-control"/>
+                            <form:errors path="createdDate" cssClass="alert alert-danger" element="div" />
                 </div>
                 
                  <div class="form-group col-md-6">
@@ -76,6 +76,7 @@
                     </form:select>
                     <form:errors cssClass="alert alert-danger" path="service" element="div"/>
                  </div>
+         </div>
                         
             <div class="form-group">
                 <button type="submit" class="btn btn-primary btn-block">Tạo Hóa Đơn Dịch Vụ</button>

@@ -24,7 +24,7 @@
          <form action="">
         <div class="row">
             <div class="col-md-3">
-            <a href="<c:url value="/admin/invoice-manager/add-invoice"/>" class=" btn btn-primary btn-xs pull-right"><b>+</b> ADD Invoice</a>
+            <a href="<c:url value="/admin/invoice-manager/add-invoice"/>" class=" btn btn-primary btn-xs pull-right"><b>+</b>Thêm hóa đơn</a>
              </div>
              <div class="col-md-3">
                           

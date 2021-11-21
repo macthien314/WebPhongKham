@@ -15,13 +15,14 @@
                         </ol>
 
 
-       <div class="Back">
-            <i class="fa fa-arrow-left" onclick=""></i>
-        </div>
+     
+          <div class="Back">
+         <a href="<c:url value="/admin/services-manager"/>">  <i class="fa fa-arrow-left" onclick=""></i></a>
+       </div>
        <div class="card">
         <header class="card-header">
                
-                <h3 class="card-title mt-2">Service</h3>
+                <h3 class="card-title mt-2">Dịch vụ</h3>
         </header>
         <article class="card-body">
             

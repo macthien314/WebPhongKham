@@ -109,7 +109,7 @@
             <th>Tên tài khoản</th>
             
             <th>
-                chỉnh sửa
+                Chỉnh sửa
             </th>
             <th>
                 Xóa
@@ -136,9 +136,9 @@
                     <td>${s.medical.name}</td>
                     <td>${s.user.username}</td>
                     <td>
-                          <a data-toggle="tooltip" title="chỉnh sửa" href="<c:url value="/admin/nurse-manager/edit-nurse/${s.id}"/>">
-                              <i class="fas fa-edit" style="color:#6633ff"></i>
-                           </a>
+                          <a data-toggle="tooltip" class="btn btn-success"title="chỉnh sửa" href="<c:url value="/admin/drug-manager/edit-drug/${s.id}"/>">
+                              <i class="fas fa-edit" style=""></i>
+                          </a>
                     </td>   
                     <td>
                          <a id="modal" href="<c:url value="/admin/nurse-manager/delete-nurse/${s.id}"/>" name="deleteButton" type="button" class="btn btn-primary" data-toggle="tooltip modal" data-target="#deleteModal" title="Xóa sản phẩm">

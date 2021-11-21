@@ -46,7 +46,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class ServiceInvoice implements Serializable {
     
     private static final long serialVersionUID = 1L;
-     @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")

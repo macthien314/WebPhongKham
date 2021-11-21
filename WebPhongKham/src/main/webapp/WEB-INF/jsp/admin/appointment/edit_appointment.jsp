@@ -15,9 +15,9 @@
                         </ol>
 
 
-       <div class="Back">
-            <i class="fa fa-arrow-left" onclick=""></i>
-        </div>
+      <div class="Back">
+         <a href="<c:url value="/admin/appointment-manager"/>">  <i class="fa fa-arrow-left" onclick=""></i></a>
+       </div>
        <div class="card">
         <header class="card-header">
                
@@ -35,7 +35,7 @@
                     <label for="tcate">Tên bệnh nhân</label>
                     <form:select path="patient" id="p" cssClass="form-control">
 
-                        <c:forEach items="${patients}" var="p">
+                        <c:forEach items="${patient}" var="p">
                             <option value="${p.id}">${p.firstName}</option>
                         </c:forEach>
                     </form:select>
@@ -53,8 +53,34 @@
                     <form:errors cssClass="alert alert-danger" path="doctor" element="div"/>
                  </div>
                </div>    
-                 
-                 
+                 <div class="form-row">
+                        <div class=" form-group col-md-6">
+                             <label for="lastName">Họ: </label>   
+                             <form:input path="lastName" id="title" name="title" type="text" cssClass="form-control"/>
+                             <form:errors path="lastName" cssClass="alert alert-danger" element="div" />
+                        </div> <!-- form-group end.// -->
+                        <div class=" form-group col-md-6">
+
+                            <label for="firstName">Tên:</label>
+                            <form:input path="firstName" id="title" name="title" type="text" cssClass="form-control"/>
+                            <form:errors path="firstName" cssClass="alert alert-danger" element="div" />
+
+                         </div>
+                    </div>
+                    <div class="form-row">
+                       <div class=" form-group  col-md-6">
+                             <label for="title">SĐT</label>   
+                             <form:input path="phone" id="phone" name="phone" type="number" cssClass="form-control"/>
+                             <form:errors path="phone" cssClass="alert alert-danger" element="div" />
+                        </div> <!-- form-group end.// -->
+
+
+                        <div class=" form-group  col-md-6">
+                             <label for="title">Email</label>   
+                             <form:input path="email" id="email" name="email" type="text" cssClass="form-control"/>
+                             <form:errors path="email" cssClass="alert alert-danger" element="div" />
+                        </div> <!-- form-group end.// -->        
+                      </div>
                  <div class=" form-group">
                      <label for="appointmentDate">Ngày hẹn</label>   
                      <form:input path="appointmentDate" id="appointmentDate" name="title" type="date" cssClass="form-control"/>

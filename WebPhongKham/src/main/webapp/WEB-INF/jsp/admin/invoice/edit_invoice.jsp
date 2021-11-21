@@ -16,8 +16,8 @@
 
 
        <div class="Back">
-            <i class="fa fa-arrow-left" onclick=""></i>
-        </div>
+         <a href="<c:url value="/admin/invoice-manager"/>">  <i class="fa fa-arrow-left" onclick=""></i></a>
+       </div>
        <div class="card">
         <header class="card-header">
                
@@ -32,30 +32,43 @@
                 <form:errors path="*" cssClass="alert alert-danger" element="div" />
                 <form:hidden path="id" />
                 <form:errors path="*" cssClass="alert alert-danger" element="div" />
-                 <div class="form-group">
+                 <div class="form-row">
+                 <div class="form-group col-md-6">
                     <label for="tcate">Mã toa thuốc</label>
                     <form:select path="prescription" id="pre" cssClass="form-control">
-
+                            
                         <c:forEach items="${prescriptions}" var="pre">
                             <option value="${pre.id}">${pre.id}</option>
                         </c:forEach>
                     </form:select>
                     <form:errors cssClass="alert alert-danger" path="prescription" element="div"/>
                 </div>
-
+                
+                 <div class="form-group col-md-6">
+                    <label for="tcate">Tên y tá</label>
+                    <form:select path="nurse" id="n" cssClass="form-control">
+                        <c:forEach items="${nurses}" var="n">
+                            <option value="${n.id}">${n.firstName}</option>
+                        </c:forEach>
+                    </form:select>
+                    <form:errors cssClass="alert alert-danger" path="nurse" element="div"/>
+                </div>
+                 </div>
+                
+                
                 
                 <div class=" form-row">
                     <div class=" form-group col-md-6">  
                      <label for="fee">Giá tiền</label>   
-                     <form:input path="fee" id="fee" name="fee" type="text" cssClass="form-control"/>
-                     <form:errors path="fee" cssClass="alert alert-danger" element="div" />
+                     <form:input path="totalPrice" id="fee" name="fee" type="text" cssClass="form-control"/>
+                     <form:errors path="totalPrice" cssClass="alert alert-danger" element="div" />
                     </div>
                 
                
                       <div class=" form-group col-md-6">      
-                    <label for="createdDay">Ngày tạo</label>
-                   <form:input path="createdDay" placeholder="dd-MM-yyyy"  id="createdDay" name="title" type="date" cssClass="form-control"/>
-                   <form:errors path="createdDay" cssClass="alert alert-danger" element="div" />
+                    <label for="createdDate">Ngày tạo</label>
+                   <form:input path="createdDate" placeholder="dd-MM-yyyy"  id="createdDate" name="title" type="date" cssClass="form-control"/>
+                   <form:errors path="createdDate" cssClass="alert alert-danger" element="div" />
                       </div>
                 </div>
                         

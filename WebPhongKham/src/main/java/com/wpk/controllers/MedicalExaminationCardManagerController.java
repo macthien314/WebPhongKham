@@ -8,6 +8,8 @@ package com.wpk.controllers;
 
 import com.wpk.pojos.MedicalExaminationCard;
 import com.wpk.service.MedicalExaminationCardService;
+import com.wpk.service.NurseService;
+import com.wpk.service.PatientService;
 import static com.wpk.utils.util.isNumeric;
 import com.wpk.validator.WebAppValidator;
 import java.text.SimpleDateFormat;
@@ -36,6 +38,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class MedicalExaminationCardManagerController {
      @Autowired
     private MedicalExaminationCardService medicalExaminationCardsService;
+    @Autowired
+    private PatientService patientService;
+    @Autowired
+    private NurseService nurseService;
     @Autowired
     private WebAppValidator medicalExaminationCardValidator;
      @InitBinder 
@@ -101,10 +107,14 @@ public class MedicalExaminationCardManagerController {
     @GetMapping("/admin/medicalexaminationcard-manager/add-medicalexaminationcard")
     private String addMedicalShow(Model model){
         model.addAttribute("medicalexaminationcard", new MedicalExaminationCard());
+        model.addAttribute("patients", this.patientService.getPatients());
+        model.addAttribute("nurses", this.nurseService.getNurses());
         return "add-medicalexaminationcard";
    }
     @PostMapping("/admin/medicalexaminationcard-manager/add-medicalexaminationcard")
     private String addMedicalExaminationCardProcess(Model model, @ModelAttribute(value = "medicalexaminationcard")@Valid MedicalExaminationCard m, BindingResult result){
+        model.addAttribute("patients", this.patientService.getPatients());
+        model.addAttribute("nurses", this.nurseService.getNurses());
         if(!result.hasErrors())
         {      
             if(this.medicalExaminationCardsService.addOrUpdate(m)==true)
@@ -120,11 +130,14 @@ public class MedicalExaminationCardManagerController {
     public String editMedicalExaminationcCardIDShow(Model model,@PathVariable(value ="medicalexaminationcardID") int medicalexaminationcardID){
         MedicalExaminationCard m = this.medicalExaminationCardsService.getMedicalExaminationCardByID(medicalexaminationcardID);
         model.addAttribute("medicalexaminationcard", m);
+        model.addAttribute("patients", this.patientService.getPatients());
+        model.addAttribute("nurses", this.nurseService.getNurses());
         return "edit-medicalexaminationcard";
     }
     @PostMapping("/admin/medicalexaminationcard-manager/edit-medicalexaminationcard")
     public String editMedicalExaminationCardProsses(Model model, @ModelAttribute(value = "doctor")@Valid MedicalExaminationCard m, BindingResult result){
-        
+        model.addAttribute("patients", this.patientService.getPatients());
+        model.addAttribute("nurses", this.nurseService.getNurses());
         if(!result.hasErrors())
         {   
             if(this.medicalExaminationCardsService.addOrUpdate(m)==true)

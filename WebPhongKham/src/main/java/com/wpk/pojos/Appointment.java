@@ -40,11 +40,9 @@ import org.springframework.web.multipart.MultipartFile;
     @NamedQuery(name = "Appointment.findByDescription", query = "SELECT a FROM Appointment a WHERE a.description = :description"),
     @NamedQuery(name = "Appointment.findByAppointmentId", query = "SELECT a FROM Appointment a WHERE a.appointmentId = :appointmentId")})
 public class Appointment implements Serializable {
-
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "appointment_id")
     private Integer appointmentId;
@@ -57,7 +55,7 @@ public class Appointment implements Serializable {
     @Column(name = "description")
     private String description;
     @Basic(optional = false)
-    @NotNull
+
     @Size(min = 1, max = 45)
     @Column(name = "first_name")
     private String firstName;
@@ -71,7 +69,7 @@ public class Appointment implements Serializable {
     @Column(name = "phone")
     private String phone;
     @Basic(optional = false)
-    @NotNull
+
     @Size(min = 1, max = 45)
     @Column(name = "email")
     private String email;

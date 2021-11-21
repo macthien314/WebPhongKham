@@ -24,7 +24,7 @@
         <div class="col-md-3">
 <button  type="button" data-toggle="modal" data-target="#createModal"  class="btn btn-outline-primary">                         
                            Thêm bệnh nhân
-                 </button>
+</button>
         </div>
             
              <div class="col-md-8">
@@ -40,12 +40,12 @@
                             <div class="dropdown-menu dropdown-menu-right" role="menu">
                                 <form  class="form-horizontal" role="form">
                                   <div class="form-group">
-                                    <label for="firstName">Nhập họ</label>
-                                    <input value="${firstname}" name ="firstname" class="form-control" type="text" />
+                                    <label for="lastname">Nhập họ</label>
+                                    <input value="${lastname}" name ="lastname" class="form-control" type="text" />
                                   </div>
                                   <div class="form-group">
-                                    <label for="lastname">Nhập tên đệm và tên</label>
-                                    <input value="${lastname}" name ="lastname" class="form-control" type="text" />
+                                    <label for="firstname">Nhập tên đệm và tên</label>
+                                    <input value="${firstname}" name ="firstname" class="form-control" type="text" />
                                   </div>
                                   
                                     
@@ -108,8 +108,8 @@
             <c:forEach items="${patients}" var="s">
                 <tr>
                     <td>${s.id}</td>
-                    <td>${s.firstName}</td>
                     <td>${s.lastName}</td>
+                    <td>${s.firstName}</td>
                     
                     <td>${s.birthDate}</td>
                     <td>${s.gender}</td>

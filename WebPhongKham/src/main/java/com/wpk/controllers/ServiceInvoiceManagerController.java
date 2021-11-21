@@ -8,6 +8,8 @@ package com.wpk.controllers;
 
 
 import com.wpk.pojos.ServiceInvoice;
+import com.wpk.service.NurseService;
+import com.wpk.service.PatientService;
 import com.wpk.service.ServiceInvoiceService;
 import com.wpk.validator.WebAppValidator;
 import java.util.Map;
@@ -32,8 +34,12 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 @Controller
 public class ServiceInvoiceManagerController {
-     @Autowired
+    @Autowired
     private ServiceInvoiceService serviceInvoiceService;
+    @Autowired
+    private PatientService patientService;
+    @Autowired
+    private NurseService nurseService;
     @Autowired
     private WebAppValidator serviceInvoiceValidator;
      @InitBinder 
@@ -51,10 +57,14 @@ public class ServiceInvoiceManagerController {
     @GetMapping("/admin/serviceinvoice-manager/add-serviceinvoice")
     private String addServiceInvoiceShow(Model model){
         model.addAttribute("serviceinvoice", new ServiceInvoice());
+        model.addAttribute("patients", this.patientService.getPatients());
+        model.addAttribute("nurses", this.nurseService.getNurses());
         return "add-serviceinvoice";
    }
     @PostMapping("/admin/serviceinvoice-manager/add-serviceinvoice")
     private String addServiceInvoiceProcess(Model model, @ModelAttribute(value = "serviceinvoice")@Valid ServiceInvoice m, BindingResult result){
+        model.addAttribute("patients", this.patientService.getPatients());
+        model.addAttribute("nurses", this.nurseService.getNurses());
         if(!result.hasErrors())
         {      
             if(this.serviceInvoiceService.addOrUpdate(m)==true)
@@ -83,11 +93,14 @@ public class ServiceInvoiceManagerController {
     public String editServiceInvoiceShow(Model model,@PathVariable(value ="serviceinvoiceID") int serviceinvoiceID){
         ServiceInvoice m = this.serviceInvoiceService.getServiceInvoiceByID(serviceinvoiceID);
         model.addAttribute("serviceinvoice", m);
+        model.addAttribute("patients", this.patientService.getPatients());
+        model.addAttribute("nurses", this.nurseService.getNurses());
         return "edit-serviceinvoice";
     }
     @PostMapping("/admin/serviceinvoice-manager/edit-serviceinvoice")
     public String editServiceInvoiceProsses(Model model, @ModelAttribute(value = "serviceinvoice")@Valid ServiceInvoice m, BindingResult result){
-        
+        model.addAttribute("patients", this.patientService.getPatients());
+        model.addAttribute("nurses", this.nurseService.getNurses());
         if(!result.hasErrors())
         {   
             if(this.serviceInvoiceService.addOrUpdate(m)==true)

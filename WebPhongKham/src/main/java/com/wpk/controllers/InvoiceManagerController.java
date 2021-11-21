@@ -6,6 +6,8 @@
 package com.wpk.controllers;
 import com.wpk.pojos.Invoice;
 import com.wpk.service.InvoiceService;
+import com.wpk.service.NurseService;
+import com.wpk.service.PrescriptionService;
 import com.wpk.validator.WebAppValidator;
 import java.util.Map;
 import javax.validation.Valid;
@@ -32,6 +34,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class InvoiceManagerController {
     @Autowired
     private InvoiceService invoiceService;
+     @Autowired
+    private PrescriptionService prescriptionService;
+      @Autowired
+    private NurseService nurseService;
     @Autowired
     private WebAppValidator invoiceValidator;
      @InitBinder 
@@ -49,10 +55,14 @@ public class InvoiceManagerController {
     @GetMapping("/admin/invoice-manager/add-invoice")
     private String addInvoiceShow(Model model){
         model.addAttribute("invoice", new Invoice());
+        model.addAttribute("nurses", this.nurseService.getNurses());
+        model.addAttribute("prescriptions", this.prescriptionService.getPrescriptions());
         return "add-invoice";
    }
     @PostMapping("/admin/invoice-manager/add-invoice")
     private String addInvoiceProcess(Model model, @ModelAttribute(value = "invoice")@Valid Invoice m, BindingResult result){
+        model.addAttribute("nurses", this.nurseService.getNurses());
+        model.addAttribute("prescriptions", this.prescriptionService.getPrescriptions());
         if(!result.hasErrors())
         {      
             if(this.invoiceService.addOrUpdate(m)==true)
@@ -81,11 +91,14 @@ public class InvoiceManagerController {
     public String editDoctorShow(Model model,@PathVariable(value ="invoiceID") int invoiceID){
         Invoice m = this.invoiceService.getInvoiceByID(invoiceID);
         model.addAttribute("invoice", m);
+        model.addAttribute("nurses", this.nurseService.getNurses());
+        model.addAttribute("prescriptions", this.prescriptionService.getPrescriptions());
         return "edit-invoice";
     }
     @PostMapping("/admin/invoice-manager/edit-invoice")
     public String editInvoiceProsses(Model model, @ModelAttribute(value = "invoice")@Valid Invoice m, BindingResult result){
-        
+        model.addAttribute("nurses", this.nurseService.getNurses());
+        model.addAttribute("prescriptions", this.prescriptionService.getPrescriptions());
         if(!result.hasErrors())
         {   
             if(this.invoiceService.addOrUpdate(m)==true)

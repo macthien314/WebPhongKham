@@ -8,6 +8,7 @@ package com.wpk.controllers;
 
 import com.wpk.pojos.Appointment;
 import com.wpk.service.AppointmentService;
+import com.wpk.service.PatientService;
 import com.wpk.validator.WebAppValidator;
 import java.util.Map;
 import javax.validation.Valid;
@@ -34,6 +35,8 @@ public class AppointmentManagerController {
      @Autowired
     private AppointmentService appointmentService;
     @Autowired
+    private PatientService patientService;
+    @Autowired
     private WebAppValidator appointmentValidator;
      @InitBinder 
    public void initBinder(WebDataBinder binder)
@@ -44,21 +47,24 @@ public class AppointmentManagerController {
     public String  AppointmentManager(Model model, @RequestParam(required = false)Map<String, String> params){
         model.addAttribute("appointment", new  Appointment());
         model.addAttribute("appointments", this.appointmentService.getAppointments());
+     
         return "appointment-manager";
     }
     //chuc nang them chuyen khoa
     @GetMapping("/admin/appointment-manager/add-appointment")
     private String addAppointmentShow(Model model){
         model.addAttribute("appointment", new Appointment());
+        model.addAttribute("patient", this.patientService.getPatients());
         return "add-appointment";
    }
     @PostMapping("/admin/appointment-manager/add-appointment")
     private String addAppointmentProcess(Model model, @ModelAttribute(value = "appointment")@Valid Appointment m, BindingResult result){
+        model.addAttribute("patient", this.patientService.getPatients());
         if(!result.hasErrors())
         {      
             if(this.appointmentService.addOrUpdate(m)==true)
                     return "redirect:/admin/appointment-manager";
-        else
+        else   
                 model.addAttribute("err","Something wrong");
         }
         return "add-appointment";
