@@ -21,13 +21,12 @@
 </c:if>
         <div class="col-md-3">
             <a href="<c:url value="/admin/doctor-manager/add-doctor"/>" class=" btn btn-primary btn-xs pull-right"><b>+</b>Thêm bác sĩ</a>
-            </div>
+        </div>
             
-             <div class="col-md-8">
-            
-                 <div class="input-group" id="adv-search">
+                       <div class="col-md-8">
+                <div class="input-group" id="adv-search">
                 <form  id ="find"role="form">
-                    <input value="${lastname}" name="lastname" type="text" class="form-control" placeholder="tên điệm và tên" />
+                    <input value="${firstname}" name="firstname" type="text" class="form-control" placeholder="tên điệm và tên" />
                 </form>
                 <div class="input-group-btn">
                     <div class="btn-group" role="group">
@@ -40,8 +39,8 @@
                                     <input value="${lastname}" name ="lastname" class="form-control" type="text" />
                                   </div>
                                   <div class="form-group">
-                                    <label for="firstName">Nhập tên đệm và tên</label>
-                                    <input value="${firstName}" name ="firstName" class="form-control" type="text" />
+                                    <label for="firstname">Nhập tên đệm và tên</label>
+                                    <input value="${firstname}" name ="firstname" class="form-control" type="text" />
                                   </div>
                                   <div class="form-group">
                                     <label for="medid">Chuyên khoa</label>
@@ -90,17 +89,13 @@
                 </div>
             </div>
           </div>
-            </div>
                                      <br><!-- comment -->
 <div id="managerTable" class="table table-striped w-auto" >
     
         <table  class="slide-table table table-striped table-bordered" width="100%">
 
     <thead>
-   
-     
-
-        <tr>
+       <tr>
             <th class="th-sm">Mã</th>
             <th>Họ</th>
             <th >Tên</th>
@@ -112,14 +107,13 @@
             <th >Ảnh</th>
             <th>Tên Khoa</th>
             <th>Tên tài khoản</th>
-
             <th>Chỉnh sửa</th>
             <th>Xóa bỏ</th>
        </tr>
     </thead>
     <tbody>
 
-            <c:forEach items="${pdoctors}" var="s">
+            <c:forEach items="${doctors}" var="s">
                 <tr>
                     <td>${s.id}</td>
                     <td>${s.lastName}</td>
@@ -186,8 +180,8 @@
                 </c:url>"
        >${i}</a></li>
    </c:if>
+  
    <c:if test="${page == i}">
-   
   <a class ="active"href="<c:url value="/admin/doctor-manager">
                     <c:param name="lastname"
                     value="${lastname}"></c:param>

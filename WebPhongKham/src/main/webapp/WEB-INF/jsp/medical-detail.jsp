@@ -44,9 +44,6 @@
           <br><!-- comment -->
           <p>${medical.description}</p>
       </div>
-      <textarea>
-          
-      </textarea>
     </section>
       
   </main>

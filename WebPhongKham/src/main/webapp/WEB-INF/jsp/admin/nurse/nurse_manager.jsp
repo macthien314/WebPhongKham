@@ -26,7 +26,7 @@
              <div class="col-md-8">
                 <div class="input-group" id="adv-search">
                 <form  id ="find"role="form">
-                    <input value="${lastname}" name="lastname" type="text" class="form-control" placeholder="tên điệm và tên" />
+                    <input value="${firstname}" name="firstname" type="text" class="form-control" placeholder="tên điệm và tên" />
                 </form>
                 <div class="input-group-btn">
                     <div class="btn-group" role="group">
@@ -36,11 +36,11 @@
                                 <form  class="form-horizontal" role="form">
                                   <div class="form-group">
                                     <label for="firstName">Nhập họ</label>
-                                    <input value="${firstname}" name ="firstname" class="form-control" type="text" />
+                                    <input value="${lastname}" name ="lastname" class="form-control" type="text" />
                                   </div>
                                   <div class="form-group">
                                     <label for="lastname">Nhập tên đệm và tên</label>
-                                    <input value="${lastname}" name ="lastname" class="form-control" type="text" />
+                                    <input value="${firstname}" name ="firstname" class="form-control" type="text" />
                                   </div>
                                   <div class="form-group">
                                     <label for="medid">Chuyên khoa</label>
@@ -136,7 +136,7 @@
                     <td>${s.medical.name}</td>
                     <td>${s.user.username}</td>
                     <td>
-                          <a data-toggle="tooltip" class="btn btn-success"title="chỉnh sửa" href="<c:url value="/admin/drug-manager/edit-drug/${s.id}"/>">
+                          <a data-toggle="tooltip" class="btn btn-success"title="chỉnh sửa" href="<c:url value="/admin/nurse-manager/edit-nurse/${s.id}"/>">
                               <i class="fas fa-edit" style=""></i>
                           </a>
                     </td>   
@@ -208,7 +208,7 @@
         </button>
       </div>
       <div class="modal-body">
-        Bạn có muốn chắn xóa chuyên khoa
+        Bạn có muốn chắn xóa y tá
       </div>
       <div class="modal-footer">
           <a href="" class="btn btn-primary" id="delRef">Vâng,tôi chắc</a> 

@@ -73,7 +73,7 @@ public class StatsManagerController {
         String to="2021-12-31";
         try{  
             
-            from =params.getOrDefault("fromDate", null);
+             from =params.getOrDefault("fromDate", null);
 
             if(from != null){
                 fromDate = f.parse(from);

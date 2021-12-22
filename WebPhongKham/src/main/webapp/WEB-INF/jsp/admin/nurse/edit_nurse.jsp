@@ -87,7 +87,7 @@
                         <div class=" form-group col-md-3">
                             <button type="submit" class="btn btn-primary btn-block">Chỉnh sửa thông tin</button>
                         </div> <!-- form-group end.// -->
-             <c:if test="${doctor.user == null}">
+             <c:if test="${nurse.user == null}">
                  <div class=" form-group col-md-3">
                      <button type="submit" formmethod="post" formaction="${createUser}" class="btn btn-primary btn-block">Cấp phát tài khoản</button>
                  </div> <!-- form-group end.// -->

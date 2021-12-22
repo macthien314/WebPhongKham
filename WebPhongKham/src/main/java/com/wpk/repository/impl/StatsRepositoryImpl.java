@@ -52,9 +52,9 @@ public class StatsRepositoryImpl implements StatsRepository{
         predicates.add(b.equal(rootM.get("patient"), rootP.get("id")));
           
           
-        q.multiselect( b.function("MONTH",Integer.class, rootM.get("date")),
+        q.multiselect(b.function("MONTH",Integer.class, rootM.get("date")),
         b.function("YEAR",Integer.class, rootM.get("date")),
-        b.count(rootP.get("id")), b.countDistinct(rootP.get("id")));
+        b.count(rootM.get("id")), b.countDistinct(rootP.get("id")));
             
         if(fromDate != null)
         {

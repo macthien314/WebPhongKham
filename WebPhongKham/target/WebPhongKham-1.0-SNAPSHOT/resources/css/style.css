@@ -1852,10 +1852,58 @@ section {
 
 .login,
 .image {
-  min-height: 90vh;
+  min-height: 85vh;
 
   
 }
+
+.divider {
+    display: block;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: -8px;
+    overflow: hidden;
+    text-align: center;
+    white-space: nowrap;
+    width: 90%;
+}
+
+.divider > span {
+    display: inline-block;
+    position: relative;
+    color: #4b4f56;
+    cursor: default;
+    font-size: 13px;
+}
+
+.divider>span:after {
+    left: 100%;
+    margin-left: 15px;
+}
+
+.divider>span:before, .divider>span:after {
+    background: #ced0d4;
+    content: "";
+    height: 1px;
+    position: absolute;
+    top: 50%;
+    width: 9999px;
+}
+
+.divider>span:before, .divider>span:after {
+    background: #ced0d4;
+    content: "";
+    height: 1px;
+    position: absolute;
+    top: 50%;
+    width: 9999px;
+}
+
+.divider>span:before {
+    margin-right: 15px;
+    right: 100%;
+}
+
 
 .bg-image {
   background-image: url('https://res.cloudinary.com/ikj/image/upload/v1636946143/form_bg_wnpzcx.jpg');

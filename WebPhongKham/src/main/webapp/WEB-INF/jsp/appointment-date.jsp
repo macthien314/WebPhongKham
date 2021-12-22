@@ -37,8 +37,7 @@
       <div class="container">
 
         <div class="section-title">
-          <h2>Make an Appointment</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <h2>ĐẶT LỊCH HẸN</h2>
         </div>
 
        <form id="appointment" action="${action}" modelAttribute="appointment"  method="post" role="form" class="php-email-form">

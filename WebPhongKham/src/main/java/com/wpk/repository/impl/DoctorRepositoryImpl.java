@@ -17,13 +17,6 @@ import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
-import  com.wpk.pojos.MedicalExaminationCard;
-import com.wpk.pojos.MedicalExaminationCard_;
-import static com.wpk.pojos.MedicalExaminationCard_.date;
-import javax.persistence.criteria.Fetch;
-import javax.persistence.criteria.Join;
-import javax.persistence.criteria.JoinType;
-import javax.persistence.criteria.ListJoin;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import org.hibernate.HibernateException;

@@ -96,8 +96,8 @@ public class User implements Serializable {
     private String image;
     private static final String USER ="ROLE_USER";
     private static final String ADMIN ="ROLE_ADMIN";
-    @Transient
     
+    @Transient  
     private MultipartFile file;
     @Transient
     private String confirmPassword;

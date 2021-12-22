@@ -75,10 +75,10 @@
                                 </div>
                                 <div class="custom-control custom-checkbox mb-3">
                                     <input id="customCheck1" type="checkbox" checked class="custom-control-input">
-                                    <label for="customCheck1" class="custom-control-label">Remember password</label>
+                                    <label for="customCheck1" class="custom-control-label">Lưu mật khẩu</label>
                                 </div>
-                                <button type="submit" class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">Sign in</button>
-                                <p class="text-center">OR</p>
+                                <button type="submit" class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">Đăng nhập</button>
+                                <div class="divider"><span>hoặc</span></div>
                                 <a href="<c:url value="/register"/>"><button type="button" class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm btn-info">Đăng Ký</button></a>
 
                             </form>
