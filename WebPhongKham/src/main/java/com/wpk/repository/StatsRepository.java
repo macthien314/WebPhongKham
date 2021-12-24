@@ -18,4 +18,5 @@ public interface StatsRepository {
     List<Object[]> medCardRevenueMonthStats(Date fromDate, Date toDate);
     List<Object[]> serviceInvoiceMonthStats(Date fromDate, Date toDate);
     //List<Integer> count(Date fromDate, Date toDate);
+    List<Object[]> coutabout();
 }

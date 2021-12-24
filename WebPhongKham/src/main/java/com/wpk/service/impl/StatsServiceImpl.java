@@ -84,4 +84,10 @@ public class StatsServiceImpl implements StatsService{
         Collections.sort(revenues);
         return revenues;
     }
+
+    @Override
+    public List<Object[]> coutabout() {
+         return statsRepository.coutabout();
+    }
+    
 }

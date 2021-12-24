@@ -16,7 +16,7 @@ import java.util.List;
 public interface StatsService {
      List<Object[]> numPatientMonthStats(Date fromDate, Date toDate);
      List<Object[]> invoiceMonthStats(Date fromDate, Date toDate);
-     
+     List<Object[]> coutabout();
      //danh thu đến từ: hóa đơn, hóa đơn dịch vụ, phiếu khám
      List<Revenue> revenueMonthStats(Date fromDate, Date toDate);
 }

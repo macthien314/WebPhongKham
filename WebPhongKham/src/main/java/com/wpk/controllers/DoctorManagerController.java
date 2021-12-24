@@ -73,7 +73,7 @@ public class DoctorManagerController {
         }catch(Exception e){
             e.printStackTrace();
         }
-        model.addAttribute("pdoctors", this.doctorService.getDoctors(firstName, lastName, medID, account, pageQuan,page));
+        model.addAttribute("doctors", this.doctorService.getDoctors(firstName, lastName, medID, account, pageQuan,page));
         model.addAttribute("count", this.doctorService.countDoctor(firstName, lastName, medID, account));
         
         model.addAttribute("page", Integer.toString(page));

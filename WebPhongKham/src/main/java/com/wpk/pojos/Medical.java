@@ -60,10 +60,10 @@ public class Medical implements Serializable {
     @Column(name = "image")
     private String image;
     @OneToMany(mappedBy = "medical")
-    private List<Doctor> doctorList;
+    private List<Doctor> doctor;
    
     @OneToMany(mappedBy = "medical")
-    private List<Nurse> nurseList;
+    private List<Nurse> nurse;
     @Transient
    
     private MultipartFile file;
@@ -115,22 +115,22 @@ public class Medical implements Serializable {
 
     @XmlTransient
     public List<Doctor> getDoctorList() {
-        return doctorList;
+        return doctor;
     }
 
     public void setDoctorList(List<Doctor> doctorList) {
-        this.doctorList = doctorList;
+        this.doctor = doctorList;
     }
 
     
 
     @XmlTransient
     public List<Nurse> getNurseList() {
-        return nurseList;
+        return nurse;
     }
 
     public void setNurseList(List<Nurse> nurseList) {
-        this.nurseList = nurseList;
+        this.nurse = nurseList;
     }
 
     @Override

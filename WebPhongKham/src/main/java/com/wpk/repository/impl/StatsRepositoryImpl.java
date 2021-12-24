@@ -7,13 +7,16 @@
  */
 package com.wpk.repository.impl;
 
-import com.wpk.pojos.Drug;
+import com.wpk.pojos.Doctor;
+import com.wpk.pojos.Nurse;
 import com.wpk.pojos.Invoice;
+import com.wpk.pojos.Medical;
 import com.wpk.pojos.MedicalExaminationCard;
 import com.wpk.pojos.Patient;
 import com.wpk.pojos.Prescription;
 import com.wpk.pojos.PrescriptionDrug;
 import com.wpk.pojos.ServiceInvoice;
+import com.wpk.pojos.Services;
 import com.wpk.repository.StatsRepository;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -161,10 +164,7 @@ public class StatsRepositoryImpl implements StatsRepository{
         Root rootm = q.from(ServiceInvoice.class);
         
         List<Predicate> predicates = new ArrayList<>();
-        
-        
-        
-        
+             
           
         q.multiselect( 
                 b.function("MONTH",Integer.class, rootm.get("createdDate")),
@@ -186,6 +186,32 @@ public class StatsRepositoryImpl implements StatsRepository{
         q.groupBy(b.function("MONTH",Integer.class, rootm.get("createdDate")),
         b.function("YEAR",Integer.class, rootm.get("createdDate"))); 
         
+        Query query = session.createQuery(q);    
+        return query.getResultList();
+    }
+
+    @Override
+    public List<Object[]> coutabout() {
+        Session session = sessionFactory.getObject().getCurrentSession();
+        CriteriaBuilder b = session.getCriteriaBuilder();
+        CriteriaQuery<Object[]> q = b.createQuery(Object[].class);
+        
+        Root rootSI = q.from(ServiceInvoice.class);
+        Root rootS = q.from(Services.class);
+        Root rootN = q.from(Nurse.class);
+        Root rootM = q.from(Medical.class);
+        Root rootD = q.from(Doctor.class);
+        
+        List<Predicate> predicates = new ArrayList<>();     
+        predicates.add(b.equal(rootSI.get("service"), rootS.get("id")));
+        predicates.add(b.equal(rootSI.get("nurse"), rootN.get("id"))); 
+        predicates.add(b.equal(rootM.get("doctor"), rootD.get("id"))); 
+        predicates.add(b.equal(rootM.get("nurse"), rootN.get("id"))); 
+        
+        q.multiselect(b.count(rootN.get("id")),b.count(rootM.get("id"))
+                ,b.count(rootD.get("id")),b.count(rootS.get("id"))); 
+                 
+        q.where(b.and(predicates.toArray(new Predicate[]{})));                   
         Query query = session.createQuery(q);    
         return query.getResultList();
     }
