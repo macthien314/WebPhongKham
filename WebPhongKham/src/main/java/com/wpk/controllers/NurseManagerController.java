@@ -162,11 +162,11 @@ public class NurseManagerController {
         if(!result.hasErrors())
         {   
             if(this.userDetailsService.addDoctorUser(u) ==true)
-                    return "redirect:/admin/doctor-manager";
+                    return "redirect:/admin/nurse-manager";
         else
                 model.addAttribute("err","Something wrong");
         }
         
-        return "redirect:/admin/doctor-manager/edit-doctor/{"+m.getId().toString()+"}" ;
+        return "redirect:/admin/nurse-manager/edit-nurse/{"+m.getId().toString()+"}" ;
     }
 }

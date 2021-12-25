@@ -235,7 +235,7 @@
                 </div>
                     <div class="form-row">
                         <div class=" form-group col-md-6">
-                             <label for="firstName">Họ: </label>   
+                             <label for="lastName">Họ: </label>   
                              <form:input path="lastName" id="lastName" name="lastName" type="text" cssClass="form-control"/>
                              <form:errors path="lastName" cssClass="alert alert-danger" element="div" />
                         </div> <!-- form-group end.// -->

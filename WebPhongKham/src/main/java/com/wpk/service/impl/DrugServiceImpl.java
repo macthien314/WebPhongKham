@@ -58,5 +58,11 @@ public class DrugServiceImpl implements DrugService{
         return this.drugRepository.getUnexpiredDrug();
     }
 
+    @Override
+    public boolean removeDrug(int id) {
+       return this.drugRepository.removeDrug(id);
+    }
+
+
     
 }

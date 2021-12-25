@@ -95,11 +95,7 @@
                                <a id="modal"  href="<c:url value="/admin/drug-manager/delete-drug/${s.id}"/>" name="deleteButton" type="button" class="btn btn-primary" data-toggle="tooltip modal" data-target="#deleteModal" title="Xóa sản phẩm">
                                <i class="fas fa-trash-alt" style="color:#ed3c0d"></i>
                                 </a>
-                         </td>   
-                              
-
-                              
-                               
+                         </td>        
                          </td>
                     </tr>
                 </c:forEach>

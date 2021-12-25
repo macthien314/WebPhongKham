@@ -92,9 +92,9 @@ public class StatsManagerController {
         return "invoicestats-month" ;  
     }
    
-     @GetMapping("/admin")   
+     @GetMapping("/")  
      public String coutabout(Model model,@RequestParam(required = false)Map<String, String> params) throws ParseException{
-        model.addAttribute("countabout", this.statsService.coutabout());
+        model.addAttribute("countabouts", this.statsService.coutabout());
         return "cout-about";
      }
     

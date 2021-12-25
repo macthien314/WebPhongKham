@@ -272,14 +272,10 @@
     </definition>
     <!-- End admin: user manager -->
     
-    
-    
-    
     <definition name="numpatient-month" extends="adminLayout">
         <put-attribute name="content" value="/WEB-INF/jsp/stats/numpatient-month.jsp"/>
     </definition>
-    
-    
+     
     <definition name="invoicestats-month" extends="adminLayout">
         <put-attribute name="content" value="/WEB-INF/jsp/stats/invoicestat-month.jsp"/>
     </definition>

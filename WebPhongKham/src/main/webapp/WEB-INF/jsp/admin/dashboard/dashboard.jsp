@@ -22,13 +22,13 @@
           <div class="col-lg-3 col-md-6">
             <div class="count-box">
               <i class="icofont-doctor-alt"></i>
-              <span data-toggle="counter-up">
-<!--                  <c:forEach items="${numPatientMonths}" var="p">
+              <span data-toggle="counter-up">6
+                  <c:forEach items="${countabouts}" var="p">
     <tr>
-        <td>${p[0]}</td>
+        <td>${p[2]}</td>
     </tr>
-    </c:forEach></span>-->
-              </span>
+    </c:forEach></span>
+             
               <p>Bác sĩ</p>
             </div>
           </div>

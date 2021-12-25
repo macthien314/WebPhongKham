@@ -34,15 +34,15 @@
                 </div>
                     <div class="form-row">
                         <div class=" form-group col-md-6">
-                             <label for="firstName">Họ: </label>   
-                             <form:input path="firstName" id="title" name="title" type="text" cssClass="form-control"/>
-                             <form:errors path="firstName" cssClass="alert alert-danger" element="div" />
+                             <label for="lastName">Họ: </label>   
+                             <form:input path="lastName" id="title" name="title" type="text" cssClass="form-control"/>
+                             <form:errors path="lastName" cssClass="alert alert-danger" element="div" />
                         </div> <!-- form-group end.// -->
                         <div class=" form-group col-md-6">
 
-                            <label for="lastName">Tên:</label>
-                            <form:input path="lastName" id="title" name="title" type="text" cssClass="form-control"/>
-                            <form:errors path="lastName" cssClass="alert alert-danger" element="div" />
+                            <label for="firstName">Tên:</label>
+                            <form:input path="firstName" id="title" name="title" type="text" cssClass="form-control"/>
+                            <form:errors path="firstName" cssClass="alert alert-danger" element="div" />
 
                          </div>
                     </div>

@@ -16,6 +16,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
+import org.hibernate.HibernateException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.stereotype.Repository;
@@ -41,6 +42,20 @@ public class DrugRepositoryImpl implements DrugRepository{
     public Drug getDrugByID(int id) {
         Session s = sessionFactory.getObject().getCurrentSession();
         return s.get(Drug.class, id);
+    }
+    
+        @Override
+    public boolean removeDrug(int id) {
+       Session session = sessionFactory.getObject().getCurrentSession();
+        Drug m = this.getDrugByID(id);
+        try{
+            session.delete(m);
+            return true;
+        }
+        catch(HibernateException e){
+            e.printStackTrace();
+        }
+        return false;
     }
 
     @Override

@@ -17,6 +17,8 @@ public interface DrugService {
      List<Drug> getDrugs();
      Drug getDrugByID(int id);
      boolean addOrUpdate(Drug m);
+     boolean removeDrug(int id);
+     
      List<Drug> getDrugs(String name, String pageQuan, int pageNum);
      long countDrug(String name);
 

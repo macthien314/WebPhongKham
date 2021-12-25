@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
@@ -107,6 +109,19 @@ public class DrugManagerController {
     public String drug(Model model,@PathVariable(value ="drugid") int drugid){
         model.addAttribute("drug", this.drugService.getDrugByID(drugid));
         return "drug-detail";
+    }
+    
+     @RequestMapping(value="/admin/drug-manager/delete-drug/{id}",method = {RequestMethod.DELETE,RequestMethod.GET})
+    public String deleteDrug(Model model,@PathVariable(value ="id") int id){
+        try{
+            if(this.drugService.removeDrug(id)){
+            return "redirect:/admin/drug-manager";
+            }
+            else model.addAttribute("err","Something wrong");
+        }
+        catch(Exception e){
+        }
+        return "redirect:/admin/drug-manager";
     }
 }
     

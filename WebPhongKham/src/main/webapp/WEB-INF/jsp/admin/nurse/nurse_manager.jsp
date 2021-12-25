@@ -121,7 +121,7 @@
             <c:forEach items="${nurses}" var="s">
                 <tr>
                     <td>${s.id}</td>
-                    <td>${s.firstName} ${s.lastName}</td>
+                    <td>${s.lastName} ${s.firstName}</td>
                     
                     <td>${s.birthDate}</td>
                     <td>${s.gender}</td>
@@ -156,12 +156,12 @@
 </div>
 <c:if test="${!pagequan.equals('all') && count != 0}"> 
 <div class="pagination">
-   <a href="<c:url value="/admin/doctor-manager"/>?page=1">«</a>
+   <a href="<c:url value="/admin/nurse-manager"/>?page=1">«</a>
    
   
    <c:forEach begin = "1" end="${Math.ceil(count/Integer.parseInt(pagequan))}" var="i">
    <c:if test="${page != i}">
-       <a href="<c:url value="/admin/doctor-manager">
+       <a href="<c:url value="/admin/nurse-manager">
                     
                     <c:param name="lastname"
                     value="${lastname}"></c:param>
@@ -178,7 +178,7 @@
    </c:if>
    <c:if test="${page == i}">
    
-  <a class ="active"href="<c:url value="/admin/doctor-manager">
+  <a class ="active"href="<c:url value="/admin/nurse-manager">
                     <c:param name="lastname"
                     value="${lastname}"></c:param>
                     <c:param name="account"

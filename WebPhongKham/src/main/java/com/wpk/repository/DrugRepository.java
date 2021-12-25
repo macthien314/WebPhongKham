@@ -16,6 +16,7 @@ public interface DrugRepository {
      List<Drug> getDrugs();
      Drug getDrugByID(int id);
      boolean addOrUpdate(Drug m);
+     boolean removeDrug(int id);
      List<Drug> getDrugs(String name, String pageQuan, int pageNum);
      long countDrug(String name);
      List<Drug> getUnexpiredDrug();

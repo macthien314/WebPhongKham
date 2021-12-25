@@ -14,6 +14,14 @@
                             <li class="breadcrumb-item active">prescription-list</li>
                         </ol>
 </c:if>
+<c:if test="${currentUser.userRole.equals('ROLE_DOCTOR')}">
+<h1 class="mt-4">kiểm tra toa thuốc và lập HĐ </h1>
+<ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item"><a href="<c:url value="/doctor"/>">doctor</a></li>
+                            <li class="breadcrumb-item active">invoice</li>
+                            <li class="breadcrumb-item active">prescription-list</li>
+                        </ol>
+</c:if>
 <c:if test="${err != null}">
     <div class="alert alert-danger">${err}</div>
 </c:if>
@@ -98,11 +106,21 @@
                         
                        
                          <td class="setting">
-                         <a href="<c:url value="/nurse/invoice/prescription-list/${s.id}"/>">
+                         
+                             <c:if test="${currentUser.userRole.equals('ROLE_NURSE')}">
+                                 <a href="<c:url value="/nurse/invoice/prescription-list/${s.id}"/>">
                              <button type="button" class="btn btn-outline-primary">                         
                                 Check và lập HĐ
                             </button>
                           </a>
+                            </c:if>
+                            <c:if test="${currentUser.userRole.equals('ROLE_DOCTOR')}">
+                                <a href="<c:url value="/doctor/prescription-list/${s.id}"/>">
+                             <button type="button" class="btn btn-outline-primary">                         
+                                Check Toa thuốc
+                            </button>
+                          </a>
+                                </c:if>
                          </td>
                     </tr>
                 </c:forEach>
