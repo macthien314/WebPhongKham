@@ -114,7 +114,7 @@
                                    
      <c:if test="${currentUser.userRole.equals('ROLE_NURSE')}">
          <div class="sildebar-header">
-             <h3 class="text-center" style="">NURSE</h3>
+             <h3 class="text-center" style="">Y Tá</h3>
                         </div>          
          <ul class="list-unstyle components">
                <li>
@@ -125,26 +125,34 @@
                     <a href="#menuServiceInvoice" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-file-invoice"></i>Hóa đơn dịch vụ</a>
                             <ul class="collapse list-unstyled" id="menuServiceInvoice">
                                 <li>
-                                    <a href="<c:url value="/nurse/patient-manager"/>"><i class="fab fa-slideshare"></i>Hóa đơn mới hôm nay</a>
+                                    <a href="<c:url value=""/>"><i class="fab fa-slideshare"></i>Hóa đơn mới hôm nay</a>
                                 </li>
                                 <li>
                                     <a href="<c:url value="/nurse/patient-serviceinvoice"/>"><i class="fas fa-folder-plus"></i>Tìm và lập theo bệnh nhân</a>
 
                                 </li>
                           
-                    </ul>   
+                             </ul>   
                 </li>
                 <li>
                     <a href="<c:url value="/nurse/medical-examination-card"/>"><i class="fas fa-list-ul"></i>Phiếu khám</a>
 
-                 </li>     
+                 </li> 
+                 <li>
+                    <a href="<c:url value="/nurse/patient"/>"><i class="fas fa-user-injured"></i>Quản lý bệnh nhân</a>
+
+                </li>
+                 <li>
+                    <a href="<c:url value="/nurse/appointment"/>"><i class="far fa-calendar-check"></i>Quản lý lịch hẹn</a>
+
+                </li>
                 <li>
                     <a href="#menuInvoice" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-file-invoice"></i>Hóa đơn Toa thuốc</a>
                             <ul class="collapse list-unstyled" id="menuInvoice">
                                 <li>
                                 </li>
                                 <li>
-                                   <a href="<c:url value="/nurse/invoice/prescription-list"/>"><i class="fas fa-folder-plus"></i>kiểm tra toa thuốc và lập HĐ</a>
+                                   <a href="<c:url value="/nurse/invoice/prescription-list"/>"><i class="fas fa-folder-plus"></i>Kiểm tra toa thuốc và lập HĐ</a>
                                 </li>
                           
                     </ul> 
@@ -160,7 +168,7 @@
          <!-- START Doctor-->                          
      <c:if test="${currentUser.userRole.equals('ROLE_DOCTOR')}">
          <div class="sildebar-header">
-             <h3 class="text-center" style="">DOCTOR</h3>
+             <h3 class="text-center" style="">Bác Sĩ</h3>
                         </div>          
          <ul class="list-unstyle components">
                <li>

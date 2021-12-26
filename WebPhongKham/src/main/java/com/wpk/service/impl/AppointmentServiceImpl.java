@@ -46,4 +46,14 @@ public class AppointmentServiceImpl implements AppointmentService {
     public boolean removeAppointment(int i) {
         return this.appointmentRepository.removeAppointment(i);
     }
+
+    @Override
+    public List<Appointment> getAppointments(String appointmentID, String patientID, String pageQuan, int page) {
+         return this.appointmentRepository.getAppointments(appointmentID, patientID, pageQuan, page);
+    }
+
+    @Override
+    public long countAppointments(String appointmentID, String patientID) {
+     return this.appointmentRepository.countAppointments(appointmentID, patientID);
+    }
 }

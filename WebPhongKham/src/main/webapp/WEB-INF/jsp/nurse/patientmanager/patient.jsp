@@ -5,7 +5,7 @@
 
 <h1 class="mt-4">Quản lý Bệnh Nhân</h1>
                 <ol class="breadcrumb mb-4">
-                    <li class="breadcrumb-item"><a href="index.html">admin</a></li>
+                    <li class="breadcrumb-item"><a href="<c:url value="/nurse"/>">yta</a></li>
                     <li class="breadcrumb-item active">quanly-benhnhan</li>
                 </ol>
 <c:if test="${err != null}">
@@ -31,7 +31,7 @@
 
 
 </c:if>
-<c:if test="${success != null}">
+<c:if test="${deleteSucces != null}">
 <div class="alert alert-success">Xóa bệnh nhân thành công</div>
 <script>
     alert(' xóa bệnh nhân nhân thành công');
@@ -50,7 +50,7 @@
             
                  <div class="input-group" id="adv-search">
                 <form  id ="find"role="form">
-                    <input value="${lastname}" name="lastname" type="text" class="form-control" placeholder="tên điệm và tên" />
+                    <input value="${firstname}" name="firstname" type="text" class="form-control" placeholder="tên điệm và tên" />
                 </form>
                 <div class="input-group-btn">
                     <div class="btn-group" role="group">
@@ -59,12 +59,12 @@
                             <div class="dropdown-menu dropdown-menu-right" role="menu">
                                 <form  class="form-horizontal" role="form">
                                   <div class="form-group">
-                                    <label for="firstName">Nhập họ</label>
-                                    <input value="${firstname}" name ="firstname" class="form-control" type="text" />
+                                    <label for="lastname">Nhập họ</label>
+                                    <input value="${lastname}" name ="lastname" class="form-control" type="text" />
                                   </div>
                                   <div class="form-group">
-                                    <label for="lastname">Nhập tên đệm và tên</label>
-                                    <input value="${lastname}" name ="lastname" class="form-control" type="text" />
+                                    <label for="firstname">Nhập tên đệm và tên</label>
+                                    <input value="${firstname}" name ="firstname" class="form-control" type="text" />
                                   </div>
                                   
                                     
@@ -127,8 +127,8 @@
             <c:forEach items="${patients}" var="s">
                 <tr>
                     <td>${s.id}</td>
-                    <td>${s.firstName}</td>
                     <td>${s.lastName}</td>
+                    <td>${s.firstName}</td>
                     
                     <td>${s.birthDate}</td>
                     <td>${s.gender}</td>
@@ -242,6 +242,8 @@
     </div>
   </div>
 </div>
+  
+  
 <c:url value="/nurse/create-patient" var="actionCreate"/>
   <!--modal create  -->
    <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -320,7 +322,7 @@
                 <!-- form-group end.// -->
                        
             <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-block">Chỉnh sữa thông tin</button>
+                <button type="submit" class="btn btn-primary btn-block">Thêm bệnh nhân</button>
             </div>
                 
             </form:form>

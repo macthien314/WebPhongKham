@@ -6,7 +6,7 @@
 <c:url value="/nurse/patient-serviceinvoice/${patientID}" var="action"/>
 <h1 class="mt-4">Hóa Đơn Dịch Vụ</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item"><a href="index.html">admin</a></li>
+                            <li class="breadcrumb-item"><a href="<c:url value="/nurse"/>">yta</a></li>
                             <li class="breadcrumb-item active">quanly-hoadondichvu</li>
                         </ol>
 <c:if test="${err != null}">

@@ -35,14 +35,14 @@
                     <div class="form-row">
                         <div class=" form-group col-md-6">
                              <label for="title">Họ: </label>   
-                             <form:input path="firstName" id="title" name="title" type="text" cssClass="form-control"/>
-                             <form:errors path="firstName" cssClass="alert alert-danger" element="div" />
+                             <form:input path="lastName" id="title" name="title" type="text" cssClass="form-control"/>
+                             <form:errors path="lastName" cssClass="alert alert-danger" element="div" />
                         </div> <!-- form-group end.// -->
                         <div class=" form-group col-md-6">
 
                             <label for="title">Tên:</label>
-                            <form:input path="lastName" id="title" name="title" type="text" cssClass="form-control"/>
-                            <form:errors path="lastName" cssClass="alert alert-danger" element="div" />
+                            <form:input path="firstName" id="title" name="title" type="text" cssClass="form-control"/>
+                            <form:errors path="firstName" cssClass="alert alert-danger" element="div" />
 
                          </div>
                     </div>
@@ -85,7 +85,7 @@
                 <!-- form-group end.// -->
                        
             <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-block">Chỉnh sữa thông tin</button>
+                <button type="submit" class="btn btn-primary btn-block">Chỉnh sửa thông tin</button>
             </div>
                 
             </form:form>

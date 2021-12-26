@@ -16,4 +16,6 @@ public interface AppointmentRepository {
      Appointment getAppointmentByID(int id);
      boolean addOrUpdate(Appointment m);
      boolean removeAppointment(int id);
+    List<Appointment> getAppointments(String appointmentID, String patientID, String pageQuan, int page);
+    long countAppointments(String appointmentID, String patientID);
 }

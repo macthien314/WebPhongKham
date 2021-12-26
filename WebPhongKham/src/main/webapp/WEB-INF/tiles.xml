@@ -292,6 +292,7 @@
     <definition name="nurse-patient-manager" extends="adminLayout">
         <put-attribute name="content" value="/WEB-INF/jsp/nurse/patientmanager/patient.jsp"/>
     </definition>
+    
     <definition name="nurse-edit-patient" extends="adminLayout">
         <put-attribute name="content" value="/WEB-INF/jsp/nurse/patientmanager/edit_patient.jsp"/>
     </definition>
@@ -316,6 +317,18 @@
     <definition name="nurse-prescription-invoice" extends="adminLayout">
         <put-attribute name="content" value="/WEB-INF/jsp/nurse/invoice/prescription_invoice.jsp"/>
     </definition>
+    
+    
+    <definition name="nurse-appointment" extends="adminLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/nurse/appointment/appointment_manager.jsp"/>
+    </definition>
+    
+    <definition name="nurse-edit-appointment" extends="adminLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/nurse/appointment/edit_appointment.jsp"/>
+    </definition>
+    
+    
+    
     <!-- End nurse user -->
     
     <!-- Start Doctor user -->

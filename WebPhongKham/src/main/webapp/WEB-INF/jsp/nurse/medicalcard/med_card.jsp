@@ -27,11 +27,11 @@
                                 <form  class="form-horizontal" role="form">
                                   <div class="form-group">
                                     <label for="firstName">Nhập họ</label>
-                                    <input value="${firstname}" name ="firstname" class="form-control" type="text" />
+                                    <input value="${lastname}" name ="lastname" class="form-control" type="text" />
                                   </div>
                                   <div class="form-group">
                                     <label for="lastname">Nhập tên đệm và tên</label>
-                                    <input value="${lastname}" name ="lastname" class="form-control" type="text" />
+                                    <input value="${firstname}" name ="firstname" class="form-control" type="text" />
                                   </div>
                                   <div class="form-group">
                                     <label for="medid">Chuyên khoa</label>
@@ -81,13 +81,12 @@
 
         <tr>
             <th class="th-sm">Mã</th>
-            <th>Họ Tên</th>
-            
+            <th>Họ</th>
+            <th>Tên</th>
             <th>Giới tính</th>
             <th>SĐT</th>
             <th>Email</th>
-           
-            <th style="width: 70% ">Ảnh</th>
+            <th style="width:10% ">Ảnh</th>
             <th>Tên Khoa</th>
             <th>Phiếu khám hôm nay</th>
 
@@ -99,13 +98,11 @@
             <c:forEach items="${doctors}" var="s">
                 <tr>
                     <td>${s.id}</td>
-                    <td>${s.firstName} ${s.lastName}</td>
-                    
+                    <td>${s.lastName} </td>
+                    <td>${s.firstName}</td>
                     <td>${s.gender}</td>
                     <td>${s.phone}</td>
-                    <td>${s.email}</td>
-                   
-                    
+                    <td>${s.email}</td> 
                     <td class="w-25">
                           <img src="${s.image}" class="img-fluid img-thumbnail" alt="Sheep">
 

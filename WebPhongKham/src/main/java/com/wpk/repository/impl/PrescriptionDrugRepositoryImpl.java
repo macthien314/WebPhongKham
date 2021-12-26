@@ -6,10 +6,8 @@
 package com.wpk.repository.impl;
 
 
-import com.wpk.pojos.MedicalExaminationCard;
 import com.wpk.pojos.PrescriptionDrug;
 import com.wpk.repository.PrescriptionDrugRepository;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Query;
@@ -17,7 +15,6 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
-import org.apache.commons.lang.time.DateUtils;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;

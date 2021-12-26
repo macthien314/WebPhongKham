@@ -7,10 +7,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <c:if test="${currentUser.userRole.equals('ROLE_NURSE')}">
-<h1 class="mt-4">kiểm tra toa thuốc và lập HĐ </h1>
+<h1 class="mt-4">Kiểm tra toa thuốc và lập HĐ </h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item"><a href="<c:url value="/nurse"/>">nurse</a></li>
-                            <li class="breadcrumb-item active">invoice</li>
+                            <li class="breadcrumb-item"><a href="<c:url value="/nurse"/>">yta</a></li>
+                            <li class="breadcrumb-item active">hoadon</li>
                             <li class="breadcrumb-item active">prescription-list</li>
                         </ol>
 </c:if>

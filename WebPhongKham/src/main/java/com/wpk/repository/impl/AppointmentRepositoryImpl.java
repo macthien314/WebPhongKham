@@ -6,9 +6,15 @@
 package com.wpk.repository.impl;
 
 import com.wpk.pojos.Appointment;
-import com.wpk.pojos.MedicalExaminationCard;
+import com.wpk.pojos.User;
 import com.wpk.repository.AppointmentRepository;
+import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Order;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 import org.hibernate.query.Query;
 import org.hibernate.Session;
 
@@ -66,4 +72,56 @@ public class AppointmentRepositoryImpl implements AppointmentRepository{
         }
         return false;
     }
+    
+    @Override
+    public List<Appointment> getAppointments(String appointmentID, String patientID, String pageQuan, int page) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<Appointment> query = builder.createQuery(Appointment.class);
+        Root root = query.from(Appointment.class);
+        
+        List<Predicate> predicates = new ArrayList<Predicate>();
+       
+        if(appointmentID != null && !appointmentID.isEmpty()){
+            Predicate p = builder.equal(root.get("appointmentId").as(Integer.class),Integer.parseInt(appointmentID));
+            predicates.add(p);
+        }
+        else{
+            if(patientID != null && !patientID.isEmpty()){
+                Predicate p = builder.equal(root.get("patient").get("id").as(Integer.class),Integer.parseInt(patientID));
+                predicates.add(p);
+            }
+        }
+        
+        query = query.where(builder.and(predicates.toArray(new Predicate[] {})));
+       
+        org.hibernate.query.Query q = session.createQuery(query);
+        if(pageQuan != null && !pageQuan.isEmpty() && !pageQuan.equals("all") ){
+            int max = Integer.parseInt(pageQuan);
+            q.setMaxResults(max);
+            q.setFirstResult((page- 1) * max);
+        }
+            return q.getResultList();
+    }
+    @Override
+    public long countAppointments(String appointmentID, String patientID) {
+        Session session = sessionFactory.getObject().getCurrentSession();
+        String query="SELECT COUNT(*) FROM Appointment p ";
+        if(appointmentID != null && !appointmentID.isEmpty())
+            query = query + "Where p.id = :appointmentID";
+        else{
+            if(patientID != null && !patientID.isEmpty())
+            query = query + "Where p.patient.id = :patientID";   
+        }
+        org.hibernate.query.Query q = session.createQuery(query);      
+        if(appointmentID != null && !appointmentID.isEmpty()){
+            q.setParameter("appointmentID", Integer.parseInt(appointmentID));
+        }
+         else{
+            if(patientID != null && !patientID.isEmpty()) 
+                q.setParameter("patientID", Integer.parseInt(patientID));
+              }
+        return Long.parseLong(q.getSingleResult().toString());
+    }
+    
 }

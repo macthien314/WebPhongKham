@@ -123,10 +123,10 @@ public class NursePatientController {
         
         if(this.patientService.removePatient(id)){
             attr.addFlashAttribute("deleteSucces","Xóa thất bại");
-            return "redirect:/admin/patient-manager";
+            return "redirect:/nurse/patient";
         }
         attr.addFlashAttribute("deleteErr","Xóa thất bại");
         
-        return "redirect:/admin/patient-manager";
+        return "redirect:/nurse/patient";
     }
 }

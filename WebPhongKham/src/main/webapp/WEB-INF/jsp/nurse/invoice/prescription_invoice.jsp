@@ -4,7 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <h4 class="mt-4">Chi tiết toa thuốc(Mã = ${prescription.id})</h4>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item"><a href="<c:url value="/nurse"/>">nurse</a></li>
+                            <li class="breadcrumb-item"><a href="<c:url value="/nurse"/>">yta</a></li>
                             <li class="breadcrumb-item active">toathuoc-hoadon</li>
                         </ol>
 <c:if test="${err != null}">
