@@ -82,8 +82,9 @@
             <th>Chuẩn đoán</th>
             <th>Tên y tá</th>
             <th>Tên bệnh nhân</th>
-      
-            <th><i class="fas fa-cog"></i></th>
+            <th>Chỉnh sửa</th>
+            <th>Xóa bỏ</th>
+         
        </tr>
     </thead>
     <tbody>
@@ -99,12 +100,16 @@
                     <td>${s.nurse.firstName}</td>
                     <td>${s.patient.firstName}</td>
                     
-                     <td class="setting">
-                         <a id="modal" href="<c:url value="/admin/medicalexaminationcard-manager/delete-medicalexaminationcard/${s.id}"/>" name="deleteButton" type="button" class="btn btn-primary" data-toggle="tooltip modal" data-target="#deleteModal" title="Xóa phiếu khám">
+                     <td >
+                        <a data-toggle="tooltip" class="btn btn-success"title="chỉnh sửa" href="<c:url value="/admin/medicalexaminationcard-manager/edit-medicalexaminationcard/${s.id}"/>">
+                              <i class="fas fa-edit" style=""></i>
+                         </a>
+                    </td>
+                     <td >
+                        <a id="modal"  href="<c:url value="/admin/medicalexaminationcard-manager/delete-medicalexaminationcard/${s.id}"/>" name="deleteButton" type="button" class="btn btn-primary" data-toggle="tooltip modal" data-target="#deleteModal" title="Xóa sản phẩm">
                                <i class="fas fa-trash-alt" style="color:#ed3c0d"></i>
                          </a>
-
-                     </td>
+                    </td>
                 </tr>
             </c:forEach>
       </tbody>
@@ -141,6 +146,7 @@
                 </c:url>"
        >${i}</a></li>
    </c:if>
+       
    <c:if test="${page == i}">
    
   <a class ="active"href="<c:url value="admin/medicalexaminationcard-manager">
@@ -157,7 +163,7 @@
    </c:if>
    </c:forEach>
    
-   <a href="<c:url value="/admin/doctor-manager">
+   <a href="<c:url value="/admin/medicalexaminationcard-manager">
                     <c:param name="fromDate"
                     value="${fromDate}"></c:param>
                     <c:param name="toDate"

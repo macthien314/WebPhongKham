@@ -7,9 +7,7 @@
                             <li class="breadcrumb-item"><a href="<c:url value="/nurse"/>">yta</a></li>
                             <li class="breadcrumb-item active">toathuoc-hoadon</li>
                         </ol>
-<c:if test="${err != null}">
-    <div class="alert alert-danger">${err}</div>
-</c:if>
+
     <c:if test="${err != null}">
     
           <div class="alert alert-danger">
@@ -23,6 +21,9 @@
             <strong>${success }</strong>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">x</button>
          </div>
+              <script>
+                      alert('Tạo hóa đơn thành công ${susscess}');
+                  </script>
 </c:if>
     <div class="row">
             <div class="col-md-3">
@@ -222,14 +223,16 @@
                 </div>     
                 
                </div> 
-               <div>
-                   <input type="textarea" value="${prescription}"><!-- comment -->
-               </div>
+                <div class="form-group">
+                        
+                       <label for="tcate"><b>Giá tiền</b> : ${totalPrice} VNĐ</label>
+                    
+                </div>  
                    
                 
                  
             <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-block">Tạo Hóa Đơn Dịch Vụ</button>
+                <button type="submit" class="btn btn-primary btn-block">Tạo Hóa Đơn Toa Thuóc</button>
             </div>
                 
             </form:form>
@@ -267,11 +270,4 @@
               
               
               
-              
-              
-              
-              <c:if test="${!success.equals('')}">
-                  <script>
-                      alert('Tạo hóa đơn thành công ${susscess}');
-                  </script>
-              </c:if>
+          

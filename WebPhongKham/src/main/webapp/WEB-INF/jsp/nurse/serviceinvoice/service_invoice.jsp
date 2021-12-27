@@ -165,7 +165,7 @@
                  <div class="form-group">
                  <label for="tcate">Tên dịch vụ</label>
                     
-                    <form:select style="width:50%" path="service" id="find" cssClass="js-example-basic-single">
+                    <form:select style="width:100%" path="service" id="find" cssClass="js-example-basic-single">
                         <option selected="true" value="">Chưa chọn</option>
                         <c:forEach items="${services}" var="s">
                             <option  value="${s.id}">${s.name}: giá tiền ${s.fee}VNĐ</option>

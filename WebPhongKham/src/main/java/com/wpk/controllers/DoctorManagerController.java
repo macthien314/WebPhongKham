@@ -55,19 +55,19 @@ public class DoctorManagerController {
         String firstName = params.getOrDefault("firstname", "");
         String lastName = params.getOrDefault("lastname", "");
         //xử lý số lượng hiển thị trong 1 trang
-        String pageQuan = params.getOrDefault("pagequan", "10");
+        String pageQuan = params.getOrDefault("pagequan", "3");
         String medID = params.getOrDefault("medid", "all");
         String account = params.getOrDefault("account", "all");
         int page = 1;
         try{
             if(pageQuan.isEmpty() ){
-                pageQuan = "10";
+                pageQuan = "3";
             }
             else if(!pageQuan.equals("all"))
                     if(!isNumeric(pageQuan))
                         pageQuan = "all";
                     else if(Integer.parseInt(pageQuan) <= 0)
-                        pageQuan = "10";
+                        pageQuan = "3";
 
              page= Integer.parseInt(params.getOrDefault("page", "1"));
         }catch(Exception e){

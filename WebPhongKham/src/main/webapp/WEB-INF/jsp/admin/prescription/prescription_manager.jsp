@@ -116,12 +116,12 @@
     </div>
 <c:if test="${!pagequan.equals('all')}"> 
 <div class="pagination">
-   <a href="<c:url value="/admin/doctor-manager"/>?page=1">«</a>
+   <a href="<c:url value="/admin/prescription-manager"/>?page=1">«</a>
    
   
    <c:forEach begin = "1" end="${Math.ceil(count/Integer.parseInt(pagequan))}" var="i">
    <c:if test="${page != i}">
-       <a href="<c:url value="/admin/doctor-manager">
+       <a href="<c:url value="/admin/prescription-manager">
                     
                     <c:param name="lastname"
                     value="${presID}"></c:param>
@@ -137,7 +137,7 @@
    </c:if>
    <c:if test="${page == i}">
    
-  <a class ="active"href="<c:url value="/admin/doctor-manager">
+  <a class ="active"href="<c:url value="/admin/prescription-manager">
                     <c:param name="id"
                     value="${presID}"></c:param>
                   

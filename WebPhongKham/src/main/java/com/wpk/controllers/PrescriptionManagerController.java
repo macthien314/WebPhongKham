@@ -56,15 +56,15 @@ public class PrescriptionManagerController {
             patientID = "";
         
         //xử lý page
-        String pageQuan = params.getOrDefault("pagequan", "10");
+        String pageQuan = params.getOrDefault("pagequan", "4");
         if(pageQuan.isEmpty() ){
-            pageQuan = "10";
+            pageQuan = "4";
         }
         else if(!pageQuan.equals("all"))
                 if(!isNumeric(pageQuan))
                     pageQuan = "all";
                 else if(Integer.parseInt(pageQuan) <= 0)
-                    pageQuan = "10";
+                    pageQuan = "4";
            
         int page = Integer.parseInt(params.getOrDefault("page", "1"));
         model.addAttribute("page", Integer.toString(page));

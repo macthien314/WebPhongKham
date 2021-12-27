@@ -15,13 +15,13 @@
                         </ol>
 
 
-       <div class="Back">
-            <i class="fa fa-arrow-left" onclick=""></i>
-        </div>
+      <div class="Back">
+         <a href="<c:url value="/admin/patient-manager"/>">  <i class="fa fa-arrow-left" onclick=""></i></a>
+       </div>
        <div class="card">
         <header class="card-header">
                
-                <h2 class="card-title mt-2">Patient</h2>
+                <h2 class="card-title mt-2">Bệnh nhân</h2>
         </header>
         <article class="card-body">
             
@@ -78,17 +78,9 @@
                      <form:input path="email" id="email" name="email" type="text" cssClass="form-control"/>
                      <form:errors path="email" cssClass="alert alert-danger" element="div" />
                 </div> <!-- form-group end.// -->
-                
-                 
-             
-                
-              
-                <!-- form-group end.// -->
-       
-                <!-- form-group end.// -->
                        
             <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-block">Chỉnh sữa thông tin</button>
+                <button type="submit" class="btn btn-primary btn-block">Chỉnh sửa thông tin</button>
             </div>
                 
             </form:form>

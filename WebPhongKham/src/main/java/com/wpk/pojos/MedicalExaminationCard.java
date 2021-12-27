@@ -62,8 +62,8 @@ public class MedicalExaminationCard implements Serializable {
     @Column(name = "date")
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Temporal(TemporalType.TIMESTAMP)
-    
     private Date date;
+    
     @Basic(optional = false)
     @Column(name = "fee")
     private BigDecimal fee;

@@ -94,7 +94,9 @@
             <th>Email</th>
             <th>Địa chỉ</th>
             <th >Ảnh</th>
-            <th>Tên tài khoản</th>    
+            <th>Tên tài khoản</th> 
+            <th>Chỉnh sửa</th>
+            <th>Xóa bỏ</th>
        </tr>
     </thead>
     <tbody>
@@ -111,7 +113,17 @@
                     <td class="w-auto">
                           <img src="${s.image}" class="img-fluid img-thumbnail" alt="Sheep">
                     </td>
-                    <td>${s.user.username}</td>                
+                    <td>${s.user.username}</td>  
+                       <td >
+                        <a data-toggle="tooltip" class="btn btn-success"title="chỉnh sửa" href="<c:url value="/admin/patient-manager/edit-patient/${s.id}"/>">
+                              <i class="fas fa-edit" style=""></i>
+                         </a>
+                    </td>
+                     <td >
+                        <a id="modal"  href="<c:url value="/admin/patient-manager/delete-patient/${s.id}"/>" name="deleteButton" type="button" class="btn btn-primary" data-toggle="tooltip modal" data-target="#deleteModal" title="Xóa sản phẩm">
+                               <i class="fas fa-trash-alt" style="color:#ed3c0d"></i>
+                         </a>
+                    </td>
                 </tr>
             </c:forEach>
       </tbody>
@@ -136,7 +148,7 @@
   
    <c:forEach begin = "1" end="${Math.ceil(count/Integer.parseInt(pagequan))}" var="i">
    <c:if test="${page != i}">
-       <a href="<c:url value="/nurse/patient-manager">                    
+       <a href="<c:url value="/admin/patient-manager">                    
                     <c:param name="lastname"
                     value="${lastname}"></c:param>
                     <c:param name="account"
@@ -152,7 +164,7 @@
    </c:if>
        
    <c:if test="${page == i}">
-  <a class ="active"href="<c:url value="/nurse/patient-manager">
+  <a class ="active"href="<c:url value="/admin/patient-manager">
                     <c:param name="lastname"
                     value="${lastname}"></c:param>
                     <c:param name="account"
@@ -169,7 +181,7 @@
        
    </c:forEach>
    
-   <a href="<c:url value="/nurse/patient-manager">
+   <a href="<c:url value="/admin/patient-manager">
                     <c:param name="lastname"
                     value="${lastname}"></c:param>
                     <c:param name="account"

@@ -45,16 +45,16 @@ public class DrugManagerController {
         String name = params.getOrDefault("name", "");
         
         //xử lý số lượng hiển thị trong 1 trang
-        String pageQuan = params.getOrDefault("pagequan", "10");
+        String pageQuan = params.getOrDefault("pagequan", "4");
         
         if(pageQuan.isEmpty()){
-            pageQuan = "10";
+            pageQuan = "4";
         }
         else if(!pageQuan.equals("all"))
                 if(pageQuan.contains("a") || pageQuan.contains("l"))
                     pageQuan = "all";
                 else if(Integer.parseInt(pageQuan) <= 0)
-                    pageQuan = "10";
+                    pageQuan = "4";
         
         int page = Integer.parseInt(params.getOrDefault("page", "1"));
         

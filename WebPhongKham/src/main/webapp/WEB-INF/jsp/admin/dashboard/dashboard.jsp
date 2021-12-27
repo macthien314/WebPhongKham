@@ -68,7 +68,7 @@
              <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-chart-area me-1"></i>
-                    Bệnh nhân đến khám theo tháng(2021) <a class="btn btn-success" href="<c:url value="/admin/numpatient-month"/>">chi tiết</a>
+                    Bệnh nhân đến khám theo tháng(2021) <a class="btn btn-success" href="<c:url value="/admin/numpatient-month"/>">Chi tiết</a>
                 </div>
                  
                 <div class="card-body">
@@ -81,7 +81,7 @@
             <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-chart-bar me-1"></i>
-                    Danh thu theo tháng(2021)<a class="btn btn-success" href="<c:url value="/admin/admin/revenuestats-month"/>">Chi tiết</a>
+                    Danh thu theo tháng(2021)<a class="btn btn-success" href="<c:url value="/admin/revenuestats-month"/>">Chi tiết</a>
                 </div>
                                     
                 <div class="card-body">

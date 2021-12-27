@@ -154,9 +154,21 @@
 
 
 </div>
-<c:if test="${!pagequan.equals('all') && count != 0}"> 
+  <c:if test="${!pagequan.equals('all')}"> 
 <div class="pagination">
-   <a href="<c:url value="/admin/nurse-manager"/>?page=1">«</a>
+   <a href="<c:url value="/admin/nurse-manager">
+                    <c:param name="lastname"
+                    value="${lastname}"></c:param>
+                    <c:param name="account"
+                    value="${account}"></c:param>
+                    <c:param name="firstname"
+                    value="${firstname}"></c:param>
+                    <c:param name="pagequan"
+                    value="${pagequan}"></c:param>
+                    <c:param name="page"
+                    value="1"></c:param>
+                </c:url>"
+       >«</a>
    
   
    <c:forEach begin = "1" end="${Math.ceil(count/Integer.parseInt(pagequan))}" var="i">
@@ -176,8 +188,8 @@
                 </c:url>"
        >${i}</a></li>
    </c:if>
+  
    <c:if test="${page == i}">
-   
   <a class ="active"href="<c:url value="/admin/nurse-manager">
                     <c:param name="lastname"
                     value="${lastname}"></c:param>
@@ -194,9 +206,11 @@
    </c:if>
    </c:forEach>
    
-   <a href="#">»</a>
+   <a href=""
+       >»</a>
  </div>
-   </c:if >   
+   </c:if >
+  
   <!-- Modal -->
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog" role="document">

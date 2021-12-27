@@ -28,7 +28,7 @@
           <div class="col-lg-3 col-md-4 footer-links">
             <h3>Giới Thiệu</h3>
             <ul>
-              <li><i class="fas fa-chevron-right"></i> <a href="#">Home</a></li>
+                <li><i class="fas fa-chevron-right"></i> <a href="<c:url value="/"/>">Trang chủ</a></li>
               <li><i class="fas fa-chevron-right"></i><a href="<c:url value="/aboutus"/>">Về chúng tôi</a></li>
               <li><i class="fas fa-chevron-right"></i> <a href="<c:url value="/valuevision"/>">Tầm nhìn-Sứ mệnh-Giá trị cốt lõi</a></li>
               <li><i class="fas fa-chevron-right"></i> <a href="<c:url value="/organizationchart"/>">Sơ đồ tổ chức</a></li>

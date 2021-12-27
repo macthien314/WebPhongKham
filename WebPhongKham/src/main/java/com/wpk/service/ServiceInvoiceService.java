@@ -20,4 +20,5 @@ public interface ServiceInvoiceService {
     boolean removeServiceInvoice(int id);
     List<ServiceInvoice> getServiceInvoicesByPatient(int patientiID,Date fromDate,Date toDate,String pageQuan,int page);
     long countServiceInvoicesByPatient(int patientid,Date fromDate,Date toDate);
+
 }

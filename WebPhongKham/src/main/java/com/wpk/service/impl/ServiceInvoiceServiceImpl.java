@@ -6,23 +6,11 @@
 package com.wpk.service.impl;
 
 import com.cloudinary.Cloudinary;
-import com.cloudinary.utils.ObjectUtils;
-import com.wpk.pojos.MedicalExaminationCard;
 import com.wpk.pojos.ServiceInvoice;
 import com.wpk.repository.ServiceInvoiceRepository;
 import com.wpk.service.ServiceInvoiceService;
-import java.io.IOException;
-import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
-import org.hibernate.Session;
-import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -65,5 +53,6 @@ public class ServiceInvoiceServiceImpl implements ServiceInvoiceService {
     public long countServiceInvoicesByPatient(int patientid,Date fromDate,Date toDate){
         return this.serviceInvoiceRepository.countServiceInvoicesByPatient(patientid, fromDate, toDate);
     }
+
     
 }

@@ -26,7 +26,8 @@
       <img src="${s.image}" alt="Los Angeles" class="w-100">  
             </div>
      </c:if>
-          <c:if test="${showSlide.indexOf(s) != 0}">
+         
+     <c:if test="${showSlide.indexOf(s) != 0}">
             <div class="carousel-item">
       <img src="${s.image}" alt="Los Angeles" class="w-100">  
             </div>

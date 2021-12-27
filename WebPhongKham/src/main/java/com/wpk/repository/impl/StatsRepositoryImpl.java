@@ -122,10 +122,7 @@ public class StatsRepositoryImpl implements StatsRepository{
         Root rootm = q.from(MedicalExaminationCard.class);
         
         List<Predicate> predicates = new ArrayList<>();
-        
-        
-        
-        
+   
           
         q.multiselect( 
                 b.function("MONTH",Integer.class, rootm.get("date")),

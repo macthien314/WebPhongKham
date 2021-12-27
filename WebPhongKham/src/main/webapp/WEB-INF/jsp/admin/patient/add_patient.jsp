@@ -16,12 +16,12 @@
 
 
        <div class="Back">
-            <i class="fa fa-arrow-left" onclick=""></i>
-        </div>
+         <a href="<c:url value="/admin/patient-manager"/>">  <i class="fa fa-arrow-left" onclick=""></i></a>
+       </div>
        <div class="card">
         <header class="card-header">
                
-                <h2 class="card-title mt-2">Patient</h2>
+                <h2 class="card-title mt-2">Bệnh nhân</h2>
         </header>
         <article class="card-body">
             
@@ -48,6 +48,13 @@
        min="01-01-1935" max="2021-12-31" cssClass="form-control"/>
                      <form:errors path="birthDate" cssClass="alert alert-danger" element="div" />
                 </div> 
+                <div class=" form-group col-md-6">
+
+                            <label for="title">Địa chỉ:</label>
+                            <form:input path="address" id="title" name="title" type="text" cssClass="form-control"/>
+                            <form:errors path="address" cssClass="alert alert-danger" element="div" />
+
+                         </div>
                 
                    </div>
                     <div class="form-row">

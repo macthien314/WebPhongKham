@@ -54,8 +54,8 @@
             <th>Tiền khám</th>
             <th>Triệu chứng</th>
             <th>Chuẩn đoán</th>
-            <th>y tá</th>
-            <th>bệnh nhân</th>
+            <th>Y tá</th>
+            <th>Bệnh nhân</th>
             <th>Bác sĩ</th>
             <th><i class="fas fa-cog"></i></th>
        </tr>

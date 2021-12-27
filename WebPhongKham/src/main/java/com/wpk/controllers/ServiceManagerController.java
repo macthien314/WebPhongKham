@@ -48,18 +48,18 @@ public class ServiceManagerController {
         String name = params.getOrDefault("name", "");
         
         //xử lý số lượng hiển thị trong 1 trang
-        String pageQuan = params.getOrDefault("pagequan", "10");
+        String pageQuan = params.getOrDefault("pagequan", "4");
         
         int page = 1;
         try{
             if(pageQuan.isEmpty() ){
-                pageQuan = "10";
+                pageQuan = "4";
             }
             else if(!pageQuan.equals("all"))
                     if(!isNumeric(pageQuan))
                         pageQuan = "all";
                     else if(Integer.parseInt(pageQuan) <= 0)
-                        pageQuan = "10";
+                        pageQuan = "4";
 
              page= Integer.parseInt(params.getOrDefault("page", "1"));
         }catch(Exception e){

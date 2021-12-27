@@ -142,4 +142,5 @@ public class ServiceInvoiceRepositoryImpl implements ServiceInvoiceRepository{
      
         return Long.parseLong(q.getSingleResult().toString());
     }
+
 }

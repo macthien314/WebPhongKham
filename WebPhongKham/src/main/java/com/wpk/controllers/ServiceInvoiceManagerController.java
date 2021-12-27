@@ -11,7 +11,10 @@ import com.wpk.pojos.ServiceInvoice;
 import com.wpk.service.NurseService;
 import com.wpk.service.PatientService;
 import com.wpk.service.ServiceInvoiceService;
+import static com.wpk.utils.util.isNumeric;
 import com.wpk.validator.WebAppValidator;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Map;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,8 +52,8 @@ public class ServiceInvoiceManagerController {
    }
     @GetMapping("/admin/serviceinvoice-manager")
     public String ServiceInvoiceManager(Model model, @RequestParam(required = false)Map<String, String> params){
-        model.addAttribute("serviceinvoice", new ServiceInvoice());
-        model.addAttribute("serviceinvoices", this.serviceInvoiceService.getServiceInvoices());
+            model.addAttribute("serviceinvoice", new  ServiceInvoice());
+            model.addAttribute("serviceinvoices", this.serviceInvoiceService.getServiceInvoices());
         return "serviceinvoice-manager";
     }
     //chuc nang them chuyen khoa

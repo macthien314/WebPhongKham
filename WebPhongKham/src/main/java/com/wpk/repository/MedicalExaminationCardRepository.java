@@ -18,6 +18,7 @@ public interface MedicalExaminationCardRepository {
      MedicalExaminationCard getMedicalExaminationCardByID(int id);
      boolean addOrUpdate(MedicalExaminationCard m); 
      boolean removeMedicalExaminationCard(int id);
+     
      List<MedicalExaminationCard> getTodayMedCard(int doctorID);
      int countTodayMedCard(int doctorID);
      List<MedicalExaminationCard> getMedicalExaminationCards(Date fromDate,Date toDate,String pageQuan, int page);

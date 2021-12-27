@@ -43,7 +43,7 @@
                   <a class ="nav-link" href="<c:url value="/aboutus"/>">Về chúng tôi</a></li>
               <li><a href="<c:url value="/valuevision"/>">Tầm nhìn-Sứ mệnh-Giá trị cốt lõi</a></li>
               <li><a href="<c:url value="/organizationchart"/>">Sơ đồ tổ chức</a></li>
-              <li><a href="<c:url value="/bac-si"/>">Đội ngũ bác sĩ</a></li>
+             
               
             </ul>
           </li>

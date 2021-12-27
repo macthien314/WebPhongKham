@@ -13,16 +13,15 @@
 <script>
     alert('!error! thêm bị lỗi');
 </script>
-
-
 </c:if>
+
 <c:if test="${success != null}">
 <div class="alert alert-success">thêm bệnh nhân thành công</div>
 <script>
     alert(' thêm bệnh nhân thành công');
 </script>
-
 </c:if>
+
 <c:if test="${deleteErr != null}">
 <div class="alert alert-danger">Xóa thất bại có lỗi gì đó</div>
 <script>
